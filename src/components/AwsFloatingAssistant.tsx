@@ -487,7 +487,7 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
               </div>
 
               <div style={{ fontSize: '1.02rem', fontWeight: 800, color: '#0F172A', letterSpacing: '-0.01em' }}>
-                Net<span style={{ color: '#ED7100' }}>Xyper</span> AI Cloud Consultant
+                SkySync<span style={{ color: '#ED7100' }}>Lab</span> AI Cloud Consultant
               </div>
             </div>
 

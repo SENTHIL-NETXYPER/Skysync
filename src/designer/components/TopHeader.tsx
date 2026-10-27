@@ -151,7 +151,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ onBackToSite }) => {
             </div>
             <div style={{ textAlign: 'left' }}>
               <span style={{ fontSize: '1.05rem', fontWeight: 900, color: '#F8FAFC' }}>
-                Net<span style={{ color: '#ED7100' }}>Xyper</span>
+                SkySync<span style={{ color: '#ED7100' }}>Lab</span>
               </span>
               <span style={{ fontSize: '0.66rem', color: '#64748B', fontWeight: 700, display: 'block' }}>
                 CLOUD • DEVOPS • AI
