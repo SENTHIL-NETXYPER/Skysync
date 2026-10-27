@@ -1,5 +1,6 @@
-# NetXyper — Enterprise Cloud & AWS Architecture Platform
+# SkySyncLab — Enterprise Cloud & AWS Architecture Platform
 
+[![Website](https://img.shields.io/badge/Website-skysynclab.com-06D6A0?logo=googlechrome&logoColor=white)](https://skysynclab.com)
 [![Vite](https://img.shields.io/badge/Vite-8.x-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/React-19.x-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.x-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -7,7 +8,7 @@
 [![AWS Certified](https://img.shields.io/badge/AWS-Certified%20Architecture-FF9900?logo=amazon-aws&logoColor=white)](https://aws.amazon.com/)
 [![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-22C55E?logo=github-actions&logoColor=white)](https://pages.github.com/)
 
-**NetXyper** is a production-grade enterprise cloud consulting, infrastructure engineering, and interactive architecture design platform. Built with modern React 19, TypeScript, and FastAPI, it delivers interactive cloud visualization tools, real-time cost estimation, Well-Architected validation, and an AI-assisted cloud architectural companion.
+**SkySyncLab** ([skysynclab.com](https://skysynclab.com)) is a production-grade enterprise cloud consulting, infrastructure engineering, and interactive architecture design platform. Built with modern React 19, TypeScript, and FastAPI, it delivers interactive cloud visualization tools, real-time cost estimation, Well-Architected validation, and an AI-assisted cloud architectural companion.
 
 ---
 
@@ -24,7 +25,7 @@
 - Instant savings comparisons across On-Demand, 1-Year Savings Plans, and 3-Year All-Upfront commitments.
 
 ### 3. 🤖 AWS Cloud Architectural Assistant
-- Embedded floating AI assistant powered by Groq (Qwen 3.8 / Llama 3) with an instant, graceful fallback to the built-in offline **NetXyper Cloud Knowledge Engine**.
+- Embedded floating AI assistant powered by Groq (Qwen 3.8 / Llama 3) with an instant, graceful fallback to the built-in offline **SkySyncLab Cloud Knowledge Engine**.
 - Context-aware recommendations for zero-downtime database migration (AWS DMS), exam/admission peak traffic scaling (ALB + ASG), and private document RAG (Amazon Bedrock).
 
 ### 4. 🚀 Zero-Downtime Migration & Case Studies
@@ -66,8 +67,8 @@
 ### 1. Clone & Install Dependencies
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
+git clone https://github.com/SENTHIL-NETXYPER/Skysync.git
+cd Skysync
 npm install
 ```
 

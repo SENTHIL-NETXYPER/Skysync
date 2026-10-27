@@ -39,12 +39,12 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
     setIsSubmitting(true);
 
     setTimeout(() => {
-      const submissions = JSON.parse(localStorage.getItem('netxyper_inquiries') || '[]');
+      const submissions = JSON.parse(localStorage.getItem('skysynclab_inquiries') || '[]');
       submissions.push({
         ...formData,
         timestamp: new Date().toISOString()
       });
-      localStorage.setItem('netxyper_inquiries', JSON.stringify(submissions));
+      localStorage.setItem('skysynclab_inquiries', JSON.stringify(submissions));
 
       setIsSubmitting(false);
       setSubmitted(true);
@@ -108,7 +108,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', marginBottom: '28px' }}>
             <a
-              href="mailto:consult@netxyper.com"
+              href="mailto:contact@skysynclab.com"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -134,7 +134,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
               }}>
                 <Mail size={18} />
               </div>
-              <span>consult@netxyper.com</span>
+              <span>contact@skysynclab.com</span>
             </a>
 
             <a

@@ -46,7 +46,7 @@ export const CodeExportDialog: React.FC = () => {
       // Browser Fallback Generator
       if (codeFormat === 'terraform') {
         const lines = [
-          '# NetXyper Cloud Infrastructure - Terraform Blueprint',
+          '# SkySyncLab Cloud Infrastructure - Terraform Blueprint',
           `# Generated: ${new Date().toISOString()}`,
           '',
           'terraform {',
@@ -58,13 +58,13 @@ export const CodeExportDialog: React.FC = () => {
           '',
           'provider "aws" {',
           '  region = "ap-south-1"',
-          '  default_tags { tags = { ManagedBy = "NetXyper-Architect" } }',
+          '  default_tags { tags = { ManagedBy = "SkySyncLab-Architect" } }',
           '}',
           '',
           'resource "aws_vpc" "main" {',
           '  cidr_block           = "10.0.0.0/16"',
           '  enable_dns_hostnames = true',
-          '  tags = { Name = "netxyper-vpc" }',
+          '  tags = { Name = "skysynclab-vpc" }',
           '}'
         ];
 
@@ -80,11 +80,11 @@ export const CodeExportDialog: React.FC = () => {
             lines.push(`}`);
           } else if (svc.includes('S3')) {
             lines.push(`\nresource "aws_s3_bucket" "${name}" {`);
-            lines.push(`  bucket_prefix = "netxyper-${name}-"`);
+            lines.push(`  bucket_prefix = "skysynclab-${name}-"`);
             lines.push(`}`);
           } else if (svc.includes('Aurora') || svc.includes('RDS')) {
             lines.push(`\nresource "aws_rds_cluster" "${name}" {`);
-            lines.push(`  cluster_identifier = "netxyper-${name}"`);
+            lines.push(`  cluster_identifier = "skysynclab-${name}"`);
             lines.push(`  engine             = "aurora-postgresql"`);
             lines.push(`  database_name      = "appdb"`);
             lines.push(`  storage_encrypted  = true`);
@@ -96,7 +96,7 @@ export const CodeExportDialog: React.FC = () => {
       } else {
         const yaml = [
           "AWSTemplateFormatVersion: '2010-09-09'",
-          "Description: NetXyper Cloud Architecture Blueprint - CloudFormation",
+          "Description: SkySyncLab Cloud Architecture Blueprint - CloudFormation",
           "Resources:",
           "  VPC:",
           "    Type: AWS::EC2::VPC",

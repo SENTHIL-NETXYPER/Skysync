@@ -104,7 +104,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
     }
 
     try {
-      const existing = JSON.parse(localStorage.getItem('netxyper_cloud_plans') || '[]');
+      const existing = JSON.parse(localStorage.getItem('skysynclab_cloud_plans') || '[]');
       existing.push({
         ...formData,
         estimate: {
@@ -120,7 +120,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
         },
         submittedAt: new Date().toISOString()
       });
-      localStorage.setItem('netxyper_cloud_plans', JSON.stringify(existing));
+      localStorage.setItem('skysynclab_cloud_plans', JSON.stringify(existing));
     } catch {
       // ignore
     }
@@ -819,7 +819,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                       marginBottom: '4px'
                     }}
                   >
-                    NETXYPER · CLOUD CONSULTING
+                    SKYSYNCLAB · CLOUD CONSULTING
                   </div>
                   <h3
                     style={{

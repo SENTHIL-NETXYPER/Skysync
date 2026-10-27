@@ -41,7 +41,7 @@ export const FaqEngagement: React.FC = () => {
     {
       id: 'ownership',
       q: 'Do we keep full ownership of the AWS account?',
-      a: 'Always. NetXyper builds in your account, documents everything, and trains your IT staff—you retain keys, billing, and architecture control.'
+      a: 'Always. SkySyncLab builds in your account, documents everything, and trains your IT staff—you retain keys, billing, and architecture control.'
     }
   ];
 

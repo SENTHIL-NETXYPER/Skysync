@@ -35,8 +35,8 @@ interface ChatMessage {
 }
 const GROQ_API_KEY = (import.meta.env.VITE_GROQ_API_KEY as string | undefined) || '';
 
-const SYSTEM_PROMPT = `You are Senthil Kumar (AWS Certified Cloud Practitioner) and Principal Cloud Architect at NetXyper.
-NetXyper is a specialized enterprise cloud consultancy helping educational institutions, startups, and enterprises build high-availability AWS infrastructure.
+const SYSTEM_PROMPT = `You are Senthil Kumar (AWS Certified Cloud Practitioner) and Principal Cloud Architect at SkySyncLab (skysynclab.com).
+SkySyncLab is a specialized enterprise cloud consultancy helping educational institutions, startups, and enterprises build high-availability AWS infrastructure.
 
 Key Core Capabilities:
 1. Campus & Institutional Cloud IT: Handling 15,000+ simultaneous student admission/exam traffic spikes with AWS Auto Scaling, Application Load Balancer (ALB), and CloudFront caching.
@@ -213,7 +213,7 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
 
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (err) {
-      console.warn('Live Groq query failed, using NetXyper Cloud Knowledge Engine:', err);
+      console.warn('Live Groq query failed, using SkySyncLab Cloud Knowledge Engine:', err);
 
       const q = queryText.toLowerCase();
       let fallbackText = '';
@@ -257,7 +257,7 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
 • **Auto Scaling**: Configure Target Tracking policies to automatically provision compute capacity 30 minutes before student exam windows.
 • **Database High Availability**: Deploy Amazon Aurora Multi-AZ with RDS Proxy connection pooling.`;
       } else {
-        fallbackText = `NetXyper designs secure, cost-effective AWS architectures for institutions and growing businesses. We can audit your current infrastructure, plan zero-downtime database migrations, or build private Bedrock GenAI solutions.`;
+        fallbackText = `SkySyncLab (skysynclab.com) designs secure, cost-effective AWS architectures for institutions and growing businesses. We can audit your current infrastructure, plan zero-downtime database migrations, or build private Bedrock GenAI solutions.`;
       }
 
       const fallbackMsg: ChatMessage = {
@@ -381,7 +381,7 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
       >
         <button
           onClick={() => setIsOpenChat(!isOpenChat)}
-          aria-label={isOpenChat ? 'Close AI Cloud Consultant' : 'Open NetXyper AI Consulting'}
+          aria-label={isOpenChat ? 'Close AI Cloud Consultant' : 'Open SkySyncLab AI Consulting'}
           style={{
             pointerEvents: 'auto',
             backgroundColor: '#ED7100',
@@ -440,7 +440,7 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
       {isOpenChat && (
         <div
           role="dialog"
-          aria-label="NetXyper AI Cloud Consultant"
+          aria-label="SkySyncLab AI Cloud Consultant"
           style={{
             position: 'fixed',
             bottom: '92px',

@@ -25,7 +25,7 @@ export const ProjectListDialog: React.FC = () => {
       }
 
       // LocalStorage fallback
-      const saved = localStorage.getItem('netxyper_arch_project');
+      const saved = localStorage.getItem('skysynclab_arch_project');
       if (saved) {
         try {
           const parsed = JSON.parse(saved);

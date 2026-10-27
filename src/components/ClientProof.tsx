@@ -13,7 +13,7 @@ export const ClientProof: React.FC<ClientProofProps> = ({ onOpenConsultation }) 
       type: 'Engineering Institution',
       location: 'Rasipuram, Tamil Nadu',
       logo: './assets/mec_emblem.png',
-      quote: 'NetXyper helped us with our institutional cloud migration. Their team was supportive and the migration process was smooth. We received good guidance and the system has been stable after moving to the cloud.'
+      quote: 'SkySyncLab helped us with our institutional cloud migration. Their team was supportive and the migration process was smooth. We received good guidance and the system has been stable after moving to the cloud.'
     },
     {
       id: 'mpc',
@@ -21,7 +21,7 @@ export const ClientProof: React.FC<ClientProofProps> = ({ onOpenConsultation }) 
       type: 'Polytechnic Institution',
       location: 'Rasipuram, Tamil Nadu',
       logo: './assets/mpc_emblem.svg',
-      quote: 'We worked with NetXyper for our cloud setup and got clear technical support. The team explained everything in a simple way and helped us through the implementation. We are happy with their service and support.'
+      quote: 'We worked with SkySyncLab for our cloud setup and got clear technical support. The team explained everything in a simple way and helped us through the implementation. We are happy with their service and support.'
     }
   ];
 

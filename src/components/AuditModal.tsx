@@ -67,12 +67,12 @@ export const AuditModal: React.FC<AuditModalProps> = ({
     if (!validate()) return;
 
     try {
-      const audits = JSON.parse(localStorage.getItem('netxyper_audit_requests') || '[]');
+      const audits = JSON.parse(localStorage.getItem('skysynclab_audit_requests') || '[]');
       audits.push({
         ...formData,
         submittedAt: new Date().toISOString()
       });
-      localStorage.setItem('netxyper_audit_requests', JSON.stringify(audits));
+      localStorage.setItem('skysynclab_audit_requests', JSON.stringify(audits));
     } catch {
       // ignore
     }

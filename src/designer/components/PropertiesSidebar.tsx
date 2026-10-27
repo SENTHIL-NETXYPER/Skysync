@@ -19,11 +19,11 @@ export const PropertiesSidebar: React.FC = () => {
   const [notes, setNotes] = useState('');
   const [multiAz, setMultiAz] = useState(true);
   const [encrypted, setEncrypted] = useState(true);
-  const [iamRole, setIamRole] = useState('NetXyper-EC2-InstanceRole');
+  const [iamRole, setIamRole] = useState('SkySyncLab-EC2-InstanceRole');
   const [securityGroups, setSecurityGroups] = useState('sg-web-production');
   const [tags, setTags] = useState<{ key: string; value: string }[]>([
     { key: 'Environment', value: 'Production' },
-    { key: 'Project', value: 'NetXyper' }
+    { key: 'Project', value: 'SkySyncLab' }
   ]);
   const [isSaved, setIsSaved] = useState(false);
 

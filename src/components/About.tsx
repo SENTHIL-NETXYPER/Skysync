@@ -14,7 +14,7 @@ export const About: React.FC = () => {
           <div className="badge-line" />
         </div>
         <h2 style={{ marginBottom: '8px', color: '#232F3E', fontSize: 'clamp(2rem, 3.2vw, 2.5rem)', fontWeight: 900 }}>
-          About NetXyper Practice
+          About SkySyncLab Practice
         </h2>
         <p style={{ maxWidth: '580px', margin: '0 auto', fontSize: '1.05rem', color: '#526071', lineHeight: 1.6 }}>
           AWS Certified Cloud Practitioner foundation with hands-on campus migration engineering.
@@ -44,7 +44,7 @@ export const About: React.FC = () => {
             </h3>
 
             <p style={{ fontSize: '0.96rem', color: '#334155', marginBottom: '14px', lineHeight: 1.65, fontWeight: 450 }}>
-              Founded by <strong style={{ color: '#0F172A' }}>Senthil Kumar</strong>, an <strong style={{ color: '#ED7100' }}>AWS Certified Cloud Practitioner</strong>. NetXyper assists colleges and academic departments with migrating physical server racks without complex enterprise bloat.
+              Founded by <strong style={{ color: '#0F172A' }}>Senthil Kumar</strong>, an <strong style={{ color: '#ED7100' }}>AWS Certified Cloud Practitioner</strong>. SkySyncLab (skysynclab.com) assists colleges and academic departments with migrating physical server racks without complex enterprise bloat.
             </p>
 
             <p style={{ fontSize: '0.94rem', color: '#334155', marginBottom: '22px', lineHeight: 1.65, fontWeight: 450 }}>
@@ -130,7 +130,7 @@ export const About: React.FC = () => {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '0.95rem' }}>
             <a
-              href="mailto:consult@netxyper.com"
+              href="mailto:contact@skysynclab.com"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -144,7 +144,7 @@ export const About: React.FC = () => {
               onMouseLeave={(e) => (e.currentTarget.style.color = '#232F3E')}
             >
               <Mail size={18} color="#ED7100" />
-              <span>consult@netxyper.com</span>
+              <span>contact@skysynclab.com</span>
             </a>
             <a
               href="tel:+918667254699"

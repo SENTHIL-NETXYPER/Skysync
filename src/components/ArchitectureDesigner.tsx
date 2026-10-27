@@ -286,8 +286,8 @@ export const ArchitectureDesigner: React.FC = () => {
         </marker>
       </defs>
       <rect width="100%" height="100%" fill="#FFFFFF"/>
-      <text x="24" y="32" font-size="16" font-weight="bold" fill="#0F172A">NetXyper AWS Cloud Architecture Diagram</text>
-      <text x="24" y="52" font-size="12" fill="#64748B">Generated via NetXyper Architecture Designer · Region: ap-south-1</text>
+      <text x="24" y="32" font-size="16" font-weight="bold" fill="#0F172A">SkySyncLab AWS Cloud Architecture Diagram</text>
+      <text x="24" y="52" font-size="12" fill="#64748B">Generated via SkySyncLab Architecture Designer · skysynclab.com · Region: ap-south-1</text>
     `;
 
     // Draw connections
@@ -325,7 +325,7 @@ export const ArchitectureDesigner: React.FC = () => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `netxyper-aws-architecture-${Date.now()}.svg`;
+    link.download = `skysynclab-aws-architecture-${Date.now()}.svg`;
     link.click();
     URL.revokeObjectURL(url);
   };

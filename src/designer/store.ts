@@ -646,7 +646,7 @@ export const useArchitectureStore = create<ArchitectureStore>((set, get) => {
         console.warn('Backend offline, saving to localStorage', err);
       }
 
-      localStorage.setItem('netxyper_arch_project', JSON.stringify(payload));
+      localStorage.setItem('skysynclab_arch_project', JSON.stringify(payload));
       set({ lastSavedText: `Autosaved at ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}` });
     },
 

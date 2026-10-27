@@ -483,7 +483,7 @@ export const ArchitectureViewer: React.FC = () => {
                 <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#F59E0B' }} />
                 <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#10B981' }} />
                 <span style={{ fontSize: '0.72rem', color: '#94A3B8', marginLeft: '6px', fontWeight: 600 }}>
-                  netxyper · {currentStep.num}
+                  skysynclab · {currentStep.num}
                 </span>
               </div>
 

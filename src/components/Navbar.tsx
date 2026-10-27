@@ -223,7 +223,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
           {/* Brand / Logo */}
           <button
             onClick={() => handleNavClick('home')}
-            aria-label="NetXyper Home"
+            aria-label="SkySyncLab Home"
             className="nav-brand-btn"
             style={{
               display: 'flex',
@@ -247,7 +247,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                 whiteSpace: 'nowrap'
               }}
             >
-              NETXYPER
+              SKYSYNCLAB
             </span>
           </button>
 
@@ -384,8 +384,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
             <button
               onClick={() => setIsSearchOpen(true)}
               className="nav-search-btn"
-              aria-label="Search NetXyper Architectures & Documentation"
-              title="Search NetXyper (Quick Navigation)"
+              aria-label="Search SkySyncLab Architectures & Documentation"
+              title="Search SkySyncLab (Quick Navigation)"
             >
               <Search size={16} strokeWidth={2.4} />
             </button>

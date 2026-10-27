@@ -132,7 +132,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ onBackToSite }) => {
               cursor: 'pointer',
               padding: 0
             }}
-            title="Return to NetXyper Overview"
+            title="Return to SkySyncLab Overview"
           >
             <div
               style={{

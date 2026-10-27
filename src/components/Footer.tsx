@@ -384,12 +384,12 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
                 24-Hour Engineering SLA
               </span>
               <a
-                href="mailto:consult@netxyper.com"
+                href="mailto:contact@skysynclab.com"
                 style={{ color: '#CBD5E1', textDecoration: 'none', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
               >
-                consult@netxyper.com
+                contact@skysynclab.com
               </a>
               <a
                 href="tel:+918667254699"
@@ -457,7 +457,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
                 maxWidth: '820px'
               }}
             >
-              NetXyper delivers Enterprise-Grade AWS Cloud Infrastructure, DevOps automation pipelines, and Generative AI solutions engineered strictly in alignment with the AWS Well-Architected Framework for autonomous educational institutions, colleges, and modern enterprises.
+              SkySyncLab delivers Enterprise-Grade AWS Cloud Infrastructure, DevOps automation pipelines, and Generative AI solutions engineered strictly in alignment with the AWS Well-Architected Framework for autonomous educational institutions, colleges, and modern enterprises.
             </p>
 
             {/* Social Icons (Matches AWS footer right side icons) */}
@@ -466,8 +466,8 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="NetXyper on LinkedIn (opens in new tab)"
-                title="NetXyper on LinkedIn"
+                aria-label="SkySyncLab on LinkedIn (opens in new tab)"
+                title="SkySyncLab on LinkedIn"
                 style={{ color: '#94A3B8', display: 'flex', alignItems: 'center', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
@@ -480,11 +480,11 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
                 </span>
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/SENTHIL-NETXYPER/Skysync"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="NetXyper on GitHub (opens in new tab)"
-                title="NetXyper on GitHub"
+                aria-label="SkySyncLab on GitHub (opens in new tab)"
+                title="SkySyncLab on GitHub"
                 style={{ color: '#94A3B8', display: 'flex', alignItems: 'center', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
@@ -497,29 +497,29 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
                 </span>
               </a>
               <a
-                href="mailto:consult@netxyper.com"
-                aria-label="Send email to consult@netxyper.com"
-                title="Email NetXyper Cloud Consulting"
+                href="mailto:contact@skysynclab.com"
+                aria-label="Send email to contact@skysynclab.com"
+                title="Email SkySyncLab Cloud Consulting"
                 style={{ color: '#94A3B8', display: 'flex', alignItems: 'center', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
               >
                 <Mail size={16} aria-hidden="true" />
                 <span style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
-                  Email NetXyper
+                  Email SkySyncLab
                 </span>
               </a>
               <a
                 href="tel:+918667254699"
-                aria-label="Call NetXyper at +91 86672 54699"
-                title="Call NetXyper Cloud Consulting"
+                aria-label="Call SkySyncLab at +91 86672 54699"
+                title="Call SkySyncLab Cloud Consulting"
                 style={{ color: '#94A3B8', display: 'flex', alignItems: 'center', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
               >
                 <Phone size={16} aria-hidden="true" />
                 <span style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
-                  Call NetXyper
+                  Call SkySyncLab
                 </span>
               </a>
             </div>
@@ -565,7 +565,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
             </div>
 
             <div>
-              {`© ${new Date().getFullYear()}, NetXyper Cloud Consulting or its affiliates. All rights reserved.`}
+              {`© ${new Date().getFullYear()}, SkySyncLab (skysynclab.com) or its affiliates. All rights reserved.`}
             </div>
           </div>
         </div>

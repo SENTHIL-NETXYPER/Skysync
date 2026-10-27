@@ -137,7 +137,7 @@ export const Hero: React.FC<HeroProps> = ({
 
   return (
     <section
-      aria-label="NetXyper Cloud & AI Solutions"
+      aria-label="SkySyncLab Cloud & AI Solutions"
       style={{
         position: 'relative',
         width: '100%',

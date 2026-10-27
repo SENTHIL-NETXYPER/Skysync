@@ -52,7 +52,7 @@ export const StarterGenerator: React.FC<StarterGeneratorProps> = ({ onOpenConsul
 
   // Dynamic Project Spec Generator
   const generateSpec = () => {
-    return `# NetXyper Cloud Starter Application Specification
+    return `# SkySyncLab Cloud Starter Application Specification
 # Generated at: ${new Date().toISOString()}
 
 ## 1. Project Overview
@@ -99,7 +99,7 @@ services:
     environment:
       - PORT=8000
       - DB_HOST=db-postgres
-      - DB_NAME=netxyper_app
+      - DB_NAME=skysynclab_app
       - NODE_ENV=development
     depends_on:
       - db-service
@@ -109,8 +109,8 @@ services:
     ports:
       - "${db.includes('mysql') ? '3306:3306' : db.includes('dynamo') ? '8000:8000' : '5432:5432'}"
     environment:
-      - POSTGRES_DB=netxyper_app
-      - POSTGRES_USER=netxyper_user
+      - POSTGRES_DB=skysynclab_app
+      - POSTGRES_USER=skysynclab_user
       - POSTGRES_PASSWORD=local_dev_password_only
     volumes:
       - db_data:/var/lib/postgresql/data
@@ -121,10 +121,10 @@ volumes:
 
   // Dynamic Environment Variables Template
   const generateEnvTemplate = () => {
-    return `# NetXyper Cloud Application Configuration (.env.example)
+    return `# SkySyncLab Cloud Application Configuration (.env.example)
 NODE_ENV=production
 PORT=8000
-APP_NAME=netxyper-starter-app
+APP_NAME=skysynclab-starter-app
 
 # AWS Cloud Config
 AWS_REGION=ap-south-1
