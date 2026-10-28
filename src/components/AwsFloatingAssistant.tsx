@@ -11,7 +11,8 @@ import {
   ChevronRight,
   Minus,
   Check,
-  Copy
+  Copy,
+  ArrowRight
 } from 'lucide-react';
 
 interface AwsFloatingAssistantProps {
@@ -26,34 +27,27 @@ interface ActionCard {
 }
 
 interface ChatMessage {
-  id: string;
   role: 'user' | 'assistant';
   content: string;
   timestamp: string;
+  id: string;
   cards?: ActionCard[];
   suggestions?: string[];
 }
 const GROQ_API_KEY = (import.meta.env.VITE_GROQ_API_KEY as string | undefined) || '';
 
-const SYSTEM_PROMPT = `You are the digital presence and voice of Senthil Kumar — Founder & Principal Cloud Architect at SkySyncLab (skysynclab.com), and an AWS Certified Cloud Practitioner based in Salem, Tamil Nadu.
+const SYSTEM_PROMPT = `You are the AI Cloud Architecture Assistant for SkySyncLab, founded by Senthil Kumar.
+Your task is to provide expert, concise, and professional AWS cloud consulting advice to potential clients (universities, colleges, enterprises).
 
-Identity, Philosophy & Character:
-- You are not just a technical architect; you are an inspiring mentor, ethical technologist, and visionary engineering partner deeply committed to empowering colleges, universities, and growing enterprises.
-- Core Mission: You founded SkySyncLab with a clear personal conviction — to make high-performance cloud infrastructure transparent, accessible, and ethical. You stand firmly against predatory enterprise bloat, hidden cloud billing traps, and artificial vendor lock-in.
-- Personal Demeanor: Warm, articulate, charismatic, humble, and deeply empathetic. You treat every visitor — whether an aspiring student, university IT director, or company founder — with utmost respect, clarity, and genuine encouragement.
-- Proud Roots: Based in Salem, Tamil Nadu, you take pride in elevating institutions across India and globally, helping mission-critical student admission portals and exam servers stay rock-solid under 15,000+ simultaneous user surges.
-
-When asked "Who is Senthil?", "Who are you?", or questions about your background:
-- Introduce yourself warmly, passionately, and personally as Senthil Kumar.
-- Share your driving purpose: safeguarding student futures with unshakeable cloud reliability, cutting redundant infrastructure costs by up to 65% through honest Well-Architected engineering, and mentoring in-house teams so they have 100% technological self-reliance.
-- Highlight that great engineering is founded on trust, transparency, and human connection.
-- Invite them to connect directly: senthilkumar@skysynclab.com or via phone/WhatsApp at +91 86672 54699.
-
-When answering architectural or technical queries:
-- Provide authoritative, high-clarity AWS Well-Architected solutions (Aurora Multi-AZ, AWS DMS, ALB, CloudFront, ECS Fargate, Amazon Bedrock, Cost Explorer).
-- Connect technical mechanics to their tangible human and business impact (student peace of mind, institutional cost savings, faculty autonomy).
-- Keep answers concise, elegant, structured with clean bullet points, and under 140 words.
-- End with a welcoming invitation to collaborate or book a free architecture review.`;
+Guidelines:
+1. Directness: Answer the user's specific query immediately in the first sentence. Avoid fluff, filler, or repetitive greetings.
+2. Structure: Follow this strict 3-part template for every answer:
+   Part 1: The Direct Technical Solution (2–3 bullet points mapping directly to AWS/Cloud best practices and naming specific services like Auto Scaling, Multi-AZ Aurora, S3, Application Load Balancer, ECS Fargate, or Amazon Bedrock).
+   Part 2: The Next Logical Step (Clear institutional value or concrete benefit, e.g., zero exam-day downtime or 25%-65% cost savings).
+   Part 3: One Primary Call to Action (CTA) (End with ONE direct, low-friction next step formatted as a single line, followed by [ Book a Free 30-Min Audit ] on a new line).
+3. Tone: Executive, confident, helpful, and concise.
+4. Tone & Style: Maximum 100-150 words per response.
+5. Senthil Kumar Background: If asked "Who is Senthil Kumar?", "Who is Senthil?", or "Who are you?", state that Senthil Kumar is the Founder & Principal Cloud Architect at SkySyncLab (AWS Certified Cloud Practitioner based in Salem, Tamil Nadu) specializing in campus infrastructure modernization and zero vendor lock-in. Mention his direct email: senthilkumar@skysynclab.com. Follow the same 3-part structure.`;
 
 export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOpenAudit }) => {
   const [isOpenChat, setIsOpenChat] = useState(false);
@@ -65,26 +59,20 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
     {
       id: 'welcome-1',
       role: 'assistant',
-      content: `Absolutely. I can help you review your AWS architecture, security, and costs.\n\nHere are a few ways we can get started:`,
+      content: `I'm SkySyncLab's AI Cloud Architecture Assistant, founded by Senthil Kumar. I can help evaluate your AWS infrastructure for high availability, cost efficiency, and security.\n\nHere are the fastest ways to start:`,
       timestamp: '10:24 AM',
       cards: [
         {
-          title: 'Review AWS costs',
-          subtitle: 'Analyze Cost Explorer, find savings',
-          iconType: 'costs',
-          query: 'Can you review my AWS costs and find savings with Cost Explorer?'
-        },
-        {
-          title: 'Check security',
-          subtitle: 'Review IAM, Security Groups, best practices',
-          iconType: 'security',
-          query: 'How do you check AWS security across IAM, Security Groups, and Well-Architected rules?'
-        },
-        {
-          title: 'Assess architecture',
-          subtitle: 'High availability, scaling, improvements',
+          title: 'Schedule Architecture Review',
+          subtitle: 'High availability, auto-scaling & resilience',
           iconType: 'architecture',
           query: 'Can you assess our architecture for high availability, auto-scaling, and resilience?'
+        },
+        {
+          title: 'Estimate AWS Costs',
+          subtitle: 'Analyze Cost Explorer & find savings',
+          iconType: 'costs',
+          query: 'Can you review my AWS costs and find savings with Cost Explorer?'
         }
       ]
     }
@@ -150,23 +138,32 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
         throw new Error('No VITE_GROQ_API_KEY configured');
       }
 
-      const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${GROQ_API_KEY}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          model: 'qwen/qwen3.8-27b',
-          messages: [
-            { role: 'system', content: SYSTEM_PROMPT },
-            ...chatHistory,
-            { role: 'user', content: queryText.trim() }
-          ],
-          max_tokens: 340,
-          temperature: 0.6
-        })
-      });
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 12000); // 12s timeout
+
+      let res: Response;
+      try {
+        res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+          method: 'POST',
+          signal: controller.signal,
+          headers: {
+            Authorization: `Bearer ${GROQ_API_KEY}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            model: 'qwen/qwen3.8-27b',
+            messages: [
+              { role: 'system', content: SYSTEM_PROMPT },
+              ...chatHistory,
+              { role: 'user', content: queryText.trim() }
+            ],
+            max_tokens: 300, // Caps response length for conciseness
+            temperature: 0.3 // Keeps output deterministic, executive and professional
+          })
+        });
+      } finally {
+        clearTimeout(timeoutId);
+      }
 
       if (!res.ok) {
         throw new Error(`Groq API returned ${res.status}`);
@@ -179,44 +176,35 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
         throw new Error('Empty AI response received');
       }
 
-      // Contextual follow-up cards
+      // Dynamic Smart Quick-Reply Chips: Limit to 1 primary CTA or 2 concise choices
       let followUpCards: ActionCard[] | undefined = undefined;
       const lower = queryText.toLowerCase();
 
-      if (lower.includes('audit') || lower.includes('start') || lower.includes('setup')) {
+      if (lower.includes('cost') || lower.includes('saving') || lower.includes('bill') || lower.includes('finops') || lower.includes('pricing')) {
         followUpCards = [
           {
-            title: 'Review AWS costs',
-            subtitle: 'Analyze Cost Explorer, find savings',
+            title: 'Estimate AWS Costs',
+            subtitle: 'Analyze Cost Explorer & find savings',
             iconType: 'costs',
             query: 'Can you review my AWS costs and find savings with Cost Explorer?'
-          },
-          {
-            title: 'Check security',
-            subtitle: 'Review IAM, Security Groups, best practices',
-            iconType: 'security',
-            query: 'How do you check AWS security across IAM, Security Groups, and Well-Architected rules?'
-          },
-          {
-            title: 'Assess architecture',
-            subtitle: 'High availability, scaling, improvements',
-            iconType: 'architecture',
-            query: 'Can you assess our architecture for high availability, auto-scaling, and resilience?'
           }
         ];
-      } else if (lower.includes('senthil') || lower.includes('who are you') || lower.includes('founder') || lower.includes('about you') || lower.includes('architect')) {
+      } else if (lower.includes('security') || lower.includes('iam') || lower.includes('waf') || lower.includes('compliance')) {
         followUpCards = [
           {
-            title: 'Book a consultation',
-            subtitle: 'Direct architecture discussion with Senthil',
+            title: 'Schedule Security Review',
+            subtitle: 'Audit IAM, Security Groups & Well-Architected rules',
+            iconType: 'security',
+            query: 'How do you check AWS security across IAM, Security Groups, and Well-Architected rules?'
+          }
+        ];
+      } else {
+        followUpCards = [
+          {
+            title: 'Schedule Architecture Review',
+            subtitle: 'Free 30-min Well-Architected framework review',
             iconType: 'architecture',
             query: 'Can you assess our architecture for high availability, auto-scaling, and resilience?'
-          },
-          {
-            title: 'Review AWS costs',
-            subtitle: 'Practical cost optimization audit',
-            iconType: 'costs',
-            query: 'Can you review my AWS costs and find savings with Cost Explorer?'
           }
         ];
       }
@@ -230,77 +218,87 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
-    } catch (err) {
-      console.warn('Live Groq query failed, using SkySyncLab Cloud Knowledge Engine:', err);
+    } catch (err: any) {
+      const isTimeout = err?.name === 'AbortError';
+      console.warn(isTimeout ? 'Query timed out after 12s, using SkySyncLab Cloud Knowledge Engine' : 'Live Groq query failed, using SkySyncLab Cloud Knowledge Engine:', err);
 
       const q = queryText.toLowerCase();
       let fallbackText = '';
       let fallbackCards: ActionCard[] | undefined = undefined;
 
-      if (q.includes('senthil') || q.includes('who are you') || q.includes('about you') || q.includes('founder') || q.includes('who is') || q.includes('creator') || q.includes('mentor')) {
-        fallbackText = `I'm **Senthil Kumar** — Founder & Principal Cloud Architect at **SkySyncLab**, and an **AWS Certified Cloud Practitioner** based in Salem, Tamil Nadu.
+      if (q.includes('senthil') || q.includes('who are you') || q.includes('about you') || q.includes('founder') || q.includes('who is') || q.includes('creator')) {
+        fallbackText = `Senthil Kumar is the Founder & Principal Cloud Architect at SkySyncLab, and an AWS Certified Cloud Practitioner based in Salem, Tamil Nadu:
 
-Above all, I consider myself a dedicated engineering partner and mentor. My life's work is driven by a simple mission: **to make world-class cloud architecture accessible, transparent, and ethical** for educational institutions, colleges, and scaling businesses.
+• **Campus Modernization**: Designing rock-solid AWS architectures that protect student admission and exam portals against 15,000+ simultaneous traffic surges.
+• **Ethical FinOps**: Eliminating vendor lock-in and cutting redundant cloud spend by up to 65% through disciplined Well-Architected engineering.
+• **Direct Leadership**: Personally overseeing database cutovers, zero-downtime migrations, and internal staff runbook training.
 
-**What defines my approach:**
-• **Student & Campus Impact**: Designing rock-solid architectures for 15,000+ peak admission and exam result spikes with zero downtime, safeguarding student futures.
-• **Honest, Frugal Engineering**: Cutting wasteful cloud spend by up to 65% with disciplined FinOps — without selling unnecessary enterprise bloat.
-• **Empowerment Over Lock-in**: Mentoring and training your in-house IT team so you own and understand your systems with full independence.
+We typically start with a 30-minute Architecture Audit to align on your institutional requirements.
 
-I love connecting directly with innovators, educators, and teams. Feel free to reach out directly at **senthilkumar@skysynclab.com** or call me at **+91 86672 54699**!`;
+[ Book a Free 30-Min Audit ]`;
         fallbackCards = [
           {
-            title: 'Book a consultation',
-            subtitle: 'Direct architecture discussion with Senthil',
+            title: 'Schedule Architecture Review',
+            subtitle: 'Direct consultation with Senthil',
             iconType: 'architecture',
             query: 'Can you assess our architecture for high availability, auto-scaling, and resilience?'
-          },
+          }
+        ];
+      } else if (q.includes('cost') || q.includes('saving') || q.includes('explorer') || q.includes('finops') || q.includes('bill')) {
+        fallbackText = `Here is our 3-step AWS Cost Optimization framework:
+
+• **Right-Sizing Compute**: AWS Compute Optimizer analysis to downscale idle or over-provisioned EC2 and RDS instances.
+• **Commitment Discounts**: Applying 1-Year or 3-Year AWS Compute Savings Plans for baseline workloads, reducing compute bills up to 72%.
+• **Storage Hygiene**: Automated S3 Glacier lifecycle transitions and terminating unattached EBS volumes.
+
+Most institutions achieve a 25% to 65% reduction in their monthly AWS bill within the first billing cycle.
+
+[ Book a Free 30-Min Audit ]`;
+        fallbackCards = [
           {
-            title: 'Review AWS costs',
-            subtitle: 'Practical cost optimization audit',
+            title: 'Estimate AWS Costs',
+            subtitle: 'Analyze Cost Explorer & find savings',
             iconType: 'costs',
             query: 'Can you review my AWS costs and find savings with Cost Explorer?'
           }
         ];
-      } else if (q.includes('audit') || q.includes('setup') || q.includes('review')) {
-        fallbackText = `Absolutely. I can help you review your AWS architecture, security, and costs.\n\nHere are a few ways we can get started:`;
+      } else if (q.includes('security') || q.includes('iam') || q.includes('group') || q.includes('waf') || q.includes('compliance')) {
+        fallbackText = `Here is our core AWS Security & Compliance baseline:
+
+• **IAM Hardening**: Enforcing least-privilege role separation, mandatory MFA, and eliminating static access keys.
+• **Network Isolation**: Tightening Security Group ingress to strict CIDR ranges and placing databases in isolated private subnets.
+• **Continuous Auditing**: Activating AWS CloudTrail immutable logging and Amazon GuardDuty intelligent threat detection.
+
+This baseline ensures student records and institutional datasets satisfy regulatory compliance and accreditation audits.
+
+[ Book a Free 30-Min Audit ]`;
         fallbackCards = [
           {
-            title: 'Review AWS costs',
-            subtitle: 'Analyze Cost Explorer, find savings',
-            iconType: 'costs',
-            query: 'Can you review my AWS costs and find savings with Cost Explorer?'
-          },
-          {
-            title: 'Check security',
-            subtitle: 'Review IAM, Security Groups, best practices',
+            title: 'Schedule Security Review',
+            subtitle: 'Audit IAM, Security Groups & compliance',
             iconType: 'security',
             query: 'How do you check AWS security across IAM, Security Groups, and Well-Architected rules?'
-          },
+          }
+        ];
+      } else {
+        // High Availability / Architecture / Audit / Default
+        fallbackText = `Here is how SkySyncLab evaluates and optimizes high-concurrency cloud workloads:
+
+• **High Availability**: Dual-AZ deployment across Application Load Balancer (ALB) and Multi-AZ Amazon Aurora to eliminate single points of failure.
+• **Auto-Scaling**: Dynamic EC2 target-tracking policies triggered by CPU/Memory spikes to handle peak result-day traffic seamlessly.
+• **Resilience & Storage**: Encrypted S3 document vaults with automated snapshot runbooks for rapid recovery.
+
+We typically start with a 30-minute Architecture Audit to review your setup against the AWS Well-Architected Framework.
+
+[ Book a Free 30-Min Audit ]`;
+        fallbackCards = [
           {
-            title: 'Assess architecture',
-            subtitle: 'High availability, scaling, improvements',
+            title: 'Schedule Architecture Review',
+            subtitle: 'Book a free 30-min Well-Architected audit',
             iconType: 'architecture',
             query: 'Can you assess our architecture for high availability, auto-scaling, and resilience?'
           }
         ];
-      } else if (q.includes('cost') || q.includes('saving') || q.includes('explorer')) {
-        fallbackText = `Here is our 3-step AWS Cost Optimization framework:
-• **Right-Sizing**: We analyze AWS Compute Optimizer and downscale over-provisioned EC2/RDS instances.
-• **Commitment Discounts**: Apply 1-Year or 3-Year AWS Compute Savings Plans for baseline traffic, cutting compute bills up to 72%.
-• **Lifecycle Policies**: Transition stale S3 datasets to Glacier Flexible Retrieval and eliminate unattached EBS volumes.`;
-      } else if (q.includes('security') || q.includes('iam') || q.includes('group')) {
-        fallbackText = `Our AWS Security & Compliance baseline includes:
-• **IAM Hardening**: Enforcing least privilege, removing static root credentials, and activating MFA.
-• **Network Isolation**: Tightening Security Group ingress to strict CIDR ranges and placing databases in private isolated subnets.
-• **Threat Detection**: Enabling AWS CloudTrail logging and GuardDuty anomaly alerts.`;
-      } else if (q.includes('architecture') || q.includes('scale') || q.includes('exam')) {
-        fallbackText = `For high-availability institutional architecture:
-• **Multi-AZ Resilience**: Distribute EC2/ECS workloads across multiple AWS Availability Zones behind an Application Load Balancer.
-• **Auto Scaling**: Configure Target Tracking policies to automatically provision compute capacity 30 minutes before student exam windows.
-• **Database High Availability**: Deploy Amazon Aurora Multi-AZ with RDS Proxy connection pooling.`;
-      } else {
-        fallbackText = `SkySyncLab (skysynclab.com) designs secure, cost-effective AWS architectures for institutions and growing businesses. We can audit your current infrastructure, plan zero-downtime database migrations, or build private Bedrock GenAI solutions.`;
       }
 
       const fallbackMsg: ChatMessage = {
@@ -322,13 +320,55 @@ I love connecting directly with innovators, educators, and teams. Feel free to r
     executeQuery(inputQuery);
   };
 
-  // Helper to format bold markdown and clean bullet points
+  // Helper to format bold markdown, clean bullet points, and primary CTA buttons
   const renderFormattedContent = (text: string) => {
     const lines = text.split('\n');
     return lines.map((line, lIdx) => {
       const trimmed = line.trim();
       if (!trimmed) {
         return <div key={lIdx} style={{ height: '6px' }} />;
+      }
+
+      // Check for inline primary CTA buttons formatted as [ Button Text ]
+      if (trimmed.startsWith('[') && trimmed.endsWith(']') && trimmed.length > 2) {
+        const btnText = trimmed.slice(1, -1).trim();
+        return (
+          <div key={lIdx} style={{ marginTop: '10px', marginBottom: '4px' }}>
+            <button
+              onClick={() => {
+                setIsOpenChat(false);
+                onOpenAudit();
+              }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '9px 16px',
+                borderRadius: '10px',
+                backgroundColor: '#ED7100',
+                color: '#FFFFFF',
+                border: 'none',
+                fontWeight: 750,
+                fontSize: '0.84rem',
+                cursor: 'pointer',
+                boxShadow: '0 3px 10px rgba(237, 113, 0, 0.28)',
+                transition: 'all 0.16s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#D96500';
+                e.currentTarget.style.transform = 'translateY(-1px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#ED7100';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              <Calendar size={14} strokeWidth={2.4} />
+              <span>{btnText}</span>
+              <ArrowRight size={14} strokeWidth={2.4} />
+            </button>
+          </div>
+        );
       }
 
       const isBullet = trimmed.startsWith('* ') || trimmed.startsWith('- ') || trimmed.startsWith('• ');
