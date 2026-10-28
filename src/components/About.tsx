@@ -44,11 +44,11 @@ export const About: React.FC = () => {
             </h3>
 
             <p style={{ fontSize: '0.96rem', color: '#334155', marginBottom: '14px', lineHeight: 1.65, fontWeight: 450 }}>
-              Founded by <strong style={{ color: '#0F172A' }}>Senthil Kumar</strong>, an <strong style={{ color: '#ED7100' }}>AWS Certified Cloud Practitioner</strong>. SkySyncLab (skysynclab.com) assists colleges and academic departments with migrating physical server racks without complex enterprise bloat.
+              Founded by <strong style={{ color: '#0F172A' }}>Senthil Kumar</strong>, an <strong style={{ color: '#ED7100' }}>AWS Certified Cloud Practitioner</strong> and Principal Cloud Architect. SkySyncLab was established with a singular conviction: to make resilient, high-availability cloud infrastructure transparent, accessible, and ethical for educational institutions and growing organizations.
             </p>
 
             <p style={{ fontSize: '0.94rem', color: '#334155', marginBottom: '22px', lineHeight: 1.65, fontWeight: 450 }}>
-              We work directly with campus IT coordinators, automating deployments and delivering runbooks so your internal faculty can confidently monitor workloads with zero vendor lock-in.
+              We partner directly with academic leadership and IT coordinators — engineering rock-solid architectures that seamlessly withstand 15,000+ peak admission and exam result spikes, while mentoring internal staff for 100% operational self-reliance and zero vendor lock-in.
             </p>
           </div>
 
@@ -101,7 +101,7 @@ export const About: React.FC = () => {
                   Senthil Kumar
                 </h3>
                 <div style={{ fontSize: '0.92rem', color: '#ED7100', fontWeight: 700 }}>
-                  Founder & AWS Cloud Consultant
+                  Founder & Principal Cloud Architect
                 </div>
               </div>
             </div>
@@ -130,7 +130,7 @@ export const About: React.FC = () => {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '0.95rem' }}>
             <a
-              href="mailto:contact@skysynclab.com"
+              href="mailto:senthilkumar@skysynclab.com"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -144,7 +144,7 @@ export const About: React.FC = () => {
               onMouseLeave={(e) => (e.currentTarget.style.color = '#232F3E')}
             >
               <Mail size={18} color="#ED7100" />
-              <span>contact@skysynclab.com</span>
+              <span>senthilkumar@skysynclab.com</span>
             </a>
             <a
               href="tel:+918667254699"

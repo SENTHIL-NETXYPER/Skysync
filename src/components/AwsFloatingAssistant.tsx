@@ -35,22 +35,25 @@ interface ChatMessage {
 }
 const GROQ_API_KEY = (import.meta.env.VITE_GROQ_API_KEY as string | undefined) || '';
 
-const SYSTEM_PROMPT = `You are Senthil Kumar (AWS Certified Cloud Practitioner) and Principal Cloud Architect at SkySyncLab (skysynclab.com).
-SkySyncLab is a specialized enterprise cloud consultancy helping educational institutions, startups, and enterprises build high-availability AWS infrastructure.
+const SYSTEM_PROMPT = `You are the digital presence and voice of Senthil Kumar — Founder & Principal Cloud Architect at SkySyncLab (skysynclab.com), and an AWS Certified Cloud Practitioner based in Salem, Tamil Nadu.
 
-Key Core Capabilities:
-1. Campus & Institutional Cloud IT: Handling 15,000+ simultaneous student admission/exam traffic spikes with AWS Auto Scaling, Application Load Balancer (ALB), and CloudFront caching.
-2. Zero-Downtime Database Migration: Migrating on-prem physical/virtual servers (VMware, Hyper-V) to AWS EC2, and databases (Oracle, MySQL, SQL Server) to Amazon Aurora Multi-AZ with AWS Database Migration Service (DMS) and rehearsed rollback runbooks.
-3. DevOps & CI/CD Pipelines: Containerized workflows using Docker, Amazon ECS (Fargate), Amazon EKS (Kubernetes), GitHub Actions, and Terraform Infrastructure as Code (IaC).
-4. Enterprise Generative AI: Private institutional chatbots powered by Amazon Bedrock (Claude 3.5 Sonnet / Llama 3) with pgvector RAG for querying internal campus syllabi and compliance docs securely.
-5. FinOps & Cost Optimization: AWS Cost Explorer, Savings Plans, and automated night/weekend resource shutdown saving institutions up to 65% over on-premise hardware.
+Identity, Philosophy & Character:
+- You are not just a technical architect; you are an inspiring mentor, ethical technologist, and visionary engineering partner deeply committed to empowering colleges, universities, and growing enterprises.
+- Core Mission: You founded SkySyncLab with a clear personal conviction — to make high-performance cloud infrastructure transparent, accessible, and ethical. You stand firmly against predatory enterprise bloat, hidden cloud billing traps, and artificial vendor lock-in.
+- Personal Demeanor: Warm, articulate, charismatic, humble, and deeply empathetic. You treat every visitor — whether an aspiring student, university IT director, or company founder — with utmost respect, clarity, and genuine encouragement.
+- Proud Roots: Based in Salem, Tamil Nadu, you take pride in elevating institutions across India and globally, helping mission-critical student admission portals and exam servers stay rock-solid under 15,000+ simultaneous user surges.
 
-Rules for your responses:
-- Provide authoritative, practical, and resource-rich architectural guidance.
-- Name specific AWS services (e.g., Aurora Multi-AZ, AWS DMS, ALB, CloudFront, ECS Fargate, Amazon Bedrock).
-- Format with clean bullet points, bold key terms, and concise paragraphs.
-- Keep answers focused, direct, and under 130 words for conversational clarity.
-- Be polite, professional, and invite the user to book an architecture review.`;
+When asked "Who is Senthil?", "Who are you?", or questions about your background:
+- Introduce yourself warmly, passionately, and personally as Senthil Kumar.
+- Share your driving purpose: safeguarding student futures with unshakeable cloud reliability, cutting redundant infrastructure costs by up to 65% through honest Well-Architected engineering, and mentoring in-house teams so they have 100% technological self-reliance.
+- Highlight that great engineering is founded on trust, transparency, and human connection.
+- Invite them to connect directly: senthilkumar@skysynclab.com or via phone/WhatsApp at +91 86672 54699.
+
+When answering architectural or technical queries:
+- Provide authoritative, high-clarity AWS Well-Architected solutions (Aurora Multi-AZ, AWS DMS, ALB, CloudFront, ECS Fargate, Amazon Bedrock, Cost Explorer).
+- Connect technical mechanics to their tangible human and business impact (student peace of mind, institutional cost savings, faculty autonomy).
+- Keep answers concise, elegant, structured with clean bullet points, and under 140 words.
+- End with a welcoming invitation to collaborate or book a free architecture review.`;
 
 export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOpenAudit }) => {
   const [isOpenChat, setIsOpenChat] = useState(false);
@@ -201,6 +204,21 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
             query: 'Can you assess our architecture for high availability, auto-scaling, and resilience?'
           }
         ];
+      } else if (lower.includes('senthil') || lower.includes('who are you') || lower.includes('founder') || lower.includes('about you') || lower.includes('architect')) {
+        followUpCards = [
+          {
+            title: 'Book a consultation',
+            subtitle: 'Direct architecture discussion with Senthil',
+            iconType: 'architecture',
+            query: 'Can you assess our architecture for high availability, auto-scaling, and resilience?'
+          },
+          {
+            title: 'Review AWS costs',
+            subtitle: 'Practical cost optimization audit',
+            iconType: 'costs',
+            query: 'Can you review my AWS costs and find savings with Cost Explorer?'
+          }
+        ];
       }
 
       const assistantMessage: ChatMessage = {
@@ -219,7 +237,32 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
       let fallbackText = '';
       let fallbackCards: ActionCard[] | undefined = undefined;
 
-      if (q.includes('audit') || q.includes('setup') || q.includes('review')) {
+      if (q.includes('senthil') || q.includes('who are you') || q.includes('about you') || q.includes('founder') || q.includes('who is') || q.includes('creator') || q.includes('mentor')) {
+        fallbackText = `I'm **Senthil Kumar** — Founder & Principal Cloud Architect at **SkySyncLab**, and an **AWS Certified Cloud Practitioner** based in Salem, Tamil Nadu.
+
+Above all, I consider myself a dedicated engineering partner and mentor. My life's work is driven by a simple mission: **to make world-class cloud architecture accessible, transparent, and ethical** for educational institutions, colleges, and scaling businesses.
+
+**What defines my approach:**
+• **Student & Campus Impact**: Designing rock-solid architectures for 15,000+ peak admission and exam result spikes with zero downtime, safeguarding student futures.
+• **Honest, Frugal Engineering**: Cutting wasteful cloud spend by up to 65% with disciplined FinOps — without selling unnecessary enterprise bloat.
+• **Empowerment Over Lock-in**: Mentoring and training your in-house IT team so you own and understand your systems with full independence.
+
+I love connecting directly with innovators, educators, and teams. Feel free to reach out directly at **senthilkumar@skysynclab.com** or call me at **+91 86672 54699**!`;
+        fallbackCards = [
+          {
+            title: 'Book a consultation',
+            subtitle: 'Direct architecture discussion with Senthil',
+            iconType: 'architecture',
+            query: 'Can you assess our architecture for high availability, auto-scaling, and resilience?'
+          },
+          {
+            title: 'Review AWS costs',
+            subtitle: 'Practical cost optimization audit',
+            iconType: 'costs',
+            query: 'Can you review my AWS costs and find savings with Cost Explorer?'
+          }
+        ];
+      } else if (q.includes('audit') || q.includes('setup') || q.includes('review')) {
         fallbackText = `Absolutely. I can help you review your AWS architecture, security, and costs.\n\nHere are a few ways we can get started:`;
         fallbackCards = [
           {

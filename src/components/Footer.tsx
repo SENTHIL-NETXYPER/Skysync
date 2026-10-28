@@ -384,12 +384,20 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
                 24-Hour Engineering SLA
               </span>
               <a
-                href="mailto:contact@skysynclab.com"
+                href="mailto:hello@skysynclab.com"
                 style={{ color: '#CBD5E1', textDecoration: 'none', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
               >
-                contact@skysynclab.com
+                hello@skysynclab.com
+              </a>
+              <a
+                href="mailto:senthilkumar@skysynclab.com"
+                style={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.88rem', transition: 'color 0.16s ease' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
+              >
+                senthilkumar@skysynclab.com
               </a>
               <a
                 href="tel:+918667254699"
@@ -497,8 +505,8 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
                 </span>
               </a>
               <a
-                href="mailto:contact@skysynclab.com"
-                aria-label="Send email to contact@skysynclab.com"
+                href="mailto:hello@skysynclab.com"
+                aria-label="Send email to hello@skysynclab.com"
                 title="Email SkySyncLab Cloud Consulting"
                 style={{ color: '#94A3B8', display: 'flex', alignItems: 'center', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
