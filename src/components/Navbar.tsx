@@ -15,6 +15,7 @@ import {
   Compass,
   FileText
 } from 'lucide-react';
+import { SkySyncLogo } from './SkySyncLogo';
 
 interface NavbarProps {
   currentTab: string;
@@ -220,7 +221,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
     <>
       <header className="floating-nav-header" role="banner">
         <div className={`floating-nav-pill-wrapper ${isScrolled ? 'scrolled' : ''}`}>
-          {/* Brand / Logo */}
+          {/* Brand / Official Logo */}
           <button
             onClick={() => handleNavClick('home')}
             aria-label="SkySyncLab Home"
@@ -231,24 +232,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
               background: 'none',
               border: 'none',
               cursor: 'pointer',
-              padding: '4px 8px',
+              padding: '2px 8px',
               textDecoration: 'none',
               flexShrink: 0
             }}
           >
-            <span
-              style={{
-                fontSize: '1.24rem',
-                fontWeight: 900,
-                color: '#FFFFFF',
-                letterSpacing: '0.02em',
-                display: 'inline-block',
-                lineHeight: 1,
-                whiteSpace: 'nowrap'
-              }}
-            >
-              SKYSYNCLAB
-            </span>
+            <SkySyncLogo variant="dark" height={28} />
           </button>
 
           {/* Center Pill Track (Matching the User's Image Aesthetic) */}

@@ -14,6 +14,7 @@ import {
   Copy,
   ArrowRight
 } from 'lucide-react';
+import { SkySyncLogo } from './SkySyncLogo';
 
 interface AwsFloatingAssistantProps {
   onOpenAudit: () => void;
@@ -551,17 +552,15 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
             <>
               <div
                 style={{
-                  width: '22px',
-                  height: '22px',
-                  borderRadius: '50%',
-                  backgroundColor: 'rgba(255, 255, 255, 0.22)',
+                  width: '24px',
+                  height: '24px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0
                 }}
               >
-                <Cloud size={13} strokeWidth={2.6} color="#FFFFFF" />
+                <SkySyncLogo iconOnly height={18} variant="dark" />
               </div>
               <span className="ai-launcher-text">AI CONSULTING</span>
             </>
@@ -608,19 +607,19 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                   width: '38px',
                   height: '38px',
                   borderRadius: '11px',
-                  border: '1.5px solid #FFEDD5',
-                  backgroundColor: '#FFF7ED',
+                  border: '1.5px solid rgba(0, 145, 255, 0.25)',
+                  backgroundColor: '#0B2A4A',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0
                 }}
               >
-                <Cloud size={20} color="#ED7100" strokeWidth={2.4} />
+                <SkySyncLogo iconOnly height={20} variant="dark" />
               </div>
 
               <div style={{ fontSize: '1.02rem', fontWeight: 800, color: '#0F172A', letterSpacing: '-0.01em' }}>
-                SkySync<span style={{ color: '#ED7100' }}>Lab</span> AI Cloud Consultant
+                skysync<span style={{ color: '#0091FF' }}>lab</span> AI Consultant
               </div>
             </div>
 

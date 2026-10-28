@@ -28,10 +28,10 @@ const TOPICS: HeroTopic[] = [
   {
     id: 'cloud',
     label: 'Cloud',
-    badge: 'Cloud · Architecture · AWS',
+    badge: 'Cloud · DevOps · Automation · AI',
     titlePrefix: 'Build Smarter',
-    titleHighlight: 'with Cloud & AI',
-    subtitle: 'We design and build secure, scalable cloud and AI solutions that help organizations move faster.',
+    titleHighlight: 'on the Cloud',
+    subtitle: 'We design and build secure, scalable AWS cloud and AI solutions that help organizations move faster.',
     bgImage: './assets/hero_clean_arch_bg.jpg',
     cardImage: './assets/hero_clean_arch_bg.jpg',
     actionText: 'Explore Cloud Capabilities',
@@ -492,10 +492,13 @@ export const Hero: React.FC<HeroProps> = ({
             {activeTopic.titlePrefix} <br />
             <span
               style={{
-                color: '#C85200',
+                background: activeId === 'cloud'
+                  ? 'linear-gradient(90deg, #0091FF 0%, #00C2E8 100%)'
+                  : 'linear-gradient(90deg, #ED7100 0%, #FF9900 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
                 fontWeight: 950,
-                display: 'inline-block',
-                textShadow: '0 1px 2px rgba(255, 255, 255, 0.9), 0 0 24px rgba(255, 255, 255, 0.95)'
+                display: 'inline-block'
               }}
             >
               {activeTopic.titleHighlight}

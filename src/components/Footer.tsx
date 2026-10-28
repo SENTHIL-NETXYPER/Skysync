@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Globe, ChevronDown, ArrowUp, Mail, Phone, MapPin } from 'lucide-react';
+import { SkySyncLogo } from './SkySyncLogo';
 import { getGeneralMailto, getFounderMailto, CONTACT_PHONE, FOUNDER_EMAIL, GENERAL_EMAIL } from '../utils/mailAlerts';
 
 interface FooterProps {
@@ -46,46 +47,55 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
     >
       <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
         
-        {/* TOP ROW: Pill Action Button & Language Picker */}
+        {/* TOP ROW: Brand Logo + Pill Action Button & Language Picker */}
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
             flexWrap: 'wrap',
-            gap: '16px',
+            gap: '20px',
             marginBottom: '36px',
             paddingBottom: '24px',
             borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
           }}
         >
-          {/* Left Pill Button */}
-          <button
-            type="button"
-            onClick={onOpenConsultation || (() => scrollToSection('contact'))}
-            style={{
-              backgroundColor: '#FFFFFF',
-              color: '#0F141C',
-              border: 'none',
-              borderRadius: '9999px',
-              padding: '10px 24px',
-              fontSize: '0.86rem',
-              fontWeight: 700,
-              cursor: 'pointer',
-              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.25)',
-              transition: 'all 0.16s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#F1F5F9';
-              e.currentTarget.style.transform = 'translateY(-1px)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#FFFFFF';
-              e.currentTarget.style.transform = 'translateY(0)';
-            }}
-          >
-            Book a Free Consultation
-          </button>
+          {/* Left: Brand Logo & Consultation CTA */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '22px', flexWrap: 'wrap' }}>
+            <button
+              onClick={() => scrollToSection('hero')}
+              style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+              aria-label="Back to top"
+            >
+              <SkySyncLogo variant="dark" height={26} />
+            </button>
+            <button
+              type="button"
+              onClick={onOpenConsultation || (() => scrollToSection('contact'))}
+              style={{
+                backgroundColor: '#FFFFFF',
+                color: '#0F141C',
+                border: 'none',
+                borderRadius: '9999px',
+                padding: '9px 22px',
+                fontSize: '0.84rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.25)',
+                transition: 'all 0.16s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#F1F5F9';
+                e.currentTarget.style.transform = 'translateY(-1px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#FFFFFF';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              Book a Free Consultation
+            </button>
+          </div>
 
           {/* Right Language Selector Pill */}
           <div style={{ position: 'relative' }}>
