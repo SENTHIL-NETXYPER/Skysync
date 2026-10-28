@@ -1,5 +1,6 @@
 import React from 'react';
 import { Award, Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
+import { getFounderMailto } from '../utils/mailAlerts';
 
 export const About: React.FC = () => {
   return (
@@ -130,7 +131,8 @@ export const About: React.FC = () => {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '0.95rem' }}>
             <a
-              href="mailto:senthilkumar@skysynclab.com"
+              href={getFounderMailto()}
+              title="Tap to email Founder & Principal Architect Senthil Kumar (Auto-Alerts Inbox)"
               style={{
                 display: 'flex',
                 alignItems: 'center',

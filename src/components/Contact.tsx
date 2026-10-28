@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, CheckCircle2, Clock, ChevronDown } from 'lucide-react';
+import {
+  getGeneralMailto,
+  getFounderMailto,
+  buildContactFormMailto,
+  buildWhatsAppLink,
+  triggerMailto,
+  FOUNDER_EMAIL,
+  GENERAL_EMAIL
+} from '../utils/mailAlerts';
 
 interface ContactProps {
   prefilledService?: string;
@@ -38,17 +47,22 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
     e.preventDefault();
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      const submissions = JSON.parse(localStorage.getItem('skysynclab_inquiries') || '[]');
-      submissions.push({
-        ...formData,
-        timestamp: new Date().toISOString()
-      });
-      localStorage.setItem('skysynclab_inquiries', JSON.stringify(submissions));
+    // Save to local storage as backup
+    const submissions = JSON.parse(localStorage.getItem('skysynclab_inquiries') || '[]');
+    submissions.push({
+      ...formData,
+      timestamp: new Date().toISOString()
+    });
+    localStorage.setItem('skysynclab_inquiries', JSON.stringify(submissions));
 
-      setIsSubmitting(false);
-      setSubmitted(true);
-    }, 600);
+    // Construct the formatted mailto URL to alert Senthil Kumar & hello@skysynclab.com
+    const mailtoUrl = buildContactFormMailto(formData);
+
+    // Automatically trigger redirect to mail client to alert Senthil
+    triggerMailto(mailtoUrl);
+
+    setIsSubmitting(false);
+    setSubmitted(true);
   };
 
   return (
@@ -108,7 +122,8 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '22px', marginBottom: '32px' }}>
             <a
-              href="mailto:hello@skysynclab.com"
+              href={getGeneralMailto()}
+              title="Tap to email General Inquiries (Auto-Alerts Senthil Kumar)"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -139,12 +154,13 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                 <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748B', fontWeight: 700, marginBottom: '3px' }}>
                   General Inquiries
                 </span>
-                <span style={{ fontSize: '0.94rem', wordBreak: 'break-all' }}>hello@skysynclab.com</span>
+                <span style={{ fontSize: '0.94rem', wordBreak: 'break-all' }}>{GENERAL_EMAIL}</span>
               </div>
             </a>
 
             <a
-              href="mailto:senthilkumar@skysynclab.com"
+              href={getFounderMailto()}
+              title="Tap to email Founder & Principal Architect Senthil Kumar directly"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -175,7 +191,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                 <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748B', fontWeight: 700, marginBottom: '3px' }}>
                   Founder
                 </span>
-                <span style={{ fontSize: '0.94rem', wordBreak: 'break-all' }}>senthilkumar@skysynclab.com</span>
+                <span style={{ fontSize: '0.94rem', wordBreak: 'break-all' }}>{FOUNDER_EMAIL}</span>
               </div>
             </a>
 
@@ -270,7 +286,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
           height: '100%'
         }}>
           {submitted ? (
-            <div style={{ textAlign: 'center', padding: '32px 8px' }}>
+            <div style={{ textAlign: 'center', padding: '28px 12px' }}>
               <div style={{
                 width: '54px',
                 height: '54px',
@@ -284,23 +300,70 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
               }}>
                 <CheckCircle2 size={32} />
               </div>
-              <h3 style={{ fontSize: '1.30rem', fontWeight: 800, color: '#232F3E', marginBottom: '8px' }}>
-                Message Sent Successfully
+              <h3 style={{ fontSize: '1.28rem', fontWeight: 800, color: '#232F3E', marginBottom: '8px' }}>
+                Consultation Request Prepared
               </h3>
-              <p style={{ fontSize: '0.94rem', color: '#526071', marginBottom: '24px' }}>
-                Thank you! Our engineering team will review your inquiry and respond within 24 hours.
+              <p style={{ fontSize: '0.92rem', color: '#526071', marginBottom: '20px', lineHeight: 1.55 }}>
+                Your request has been logged and an email alert to <strong>{GENERAL_EMAIL}</strong> (CC: <strong>{FOUNDER_EMAIL}</strong>) was automatically triggered in your mail client.
               </p>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxWidth: '380px', margin: '0 auto 24px auto' }}>
+                <a
+                  href={buildContactFormMailto(formData)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    padding: '12px 20px',
+                    fontSize: '0.90rem',
+                    fontWeight: 700,
+                    backgroundColor: '#ED7100',
+                    color: '#FFFFFF',
+                    borderRadius: '9999px',
+                    textDecoration: 'none',
+                    boxShadow: '0 3px 12px rgba(237, 113, 0, 0.3)'
+                  }}
+                >
+                  <Mail size={16} />
+                  <span>Open Email App to Alert Senthil Now</span>
+                </a>
+
+                <a
+                  href={buildWhatsAppLink(`Hi Senthil, I submitted a consultation request for ${formData.service} on SkySyncLab. Name: ${formData.name}, Contact: ${formData.phone}`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    padding: '10px 18px',
+                    fontSize: '0.86rem',
+                    fontWeight: 600,
+                    backgroundColor: '#F8FAFC',
+                    color: '#0F172A',
+                    border: '1.5px solid #CBD5E1',
+                    borderRadius: '9999px',
+                    textDecoration: 'none'
+                  }}
+                >
+                  <Phone size={15} color="#25D366" />
+                  <span>Instant Alert on WhatsApp (+91 86672 54699)</span>
+                </a>
+              </div>
+
               <button
                 onClick={() => setSubmitted(false)}
                 style={{
-                  padding: '11px 26px',
-                  fontSize: '0.92rem',
-                  fontWeight: 700,
-                  backgroundColor: '#ED7100',
-                  color: '#FFFFFF',
+                  padding: '9px 20px',
+                  fontSize: '0.86rem',
+                  fontWeight: 600,
+                  backgroundColor: 'transparent',
+                  color: '#64748B',
                   border: 'none',
-                  borderRadius: '9999px',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  textDecoration: 'underline'
                 }}
               >
                 Send Another Request

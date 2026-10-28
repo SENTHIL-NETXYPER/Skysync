@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle, ChevronDown } from 'lucide-react';
+import { X, CheckCircle, ChevronDown, Mail, Phone } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import {
+  buildAuditModalMailto,
+  buildWhatsAppLink,
+  triggerMailto,
+  GENERAL_EMAIL,
+  FOUNDER_EMAIL
+} from '../utils/mailAlerts';
 
 interface AuditModalProps {
   isOpen: boolean;
@@ -77,6 +84,10 @@ export const AuditModal: React.FC<AuditModalProps> = ({
       // ignore
     }
 
+    // Auto-alert Senthil Kumar & hello@skysynclab.com via pre-filled mailto
+    const mailtoUrl = buildAuditModalMailto(formData);
+    triggerMailto(mailtoUrl);
+
     setSubmitted(true);
 
     try {
@@ -151,7 +162,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
         </button>
 
         {submitted ? (
-          <div style={{ textAlign: 'center', padding: '24px 0' }}>
+          <div style={{ textAlign: 'center', padding: '20px 8px' }}>
             <div style={{
               width: '56px',
               height: '56px',
@@ -166,30 +177,75 @@ export const AuditModal: React.FC<AuditModalProps> = ({
               <CheckCircle size={32} />
             </div>
 
-            <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#1E293B', marginBottom: '8px' }}>
-              Message Sent Successfully
+            <h3 style={{ fontSize: '1.30rem', fontWeight: 800, color: '#1E293B', marginBottom: '8px' }}>
+              Audit Request Prepared
             </h3>
 
-            <p style={{ fontSize: '0.92rem', color: '#64748B', marginBottom: '24px', lineHeight: 1.55 }}>
-              Thank you! Our engineering desk will review your inquiry and respond within 24 hours.
+            <p style={{ fontSize: '0.90rem', color: '#64748B', marginBottom: '20px', lineHeight: 1.55 }}>
+              Your inquiry has been recorded and an email alert to <strong>{GENERAL_EMAIL}</strong> (CC: <strong>{FOUNDER_EMAIL}</strong>) was automatically triggered in your mail client.
             </p>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '20px' }}>
+              <a
+                href={buildAuditModalMailto(formData)}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  padding: '11px 18px',
+                  fontSize: '0.90rem',
+                  fontWeight: 700,
+                  backgroundColor: '#ED7100',
+                  color: '#FFFFFF',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  boxShadow: '0 3px 12px rgba(237, 113, 0, 0.3)'
+                }}
+              >
+                <Mail size={16} />
+                <span>Open Email App to Alert Senthil Now</span>
+              </a>
+
+              <a
+                href={buildWhatsAppLink(`Hi Senthil, I submitted an AWS Architecture Audit request for ${formData.service} on SkySyncLab. Name: ${formData.name}, Contact: ${formData.phone}`)}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
+                  padding: '10px 18px',
+                  fontSize: '0.86rem',
+                  fontWeight: 600,
+                  backgroundColor: '#F8FAFC',
+                  color: '#0F172A',
+                  border: '1.5px solid #CBD5E1',
+                  borderRadius: '8px',
+                  textDecoration: 'none'
+                }}
+              >
+                <Phone size={15} color="#25D366" />
+                <span>Instant Alert on WhatsApp (+91 86672 54699)</span>
+              </a>
+            </div>
 
             <button
               onClick={resetAndClose}
               style={{
                 width: '100%',
-                padding: '12px',
-                fontSize: '0.96rem',
-                fontWeight: 700,
-                backgroundColor: '#ED7100',
-                color: '#FFFFFF',
+                padding: '10px',
+                fontSize: '0.88rem',
+                fontWeight: 600,
+                backgroundColor: 'transparent',
+                color: '#64748B',
                 border: 'none',
-                borderRadius: '8px',
                 cursor: 'pointer',
-                boxShadow: '0 4px 12px rgba(237, 113, 0, 0.3)'
+                textDecoration: 'underline'
               }}
             >
-              Done
+              Done / Close
             </button>
           </div>
         ) : (

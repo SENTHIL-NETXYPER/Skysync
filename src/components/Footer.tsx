@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Globe, ChevronDown, ArrowUp, Mail, Phone } from 'lucide-react';
+import { Globe, ChevronDown, ArrowUp, Mail, Phone, MapPin } from 'lucide-react';
+import { getGeneralMailto, getFounderMailto, CONTACT_PHONE, FOUNDER_EMAIL, GENERAL_EMAIL } from '../utils/mailAlerts';
 
 interface FooterProps {
   onSelectTab?: (tab: string) => void;
@@ -23,14 +24,17 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
     }
   };
 
+  const generalMailto = getGeneralMailto();
+  const founderMailto = getFounderMailto();
+
   return (
     <footer
       style={{
         backgroundColor: '#0F141C',
         color: '#CBD5E1',
-        borderTopLeftRadius: '36px',
-        borderTopRightRadius: '36px',
-        padding: '48px 48px 36px 48px',
+        borderTopLeftRadius: '32px',
+        borderTopRightRadius: '32px',
+        padding: '44px 40px 32px 40px',
         maxWidth: '100%',
         width: '100%',
         margin: '0 auto',
@@ -40,9 +44,9 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
         zIndex: 10
       }}
     >
-      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+      <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
         
-        {/* TOP ROW: Pill Action Button (Create account / Book Consultation) & Language Picker */}
+        {/* TOP ROW: Pill Action Button & Language Picker */}
         <div
           style={{
             display: 'flex',
@@ -50,10 +54,12 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
             justifyContent: 'space-between',
             flexWrap: 'wrap',
             gap: '16px',
-            marginBottom: '48px'
+            marginBottom: '36px',
+            paddingBottom: '24px',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
           }}
         >
-          {/* Left Pill Button (Matches AWS "Create an AWS account" button) */}
+          {/* Left Pill Button */}
           <button
             type="button"
             onClick={onOpenConsultation || (() => scrollToSection('contact'))}
@@ -62,8 +68,8 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
               color: '#0F141C',
               border: 'none',
               borderRadius: '9999px',
-              padding: '11px 26px',
-              fontSize: '0.88rem',
+              padding: '10px 24px',
+              fontSize: '0.86rem',
               fontWeight: 700,
               cursor: 'pointer',
               boxShadow: '0 2px 8px rgba(0, 0, 0, 0.25)',
@@ -81,18 +87,18 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
             Book a Free Consultation
           </button>
 
-          {/* Right Language Selector Pill (Matches AWS "🌐 English ⌄" pill) */}
+          {/* Right Language Selector Pill */}
           <div style={{ position: 'relative' }}>
             <button
               type="button"
               onClick={() => setIsLangOpen(!isLangOpen)}
               style={{
                 backgroundColor: 'transparent',
-                border: '1.5px solid rgba(255, 255, 255, 0.4)',
+                border: '1.5px solid rgba(255, 255, 255, 0.3)',
                 borderRadius: '9999px',
                 color: '#FFFFFF',
-                padding: '8px 18px',
-                fontSize: '0.85rem',
+                padding: '7px 16px',
+                fontSize: '0.84rem',
                 fontWeight: 600,
                 display: 'flex',
                 alignItems: 'center',
@@ -101,11 +107,11 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
                 transition: 'border-color 0.16s ease'
               }}
               onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#FFFFFF')}
-              onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.4)')}
+              onMouseLeave={(e) => (e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)')}
             >
-              <Globe size={15} />
+              <Globe size={14} />
               <span>{selectedLang}</span>
-              <ChevronDown size={14} />
+              <ChevronDown size={13} />
             </button>
 
             {isLangOpen && (
@@ -152,274 +158,206 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
           </div>
         </div>
 
-        {/* 4 COLUMNS: EXACT STRUCTURE OF WHAT OUR WEB CONSISTS OF (AWS FOOTER STYLE) */}
+        {/* MINIMAL 3-COLUMN STRUCTURE (Clean, Spacious, No Unwanted Areas) */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             gap: '36px',
-            marginBottom: '40px'
+            marginBottom: '36px'
           }}
         >
           {/* Column 1: Core Services */}
           <div>
             <div
               style={{
-                fontSize: '0.92rem',
+                fontSize: '0.90rem',
                 fontWeight: 700,
                 color: '#FFFFFF',
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
                 marginBottom: '16px'
               }}
             >
-              Services
+              Cloud Practice
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.86rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '11px', fontSize: '0.86rem' }}>
               <button
                 onClick={() => scrollToSection('services')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
+                style={{ background: 'none', border: 'none', padding: 0, color: '#94A3B8', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
               >
-                Cloud Infrastructure & Architecture
+                AWS Cloud Infrastructure & Architecture
               </button>
               <button
                 onClick={() => scrollToSection('services')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
+                style={{ background: 'none', border: 'none', padding: 0, color: '#94A3B8', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
               >
                 DevOps & CI/CD Pipelines
               </button>
               <button
                 onClick={() => scrollToSection('services')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
+                style={{ background: 'none', border: 'none', padding: 0, color: '#94A3B8', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
-              >
-                Managed Cloud Operations
-              </button>
-              <button
-                onClick={() => scrollToSection('services')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
-              >
-                AI & AWS Bedrock Assistants
-              </button>
-              <button
-                onClick={() => scrollToSection('services')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
               >
                 Zero-Downtime Database Migration
               </button>
               <button
-                onClick={() => scrollToSection('why-choose-us')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
+                onClick={() => scrollToSection('services')}
+                style={{ background: 'none', border: 'none', padding: 0, color: '#94A3B8', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
               >
-                Faculty Handover & Mentoring
+                AI & AWS Bedrock Assistants
               </button>
             </div>
           </div>
 
-          {/* Column 2: Interactive Tools */}
+          {/* Column 2: Architecture Tools */}
           <div>
             <div
               style={{
-                fontSize: '0.92rem',
+                fontSize: '0.90rem',
                 fontWeight: 700,
                 color: '#FFFFFF',
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
                 marginBottom: '16px'
               }}
             >
-              Interactive Tools
+              Cloud Tools
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.86rem' }}>
-              <button
-                onClick={() => scrollToSection('calculator')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
-              >
-                AWS Cost & ROI Estimator
-              </button>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '11px', fontSize: '0.86rem' }}>
               <button
                 onClick={() => scrollToSection('designer-section')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
+                style={{ background: 'none', border: 'none', padding: 0, color: '#94A3B8', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
               >
                 Cloud Architecture Designer
               </button>
               <button
-                onClick={() => scrollToSection('why-cloud')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
+                onClick={() => scrollToSection('calculator')}
+                style={{ background: 'none', border: 'none', padding: 0, color: '#94A3B8', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
+              >
+                AWS Cost & Savings Estimator
+              </button>
+              <button
+                onClick={() => scrollToSection('why-cloud')}
+                style={{ background: 'none', border: 'none', padding: 0, color: '#94A3B8', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
               >
                 On-Premises vs Cloud TCO
               </button>
               <button
                 onClick={() => scrollToSection('process')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
-              >
-                4-Step Delivery Blueprints
-              </button>
-              <button
-                onClick={() => scrollToSection('process')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
-              >
-                VPC & Aurora Topology Viewer
-              </button>
-              <button
-                onClick={() => scrollToSection('calculator')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
-              >
-                Live Cloud Savings Audit
-              </button>
-            </div>
-          </div>
-
-          {/* Column 3: Institutional Workloads */}
-          <div>
-            <div
-              style={{
-                fontSize: '0.92rem',
-                fontWeight: 700,
-                color: '#FFFFFF',
-                marginBottom: '16px'
-              }}
-            >
-              Institutional Workloads
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.86rem' }}>
-              <button
-                onClick={() => scrollToSection('client-proof')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
-              >
-                Muthayammal Engineering College (Autonomous)
-              </button>
-              <button
-                onClick={() => scrollToSection('client-proof')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
-              >
-                Muthayammal Polytechnic College
-              </button>
-              <button
-                onClick={() => scrollToSection('solutions')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
-              >
-                Autonomous Exam & Result Portals
-              </button>
-              <button
-                onClick={() => scrollToSection('solutions')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
-              >
-                Campus ERP & Student Information Systems
-              </button>
-              <button
-                onClick={() => scrollToSection('solutions')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
-              >
-                High-Concurrency Auto Scaling
-              </button>
-              <button
-                onClick={() => scrollToSection('solutions')}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
-              >
-                Automated Disaster Recovery
-              </button>
-            </div>
-          </div>
-
-          {/* Column 4: Engineering & Support */}
-          <div>
-            <div
-              style={{
-                fontSize: '0.92rem',
-                fontWeight: 700,
-                color: '#FFFFFF',
-                marginBottom: '16px'
-              }}
-            >
-              Engineering & Support
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', fontSize: '0.86rem' }}>
-              <button
-                onClick={onOpenConsultation || (() => scrollToSection('contact'))}
-                style={{ background: 'none', border: 'none', padding: 0, color: '#CBD5E1', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
-              >
-                Book a Consultation
-              </button>
-              <span style={{ color: '#94A3B8' }}>
-                AWS Certified Cloud Practitioner
-              </span>
-              <span style={{ color: '#94A3B8' }}>
-                AWS Well-Architected Framework
-              </span>
-              <span style={{ color: '#94A3B8' }}>
-                24-Hour Engineering SLA
-              </span>
-              <a
-                href="mailto:hello@skysynclab.com"
-                style={{ color: '#CBD5E1', textDecoration: 'none', transition: 'color 0.16s ease' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
-              >
-                hello@skysynclab.com
-              </a>
-              <a
-                href="mailto:senthilkumar@skysynclab.com"
-                style={{ color: '#94A3B8', textDecoration: 'none', fontSize: '0.88rem', transition: 'color 0.16s ease' }}
+                style={{ background: 'none', border: 'none', padding: 0, color: '#94A3B8', cursor: 'pointer', textAlign: 'left', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
               >
-                senthilkumar@skysynclab.com
-              </a>
+                4-Step Delivery Blueprints
+              </button>
+            </div>
+          </div>
+
+          {/* Column 3: Direct Engineering Desk (Direct mailto auto-alerts) */}
+          <div>
+            <div
+              style={{
+                fontSize: '0.90rem',
+                fontWeight: 700,
+                color: '#FFFFFF',
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
+                marginBottom: '16px'
+              }}
+            >
+              Direct Engineering Desk
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '11px', fontSize: '0.86rem' }}>
+              {/* Founder email link (Alerts Senthil Kumar directly) */}
               <a
-                href="tel:+918667254699"
-                style={{ color: '#CBD5E1', textDecoration: 'none', transition: 'color 0.16s ease' }}
+                href={founderMailto}
+                title="Tap to email Founder & Principal Architect Senthil Kumar directly"
+                style={{
+                  color: '#CBD5E1',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  transition: 'color 0.16s ease',
+                  wordBreak: 'break-all'
+                }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
               >
-                +91 86672 54699
+                <Mail size={15} color="#ED7100" style={{ flexShrink: 0 }} />
+                <span>{FOUNDER_EMAIL}</span>
               </a>
+
+              {/* General inquiries email link (Auto-alerts hello + CC senthil) */}
+              <a
+                href={generalMailto}
+                title="Tap to email General Consulting Desk"
+                style={{
+                  color: '#94A3B8',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  transition: 'color 0.16s ease',
+                  wordBreak: 'break-all'
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
+              >
+                <Mail size={15} color="#64748B" style={{ flexShrink: 0 }} />
+                <span>{GENERAL_EMAIL}</span>
+              </a>
+
+              {/* Phone / WhatsApp */}
+              <a
+                href={`tel:${CONTACT_PHONE.replace(/\s+/g, '')}`}
+                style={{
+                  color: '#CBD5E1',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  transition: 'color 0.16s ease'
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = '#CBD5E1')}
+              >
+                <Phone size={15} color="#ED7100" style={{ flexShrink: 0 }} />
+                <span>{CONTACT_PHONE}</span>
+              </a>
+
+              {/* Location & SLA Badge */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#64748B', fontSize: '0.80rem' }}>
+                <MapPin size={14} style={{ flexShrink: 0 }} />
+                <span>Salem, Tamil Nadu, India · 24h SLA</span>
+              </div>
             </div>
           </div>
         </div>
 
         {/* CENTERED: Back to top ↑ */}
-        <div style={{ textAlign: 'center', margin: '42px 0 28px 0' }}>
+        <div style={{ textAlign: 'center', margin: '28px 0 20px 0' }}>
           <button
             onClick={scrollToTop}
             style={{
               background: 'none',
               border: 'none',
-              color: '#FFFFFF',
-              fontSize: '0.86rem',
+              color: '#94A3B8',
+              fontSize: '0.84rem',
               fontWeight: 600,
               cursor: 'pointer',
               display: 'inline-flex',
@@ -430,21 +368,21 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
               transition: 'color 0.16s ease'
             }}
             onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = '#FFFFFF')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
           >
             <span>Back to top</span>
-            <ArrowUp size={14} />
+            <ArrowUp size={13} />
           </button>
         </div>
 
         {/* BOTTOM LEGAL DISCLAIMER + SOCIAL ICONS */}
         <div
           style={{
-            borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-            paddingTop: '24px',
+            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+            paddingTop: '20px',
             display: 'flex',
             flexDirection: 'column',
-            gap: '14px'
+            gap: '12px'
           }}
         >
           <div
@@ -462,13 +400,13 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
                 color: '#64748B',
                 lineHeight: 1.5,
                 margin: 0,
-                maxWidth: '820px'
+                maxWidth: '780px'
               }}
             >
-              SkySyncLab delivers Enterprise-Grade AWS Cloud Infrastructure, DevOps automation pipelines, and Generative AI solutions engineered strictly in alignment with the AWS Well-Architected Framework for autonomous educational institutions, colleges, and modern enterprises.
+              SkySyncLab delivers Enterprise-Grade AWS Cloud Infrastructure, DevOps pipelines, and Generative AI solutions engineered in alignment with the AWS Well-Architected Framework.
             </p>
 
-            {/* Social Icons (Matches AWS footer right side icons) */}
+            {/* Social & Contact Icons */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
               <a
                 href="https://linkedin.com"
@@ -480,7 +418,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
               >
-                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
                 </svg>
                 <span style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
@@ -497,7 +435,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
               >
-                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
                 </svg>
                 <span style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
@@ -505,27 +443,27 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
                 </span>
               </a>
               <a
-                href="mailto:hello@skysynclab.com"
-                aria-label="Send email to hello@skysynclab.com"
-                title="Email SkySyncLab Cloud Consulting"
+                href={generalMailto}
+                aria-label="Send email alert to hello@skysynclab.com"
+                title="Email SkySyncLab Cloud Consulting (Auto-Alert)"
                 style={{ color: '#94A3B8', display: 'flex', alignItems: 'center', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
               >
-                <Mail size={16} aria-hidden="true" />
+                <Mail size={15} aria-hidden="true" />
                 <span style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
                   Email SkySyncLab
                 </span>
               </a>
               <a
-                href="tel:+918667254699"
-                aria-label="Call SkySyncLab at +91 86672 54699"
+                href={`tel:${CONTACT_PHONE.replace(/\s+/g, '')}`}
+                aria-label={`Call SkySyncLab at ${CONTACT_PHONE}`}
                 title="Call SkySyncLab Cloud Consulting"
                 style={{ color: '#94A3B8', display: 'flex', alignItems: 'center', transition: 'color 0.16s ease' }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
                 onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
               >
-                <Phone size={16} aria-hidden="true" />
+                <Phone size={15} aria-hidden="true" />
                 <span style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
                   Call SkySyncLab
                 </span>
@@ -573,7 +511,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
             </div>
 
             <div>
-              {`© ${new Date().getFullYear()}, SkySyncLab (skysynclab.com) or its affiliates. All rights reserved.`}
+              {`© ${new Date().getFullYear()}, SkySyncLab (skysynclab.com). All rights reserved.`}
             </div>
           </div>
         </div>
