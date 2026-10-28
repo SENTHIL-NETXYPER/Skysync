@@ -24,6 +24,7 @@ interface ActionCard {
   subtitle: string;
   iconType: 'costs' | 'security' | 'architecture';
   query: string;
+  action?: 'audit';
 }
 
 interface ChatMessage {
@@ -36,18 +37,21 @@ interface ChatMessage {
 }
 const GROQ_API_KEY = (import.meta.env.VITE_GROQ_API_KEY as string | undefined) || '';
 
-const SYSTEM_PROMPT = `You are the AI Cloud Architecture Assistant for SkySyncLab, founded by Senthil Kumar.
+const SYSTEM_PROMPT = `You are the SkySyncLab AI Assistant, founded by Senthil Kumar.
 Your task is to provide expert, concise, and professional AWS cloud consulting advice to potential clients (universities, colleges, enterprises).
 
-Guidelines:
-1. Directness: Answer the user's specific query immediately in the first sentence. Avoid fluff, filler, or repetitive greetings.
-2. Structure: Follow this strict 3-part template for every answer:
-   Part 1: The Direct Technical Solution (2–3 bullet points mapping directly to AWS/Cloud best practices and naming specific services like Auto Scaling, Multi-AZ Aurora, S3, Application Load Balancer, ECS Fargate, or Amazon Bedrock).
+RULES FOR GREETINGS AND TONE:
+1. NEVER start responses with formal greetings like "Namaste" or repeat "I am Senthil Kumar, Founder..." on casual user inputs (e.g., "hi", "hello", "hey").
+2. Get straight to the answer or offer direct technical assistance. Do NOT repeat your name or title once the user is already talking in the widget.
+3. Keep casual responses under 2-3 short sentences.
+4. When the user says "hi", "hello", or "hey", respond with:
+   "Hi! How can we help with your cloud infrastructure today? Select an option below or type your query:"
+5. For technical or architectural queries, follow this strict 3-part template:
+   Part 1: The Direct Technical Solution (2–3 bullet points mapping directly to AWS/Cloud best practices, naming specific services like Auto Scaling, Multi-AZ Aurora, S3, Application Load Balancer, ECS Fargate, or Amazon Bedrock).
    Part 2: The Next Logical Step (Clear institutional value or concrete benefit, e.g., zero exam-day downtime or 25%-65% cost savings).
-   Part 3: One Primary Call to Action (CTA) (End with ONE direct, low-friction next step formatted as a single line, followed by [ Book a Free 30-Min Audit ] on a new line).
-3. Tone: Executive, confident, helpful, and concise.
-4. Tone & Style: Maximum 100-150 words per response.
-5. Senthil Kumar Background: If asked "Who is Senthil Kumar?", "Who is Senthil?", or "Who are you?", state that Senthil Kumar is the Founder & Principal Cloud Architect at SkySyncLab (AWS Certified Cloud Practitioner based in Salem, Tamil Nadu) specializing in campus infrastructure modernization and zero vendor lock-in. Mention his direct email: senthilkumar@skysynclab.com. Follow the same 3-part structure.`;
+   Part 3: One Primary Call to Action (CTA) (End with ONE direct next step, followed by [ Book a Free 30-Min Audit ] on a new line).
+6. Tone & Style: Executive, confident, helpful, concise. Maximum 100-150 words per response.
+7. Senthil Kumar Background: ONLY if specifically asked "Who is Senthil?" or "Who is the founder?", state that Senthil Kumar is the Founder & Principal Cloud Architect at SkySyncLab (AWS Certified Cloud Practitioner based in Salem, Tamil Nadu; email: senthilkumar@skysynclab.com). Never volunteer this unprompted on casual greetings.`;
 
 export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOpenAudit }) => {
   const [isOpenChat, setIsOpenChat] = useState(false);
@@ -59,20 +63,27 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
     {
       id: 'welcome-1',
       role: 'assistant',
-      content: `I'm SkySyncLab's AI Cloud Architecture Assistant, founded by Senthil Kumar. I can help evaluate your AWS infrastructure for high availability, cost efficiency, and security.\n\nHere are the fastest ways to start:`,
+      content: `Hi there! Welcome to SkySyncLab. How can I help with your AWS architecture, cloud migration, or cost optimization today?`,
       timestamp: '10:24 AM',
       cards: [
         {
-          title: 'Schedule Architecture Review',
-          subtitle: 'High availability, auto-scaling & resilience',
+          title: 'Analyze AWS Costs',
+          subtitle: 'Cost Explorer audit & FinOps savings',
+          iconType: 'costs',
+          query: 'Can you review my AWS costs and find savings with Cost Explorer?'
+        },
+        {
+          title: 'Assess High Availability',
+          subtitle: 'Auto-scaling & resilience review',
           iconType: 'architecture',
           query: 'Can you assess our architecture for high availability, auto-scaling, and resilience?'
         },
         {
-          title: 'Estimate AWS Costs',
-          subtitle: 'Analyze Cost Explorer & find savings',
-          iconType: 'costs',
-          query: 'Can you review my AWS costs and find savings with Cost Explorer?'
+          title: 'Book Architecture Call',
+          subtitle: 'Schedule a free 30-min Well-Architected consultation',
+          iconType: 'architecture',
+          query: 'Can you assess our architecture for high availability, auto-scaling, and resilience?',
+          action: 'audit'
         }
       ]
     }
@@ -125,6 +136,45 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
 
     setMessages((prev) => [...prev, userMessage]);
     setInputQuery('');
+
+    // Differentiate casual greetings in chat: direct, clean response with 3 quick-reply chips
+    const isGreeting = /^(hi|hello|hey|greetings|good\s*(morning|afternoon|evening)|howdy)\b[\s!.]*$/i.test(queryText.trim());
+
+    if (isGreeting) {
+      const greetingCards: ActionCard[] = [
+        {
+          title: 'Analyze AWS Costs',
+          subtitle: 'Cost Explorer audit & FinOps savings',
+          iconType: 'costs',
+          query: 'Can you review my AWS costs and find savings with Cost Explorer?'
+        },
+        {
+          title: 'Assess High Availability',
+          subtitle: 'Auto-scaling & resilience review',
+          iconType: 'architecture',
+          query: 'Can you assess our architecture for high availability, auto-scaling, and resilience?'
+        },
+        {
+          title: 'Book Architecture Call',
+          subtitle: 'Schedule a free 30-min Well-Architected consultation',
+          iconType: 'architecture',
+          query: 'Can you assess our architecture for high availability, auto-scaling, and resilience?',
+          action: 'audit'
+        }
+      ];
+
+      const assistantMessage: ChatMessage = {
+        id: `assistant-${Date.now()}`,
+        role: 'assistant',
+        content: 'Hi! How can we help with your cloud infrastructure today? Select an option below or type your query:',
+        timestamp: currentTime,
+        cards: greetingCards
+      };
+
+      setMessages((prev) => [...prev, assistantMessage]);
+      return;
+    }
+
     setIsLoading(true);
 
     try {
@@ -775,7 +825,14 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                           {msg.cards.map((card, cIdx) => (
                             <button
                               key={cIdx}
-                              onClick={() => executeQuery(card.query)}
+                              onClick={() => {
+                                if (card.action === 'audit') {
+                                  setIsOpenChat(false);
+                                  onOpenAudit();
+                                } else {
+                                  executeQuery(card.query);
+                                }
+                              }}
                               disabled={isLoading}
                               className="ai-action-card"
                               style={{
