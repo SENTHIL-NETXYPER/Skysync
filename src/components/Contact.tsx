@@ -73,14 +73,14 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
       <style>{`
         .contact-grid-layout {
           display: grid;
-          grid-template-columns: minmax(260px, 320px) 1fr;
-          gap: 20px;
+          grid-template-columns: minmax(340px, 395px) 1fr;
+          gap: 28px;
           align-items: stretch;
         }
-        @media (max-width: 860px) {
+        @media (max-width: 900px) {
           .contact-grid-layout {
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 24px;
           }
         }
       `}</style>
@@ -91,7 +91,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
           backgroundColor: '#FFFFFF',
           borderRadius: '16px',
           border: '1.5px solid #CBD5E1',
-          padding: '24px',
+          padding: '28px 24px',
           boxShadow: '0 4px 18px rgba(15, 23, 42, 0.06)',
           borderLeft: '5px solid #ED7100',
           display: 'flex',
@@ -112,7 +112,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '15px',
+                gap: '14px',
                 color: '#232F3E',
                 textDecoration: 'none',
                 fontWeight: 600,
@@ -135,11 +135,11 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
               }}>
                 <Mail size={19} />
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
                 <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748B', fontWeight: 700, marginBottom: '3px' }}>
                   General Inquiries
                 </span>
-                <span style={{ fontSize: '0.96rem' }}>hello@skysynclab.com</span>
+                <span style={{ fontSize: '0.94rem', wordBreak: 'break-all' }}>hello@skysynclab.com</span>
               </div>
             </a>
 
@@ -148,7 +148,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '15px',
+                gap: '14px',
                 color: '#232F3E',
                 textDecoration: 'none',
                 fontWeight: 600,
@@ -171,11 +171,11 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
               }}>
                 <Mail size={19} />
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
                 <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748B', fontWeight: 700, marginBottom: '3px' }}>
                   Founder
                 </span>
-                <span style={{ fontSize: '0.96rem' }}>senthilkumar@skysynclab.com</span>
+                <span style={{ fontSize: '0.94rem', wordBreak: 'break-all' }}>senthilkumar@skysynclab.com</span>
               </div>
             </a>
 
@@ -184,7 +184,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '15px',
+                gap: '14px',
                 color: '#232F3E',
                 textDecoration: 'none',
                 fontWeight: 600,
@@ -207,15 +207,15 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
               }}>
                 <Phone size={19} />
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
                 <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748B', fontWeight: 700, marginBottom: '3px' }}>
                   Phone & WhatsApp
                 </span>
-                <span style={{ fontSize: '0.96rem' }}>+91 86672 54699</span>
+                <span style={{ fontSize: '0.94rem' }}>+91 86672 54699</span>
               </div>
             </a>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
               <div style={{
                 width: '42px',
                 height: '42px',
@@ -230,11 +230,11 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
               }}>
                 <MapPin size={19} />
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
                 <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748B', fontWeight: 700, marginBottom: '3px' }}>
                   Location
                 </span>
-                <span style={{ color: '#526071', fontSize: '0.95rem', fontWeight: 600 }}>Salem, Tamil Nadu, India</span>
+                <span style={{ color: '#526071', fontSize: '0.94rem', fontWeight: 600 }}>Salem, Tamil Nadu, India</span>
               </div>
             </div>
           </div>
