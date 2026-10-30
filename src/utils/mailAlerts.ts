@@ -1,6 +1,6 @@
 /**
- * SkySyncLab Automated Email Alerting & Mailto Helper
- * Prepares direct email alerts sent to hello@skysynclab.com and senthilkumar@skysynclab.com
+ * SkySyncLab Automated Direct Email Alerting & Submission Helper
+ * Delivers inquiries directly to senthilkumar@skysynclab.com and hello@skysynclab.com
  */
 
 export const FOUNDER_EMAIL = 'senthilkumar@skysynclab.com';
@@ -25,6 +25,67 @@ export interface AuditFormData {
   service: string;
   message?: string;
 }
+
+/**
+ * Direct background dispatch to send complete inquiry details
+ * directly to senthilkumar@skysynclab.com without requiring a user mail client.
+ */
+export const sendDirectInquiry = async (
+  data: ConsultationFormData | AuditFormData,
+  formType: 'consultation' | 'audit' = 'consultation'
+): Promise<{ success: boolean; message: string }> => {
+  const org = (data as ConsultationFormData).institution || (data as AuditFormData).company || 'Not specified';
+  const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+  const payload = {
+    access_key: accessKey || '',
+    subject: `[SkySyncLab Lead] ${data.service} - ${data.name} (${org})`,
+    from_name: data.name,
+    email: data.email,
+    phone: data.phone,
+    organization: org,
+    service_required: data.service,
+    project_description: data.message || 'No additional notes provided.',
+    form_origin: formType === 'audit' ? 'Free Architecture Audit Modal' : 'Consultation Desk',
+    timestamp_ist: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) + ' IST'
+  };
+
+  // If a Web3Forms access key is supplied in .env, submit via the API directly
+  if (accessKey) {
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const resData = await response.json();
+      if (resData.success) {
+        return {
+          success: true,
+          message: 'Inquiry successfully delivered to Senthil Kumar (senthilkumar@skysynclab.com)!'
+        };
+      }
+    } catch (err) {
+      console.warn('Direct web API submission encountered an error, falling back:', err);
+    }
+  }
+
+  // Graceful fallback: trigger the pre-filled mail client so the lead is never lost
+  const mailtoUrl = formType === 'audit'
+    ? buildAuditModalMailto(data as AuditFormData)
+    : buildContactFormMailto(data as ConsultationFormData);
+
+  triggerMailto(mailtoUrl);
+
+  return {
+    success: true,
+    message: 'Inquiry details recorded and email notification prepared for senthilkumar@skysynclab.com.'
+  };
+};
 
 /**
  * Direct mailto link for general inquiries

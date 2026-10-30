@@ -2,8 +2,8 @@ import React from 'react';
 
 export interface SkySyncLogoProps {
   /**
-   * 'dark' for dark backgrounds (white cloud, cyan arrow, white text)
-   * 'light' for light backgrounds (navy cloud, cyan arrow, navy text)
+   * 'dark' for dark backgrounds (white cloud, cyan base, white text, cyan dot)
+   * 'light' for light backgrounds (navy cloud, white arrow, navy text, navy dot)
    * 'mono' for monochrome/print styles
    */
   variant?: 'dark' | 'light' | 'mono';
@@ -16,7 +16,7 @@ export interface SkySyncLogoProps {
    */
   iconOnly?: boolean;
   /**
-   * Overall height in pixels (defaults to 34px)
+   * Overall height in pixels (defaults to 28px)
    */
   height?: number;
   /**
@@ -33,23 +33,19 @@ export const SkySyncLogo: React.FC<SkySyncLogoProps> = ({
   variant = 'dark',
   showTagline = false,
   iconOnly = false,
-  height = 34,
+  height = 28,
   className = '',
   style = {}
 }) => {
   const isDark = variant === 'dark';
   const isMono = variant === 'mono';
 
-  // Exact Brand Color Palette from Official Guidelines:
-  // Navy: #0B2A4A, Electric Blue: #0091FF, Cyan: #00C2E8, White: #FFFFFF, Slate: #2F3A4A
-  const cloudFill = isMono ? (isDark ? '#FFFFFF' : '#2F3A4A') : (isDark ? '#FFFFFF' : '#0B2A4A');
-  const textColor = isDark ? '#FFFFFF' : '#0B2A4A';
-  const accentGradientId = `skysync-cyan-grad-${isDark ? 'dark' : 'light'}`;
-  const accentStart = isMono ? (isDark ? '#FFFFFF' : '#2F3A4A') : '#0091FF';
-  const accentEnd = isMono ? (isDark ? '#FFFFFF' : '#2F3A4A') : '#00C2E8';
+  const cloudFill = isMono ? (isDark ? '#FFFFFF' : '#172538') : (isDark ? '#FFFFFF' : '#172538');
+  const textColor = isDark ? '#FFFFFF' : '#172538';
+  const dotColor = isMono ? (isDark ? '#FFFFFF' : '#172538') : (isDark ? '#00D8FF' : '#172538');
+  const lineBg = isDark ? '#FFFFFF' : '#172538';
 
-  // Compute proportional width
-  const iconWidth = Math.round(height * 1.35);
+  const iconWidth = Math.round(height * 1.36);
 
   return (
     <div
@@ -57,107 +53,124 @@ export const SkySyncLogo: React.FC<SkySyncLogoProps> = ({
       style={{
         display: 'inline-flex',
         alignItems: 'center',
-        gap: `${Math.max(8, Math.round(height * 0.28))}px`,
+        gap: `${Math.max(8, Math.round(height * 0.32))}px`,
         textDecoration: 'none',
         userSelect: 'none',
         ...style
       }}
     >
-      {/* 1. Official Cloud Icon with Upward Ascending Cyan Arrow */}
+      {/* 1. Official SkySyncLab Cloud Emblem (Exact replica from official brand assets) */}
       <svg
         width={iconWidth}
         height={height}
-        viewBox="0 0 76 56"
+        viewBox="0 0 66 48"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        shapeRendering="geometricPrecision"
         style={{ flexShrink: 0, overflow: 'visible' }}
         aria-hidden="true"
       >
-        <defs>
-          <linearGradient id={accentGradientId} x1="12" y1="46" x2="62" y2="10" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stopColor={accentStart} />
-            <stop offset="100%" stopColor={accentEnd} />
-          </linearGradient>
-          {/* Subtle drop glow for dark mode arrow */}
-          {isDark && !isMono && (
-            <filter id="skysync-arrow-glow" x="-20%" y="-20%" width="140%" height="140%">
-              <feDropShadow dx="0" dy="1" stdDeviation="1.5" floodColor="#00C2E8" floodOpacity="0.35" />
-            </filter>
-          )}
-        </defs>
+        {isDark && !isMono ? (
+          <>
+            {/* Full White Cloud Base */}
+            <path
+              d="M16 42 C8.27 42 2 35.73 2 28 C2 20.8 7.3 14.9 14.4 14.1 C16.5 6.2 23.6 0.5 32 0.5 C41.6 0.5 49.6 7.6 51 17 C57.5 17.8 62.5 23.3 62.5 30 C62.5 36.63 57.13 42 50.5 42 H16 Z"
+              fill="#FFFFFF"
+            />
 
-        {/* Cloud Body Shape */}
-        <path
-          d="M21.5 48.5C14.0442 48.5 8 42.4558 8 35C8 28.3242 12.8361 22.7788 19.2272 21.6663C21.4658 12.7212 29.5606 6 39.2 6C50.2989 6 59.4005 14.5085 60.3168 25.3582C66.9634 26.294 72 31.9567 72 38.8C72 46.0902 66.0902 52 58.8 52H23.5"
-          fill={cloudFill}
-        />
+            {/* Bottom-Right Electric Blue Accent Lobe */}
+            <path
+              d="M26 42 C32 42 42 42 50.5 42 C57.13 42 62.5 36.63 62.5 30 C62.5 23.3 57.5 17.8 51 17 C48 21 40 31 26 42 Z"
+              fill="#00A3E0"
+            />
 
-        {/* Upward Ascending Arrow swoosh cutting through the cloud */}
-        <g filter={isDark && !isMono ? 'url(#skysync-arrow-glow)' : undefined}>
-          {/* Arrow dynamic tail / swoosh */}
-          <path
-            d="M13 47C20.5 45.2 31.2 39.8 44 26.5L47.5 30L58 11.5L38.5 15.5L42 19C30.2 30.5 21 35.8 13 47Z"
-            fill={`url(#${accentGradientId})`}
-          />
-        </g>
+            {/* White Separation Gap Path */}
+            <path
+              d="M14 42 C22 39 33 32 45 19"
+              stroke="#FFFFFF"
+              strokeWidth="4.5"
+              strokeLinecap="round"
+            />
+
+            {/* Ascending Blue Arrow */}
+            <path
+              d="M13 41 C21 38 31 31 43 19"
+              stroke="#00A3E0"
+              strokeWidth="3.2"
+              strokeLinecap="round"
+            />
+            {/* Arrowhead */}
+            <path
+              d="M37 23 L54 12 L43 31 L40 25 Z"
+              fill="#00A3E0"
+            />
+          </>
+        ) : (
+          <>
+            {/* Light / Mono Mode: Deep Navy Cloud */}
+            <path
+              d="M16 42 C8.27 42 2 35.73 2 28 C2 20.8 7.3 14.9 14.4 14.1 C16.5 6.2 23.6 0.5 32 0.5 C41.6 0.5 49.6 7.6 51 17 C57.5 17.8 62.5 23.3 62.5 30 C62.5 36.63 57.13 42 50.5 42 H16 Z"
+              fill={cloudFill}
+            />
+
+            {/* White Ascending Arrow */}
+            <path
+              d="M13 41 C21 38 31 31 43 19"
+              stroke={isDark ? '#00A3E0' : '#FFFFFF'}
+              strokeWidth="3.2"
+              strokeLinecap="round"
+            />
+            <path
+              d="M37 23 L54 12 L43 31 L40 25 Z"
+              fill={isDark ? '#00A3E0' : '#FFFFFF'}
+            />
+          </>
+        )}
       </svg>
 
-      {/* 2. Official Geometric Wordmark & Underline with terminal dot */}
+      {/* 2. Official Brand Wordmark & Full Underline with Terminal Dot */}
       {!iconOnly && (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', lineHeight: 1 }}>
-            <span
-              style={{
-                fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-                fontSize: `${height * 0.72}px`,
-                fontWeight: 800,
-                color: textColor,
-                letterSpacing: '-0.025em',
-                lineHeight: 1
-              }}
-            >
-              skysync
-            </span>
-            <span
-              style={{
-                fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-                fontSize: `${height * 0.72}px`,
-                fontWeight: 800,
-                color: textColor,
-                letterSpacing: '-0.025em',
-                lineHeight: 1
-              }}
-            >
-              lab
-            </span>
+          <div
+            style={{
+              fontFamily: "'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif",
+              fontSize: `${height * 0.76}px`,
+              fontWeight: 700,
+              color: textColor,
+              letterSpacing: '-0.025em',
+              lineHeight: 1,
+              paddingBottom: '1px'
+            }}
+          >
+            skysynclab
           </div>
 
-          {/* Signature Accent Line with Terminal Node Dot (from Brand Guidelines) */}
+          {/* Signature Underline: placed 7px below so it sits cleanly underneath the y descenders */}
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
-              marginTop: `${Math.max(2, Math.round(height * 0.08))}px`,
               width: '100%',
-              maxWidth: `${height * 2.2}px`
+              marginTop: '7px'
             }}
           >
             <div
               style={{
-                height: `${Math.max(1.5, Math.round(height * 0.05))}px`,
+                height: '1.5px',
                 flex: 1,
-                background: `linear-gradient(90deg, ${accentStart} 0%, ${accentEnd} 100%)`,
-                borderRadius: '2px'
+                backgroundColor: lineBg,
+                borderRadius: '1px'
               }}
             />
             <div
               style={{
-                width: `${Math.max(3.5, Math.round(height * 0.12))}px`,
-                height: `${Math.max(3.5, Math.round(height * 0.12))}px`,
+                width: '4px',
+                height: '4px',
                 borderRadius: '50%',
-                backgroundColor: accentEnd,
-                marginLeft: '-1px',
-                boxShadow: isDark ? '0 0 6px #00C2E8' : 'none'
+                backgroundColor: dotColor,
+                marginLeft: '3px',
+                boxShadow: isDark && !isMono ? '0 0 6px #00E5FF' : 'none',
+                flexShrink: 0
               }}
             />
           </div>
@@ -174,16 +187,14 @@ export const SkySyncLogo: React.FC<SkySyncLogoProps> = ({
             marginLeft: `${Math.round(height * 0.2)}px`
           }}
         >
-          {/* Vertical Divider */}
           <div
             style={{
               width: '1.5px',
               height: `${Math.round(height * 0.9)}px`,
-              backgroundColor: isDark ? 'rgba(255, 255, 255, 0.25)' : 'rgba(11, 42, 74, 0.25)'
+              backgroundColor: isDark ? 'rgba(255, 255, 255, 0.25)' : 'rgba(23, 37, 56, 0.25)'
             }}
           />
 
-          {/* 4 Stacked Core Pillars */}
           <div
             style={{
               display: 'flex',
@@ -193,7 +204,7 @@ export const SkySyncLogo: React.FC<SkySyncLogoProps> = ({
               fontWeight: 700,
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              color: isDark ? '#00C2E8' : '#0B2A4A',
+              color: isDark ? '#00E5FF' : '#172538',
               lineHeight: 1.2
             }}
           >

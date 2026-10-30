@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { AmbientBackground } from './components/AmbientBackground';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -25,11 +25,18 @@ export function App() {
   const [prefilledService, setPrefilledService] = useState('');
   const [prefilledNotes, setPrefilledNotes] = useState('');
 
+  const isNavigatingRef = useRef(false);
+  const currentTabRef = useRef(currentTab);
+  currentTabRef.current = currentTab;
+
   // Scroll Spy: Automatically moves the active navbar tab to the respective section as user scrolls
   useEffect(() => {
     const handleScrollSpy = () => {
+      // Do not override tab while a smooth scroll animation is executing
+      if (isNavigatingRef.current) return;
+
       // Don't override if on dedicated subpages
-      if (currentTab === 'consulting' || currentTab === 'migration' || currentTab === 'designer') return;
+      if (currentTabRef.current === 'consulting' || currentTabRef.current === 'migration' || currentTabRef.current === 'designer') return;
 
       // Bottom of page detection -> highlight contact
       if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 120) {
@@ -38,7 +45,7 @@ export function App() {
       }
 
       // Top of page detection -> highlight home
-      if (window.scrollY < 280) {
+      if (window.scrollY < 240) {
         setCurrentTab('home');
         return;
       }
@@ -68,10 +75,8 @@ export function App() {
     };
 
     window.addEventListener('scroll', handleScrollSpy, { passive: true });
-    handleScrollSpy();
-
     return () => window.removeEventListener('scroll', handleScrollSpy);
-  }, [currentTab]);
+  }, []);
 
   // Scroll-linked movement: Section content fades in slowly and in controlled fashion
   useEffect(() => {
@@ -106,10 +111,14 @@ export function App() {
   };
 
   const handleSelectTab = (tab: string) => {
+    isNavigatingRef.current = true;
     setCurrentTab(tab as any);
     if (tab === 'home' || tab === 'consulting' || tab === 'migration') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    setTimeout(() => {
+      isNavigatingRef.current = false;
+    }, 1000);
   };
 
   return (

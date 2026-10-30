@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, CheckCircle2, Clock, ChevronDown } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle2, Clock, ChevronDown, AlertCircle } from 'lucide-react';
 import {
   getGeneralMailto,
   getFounderMailto,
   buildContactFormMailto,
   buildWhatsAppLink,
-  triggerMailto,
+  sendDirectInquiry,
   FOUNDER_EMAIL,
   GENERAL_EMAIL
 } from '../utils/mailAlerts';
@@ -25,6 +25,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
     message: ''
   });
 
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -43,23 +44,95 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
     }
   }, [prefilledNotes]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleNameChange = (val: string) => {
+    setFormData((prev) => ({ ...prev, name: val }));
+    if (errors.name && val.trim().length >= 2) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next.name;
+        return next;
+      });
+    }
+  };
+
+  const handlePhoneChange = (val: string) => {
+    // Only accept numeric digits, maximum 10 digits
+    const cleaned = val.replace(/\D/g, '').slice(0, 10);
+    setFormData((prev) => ({ ...prev, phone: cleaned }));
+    if (errors.phone) {
+      if (cleaned.length === 10) {
+        setErrors((prev) => {
+          const next = { ...prev };
+          delete next.phone;
+          return next;
+        });
+      } else if (cleaned.length > 0) {
+        setErrors((prev) => ({
+          ...prev,
+          phone: `Mobile number must be exactly 10 digits (${cleaned.length}/10 entered).`
+        }));
+      }
+    }
+  };
+
+  const handleEmailChange = (val: string) => {
+    setFormData((prev) => ({ ...prev, email: val }));
+    if (errors.email && /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(val.trim())) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next.email;
+        return next;
+      });
+    }
+  };
+
+  const validate = () => {
+    const newErrors: { [key: string]: string } = {};
+
+    const trimmedName = formData.name.trim();
+    if (!trimmedName) {
+      newErrors.name = 'Full name is required.';
+    } else if (trimmedName.length < 2) {
+      newErrors.name = 'Please enter at least 2 characters.';
+    }
+
+    const cleanPhone = formData.phone.replace(/\D/g, '');
+    if (!cleanPhone) {
+      newErrors.phone = 'Mobile number is required (10 digits).';
+    } else if (cleanPhone.length !== 10) {
+      newErrors.phone = `Mobile number must be exactly 10 digits (${cleanPhone.length}/10 entered).`;
+    }
+
+    const trimmedEmail = formData.email.trim();
+    if (!trimmedEmail) {
+      newErrors.email = 'Email address is required before submitting.';
+    } else if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(trimmedEmail)) {
+      newErrors.email = 'Please enter a valid email address (e.g. name@company.com).';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validate()) return;
     setIsSubmitting(true);
 
     // Save to local storage as backup
-    const submissions = JSON.parse(localStorage.getItem('skysynclab_inquiries') || '[]');
-    submissions.push({
-      ...formData,
-      timestamp: new Date().toISOString()
-    });
-    localStorage.setItem('skysynclab_inquiries', JSON.stringify(submissions));
+    try {
+      const submissions = JSON.parse(localStorage.getItem('skysynclab_inquiries') || '[]');
+      submissions.push({
+        ...formData,
+        timestamp: new Date().toISOString()
+      });
+      localStorage.setItem('skysynclab_inquiries', JSON.stringify(submissions));
+    } catch {
+      // ignore
+    }
 
-    // Construct the formatted mailto URL to alert Senthil Kumar & hello@skysynclab.com
-    const mailtoUrl = buildContactFormMailto(formData);
-
-    // Automatically trigger redirect to mail client to alert Senthil
-    triggerMailto(mailtoUrl);
+    // Direct background dispatch to senthilkumar@skysynclab.com
+    await sendDirectInquiry(formData, 'consultation');
 
     setIsSubmitting(false);
     setSubmitted(true);
@@ -390,7 +463,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} noValidate>
                 {/* Row 1: FULL NAME & MOBILE NUMBER */}
                 <div style={{
                   display: 'grid',
@@ -408,61 +481,127 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                       display: 'block',
                       marginBottom: '6px'
                     }}>
-                      FULL NAME
+                      FULL NAME *
                     </label>
                     <input
                       type="text"
-                      required
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) => handleNameChange(e.target.value)}
                       placeholder="John Doe"
                       style={{
                         width: '100%',
                         padding: '11px 14px',
                         borderRadius: '8px',
-                        border: '1.5px solid #E2E8F0',
+                        border: errors.name ? '1.5px solid #EF4444' : '1.5px solid #E2E8F0',
                         fontSize: '0.92rem',
                         fontFamily: 'inherit',
                         color: '#232F3E',
-                        backgroundColor: '#FFFFFF',
-                        outline: 'none'
+                        backgroundColor: errors.name ? '#FEF2F2' : '#FFFFFF',
+                        outline: 'none',
+                        transition: 'border-color 0.15s ease'
                       }}
-                      onFocus={(e) => (e.target.style.borderColor = '#ED7100')}
-                      onBlur={(e) => (e.target.style.borderColor = '#E2E8F0')}
+                      onFocus={(e) => (e.target.style.borderColor = errors.name ? '#EF4444' : '#ED7100')}
+                      onBlur={(e) => {
+                        e.target.style.borderColor = errors.name ? '#EF4444' : '#E2E8F0';
+                        if (!formData.name.trim()) {
+                          setErrors((prev) => ({ ...prev, name: 'Full name is required before submitting.' }));
+                        } else if (formData.name.trim().length < 2) {
+                          setErrors((prev) => ({ ...prev, name: 'Please enter at least 2 characters.' }));
+                        }
+                      }}
                     />
+                    {errors.name && (
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        color: '#DC2626',
+                        backgroundColor: '#FEF2F2',
+                        border: '1px solid #FECACA',
+                        borderRadius: '6px',
+                        padding: '5px 8px',
+                        fontSize: '0.78rem',
+                        fontWeight: 600,
+                        marginTop: '6px'
+                      }}>
+                        <AlertCircle size={14} style={{ flexShrink: 0, color: '#DC2626' }} />
+                        <span>{errors.name}</span>
+                      </div>
+                    )}
                   </div>
 
                   <div>
-                    <label style={{
-                      fontSize: '0.74rem',
-                      fontWeight: 700,
-                      letterSpacing: '0.04em',
-                      textTransform: 'uppercase',
-                      color: '#64748B',
-                      display: 'block',
-                      marginBottom: '6px'
-                    }}>
-                      MOBILE NUMBER
-                    </label>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                      <label style={{
+                        fontSize: '0.74rem',
+                        fontWeight: 700,
+                        letterSpacing: '0.04em',
+                        textTransform: 'uppercase',
+                        color: '#64748B'
+                      }}>
+                        MOBILE NUMBER (10 DIGITS) *
+                      </label>
+                      {formData.phone.length > 0 && (
+                        <span style={{
+                          fontSize: '0.72rem',
+                          fontWeight: 700,
+                          color: formData.phone.length === 10 ? '#16A34A' : '#EA580C'
+                        }}>
+                          {formData.phone.length}/10
+                        </span>
+                      )}
+                    </div>
                     <input
                       type="tel"
+                      inputMode="numeric"
+                      pattern="[0-9]{10}"
+                      maxLength={10}
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="+91 98765 43210"
+                      onChange={(e) => handlePhoneChange(e.target.value)}
+                      placeholder="10-digit mobile number"
                       style={{
                         width: '100%',
                         padding: '11px 14px',
                         borderRadius: '8px',
-                        border: '1.5px solid #E2E8F0',
+                        border: errors.phone ? '1.5px solid #EF4444' : '1.5px solid #E2E8F0',
                         fontSize: '0.92rem',
                         fontFamily: 'inherit',
                         color: '#232F3E',
-                        backgroundColor: '#FFFFFF',
-                        outline: 'none'
+                        backgroundColor: errors.phone ? '#FEF2F2' : '#FFFFFF',
+                        outline: 'none',
+                        transition: 'border-color 0.15s ease'
                       }}
-                      onFocus={(e) => (e.target.style.borderColor = '#ED7100')}
-                      onBlur={(e) => (e.target.style.borderColor = '#E2E8F0')}
+                      onFocus={(e) => (e.target.style.borderColor = errors.phone ? '#EF4444' : '#ED7100')}
+                      onBlur={(e) => {
+                        e.target.style.borderColor = errors.phone ? '#EF4444' : '#E2E8F0';
+                        if (!formData.phone.trim()) {
+                          setErrors((prev) => ({ ...prev, phone: 'Mobile number is required (10 digits).' }));
+                        } else if (formData.phone.length !== 10) {
+                          setErrors((prev) => ({
+                            ...prev,
+                            phone: `Mobile number must be exactly 10 digits (${formData.phone.length}/10 entered).`
+                          }));
+                        }
+                      }}
                     />
+                    {errors.phone && (
+                      <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '6px',
+                        color: '#DC2626',
+                        backgroundColor: '#FEF2F2',
+                        border: '1px solid #FECACA',
+                        borderRadius: '6px',
+                        padding: '5px 8px',
+                        fontSize: '0.78rem',
+                        fontWeight: 600,
+                        marginTop: '6px'
+                      }}>
+                        <AlertCircle size={14} style={{ flexShrink: 0, color: '#DC2626' }} />
+                        <span>{errors.phone}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -477,28 +616,53 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                     display: 'block',
                     marginBottom: '6px'
                   }}>
-                    EMAIL
+                    EMAIL *
                   </label>
                   <input
                     type="email"
-                    required
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) => handleEmailChange(e.target.value)}
                     placeholder="john@campus.edu"
                     style={{
                       width: '100%',
                       padding: '11px 14px',
                       borderRadius: '8px',
-                      border: '1.5px solid #E2E8F0',
+                      border: errors.email ? '1.5px solid #EF4444' : '1.5px solid #E2E8F0',
                       fontSize: '0.92rem',
                       fontFamily: 'inherit',
                       color: '#232F3E',
-                      backgroundColor: '#FFFFFF',
-                      outline: 'none'
+                      backgroundColor: errors.email ? '#FEF2F2' : '#FFFFFF',
+                      outline: 'none',
+                      transition: 'border-color 0.15s ease'
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = '#ED7100')}
-                    onBlur={(e) => (e.target.style.borderColor = '#E2E8F0')}
+                    onFocus={(e) => (e.target.style.borderColor = errors.email ? '#EF4444' : '#ED7100')}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = errors.email ? '#EF4444' : '#E2E8F0';
+                      if (!formData.email.trim()) {
+                        setErrors((prev) => ({ ...prev, email: 'Email address is required before submitting.' }));
+                      } else if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(formData.email.trim())) {
+                        setErrors((prev) => ({ ...prev, email: 'Please enter a valid email address (e.g. name@company.com).' }));
+                      }
+                    }}
                   />
+                  {errors.email && (
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      color: '#DC2626',
+                      backgroundColor: '#FEF2F2',
+                      border: '1px solid #FECACA',
+                      borderRadius: '6px',
+                      padding: '5px 8px',
+                      fontSize: '0.78rem',
+                      fontWeight: 600,
+                      marginTop: '6px'
+                    }}>
+                      <AlertCircle size={14} style={{ flexShrink: 0, color: '#DC2626' }} />
+                      <span>{errors.email}</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Row 3: ORGANIZATION */}
@@ -633,6 +797,33 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                     onBlur={(e) => (e.target.style.borderColor = '#E2E8F0')}
                   />
                 </div>
+
+                {/* Warnings Summary Before Submitting */}
+                {Object.keys(errors).length > 0 && (
+                  <div style={{
+                    backgroundColor: '#FEF2F2',
+                    border: '1.5px solid #FCA5A5',
+                    borderRadius: '10px',
+                    padding: '12px 14px',
+                    marginBottom: '16px',
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '10px',
+                    boxShadow: '0 2px 8px rgba(239, 68, 68, 0.08)'
+                  }}>
+                    <AlertCircle size={18} style={{ color: '#DC2626', flexShrink: 0, marginTop: '2px' }} />
+                    <div style={{ fontSize: '0.82rem', color: '#991B1B', lineHeight: 1.45 }}>
+                      <div style={{ fontWeight: 800, marginBottom: '3px' }}>
+                        Please correct the following fields before submitting:
+                      </div>
+                      <ul style={{ margin: 0, paddingLeft: '18px', color: '#B91C1C' }}>
+                        {errors.name && <li>{errors.name}</li>}
+                        {errors.phone && <li>{errors.phone}</li>}
+                        {errors.email && <li>{errors.email}</li>}
+                      </ul>
+                    </div>
+                  </div>
+                )}
 
                 <button
                   type="submit"

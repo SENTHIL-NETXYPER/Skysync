@@ -485,19 +485,14 @@ export const Hero: React.FC<HeroProps> = ({
               color: '#0A0E1A',
               lineHeight: 1.15,
               letterSpacing: '-0.035em',
-              margin: '0 0 24px 0',
-              textShadow: '0 1px 2px rgba(255, 255, 255, 0.85)'
+              margin: '0 0 24px 0'
             }}
           >
             {activeTopic.titlePrefix} <br />
             <span
               style={{
-                background: activeId === 'cloud'
-                  ? 'linear-gradient(90deg, #0091FF 0%, #00C2E8 100%)'
-                  : 'linear-gradient(90deg, #ED7100 0%, #FF9900 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                fontWeight: 950,
+                color: activeId === 'cloud' ? '#0066CC' : '#ED7100',
+                fontWeight: 900,
                 display: 'inline-block'
               }}
             >

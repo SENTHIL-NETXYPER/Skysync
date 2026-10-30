@@ -186,19 +186,26 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
           : tabId === 'about'
           ? 'why-choose-us'
           : tabId;
+
       const el = document.getElementById(targetId) || document.getElementById('client-proof');
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+        const navOffset = 84;
+        const offsetPosition = el.getBoundingClientRect().top + window.pageYOffset - navOffset;
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
       }
     };
 
     scrollToTarget();
-    setTimeout(scrollToTarget, 60);
-    setTimeout(scrollToTarget, 200);
+    setTimeout(scrollToTarget, 80);
+    setTimeout(scrollToTarget, 220);
   };
 
   const handleServiceClick = (serviceId: string) => {
     setServicesMenuOpen(false);
+    setMobileMenuOpen(false);
     if (serviceId === 'consulting' || serviceId === 'migration') {
       onSelectTab(serviceId);
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -209,9 +216,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
 
   const handleSolutionClick = (solutionId: string) => {
     setSolutionsMenuOpen(false);
+    setMobileMenuOpen(false);
     if (solutionId === 'designer') {
       const el = document.getElementById('designer-section');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      if (el) {
+        const navOffset = 84;
+        const offsetPosition = el.getBoundingClientRect().top + window.pageYOffset - navOffset;
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+      }
     } else {
       handleNavClick('solutions');
     }
@@ -234,10 +249,21 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
               cursor: 'pointer',
               padding: '2px 8px',
               textDecoration: 'none',
-              flexShrink: 0
+              flexShrink: 0,
+              gap: '10px'
             }}
           >
             <SkySyncLogo variant="dark" height={28} />
+            <span style={{
+              fontSize: '0.82rem',
+              fontWeight: 600,
+              color: 'rgba(255,255,255,0.72)',
+              letterSpacing: '0.02em',
+              whiteSpace: 'nowrap',
+              fontFamily: 'var(--font-sans)'
+            }}>
+              AI Consultant
+            </span>
           </button>
 
           {/* Center Pill Track (Matching the User's Image Aesthetic) */}
@@ -434,13 +460,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
 
                 return (
                   <div key={item.id} style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <button
+                    <div
                       className={`nav-capsule-tab ${isActive ? 'active' : ''}`}
                       style={{
                         width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
                         justifyContent: 'space-between',
-                        padding: '10px 18px',
-                        fontSize: '0.95rem'
+                        padding: '11px 18px',
+                        fontSize: '0.96rem',
+                        cursor: 'pointer'
                       }}
                       onClick={() => {
                         if (isService) {
@@ -452,32 +481,51 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                         }
                       }}
                     >
-                      <span>{item.label}</span>
+                      <span style={{ fontWeight: isActive ? 700 : 500 }}>{item.label}</span>
                       {item.hasDropdown && (
-                        <ChevronDown
-                          size={15}
+                        <div
                           style={{
-                            transform:
-                              (isService && servicesMenuOpen) || (isSolution && solutionsMenuOpen)
-                                ? 'rotate(180deg)'
-                                : 'rotate(0deg)',
-                            transition: 'transform 0.2s ease',
-                            color: '#CBD5E1'
+                            padding: '2px 6px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            cursor: 'pointer'
                           }}
-                        />
+                        >
+                          <ChevronDown
+                            size={16}
+                            style={{
+                              transform:
+                                (isService && servicesMenuOpen) || (isSolution && solutionsMenuOpen)
+                                  ? 'rotate(180deg)'
+                                  : 'rotate(0deg)',
+                              transition: 'transform 0.2s ease',
+                              color: '#CBD5E1'
+                            }}
+                          />
+                        </div>
                       )}
-                    </button>
+                    </div>
 
                     {isService && servicesMenuOpen && (
                       <div
                         style={{
-                          paddingLeft: '12px',
+                          paddingLeft: '14px',
                           display: 'flex',
                           flexDirection: 'column',
-                          gap: '4px',
-                          marginTop: '2px'
+                          gap: '6px',
+                          marginTop: '4px',
+                          marginBottom: '4px'
                         }}
                       >
+                        <button
+                          className="nav-capsule-dropdown-item"
+                          onClick={() => handleNavClick('services')}
+                          style={{ borderLeft: '2px solid #ED7100', paddingLeft: '10px' }}
+                        >
+                          <span style={{ color: '#ED7100', fontWeight: 700, fontSize: '0.88rem' }}>
+                            • View All Cloud Services
+                          </span>
+                        </button>
                         {servicesList.map((svc) => (
                           <button
                             key={svc.id}
@@ -493,13 +541,23 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                     {isSolution && solutionsMenuOpen && (
                       <div
                         style={{
-                          paddingLeft: '12px',
+                          paddingLeft: '14px',
                           display: 'flex',
                           flexDirection: 'column',
-                          gap: '4px',
-                          marginTop: '2px'
+                          gap: '6px',
+                          marginTop: '4px',
+                          marginBottom: '4px'
                         }}
                       >
+                        <button
+                          className="nav-capsule-dropdown-item"
+                          onClick={() => handleNavClick('solutions')}
+                          style={{ borderLeft: '2px solid #ED7100', paddingLeft: '10px' }}
+                        >
+                          <span style={{ color: '#ED7100', fontWeight: 700, fontSize: '0.88rem' }}>
+                            • View All Solutions
+                          </span>
+                        </button>
                         {solutionsList.map((sol) => (
                           <button
                             key={sol.id}

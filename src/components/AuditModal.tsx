@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle, ChevronDown, Mail, Phone } from 'lucide-react';
+import { X, CheckCircle, ChevronDown, Mail, Phone, AlertCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import {
   buildAuditModalMailto,
   buildWhatsAppLink,
-  triggerMailto,
+  sendDirectInquiry,
   GENERAL_EMAIL,
   FOUNDER_EMAIL
 } from '../utils/mailAlerts';
@@ -33,6 +33,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (prefilledService) setFormData((prev) => ({ ...prev, service: prefilledService }));
@@ -53,25 +54,81 @@ export const AuditModal: React.FC<AuditModalProps> = ({
 
   if (!isOpen) return null;
 
+  const handleNameChange = (val: string) => {
+    setFormData((prev) => ({ ...prev, name: val }));
+    if (errors.name && val.trim().length >= 2) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next.name;
+        return next;
+      });
+    }
+  };
+
+  const handlePhoneChange = (val: string) => {
+    // Only allow numeric digits, max 10 digits
+    const cleaned = val.replace(/\D/g, '').slice(0, 10);
+    setFormData((prev) => ({ ...prev, phone: cleaned }));
+    if (errors.phone) {
+      if (cleaned.length === 10) {
+        setErrors((prev) => {
+          const next = { ...prev };
+          delete next.phone;
+          return next;
+        });
+      } else if (cleaned.length > 0) {
+        setErrors((prev) => ({
+          ...prev,
+          phone: `Mobile number must be exactly 10 digits (${cleaned.length}/10 entered).`
+        }));
+      }
+    }
+  };
+
+  const handleEmailChange = (val: string) => {
+    setFormData((prev) => ({ ...prev, email: val }));
+    if (errors.email && /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(val.trim())) {
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next.email;
+        return next;
+      });
+    }
+  };
+
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
 
-    if (!formData.name.trim()) newErrors.name = 'Full name is required.';
-    if (!formData.phone.trim()) newErrors.phone = 'Mobile number is required.';
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email address is required.';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address.';
+    const trimmedName = formData.name.trim();
+    if (!trimmedName) {
+      newErrors.name = 'Full name is required.';
+    } else if (trimmedName.length < 2) {
+      newErrors.name = 'Please enter at least 2 characters.';
+    }
+
+    const cleanPhone = formData.phone.replace(/\D/g, '');
+    if (!cleanPhone) {
+      newErrors.phone = 'Mobile number is required (10 digits).';
+    } else if (cleanPhone.length !== 10) {
+      newErrors.phone = `Mobile number must be exactly 10 digits (${cleanPhone.length}/10 entered).`;
+    }
+
+    const trimmedEmail = formData.email.trim();
+    if (!trimmedEmail) {
+      newErrors.email = 'Email address is required before submitting.';
+    } else if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(trimmedEmail)) {
+      newErrors.email = 'Please enter a valid email address (e.g. name@company.com).';
     }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!validate()) return;
+    setIsSubmitting(true);
 
     try {
       const audits = JSON.parse(localStorage.getItem('skysynclab_audit_requests') || '[]');
@@ -84,10 +141,10 @@ export const AuditModal: React.FC<AuditModalProps> = ({
       // ignore
     }
 
-    // Auto-alert Senthil Kumar & hello@skysynclab.com via pre-filled mailto
-    const mailtoUrl = buildAuditModalMailto(formData);
-    triggerMailto(mailtoUrl);
+    // Auto-alert Senthil Kumar & hello@skysynclab.com directly
+    await sendDirectInquiry(formData, 'audit');
 
+    setIsSubmitting(false);
     setSubmitted(true);
 
     try {
@@ -288,64 +345,127 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                     display: 'block',
                     marginBottom: '6px'
                   }}>
-                    FULL NAME
+                    FULL NAME *
                   </label>
                   <input
                     type="text"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) => handleNameChange(e.target.value)}
                     placeholder="John Doe"
                     style={{
                       width: '100%',
                       padding: '10px 12px',
                       borderRadius: '8px',
-                      border: errors.name ? '1px solid #EF4444' : '1px solid #E2E8F0',
+                      border: errors.name ? '1.5px solid #EF4444' : '1px solid #CBD5E1',
                       fontSize: '0.90rem',
                       fontFamily: 'inherit',
                       color: '#0F172A',
-                      backgroundColor: '#FFFFFF',
+                      backgroundColor: errors.name ? '#FEF2F2' : '#FFFFFF',
                       outline: 'none',
                       transition: 'border-color 0.15s ease'
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = '#ED7100')}
-                    onBlur={(e) => (e.target.style.borderColor = errors.name ? '#EF4444' : '#E2E8F0')}
+                    onFocus={(e) => (e.target.style.borderColor = errors.name ? '#EF4444' : '#ED7100')}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = errors.name ? '#EF4444' : '#CBD5E1';
+                      if (!formData.name.trim()) {
+                        setErrors((prev) => ({ ...prev, name: 'Full name is required before submitting.' }));
+                      } else if (formData.name.trim().length < 2) {
+                        setErrors((prev) => ({ ...prev, name: 'Please enter at least 2 characters.' }));
+                      }
+                    }}
                   />
-                  {errors.name && <span style={{ color: '#EF4444', fontSize: '0.74rem', marginTop: '2px', display: 'block' }}>{errors.name}</span>}
+                  {errors.name && (
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      color: '#DC2626',
+                      backgroundColor: '#FEF2F2',
+                      border: '1px solid #FECACA',
+                      borderRadius: '6px',
+                      padding: '5px 8px',
+                      fontSize: '0.78rem',
+                      fontWeight: 600,
+                      marginTop: '6px'
+                    }}>
+                      <AlertCircle size={14} style={{ flexShrink: 0, color: '#DC2626' }} />
+                      <span>{errors.name}</span>
+                    </div>
+                  )}
                 </div>
 
                 <div>
-                  <label style={{
-                    fontSize: '0.74rem',
-                    fontWeight: 700,
-                    letterSpacing: '0.04em',
-                    textTransform: 'uppercase',
-                    color: '#64748B',
-                    display: 'block',
-                    marginBottom: '6px'
-                  }}>
-                    MOBILE NUMBER
-                  </label>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
+                    <label style={{
+                      fontSize: '0.74rem',
+                      fontWeight: 700,
+                      letterSpacing: '0.04em',
+                      textTransform: 'uppercase',
+                      color: '#64748B'
+                    }}>
+                      MOBILE NUMBER (10 DIGITS) *
+                    </label>
+                    {formData.phone.length > 0 && (
+                      <span style={{
+                        fontSize: '0.72rem',
+                        fontWeight: 700,
+                        color: formData.phone.length === 10 ? '#16A34A' : '#EA580C'
+                      }}>
+                        {formData.phone.length}/10
+                      </span>
+                    )}
+                  </div>
                   <input
                     type="tel"
+                    inputMode="numeric"
+                    pattern="[0-9]{10}"
+                    maxLength={10}
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+1234567890"
+                    onChange={(e) => handlePhoneChange(e.target.value)}
+                    placeholder="10-digit mobile number"
                     style={{
                       width: '100%',
                       padding: '10px 12px',
                       borderRadius: '8px',
-                      border: errors.phone ? '1px solid #EF4444' : '1px solid #E2E8F0',
+                      border: errors.phone ? '1.5px solid #EF4444' : '1px solid #CBD5E1',
                       fontSize: '0.90rem',
                       fontFamily: 'inherit',
                       color: '#0F172A',
-                      backgroundColor: '#FFFFFF',
+                      backgroundColor: errors.phone ? '#FEF2F2' : '#FFFFFF',
                       outline: 'none',
                       transition: 'border-color 0.15s ease'
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = '#ED7100')}
-                    onBlur={(e) => (e.target.style.borderColor = errors.phone ? '#EF4444' : '#E2E8F0')}
+                    onFocus={(e) => (e.target.style.borderColor = errors.phone ? '#EF4444' : '#ED7100')}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = errors.phone ? '#EF4444' : '#CBD5E1';
+                      if (!formData.phone.trim()) {
+                        setErrors((prev) => ({ ...prev, phone: 'Mobile number is required (10 digits).' }));
+                      } else if (formData.phone.length !== 10) {
+                        setErrors((prev) => ({
+                          ...prev,
+                          phone: `Mobile number must be exactly 10 digits (${formData.phone.length}/10 entered).`
+                        }));
+                      }
+                    }}
                   />
-                  {errors.phone && <span style={{ color: '#EF4444', fontSize: '0.74rem', marginTop: '2px', display: 'block' }}>{errors.phone}</span>}
+                  {errors.phone && (
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      color: '#DC2626',
+                      backgroundColor: '#FEF2F2',
+                      border: '1px solid #FECACA',
+                      borderRadius: '6px',
+                      padding: '5px 8px',
+                      fontSize: '0.78rem',
+                      fontWeight: 600,
+                      marginTop: '6px'
+                    }}>
+                      <AlertCircle size={14} style={{ flexShrink: 0, color: '#DC2626' }} />
+                      <span>{errors.phone}</span>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -360,29 +480,53 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                   display: 'block',
                   marginBottom: '6px'
                 }}>
-                  EMAIL
+                  EMAIL *
                 </label>
                 <input
                   type="email"
                   value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  onChange={(e) => handleEmailChange(e.target.value)}
                   placeholder="john@company.com"
                   style={{
                     width: '100%',
                     padding: '10px 12px',
                     borderRadius: '8px',
-                    border: errors.email ? '1px solid #EF4444' : '1px solid #E2E8F0',
+                    border: errors.email ? '1.5px solid #EF4444' : '1px solid #CBD5E1',
                     fontSize: '0.90rem',
                     fontFamily: 'inherit',
                     color: '#0F172A',
-                    backgroundColor: '#FFFFFF',
+                    backgroundColor: errors.email ? '#FEF2F2' : '#FFFFFF',
                     outline: 'none',
                     transition: 'border-color 0.15s ease'
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = '#ED7100')}
-                  onBlur={(e) => (e.target.style.borderColor = errors.email ? '#EF4444' : '#E2E8F0')}
+                  onFocus={(e) => (e.target.style.borderColor = errors.email ? '#EF4444' : '#ED7100')}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = errors.email ? '#EF4444' : '#CBD5E1';
+                    if (!formData.email.trim()) {
+                      setErrors((prev) => ({ ...prev, email: 'Email address is required before submitting.' }));
+                    } else if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(formData.email.trim())) {
+                      setErrors((prev) => ({ ...prev, email: 'Please enter a valid email address (e.g. name@company.com).' }));
+                    }
+                  }}
                 />
-                {errors.email && <span style={{ color: '#EF4444', fontSize: '0.74rem', marginTop: '2px', display: 'block' }}>{errors.email}</span>}
+                {errors.email && (
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    color: '#DC2626',
+                    backgroundColor: '#FEF2F2',
+                    border: '1px solid #FECACA',
+                    borderRadius: '6px',
+                    padding: '5px 8px',
+                    fontSize: '0.78rem',
+                    fontWeight: 600,
+                    marginTop: '6px'
+                  }}>
+                    <AlertCircle size={14} style={{ flexShrink: 0, color: '#DC2626' }} />
+                    <span>{errors.email}</span>
+                  </div>
+                )}
               </div>
 
               {/* Row 3: ORGANIZATION */}
@@ -519,35 +663,68 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                 />
               </div>
 
+              {/* Warnings Summary Before Submitting */}
+              {Object.keys(errors).length > 0 && (
+                <div style={{
+                  backgroundColor: '#FEF2F2',
+                  border: '1.5px solid #FCA5A5',
+                  borderRadius: '10px',
+                  padding: '12px 14px',
+                  marginBottom: '16px',
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: '10px',
+                  boxShadow: '0 2px 8px rgba(239, 68, 68, 0.08)'
+                }}>
+                  <AlertCircle size={18} style={{ color: '#DC2626', flexShrink: 0, marginTop: '2px' }} />
+                  <div style={{ fontSize: '0.82rem', color: '#991B1B', lineHeight: 1.45 }}>
+                    <div style={{ fontWeight: 800, marginBottom: '3px' }}>
+                      Please correct the following fields before submitting:
+                    </div>
+                    <ul style={{ margin: 0, paddingLeft: '18px', color: '#B91C1C' }}>
+                      {errors.name && <li>{errors.name}</li>}
+                      {errors.phone && <li>{errors.phone}</li>}
+                      {errors.email && <li>{errors.email}</li>}
+                    </ul>
+                  </div>
+                </div>
+              )}
+
               {/* Row 6: Submit Button (AWS Orange Pill) */}
               <button
                 type="submit"
+                disabled={isSubmitting}
                 style={{
                   width: '100%',
                   padding: '13px 20px',
                   fontSize: '0.96rem',
                   fontWeight: 800,
-                  backgroundColor: '#ED7100',
+                  backgroundColor: isSubmitting ? '#94A3B8' : '#ED7100',
                   color: '#FFFFFF',
                   border: 'none',
                   borderRadius: '10px',
-                  cursor: 'pointer',
+                  cursor: isSubmitting ? 'not-allowed' : 'pointer',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   transition: 'background-color 0.18s ease, transform 0.18s ease',
-                  boxShadow: '0 4px 14px rgba(237, 113, 0, 0.35)'
+                  boxShadow: '0 4px 14px rgba(237, 113, 0, 0.35)',
+                  opacity: isSubmitting ? 0.75 : 1
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#EC7211';
-                  e.currentTarget.style.transform = 'translateY(-1px)';
+                  if (!isSubmitting) {
+                    e.currentTarget.style.backgroundColor = '#EC7211';
+                    e.currentTarget.style.transform = 'translateY(-1px)';
+                  }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#ED7100';
-                  e.currentTarget.style.transform = 'translateY(0)';
+                  if (!isSubmitting) {
+                    e.currentTarget.style.backgroundColor = '#ED7100';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }
                 }}
               >
-                Send Message
+                {isSubmitting ? 'Sending to Senthil Kumar...' : 'Send Message'}
               </button>
             </form>
           </div>
