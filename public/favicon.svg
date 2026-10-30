@@ -10,30 +10,6 @@
   <rect width="64" height="64" rx="16" fill="url(#favicon-bg)"/>
   <rect width="64" height="64" rx="16" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
 
-  <!-- Cloud body — deep navy matching reference brand -->
-  <path
-    d="M13 52
-       C7 52 2 47 2 41
-       C2 35.2 6 30.6 11.5 29.8
-       C13.2 23.5 19 19 26 19
-       C33.8 19 40.2 24.5 41.4 32
-       C46.5 32.6 50 36.5 50 41
-       C50 46.5 45.5 52 40 52 H13 Z"
-    fill="#2C3E55"
-  />
-
-  <!-- White ascending arrow line -->
-  <path
-    d="M11 51 C18 48 26 42 35 30"
-    stroke="#FFFFFF"
-    stroke-width="3.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-
-  <!-- White arrowhead pointing top-right -->
-  <path
-    d="M30 33 L46 23 L38 38 L34 32 Z"
-    fill="#FFFFFF"
-  />
+  <!-- Authentic SkySyncLab Cloud Emblem with White Arrow -->
+  <image href="./assets/skysync_cloud_emblem.png" x="8" y="14" width="48" height="36" preserveAspectRatio="xMidYMid meet" />
 </svg>

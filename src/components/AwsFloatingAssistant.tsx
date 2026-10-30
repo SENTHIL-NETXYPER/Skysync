@@ -552,8 +552,8 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
             <>
               <div
                 style={{
-                  width: '24px',
-                  height: '24px',
+                  width: '28px',
+                  height: '22px',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -607,15 +607,16 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                   width: '38px',
                   height: '38px',
                   borderRadius: '11px',
-                  border: '1.5px solid rgba(0, 145, 255, 0.25)',
-                  backgroundColor: '#0B2A4A',
+                  border: '1px solid #E2E8F0',
+                  backgroundColor: '#F8FAFC',
+                  boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0
                 }}
               >
-                <SkySyncLogo iconOnly height={20} variant="dark" />
+                <SkySyncLogo iconOnly height={22} variant="light" />
               </div>
 
               <div style={{ fontSize: '1.02rem', fontWeight: 800, color: '#0F172A', letterSpacing: '-0.01em' }}>

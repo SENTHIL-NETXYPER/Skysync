@@ -1,4 +1,5 @@
 import React from 'react';
+import emblemImg from '../assets/skysync_cloud_emblem.png';
 
 export interface SkySyncLogoProps {
   /**
@@ -42,7 +43,7 @@ export const SkySyncLogo: React.FC<SkySyncLogoProps> = ({
   const dotColor = isDark ? '#FFFFFF' : '#172538';
   const lineBg = isDark ? '#FFFFFF' : '#172538';
 
-  const iconWidth = Math.round(height * 1.36);
+  const iconWidth = Math.round(height * 1.55);
 
   return (
     <div
@@ -56,42 +57,25 @@ export const SkySyncLogo: React.FC<SkySyncLogoProps> = ({
         ...style
       }}
     >
-      {/* Official SkySyncLab Cloud Emblem — exact match to reference brand asset */}
-      <svg
+      {/* Official SkySyncLab Cloud Emblem — authentic brand asset */}
+      <img
+        src={emblemImg}
+        alt="SkySyncLab"
         width={iconWidth}
         height={height}
-        viewBox="0 0 72 52"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        shapeRendering="geometricPrecision"
-        style={{ flexShrink: 0 }}
-        aria-hidden="true"
-      >
-        {/* Cloud body — deep navy, matching reference brand */}
-        <path
-          d="M18 46
-             C9.16 46 2 38.84 2 30
-             C2 21.8 7.9 15.1 15.8 14.1
-             C18.2 5.8 25.8 0 35 0
-             C45.5 0 54.1 7.8 55.4 18
-             C62.5 18.9 68 24.8 68 32
-             C68 39.73 61.73 46 54 46 H18 Z"
-          fill={isDark ? '#2C3E55' : '#172538'}
-        />
-        {/* White ascending arrow line */}
-        <path
-          d="M15 44 C24 40 35 32 48 18"
-          stroke="#FFFFFF"
-          strokeWidth="4"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        {/* White arrowhead */}
-        <path
-          d="M41 22 L60 10 L48 30 L44 23 Z"
-          fill="#FFFFFF"
-        />
-      </svg>
+        style={{
+          height: `${height}px`,
+          width: 'auto',
+          aspectRatio: '96 / 62',
+          objectFit: 'contain',
+          flexShrink: 0,
+          display: 'block',
+          userSelect: 'none',
+          pointerEvents: 'none',
+          filter: isDark ? 'drop-shadow(0 0 1px rgba(255, 255, 255, 0.45)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5))' : 'none'
+        }}
+        draggable={false}
+      />
 
       {/* 2. Official Brand Wordmark & Full Underline with Terminal Dot */}
       {!iconOnly && (
