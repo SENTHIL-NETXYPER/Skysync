@@ -394,6 +394,7 @@ p {
 .floating-nav-pill-wrapper {
   pointer-events: auto;
   position: relative;
+  width: 100%;
   max-width: 1240px;
   margin: 0 auto;
   background: linear-gradient(135deg, rgba(10, 20, 38, 0.94) 0%, rgba(16, 30, 56, 0.92) 50%, rgba(8, 16, 32, 0.96) 100%) !important;
@@ -402,11 +403,12 @@ p {
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 9999px;
   box-shadow: 0 16px 40px -4px rgba(4, 10, 24, 0.45), 0 2px 10px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.22);
-  padding: 6px 10px 6px 18px;
+  padding: 5px 6px 5px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 10px;
+  box-sizing: border-box;
   transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -420,12 +422,13 @@ p {
 .nav-capsule-rail {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
-  padding: 4px 6px;
+  padding: 3px 5px;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
 }
 
 /* Individual Pill Tab */
@@ -433,12 +436,12 @@ p {
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  padding: 8px 18px;
+  gap: 4px;
+  padding: 7px 13px;
   border-radius: 9999px;
   border: 1px solid transparent;
   font-family: var(--font-sans);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 500;
   line-height: 1.25;
   cursor: pointer;
@@ -571,18 +574,22 @@ p {
 .nav-cta-pill {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 24px;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 18px;
   border-radius: 9999px;
   background-color: #ED7100;
   border: none;
   color: #FFFFFF;
   font-family: var(--font-sans);
-  font-size: 0.92rem;
-  font-weight: 750;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1;
   cursor: pointer;
   white-space: nowrap;
-  box-shadow: 0 4px 16px rgba(237, 113, 0, 0.38);
+  flex-shrink: 0;
+  box-sizing: border-box;
+  box-shadow: 0 4px 14px rgba(237, 113, 0, 0.35);
   transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
   text-decoration: none;
 }
@@ -591,7 +598,7 @@ p {
   background-color: #D96500;
   color: #FFFFFF;
   transform: translateY(-1px);
-  box-shadow: 0 6px 22px rgba(237, 113, 0, 0.52);
+  box-shadow: 0 6px 20px rgba(237, 113, 0, 0.50);
 }
 
 /* Mobile responsive menu */
@@ -644,34 +651,39 @@ p {
 }
 
 @media (max-width: 1240px) and (min-width: 991px) {
+  .floating-nav-pill-wrapper {
+    gap: 8px;
+    padding: 5px 6px 5px 14px;
+  }
   .nav-capsule-tab {
-    padding: 7px 11px;
-    font-size: 0.86rem;
-    gap: 4px;
-  }
-  .nav-capsule-rail {
-    gap: 2px;
-    padding: 3px 4px;
-  }
-  .nav-cta-pill {
-    padding: 8px 16px;
-    font-size: 0.86rem;
-  }
-}
-
-@media (max-width: 1120px) and (min-width: 991px) {
-  .nav-capsule-tab {
-    padding: 6px 8px;
+    padding: 6px 9px;
     font-size: 0.82rem;
     gap: 3px;
   }
-  .nav-brand-tagline {
-    display: none !important;
+  .nav-capsule-rail {
+    gap: 1px;
+    padding: 2px 3px;
   }
   .nav-cta-pill {
     padding: 7px 14px;
     font-size: 0.82rem;
     gap: 5px;
+  }
+}
+
+@media (max-width: 1120px) and (min-width: 991px) {
+  .nav-capsule-tab {
+    padding: 5px 7px;
+    font-size: 0.80rem;
+    gap: 2px;
+  }
+  .nav-brand-tagline {
+    display: none !important;
+  }
+  .nav-cta-pill {
+    padding: 6px 12px;
+    font-size: 0.80rem;
+    gap: 4px;
   }
 }
 

@@ -383,7 +383,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
           </nav>
 
           {/* Right Action Icons & Glowing "Get Started →" Button */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
             {/* Classy Circular Search Button (matching reference image) */}
             <button
               onClick={() => setIsSearchOpen(true)}
