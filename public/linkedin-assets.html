@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SkySyncLab — Official LinkedIn Brand Assets & Appearance Kit</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #0A0E1A;
+      color: #F8FAFC;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      padding: 40px 24px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: #94A3B8;
+      font-size: 1rem;
+      margin-bottom: 32px;
+    }
+    .card {
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #F8FAFC;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-desc {
+      font-size: 0.88rem;
+      color: #94A3B8;
+      margin-bottom: 16px;
+    }
+    .preview-box {
+      background: #060913;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      overflow-x: auto;
+    }
+    .btn {
+      background: #ED7100;
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background 0.16s ease, transform 0.16s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn:hover {
+      background: #FF851B;
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: #E2E8F0;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      margin-left: 10px;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    .copy-field {
+      background: #030712;
+      border: 1px solid #1F2937;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: monospace;
+      font-size: 0.88rem;
+      color: #38BDF8;
+      margin-bottom: 12px;
+      position: relative;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SkySyncLab — LinkedIn Appearance Kit</h1>
+    <p class="subtitle">Download official high-resolution brand banners, profile avatars, and copy-paste profile content tailored for SkySyncLab on LinkedIn.</p>
+
+    <!-- 1. Profile Avatar / Logo -->
+    <div class="card">
+      <div class="card-title">
+        <span>1. LinkedIn Profile / Company Avatar</span>
+        <span style="font-size: 0.78rem; padding: 2px 8px; border-radius: 6px; background: rgba(237, 113, 0, 0.15); color: #ED7100;">400 × 400 px</span>
+      </div>
+      <p class="card-desc">Features official SkySyncLab deep navy emblem with ascending arrow on a premium dark tech gradient.</p>
+      
+      <div class="preview-box">
+        <canvas id="avatarCanvas" width="400" height="400" style="width: 200px; height: 200px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);"></canvas>
+      </div>
+      
+      <button class="btn" onclick="downloadCanvas('avatarCanvas', 'SkySyncLab_LinkedIn_Avatar_400x400.png')">
+        ⬇ Download Avatar PNG
+      </button>
+    </div>
+
+    <!-- 2. LinkedIn Banner (Company Page 1128x191) -->
+    <div class="card">
+      <div class="card-title">
+        <span>2. LinkedIn Company Page Cover Banner</span>
+        <span style="font-size: 0.78rem; padding: 2px 8px; border-radius: 6px; background: rgba(56, 189, 248, 0.15); color: #38BDF8;">1128 × 191 px (Official LinkedIn Standard)</span>
+      </div>
+      <p class="card-desc">Clean, corporate banner with brand logo, enterprise value proposition, and cloud capabilities.</p>
+      
+      <div class="preview-box">
+        <canvas id="bannerCanvas" width="1128" height="191" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.5);"></canvas>
+      </div>
+      
+      <button class="btn" onclick="downloadCanvas('bannerCanvas', 'SkySyncLab_LinkedIn_Company_Banner_1128x191.png')">
+        ⬇ Download Company Banner PNG
+      </button>
+    </div>
+
+    <!-- 3. Profile Copy-Paste Details -->
+    <div class="card">
+      <div class="card-title">3. Official Copy-Paste Profile & Company Details</div>
+      <p class="card-desc">Use these exact details in your LinkedIn edit form for a high-converting, professional presence:</p>
+
+      <label style="font-size: 0.82rem; font-weight: 700; color: #CBD5E1; text-transform: uppercase;">Company Name / Headline</label>
+      <div class="copy-field" id="headlineText">SkySyncLab · Cloud Infrastructure, DevOps & AI Solutions</div>
+      <button class="btn btn-secondary" onclick="copyText('headlineText')">📋 Copy Headline</button>
+
+      <div style="height: 18px;"></div>
+
+      <label style="font-size: 0.82rem; font-weight: 700; color: #CBD5E1; text-transform: uppercase;">Tagline (120 chars max)</label>
+      <div class="copy-field" id="taglineText">Enterprise Cloud Architecture, DevOps Pipelines, Zero-Downtime Database Migration & Generative AI Solutions.</div>
+      <button class="btn btn-secondary" onclick="copyText('taglineText')">📋 Copy Tagline</button>
+
+      <div style="height: 18px;"></div>
+
+      <label style="font-size: 0.82rem; font-weight: 700; color: #CBD5E1; text-transform: uppercase;">Website URL</label>
+      <div class="copy-field" id="urlText">https://skysynclab.com</div>
+      <button class="btn btn-secondary" onclick="copyText('urlText')">📋 Copy Website</button>
+
+      <div style="height: 18px;"></div>
+
+      <label style="font-size: 0.82rem; font-weight: 700; color: #CBD5E1; text-transform: uppercase;">About / Overview</label>
+      <div class="copy-field" id="aboutText">SkySyncLab is an enterprise-grade Cloud Architecture, DevOps Engineering, and Artificial Intelligence consultancy engineered in strict alignment with the AWS Well-Architected Framework.
+
+We specialize in:
+• Cloud Infrastructure Architecture & AWS Modernization
+• DevOps Automation, CI/CD Pipeline Orchestration & DevSecOps
+• Zero-Downtime Database Migration & Legacy Re-platforming
+• Enterprise Generative AI & Amazon Bedrock Knowledge Assistants
+• FinOps Cloud Cost Auditing & Infrastructure Optimization
+
+Founder & Principal Architect: Senthil Kumar
+Official Website: https://skysynclab.com
+Contact: senthilkumar@skysynclab.com | hello@skysynclab.com
+Phone & WhatsApp: +91 86672 54699
+Headquarters: Salem, Tamil Nadu, India</div>
+      <button class="btn btn-secondary" onclick="copyText('aboutText')">📋 Copy About</button>
+    </div>
+  </div>
+
+  <script>
+    // 1. Draw 400x400 Avatar
+    function renderAvatar() {
+      const canvas = document.getElementById('avatarCanvas');
+      const ctx = canvas.getContext('2d');
+      const w = 400;
+      const h = 400;
+
+      // Dark background
+      const grad = ctx.createLinearGradient(0, 0, w, h);
+      grad.addColorStop(0, '#0F1E36');
+      grad.addColorStop(1, '#08101E');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+
+      // Ambient radial glow
+      const glow = ctx.createRadialGradient(w/2, h/2, 20, w/2, h/2, 170);
+      glow.addColorStop(0, 'rgba(237, 113, 0, 0.14)');
+      glow.addColorStop(1, 'rgba(237, 113, 0, 0)');
+      ctx.fillStyle = glow;
+      ctx.fillRect(0, 0, w, h);
+
+      // Border ring
+      ctx.strokeStyle = 'rgba(237, 113, 0, 0.4)';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(10, 10, w - 20, h - 20);
+
+      // Draw SVG emblem
+      const img = new Image();
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="220" height="160" viewBox="0 0 72 52">
+          <path d="M18 46 C9.16 46 2 38.84 2 30 C2 21.8 7.9 15.1 15.8 14.1 C18.2 5.8 25.8 0 35 0 C45.5 0 54.1 7.8 55.4 18 C62.5 18.9 68 24.8 68 32 C68 39.73 61.73 46 54 46 H18 Z" fill="#2C3E55"/>
+          <path d="M15 44 C24 40 35 32 48 18" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M41 22 L60 10 L48 30 L44 23 Z" fill="#FFFFFF"/>
+        </svg>
+      `;
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+      img.onload = () => {
+        ctx.drawImage(img, (w - 220) / 2, (h - 190) / 2);
+        
+        // Brand name below emblem
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = 'bold 26px -apple-system, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('skysynclab', w / 2, 310);
+
+        // Underline and orange dot
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(w / 2 - 65, 322, 120, 2);
+        ctx.fillStyle = '#ED7100';
+        ctx.beginPath();
+        ctx.arc(w / 2 + 62, 323, 4, 0, Math.PI * 2);
+        ctx.fill();
+      };
+    }
+
+    // 2. Draw 1128x191 Banner
+    function renderBanner() {
+      const canvas = document.getElementById('bannerCanvas');
+      const ctx = canvas.getContext('2d');
+      const w = 1128;
+      const h = 191;
+
+      // Dark corporate gradient background
+      const grad = ctx.createLinearGradient(0, 0, w, 0);
+      grad.addColorStop(0, '#070D18');
+      grad.addColorStop(0.5, '#0B172A');
+      grad.addColorStop(1, '#0F1E38');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+
+      // Subtle tech grid lines
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+      ctx.lineWidth = 1;
+      for (let x = 0; x < w; x += 40) {
+        ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+      }
+
+      // Accent amber top line
+      ctx.fillStyle = '#ED7100';
+      ctx.fillRect(0, 0, w, 3.5);
+
+      // Draw brand logo on left
+      const img = new Image();
+      const svg = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="90" height="65" viewBox="0 0 72 52">
+          <path d="M18 46 C9.16 46 2 38.84 2 30 C2 21.8 7.9 15.1 15.8 14.1 C18.2 5.8 25.8 0 35 0 C45.5 0 54.1 7.8 55.4 18 C62.5 18.9 68 24.8 68 32 C68 39.73 61.73 46 54 46 H18 Z" fill="#2C3E55"/>
+          <path d="M15 44 C24 40 35 32 48 18" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M41 22 L60 10 L48 30 L44 23 Z" fill="#FFFFFF"/>
+        </svg>
+      `;
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+      img.onload = () => {
+        ctx.drawImage(img, 60, 60);
+
+        // Wordmark
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = 'bold 36px -apple-system, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.fillText('skysynclab', 165, 96);
+
+        // Underline and dot
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(165, 108, 175, 2.5);
+        ctx.fillStyle = '#ED7100';
+        ctx.beginPath();
+        ctx.arc(348, 109, 4.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Right side: Slogan and badges
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = 'bold 22px -apple-system, sans-serif';
+        ctx.textAlign = 'right';
+        ctx.fillText('Build Smarter on the Cloud', w - 60, 80);
+
+        ctx.fillStyle = '#94A3B8';
+        ctx.font = '14px -apple-system, sans-serif';
+        ctx.fillText('AWS Cloud Architecture  ·  DevOps Automation  ·  Enterprise AI Solutions', w - 60, 112);
+
+        ctx.fillStyle = '#ED7100';
+        ctx.font = '600 13px -apple-system, sans-serif';
+        ctx.fillText('skysynclab.com  ·  Salem, TN, India', w - 60, 138);
+      };
+    }
+
+    function downloadCanvas(canvasId, filename) {
+      const canvas = document.getElementById(canvasId);
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    }
+
+    function copyText(elemId) {
+      const text = document.getElementById(elemId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Copied to clipboard!');
+      });
+    }
+
+    window.onload = () => {
+      renderAvatar();
+      renderBanner();
+    };
+  </script>
+</body>
+</html>

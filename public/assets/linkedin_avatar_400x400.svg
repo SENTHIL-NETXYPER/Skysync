@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0F1E36" />
+      <stop offset="100%" stop-color="#08101E" />
+    </linearGradient>
+    <radialGradient id="glowGrad" cx="200" cy="200" r="160" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ED7100" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#ED7100" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="400" rx="32" fill="url(#bgGrad)" />
+  <circle cx="200" cy="200" r="160" fill="url(#glowGrad)" />
+  <rect x="8" y="8" width="384" height="384" rx="26" stroke="#ED7100" stroke-opacity="0.35" stroke-width="3" />
+
+  <!-- Centered Emblem -->
+  <g transform="translate(100, 75) scale(2.77)">
+    <path
+      d="M18 46 C9.16 46 2 38.84 2 30 C2 21.8 7.9 15.1 15.8 14.1 C18.2 5.8 25.8 0 35 0 C45.5 0 54.1 7.8 55.4 18 C62.5 18.9 68 24.8 68 32 C68 39.73 61.73 46 54 46 H18 Z"
+      fill="#2C3E55"
+    />
+    <path
+      d="M15 44 C24 40 35 32 48 18"
+      stroke="#FFFFFF"
+      stroke-width="4.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M41 22 L60 10 L48 30 L44 23 Z"
+      fill="#FFFFFF"
+    />
+  </g>
+
+  <!-- Wordmark -->
+  <text x="200" y="308" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="28" fill="#FFFFFF" letter-spacing="-0.5">skysynclab</text>
+
+  <!-- Underline & Terminal Dot -->
+  <rect x="135" y="322" width="120" height="2.5" fill="#FFFFFF" rx="1" />
+  <circle cx="261" cy="323.25" r="4.5" fill="#ED7100" />
+</svg>
