@@ -249,21 +249,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
               cursor: 'pointer',
               padding: '2px 8px',
               textDecoration: 'none',
-              flexShrink: 0,
-              gap: '10px'
+              flexShrink: 0
             }}
           >
-            <SkySyncLogo variant="dark" height={28} />
-            <span style={{
-              fontSize: '0.82rem',
-              fontWeight: 600,
-              color: 'rgba(255,255,255,0.72)',
-              letterSpacing: '0.02em',
-              whiteSpace: 'nowrap',
-              fontFamily: 'var(--font-sans)'
-            }}>
-              AI Consultant
-            </span>
+            <SkySyncLogo variant="dark" height={30} />
           </button>
 
           {/* Center Pill Track (Matching the User's Image Aesthetic) */}
