@@ -619,7 +619,7 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
               </div>
 
               <div style={{ fontSize: '1.02rem', fontWeight: 800, color: '#0F172A', letterSpacing: '-0.01em' }}>
-                skysync<span style={{ color: '#0091FF' }}>lab</span> AI Consultant
+                AI Consultant
               </div>
             </div>
 
