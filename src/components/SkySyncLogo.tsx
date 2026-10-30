@@ -66,13 +66,12 @@ export const SkySyncLogo: React.FC<SkySyncLogoProps> = ({
         style={{
           height: `${height}px`,
           width: 'auto',
-          aspectRatio: '96 / 62',
+          aspectRatio: '182 / 117',
           objectFit: 'contain',
           flexShrink: 0,
           display: 'block',
           userSelect: 'none',
-          pointerEvents: 'none',
-          filter: isDark ? 'drop-shadow(0 0 1px rgba(255, 255, 255, 0.45)) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5))' : 'none'
+          pointerEvents: 'none'
         }}
         draggable={false}
       />
