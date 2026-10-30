@@ -7,6 +7,7 @@ export const FOUNDER_EMAIL = 'senthilkumar@skysynclab.com';
 export const GENERAL_EMAIL = 'hello@skysynclab.com';
 export const CONTACT_PHONE = '+91 86672 54699';
 export const WHATSAPP_NUMBER = '918667254699';
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/skysync-lab-840034448';
 
 export interface ConsultationFormData {
   name: string;

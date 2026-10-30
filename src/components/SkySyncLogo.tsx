@@ -38,9 +38,6 @@ export const SkySyncLogo: React.FC<SkySyncLogoProps> = ({
   style = {}
 }) => {
   const isDark = variant === 'dark';
-  const isMono = variant === 'mono';
-
-  const cloudFill = '#172538';
   const textColor = isDark ? '#FFFFFF' : '#172538';
   const dotColor = isDark ? '#FFFFFF' : '#172538';
   const lineBg = isDark ? '#FFFFFF' : '#172538';

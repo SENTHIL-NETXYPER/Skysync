@@ -21,6 +21,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        var p = window.location.pathname.toLowerCase();
+        var h = window.location.hash.toLowerCase();
+        var s = window.location.search.toLowerCase();
+        if (p.endsWith('/linkedin') || p.endsWith('/linkedin/') || h.includes('linkedin') || s.includes('linkedin')) {
+          window.location.replace('https://www.linkedin.com/in/skysync-lab-840034448');
+        }
+      })();
+    </script>
     <title>SkySyncLab | Cloud Infrastructure, DevOps & AI Solutions</title>
   </head>
   <body>
