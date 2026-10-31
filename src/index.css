@@ -8,14 +8,14 @@
      Main background:    #FFFFFF
      Section background: #F7F8FA
      Headings:           #232F3E
-     Primary accent:     #C5A46D
+     Primary accent:     #09090B
      Body text:          #526071
      Cards:              White, subtle border and shadow
      Positive outcomes:  #01A88D only
   */
-  --aws-orange: #C5A46D;
+  --aws-orange: #09090B;
   --aws-orange-hover: #EC7211;
-  --aws-orange-subtle: rgba(197, 164, 109, 0.08);
+  --aws-orange-subtle: rgba(9, 9, 11, 0.08);
   --aws-deep-black: #16191F;
   --aws-blue: #0284C7;
 
@@ -47,7 +47,7 @@
   --border-subtle: #E2E8F0;
   --border-card: #E2E8F0;
   --border-strong: #CBD5E1;
-  --border-accent: #C5A46D;
+  --border-accent: #27272A;
 
   /* Subtle card elevation */
   --shadow-subtle: 0 1px 3px rgba(15, 23, 42, 0.04);
@@ -197,7 +197,7 @@ p {
 .aws-unified-card:hover .unified-icon-box {
   background-color: var(--aws-orange);
   color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(197, 164, 109, 0.25);
+  box-shadow: 0 4px 12px rgba(9, 9, 11, 0.25);
 }
 
 /* Arrow Slide Animation on Hover */
@@ -233,7 +233,7 @@ p {
   border: 1px solid var(--aws-orange);
   border-radius: 24px;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(197, 164, 109, 0.3);
+  box-shadow: 0 4px 14px rgba(9, 9, 11, 0.3);
   transition: all 0.18s ease;
   text-decoration: none;
 }
@@ -243,7 +243,7 @@ p {
   background-color: var(--aws-orange-hover);
   border-color: var(--aws-orange-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(197, 164, 109, 0.45);
+  box-shadow: 0 6px 18px rgba(9, 9, 11, 0.45);
 }
 
 .btn-pill-blue,
@@ -272,7 +272,7 @@ p {
   color: var(--aws-orange);
   background-color: #FFF7ED;
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(197, 164, 109, 0.12);
+  box-shadow: 0 4px 14px rgba(9, 9, 11, 0.12);
 }
 
 /* Clean White Card Styles */
@@ -546,7 +546,7 @@ p {
 }
 
 .nav-capsule-dropdown-item.active {
-  background: rgba(197, 164, 109, 0.2);
+  background: rgba(9, 9, 11, 0.2);
   color: #FF9900;
   font-weight: 700;
 }
@@ -559,9 +559,10 @@ p {
   gap: 7px;
   padding: 8px 18px;
   border-radius: 9999px;
-  background-color: #C5A46D;
+  background-color: #FAFAFA;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border: none;
-  color: #0C0C0C;
+  color: #09090B;
   font-family: var(--font-sans);
   font-size: 0.88rem;
   font-weight: 750;
@@ -570,16 +571,16 @@ p {
   white-space: nowrap;
   flex-shrink: 0;
   box-sizing: border-box;
-  box-shadow: 0 4px 14px rgba(197, 164, 109, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
   transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
   text-decoration: none;
 }
 
 .nav-cta-pill:hover {
-  background-color: #D4B47D;
-  color: #0C0C0C;
+  background-color: #FFFFFF;
+  color: #09090B;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(197, 164, 109, 0.50);
+  box-shadow: 0 6px 20px rgba(250, 250, 250, 0.25);
 }
 
 /* Mobile responsive menu */
@@ -619,12 +620,12 @@ p {
 
 /* Elegant left-border indicator for active item on mobile */
 .nav-mobile-dropdown-card .nav-capsule-tab.active {
-  background: rgba(197, 164, 109, 0.15) !important;
-  border: 1px solid rgba(197, 164, 109, 0.35) !important;
-  border-left: 4px solid #C5A46D !important;
+  background: rgba(9, 9, 11, 0.15) !important;
+  border: 1px solid rgba(9, 9, 11, 0.35) !important;
+  border-left: 4px solid #FAFAFA !important;
   border-radius: 10px !important;
   color: #FFFFFF !important;
-  box-shadow: 0 0 16px rgba(197, 164, 109, 0.12) !important;
+  box-shadow: 0 0 16px rgba(9, 9, 11, 0.12) !important;
 }
 
 .nav-mobile-dropdown-card .nav-capsule-tab:hover {
@@ -763,7 +764,7 @@ p {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #C5A46D, #E6D3AD);
+  background: linear-gradient(90deg, #09090B, #27272A);
   opacity: 0;
   transition: opacity 250ms ease;
   pointer-events: none;
@@ -821,7 +822,7 @@ p {
 .solution-card:hover,
 .service-card-2x2:hover {
   transform: translateX(4px);
-  box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.10), 0 0 0 1px rgba(197, 164, 109, 0.25);
+  box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.10), 0 0 0 1px rgba(9, 9, 11, 0.25);
 }
 
 .animated-card .card-icon,
@@ -875,7 +876,7 @@ p {
 .section-badge-lined .badge-text {
   font-size: 0.82rem;
   font-weight: 800;
-  color: #C5A46D;
+  color: #09090B;
   letter-spacing: 0.04em;
   text-transform: none;
   margin-bottom: 6px;
@@ -903,8 +904,8 @@ p {
   height: 100%;
   width: 26px;
   border-radius: 9999px;
-  background: linear-gradient(90deg, #E6D3AD, #C5A46D);
-  box-shadow: 0 0 10px rgba(197, 164, 109, 0.8), 0 0 4px #C5A46D;
+  background: linear-gradient(90deg, #27272A, #09090B);
+  box-shadow: 0 0 10px rgba(9, 9, 11, 0.4), 0 0 4px #09090B;
   animation: lineSlideLeftToRight 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
@@ -918,7 +919,7 @@ p {
 }
 
 .section-badge-lined:hover .badge-line::after {
-  box-shadow: 0 0 16px rgba(197, 164, 109, 1), 0 0 6px #C5A46D;
+  box-shadow: 0 0 16px rgba(9, 9, 11, 0.5), 0 0 6px #09090B;
 }
 
 /* Subtle Hover Glow on Interactive Buttons */
@@ -963,7 +964,7 @@ button {
 .interactive-service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.12);
-  border-color: rgba(197, 164, 109, 0.45);
+  border-color: rgba(9, 9, 11, 0.45);
 }
 
 .interactive-card-img-wrap {
@@ -1015,7 +1016,7 @@ button {
 
 .interactive-service-card:hover .interactive-card-arrow {
   transform: translateX(4px);
-  background-color: #C5A46D;
+  background-color: #09090B;
   color: #FFFFFF;
 }
 

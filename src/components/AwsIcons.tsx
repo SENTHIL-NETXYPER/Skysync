@@ -9,7 +9,7 @@ interface AwsIconProps {
 /**
  * Official AWS Service Style SVG Icons
  * Crafted with authentic AWS architecture diagram colors and standard iconography:
- * - Compute: #C5A46D (AWS Orange)
+ * - Compute: #09090B (AWS Orange)
  * - Database: #01A88D / #3B48CC (Teal / Blue)
  * - Storage: #7AA116 (Green)
  * - Networking: #8C4FFF (Purple)
@@ -19,7 +19,7 @@ interface AwsIconProps {
 
 export const AwsEc2Icon: React.FC<AwsIconProps> = ({ size = 24, style }) => (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none" style={style}>
-    <rect width="32" height="32" rx="6" fill="#C5A46D" />
+    <rect width="32" height="32" rx="6" fill="#09090B" />
     <path d="M7 11h3v10H7V11zm5 0h10c.55 0 1 .45 1 1v8c0 .55-.45 1-1 1H12V11zm2 2v6h6v-6h-6z" fill="#FFFFFF" />
     <path d="M10 7h2v3h-2zm5-4h2v3h-2zm5 4h2v3h-2zm-10 15h2v3h-2zm5 0h2v3h-2zm5 0h2v3h-2z" fill="#FFE5CC" />
   </svg>
@@ -27,14 +27,14 @@ export const AwsEc2Icon: React.FC<AwsIconProps> = ({ size = 24, style }) => (
 
 export const AwsLambdaIcon: React.FC<AwsIconProps> = ({ size = 24, style }) => (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none" style={style}>
-    <rect width="32" height="32" rx="6" fill="#C5A46D" />
+    <rect width="32" height="32" rx="6" fill="#09090B" />
     <path d="M8 23l4.5-9.5H16L11.5 23H8zm7.5-14h3.2l5.3 14H20.7l-1.3-3.6h-5.2l1.6-3.4h2.2l-2.5-7z" fill="#FFFFFF" />
   </svg>
 );
 
 export const AwsEcsIcon: React.FC<AwsIconProps> = ({ size = 24, style }) => (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none" style={style}>
-    <rect width="32" height="32" rx="6" fill="#C5A46D" />
+    <rect width="32" height="32" rx="6" fill="#09090B" />
     <path d="M16 6l8 4.5v9L16 24l-8-4.5v-9L16 6z" stroke="#FFFFFF" strokeWidth="2" fill="none" />
     <path d="M16 6v9m0 9v-9m8-4.5l-8 4.5m-8-4.5l8 4.5" stroke="#FFFFFF" strokeWidth="1.8" />
     <circle cx="16" cy="15" r="2.5" fill="#FFE5CC" />
@@ -165,7 +165,7 @@ export const AwsNatIcon: React.FC<AwsIconProps> = ({ size = 24, style }) => (
 
 export const AwsCloudWatchIcon: React.FC<AwsIconProps> = ({ size = 24, style }) => (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none" style={style}>
-    <rect width="32" height="32" rx="6" fill="#C5A46D" />
+    <rect width="32" height="32" rx="6" fill="#09090B" />
     <circle cx="16" cy="16" r="9" stroke="#FFFFFF" strokeWidth="2" fill="none" />
     <path d="M16 10v6l4 2" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
   </svg>
@@ -188,14 +188,14 @@ export const AwsApiGatewayIcon: React.FC<AwsIconProps> = ({ size = 24, style }) 
 
 export const AwsSnsIcon: React.FC<AwsIconProps> = ({ size = 24, style }) => (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none" style={style}>
-    <rect width="32" height="32" rx="6" fill="#C5A46D" />
+    <rect width="32" height="32" rx="6" fill="#09090B" />
     <path d="M6 12h20v8H6v-8zm4 2v4h2v-4H10zm4 0v4h2v-4h-2zm4 0v4h2v-4h-2zm4 0v4h2v-4h-2z" fill="#FFFFFF" />
   </svg>
 );
 
 export const AwsSqsIcon: React.FC<AwsIconProps> = ({ size = 24, style }) => (
   <svg width={size} height={size} viewBox="0 0 32 32" fill="none" style={style}>
-    <rect width="32" height="32" rx="6" fill="#C5A46D" />
+    <rect width="32" height="32" rx="6" fill="#09090B" />
     <path d="M8 9h16v3H8V9zm0 5.5h16v3H8v-3zm0 5.5h10v3H8v-3z" fill="#FFFFFF" />
   </svg>
 );

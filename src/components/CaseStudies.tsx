@@ -78,7 +78,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onOpenAuditWithDemo })
                 backgroundColor: '#FFFFFF',
                 borderRadius: '16px',
                 border: '1.5px solid #E2E8F0',
-                borderLeft: '4px solid #C5A46D',
+                borderLeft: '4px solid #09090B',
                 padding: '26px 28px',
                 boxShadow: '0 4px 20px -2px rgba(15, 23, 42, 0.06)'
               }}

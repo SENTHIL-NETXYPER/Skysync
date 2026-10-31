@@ -173,11 +173,11 @@ export const PropertiesSidebar: React.FC = () => {
               style={{
                 background: 'none',
                 border: 'none',
-                borderBottom: isActive ? '2px solid #C5A46D' : '2px solid transparent',
+                borderBottom: isActive ? '2px solid #09090B' : '2px solid transparent',
                 paddingBottom: '8px',
                 fontSize: '0.78rem',
                 fontWeight: isActive ? 800 : 600,
-                color: isActive ? '#C5A46D' : '#94A3B8',
+                color: isActive ? '#09090B' : '#94A3B8',
                 cursor: 'pointer',
                 transition: 'all 0.15s ease'
               }}
@@ -425,7 +425,7 @@ export const PropertiesSidebar: React.FC = () => {
                   type="checkbox"
                   checked={multiAz}
                   onChange={(e) => setMultiAz(e.target.checked)}
-                  style={{ accentColor: '#C5A46D' }}
+                  style={{ accentColor: '#09090B' }}
                 />
                 Multi-AZ High Availability
               </label>
@@ -435,7 +435,7 @@ export const PropertiesSidebar: React.FC = () => {
                   type="checkbox"
                   checked={encrypted}
                   onChange={(e) => setEncrypted(e.target.checked)}
-                  style={{ accentColor: '#C5A46D' }}
+                  style={{ accentColor: '#09090B' }}
                 />
                 KMS Volume Encryption at Rest
               </label>
@@ -526,7 +526,7 @@ export const PropertiesSidebar: React.FC = () => {
             style={{
               width: '100%',
               padding: '9px 16px',
-              backgroundColor: isSaved ? '#16A34A' : '#C5A46D',
+              backgroundColor: isSaved ? '#16A34A' : '#09090B',
               color: '#FFFFFF',
               border: 'none',
               borderRadius: '7px',
@@ -538,7 +538,7 @@ export const PropertiesSidebar: React.FC = () => {
               justifyContent: 'center',
               gap: '6px',
               transition: 'all 0.18s ease',
-              boxShadow: '0 4px 12px rgba(197, 164, 109, 0.35)'
+              boxShadow: '0 4px 12px rgba(9, 9, 11, 0.35)'
             }}
           >
             {isSaved ? <Check size={16} /> : null}

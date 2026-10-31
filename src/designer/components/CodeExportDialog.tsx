@@ -241,7 +241,7 @@ export const CodeExportDialog: React.FC = () => {
                 borderRadius: '6px',
                 fontSize: '0.80rem',
                 fontWeight: 700,
-                backgroundColor: codeFormat === 'cloudformation' ? '#C5A46D' : '#1E293B',
+                backgroundColor: codeFormat === 'cloudformation' ? '#09090B' : '#1E293B',
                 color: '#FFFFFF',
                 border: 'none',
                 cursor: 'pointer'
@@ -278,7 +278,7 @@ export const CodeExportDialog: React.FC = () => {
               onClick={handleDownload}
               style={{
                 padding: '6px 14px',
-                backgroundColor: '#C5A46D',
+                backgroundColor: '#09090B',
                 border: 'none',
                 borderRadius: '6px',
                 color: '#FFFFFF',

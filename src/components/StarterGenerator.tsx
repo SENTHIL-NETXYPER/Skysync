@@ -168,7 +168,7 @@ JWT_SECRET=USE_AWS_SECRETS_MANAGER_GENERATED_SECRET`;
       <div style={{ textAlign: 'center', marginBottom: '24px' }}>
         <div className="section-badge-lined">
           <span className="badge-text" style={{ display: 'inline-flex', alignItems: 'center', gap: '7px' }}>
-            <Rocket size={14} color="#C5A46D" />
+            <Rocket size={14} color="#09090B" />
             <span>Application Starter Generator</span>
           </span>
           <div className="badge-line" />
@@ -184,7 +184,7 @@ JWT_SECRET=USE_AWS_SECRETS_MANAGER_GENERATED_SECRET`;
       {/* Safety Notice */}
       <div style={{
         backgroundColor: '#FFF7ED',
-        border: '1.5px solid rgba(197, 164, 109, 0.25)',
+        border: '1.5px solid rgba(9, 9, 11, 0.25)',
         borderRadius: '12px',
         padding: '12px 18px',
         marginBottom: '24px',
@@ -192,7 +192,7 @@ JWT_SECRET=USE_AWS_SECRETS_MANAGER_GENERATED_SECRET`;
         alignItems: 'center',
         gap: '12px'
       }}>
-        <AlertTriangle size={20} color="#C5A46D" style={{ flexShrink: 0 }} />
+        <AlertTriangle size={20} color="#09090B" style={{ flexShrink: 0 }} />
         <p style={{ fontSize: '0.86rem', color: '#526071', margin: 0, lineHeight: 1.45 }}>
           <strong style={{ color: '#232F3E' }}>Safety & Governance:</strong> This tool produces structured specifications and configuration files. It is strictly separated from live infrastructure and will never deploy cloud resources or incur expenses without explicit confirmation.
         </p>
@@ -237,13 +237,13 @@ JWT_SECRET=USE_AWS_SECRETS_MANAGER_GENERATED_SECRET`;
                     textAlign: 'left',
                     padding: '12px 14px',
                     borderRadius: '8px',
-                    border: `1.5px solid ${appType === item.id ? '#C5A46D' : '#E2E8F0'}`,
-                    background: appType === item.id ? 'rgba(197, 164, 109, 0.08)' : '#FFFFFF',
+                    border: `1.5px solid ${appType === item.id ? '#09090B' : '#E2E8F0'}`,
+                    background: appType === item.id ? 'rgba(9, 9, 11, 0.08)' : '#FFFFFF',
                     cursor: 'pointer',
                     transition: 'all 0.18s ease'
                   }}
                 >
-                  <div style={{ fontSize: '0.92rem', fontWeight: 700, color: appType === item.id ? '#C5A46D' : '#232F3E' }}>
+                  <div style={{ fontSize: '0.92rem', fontWeight: 700, color: appType === item.id ? '#09090B' : '#232F3E' }}>
                     {item.label}
                   </div>
                   <div style={{ fontSize: '0.80rem', color: '#64748B', marginTop: '2px' }}>
@@ -267,9 +267,9 @@ JWT_SECRET=USE_AWS_SECRETS_MANAGER_GENERATED_SECRET`;
                   style={{
                     padding: '10px 12px',
                     borderRadius: '8px',
-                    border: `1.5px solid ${frontend === item.id ? '#C5A46D' : '#E2E8F0'}`,
-                    background: frontend === item.id ? 'rgba(197, 164, 109, 0.08)' : '#FFFFFF',
-                    color: frontend === item.id ? '#C5A46D' : '#232F3E',
+                    border: `1.5px solid ${frontend === item.id ? '#09090B' : '#E2E8F0'}`,
+                    background: frontend === item.id ? 'rgba(9, 9, 11, 0.08)' : '#FFFFFF',
+                    color: frontend === item.id ? '#09090B' : '#232F3E',
                     fontSize: '0.86rem',
                     fontWeight: 700,
                     cursor: 'pointer',
@@ -295,9 +295,9 @@ JWT_SECRET=USE_AWS_SECRETS_MANAGER_GENERATED_SECRET`;
                   style={{
                     padding: '10px 12px',
                     borderRadius: '8px',
-                    border: `1.5px solid ${backend === item.id ? '#C5A46D' : '#E2E8F0'}`,
-                    background: backend === item.id ? 'rgba(197, 164, 109, 0.08)' : '#FFFFFF',
-                    color: backend === item.id ? '#C5A46D' : '#232F3E',
+                    border: `1.5px solid ${backend === item.id ? '#09090B' : '#E2E8F0'}`,
+                    background: backend === item.id ? 'rgba(9, 9, 11, 0.08)' : '#FFFFFF',
+                    color: backend === item.id ? '#09090B' : '#232F3E',
                     fontSize: '0.86rem',
                     fontWeight: 700,
                     cursor: 'pointer',
@@ -323,9 +323,9 @@ JWT_SECRET=USE_AWS_SECRETS_MANAGER_GENERATED_SECRET`;
                   style={{
                     padding: '10px 14px',
                     borderRadius: '8px',
-                    border: `1.5px solid ${db === item.id ? '#C5A46D' : '#E2E8F0'}`,
-                    background: db === item.id ? 'rgba(197, 164, 109, 0.08)' : '#FFFFFF',
-                    color: db === item.id ? '#C5A46D' : '#232F3E',
+                    border: `1.5px solid ${db === item.id ? '#09090B' : '#E2E8F0'}`,
+                    background: db === item.id ? 'rgba(9, 9, 11, 0.08)' : '#FFFFFF',
+                    color: db === item.id ? '#09090B' : '#232F3E',
                     fontSize: '0.86rem',
                     fontWeight: 700,
                     cursor: 'pointer',
@@ -355,12 +355,12 @@ JWT_SECRET=USE_AWS_SECRETS_MANAGER_GENERATED_SECRET`;
                     textAlign: 'left',
                     padding: '10px 14px',
                     borderRadius: '8px',
-                    border: `1.5px solid ${deployment === item.id ? '#C5A46D' : '#E2E8F0'}`,
-                    background: deployment === item.id ? 'rgba(197, 164, 109, 0.08)' : '#FFFFFF',
+                    border: `1.5px solid ${deployment === item.id ? '#09090B' : '#E2E8F0'}`,
+                    background: deployment === item.id ? 'rgba(9, 9, 11, 0.08)' : '#FFFFFF',
                     cursor: 'pointer'
                   }}
                 >
-                  <div style={{ fontSize: '0.90rem', fontWeight: 700, color: deployment === item.id ? '#C5A46D' : '#232F3E' }}>
+                  <div style={{ fontSize: '0.90rem', fontWeight: 700, color: deployment === item.id ? '#09090B' : '#232F3E' }}>
                     {item.label}
                   </div>
                   <div style={{ fontSize: '0.78rem', color: '#64748B', marginTop: '2px' }}>
@@ -518,7 +518,7 @@ JWT_SECRET=USE_AWS_SECRETS_MANAGER_GENERATED_SECRET`;
                 gap: '8px',
                 padding: '9px 18px',
                 borderRadius: '6px',
-                background: '#C5A46D',
+                background: '#09090B',
                 color: '#FFFFFF',
                 border: 'none',
                 fontSize: '0.86rem',

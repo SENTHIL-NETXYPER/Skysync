@@ -45,7 +45,7 @@ export const About: React.FC = () => {
             </h3>
 
             <p style={{ fontSize: '0.96rem', color: '#334155', marginBottom: '14px', lineHeight: 1.65, fontWeight: 450 }}>
-              Founded by <strong style={{ color: '#0F172A' }}>Senthil Kumar</strong>, an <strong style={{ color: '#C5A46D' }}>AWS Certified Cloud Practitioner</strong> and Principal Cloud Architect. SkySyncLab was established with a singular conviction: to make resilient, high-availability cloud infrastructure transparent, accessible, and ethical for educational institutions and growing organizations.
+              Founded by <strong style={{ color: '#0F172A' }}>Senthil Kumar</strong>, an <strong style={{ color: '#09090B' }}>AWS Certified Cloud Practitioner</strong> and Principal Cloud Architect. SkySyncLab was established with a singular conviction: to make resilient, high-availability cloud infrastructure transparent, accessible, and ethical for educational institutions and growing organizations.
             </p>
 
             <p style={{ fontSize: '0.94rem', color: '#334155', marginBottom: '22px', lineHeight: 1.65, fontWeight: 450 }}>
@@ -101,7 +101,7 @@ export const About: React.FC = () => {
                 <h3 style={{ fontSize: '1.30rem', fontWeight: 800, color: '#232F3E', marginBottom: '4px' }}>
                   Senthil Kumar
                 </h3>
-                <div style={{ fontSize: '0.92rem', color: '#C5A46D', fontWeight: 700 }}>
+                <div style={{ fontSize: '0.92rem', color: '#09090B', fontWeight: 700 }}>
                   Founder & Principal Cloud Architect
                 </div>
               </div>
@@ -117,7 +117,7 @@ export const About: React.FC = () => {
               border: '1px solid #E2E8F0',
               marginBottom: '24px'
             }}>
-              <Award size={26} color="#C5A46D" style={{ flexShrink: 0 }} />
+              <Award size={26} color="#09090B" style={{ flexShrink: 0 }} />
               <div>
                 <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#232F3E' }}>
                   AWS Certified Cloud Practitioner
@@ -142,10 +142,10 @@ export const About: React.FC = () => {
                 fontWeight: 600,
                 transition: 'color 0.18s ease'
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#C5A46D')}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#09090B')}
               onMouseLeave={(e) => (e.currentTarget.style.color = '#232F3E')}
             >
-              <Mail size={18} color="#C5A46D" />
+              <Mail size={18} color="#09090B" />
               <span>senthilkumar@skysynclab.com</span>
             </a>
             <a
@@ -159,10 +159,10 @@ export const About: React.FC = () => {
                 fontWeight: 600,
                 transition: 'color 0.18s ease'
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#C5A46D')}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#09090B')}
               onMouseLeave={(e) => (e.currentTarget.style.color = '#232F3E')}
             >
-              <Phone size={18} color="#C5A46D" />
+              <Phone size={18} color="#09090B" />
               <span>+91 86672 54699</span>
             </a>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#64748B', fontSize: '0.90rem' }}>

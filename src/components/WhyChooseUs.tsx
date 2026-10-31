@@ -71,7 +71,7 @@ export const WhyChooseUs: React.FC = () => {
                   backgroundColor: '#FFFFFF',
                   borderWidth: '4px 1.5px 1.5px 1.5px',
                   borderStyle: 'solid',
-                  borderColor: '#C5A46D #CBD5E1 #CBD5E1 #CBD5E1',
+                  borderColor: '#09090B #CBD5E1 #CBD5E1 #CBD5E1',
                   borderRadius: '14px',
                   boxShadow: '0 4px 16px rgba(15, 23, 42, 0.06)',
                   transition: 'all 0.2s ease'
@@ -81,12 +81,12 @@ export const WhyChooseUs: React.FC = () => {
                   width: '42px',
                   height: '42px',
                   borderRadius: '10px',
-                  backgroundColor: 'rgba(197, 164, 109, 0.08)',
-                  border: '1px solid rgba(197, 164, 109, 0.22)',
+                  backgroundColor: 'rgba(9, 9, 11, 0.08)',
+                  border: '1px solid rgba(9, 9, 11, 0.22)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#C5A46D',
+                  color: '#09090B',
                   marginBottom: '14px'
                 }}>
                   <Icon size={20} />

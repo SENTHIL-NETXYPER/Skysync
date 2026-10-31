@@ -215,7 +215,7 @@ export const ValidationDialog: React.FC = () => {
             onClick={() => setModal('validation', false)}
             style={{
               padding: '8px 18px',
-              backgroundColor: '#C5A46D',
+              backgroundColor: '#09090B',
               color: '#FFFFFF',
               border: 'none',
               borderRadius: '7px',

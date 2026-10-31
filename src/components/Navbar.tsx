@@ -412,7 +412,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                             width: '32px',
                             height: '32px',
                             borderRadius: '8px',
-                            background: 'rgba(197, 164, 109, 0.15)',
+                            background: 'rgba(9, 9, 11, 0.15)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -433,7 +433,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                           textTransform: 'uppercase',
                           letterSpacing: '0.04em',
                           color: '#FF9900',
-                          background: 'rgba(197, 164, 109, 0.12)',
+                          background: 'rgba(9, 9, 11, 0.12)',
                           padding: '3px 8px',
                           borderRadius: '9999px'
                         }}

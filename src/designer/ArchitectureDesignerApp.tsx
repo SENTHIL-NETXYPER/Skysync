@@ -114,7 +114,7 @@ const FlowCanvas: React.FC = () => {
         defaultEdgeOptions={{
           type: 'smoothstep',
           animated: true,
-          style: { stroke: '#C5A46D', strokeWidth: 2 }
+          style: { stroke: '#09090B', strokeWidth: 2 }
         }}
         className="aws-designer-canvas"
       >
@@ -139,7 +139,7 @@ const FlowCanvas: React.FC = () => {
             const cat = n.data?.category as string;
             switch (cat) {
               case 'Compute':
-                return '#C5A46D';
+                return '#09090B';
               case 'Storage':
                 return '#16A34A';
               case 'Databases':

@@ -303,7 +303,7 @@ export const WhySwitchToCloud: React.FC<WhySwitchToCloudProps> = ({ onOpenConsul
           bottom: 0px;
           left: 0;
           height: 2.5px;
-          background: #C5A46D;
+          background: #09090B;
           border-radius: 9999px;
           animation: tabProgress10s 10s linear;
         }
@@ -328,10 +328,10 @@ export const WhySwitchToCloud: React.FC<WhySwitchToCloudProps> = ({ onOpenConsul
         }
 
         .comparison-nav-pill-btn:hover {
-          border-color: #C5A46D;
-          color: #C5A46D;
+          border-color: #09090B;
+          color: #09090B;
           transform: scale(1.06);
-          box-shadow: 0 2px 8px rgba(197, 164, 109, 0.2);
+          box-shadow: 0 2px 8px rgba(9, 9, 11, 0.2);
         }
 
         @media (max-width: 820px) {
@@ -405,7 +405,7 @@ export const WhySwitchToCloud: React.FC<WhySwitchToCloudProps> = ({ onOpenConsul
                   padding: '12px 8px 14px 8px',
                   fontSize: '0.94rem',
                   fontWeight: isActive ? 750 : 600,
-                  color: isActive ? '#C5A46D' : '#64748B',
+                  color: isActive ? '#09090B' : '#64748B',
                   cursor: 'pointer',
                   whiteSpace: 'nowrap',
                   transition: 'color 0.16s ease'
@@ -453,7 +453,7 @@ export const WhySwitchToCloud: React.FC<WhySwitchToCloudProps> = ({ onOpenConsul
               letterSpacing: '0.04em'
             }}
           >
-            <span style={{ color: '#C5A46D', fontWeight: 900 }}>0{activeIndex + 1}</span>
+            <span style={{ color: '#09090B', fontWeight: 900 }}>0{activeIndex + 1}</span>
             <span style={{ color: '#94A3B8', fontWeight: 400 }}>/</span>
             <span style={{ color: '#64748B' }}>0{topics.length}</span>
           </div>
@@ -473,7 +473,7 @@ export const WhySwitchToCloud: React.FC<WhySwitchToCloudProps> = ({ onOpenConsul
               aria-label={isPaused ? 'Resume auto-movement (10s)' : 'Pause auto-movement'}
               title={isPaused ? 'Resume 10s auto-movement' : 'Pause 10s auto-movement'}
             >
-              {isPaused ? <Play size={12} fill="#C5A46D" color="#C5A46D" /> : <Pause size={12} fill="#64748B" color="#64748B" />}
+              {isPaused ? <Play size={12} fill="#09090B" color="#09090B" /> : <Pause size={12} fill="#64748B" color="#64748B" />}
             </button>
             <button
               onClick={handleNext}
@@ -640,7 +640,7 @@ export const WhySwitchToCloud: React.FC<WhySwitchToCloudProps> = ({ onOpenConsul
 
       {/* Auto-movement helper subtitle */}
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', marginTop: '14px', fontSize: '0.80rem', color: '#94A3B8' }}>
-        <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: isPaused ? '#94A3B8' : '#C5A46D', transition: 'background-color 0.2s ease' }} />
+        <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: isPaused ? '#94A3B8' : '#09090B', transition: 'background-color 0.2s ease' }} />
         <span>{isPaused ? 'Auto-movement paused' : 'Automatically moving every 10 seconds • Hover or swipe to pause'}</span>
       </div>
 

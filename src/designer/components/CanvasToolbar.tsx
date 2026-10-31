@@ -67,9 +67,9 @@ export const CanvasToolbar: React.FC = () => {
             gap: '6px',
             padding: '5px 12px',
             borderRadius: '6px',
-            backgroundColor: toolMode === 'select' ? 'rgba(197, 164, 109, 0.15)' : 'transparent',
-            border: toolMode === 'select' ? '1px solid #C5A46D' : '1px solid transparent',
-            color: toolMode === 'select' ? '#C5A46D' : '#94A3B8',
+            backgroundColor: toolMode === 'select' ? 'rgba(9, 9, 11, 0.15)' : 'transparent',
+            border: toolMode === 'select' ? '1px solid #09090B' : '1px solid transparent',
+            color: toolMode === 'select' ? '#09090B' : '#94A3B8',
             fontSize: '0.78rem',
             fontWeight: 700,
             cursor: 'pointer',
@@ -89,9 +89,9 @@ export const CanvasToolbar: React.FC = () => {
             gap: '6px',
             padding: '5px 12px',
             borderRadius: '6px',
-            backgroundColor: toolMode === 'connect' ? 'rgba(197, 164, 109, 0.15)' : 'transparent',
-            border: toolMode === 'connect' ? '1px solid #C5A46D' : '1px solid transparent',
-            color: toolMode === 'connect' ? '#C5A46D' : '#94A3B8',
+            backgroundColor: toolMode === 'connect' ? 'rgba(9, 9, 11, 0.15)' : 'transparent',
+            border: toolMode === 'connect' ? '1px solid #09090B' : '1px solid transparent',
+            color: toolMode === 'connect' ? '#09090B' : '#94A3B8',
             fontSize: '0.78rem',
             fontWeight: 700,
             cursor: 'pointer',
@@ -170,10 +170,10 @@ export const CanvasToolbar: React.FC = () => {
             cursor: 'pointer',
             transition: 'all 0.15s ease'
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#C5A46D')}
+          onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#09090B')}
           onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#334155')}
         >
-          <Sparkles size={13} style={{ color: '#C5A46D' }} />
+          <Sparkles size={13} style={{ color: '#09090B' }} />
           <span>Auto-arrange</span>
         </button>
       </div>
