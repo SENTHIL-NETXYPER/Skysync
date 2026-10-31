@@ -3,7 +3,6 @@ import {
   Cloud,
   Menu,
   X,
-  ChevronDown,
   LayoutGrid,
   Sparkles,
   ArrowRight,
@@ -25,14 +24,10 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenConsultation }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesMenuOpen, setServicesMenuOpen] = useState(false);
-  const [solutionsMenuOpen, setSolutionsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const servicesDropdownRef = useRef<HTMLDivElement>(null);
-  const solutionsDropdownRef = useRef<HTMLDivElement>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   // Monitor scroll for elevation and subtle background density
@@ -53,25 +48,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
     };
   }, []);
 
-  // Close dropdowns on outside click
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Node;
-      if (servicesDropdownRef.current && !servicesDropdownRef.current.contains(target)) {
-        setServicesMenuOpen(false);
-      }
-      if (solutionsDropdownRef.current && !solutionsDropdownRef.current.contains(target)) {
-        setSolutionsMenuOpen(false);
-      }
-    };
-    if (servicesMenuOpen || solutionsMenuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [servicesMenuOpen, solutionsMenuOpen]);
-
   // Focus search input when search modal opens & handle Escape key
   useEffect(() => {
     if (isSearchOpen) {
@@ -89,61 +65,15 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
   // Exact nav items matching the classy dark glassmorphism theme
   const navItems = [
     { id: 'home', label: 'Home' },
-    { id: 'services', label: 'Services', hasDropdown: true },
-    { id: 'solutions', label: 'Solutions', hasDropdown: true },
+    { id: 'services', label: 'Services' },
+    { id: 'solutions', label: 'Solutions' },
     { id: 'projects', label: 'Case Studies' },
     { id: 'pricing', label: 'Pricing' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' }
   ];
 
-  const servicesList = [
-    {
-      id: 'migration',
-      label: 'Cloud Architecture & Migration',
-      desc: 'Zero-downtime database & student portal cutovers',
-      icon: Cloud,
-      color: '#FF9900'
-    },
-    {
-      id: 'devops',
-      label: 'DevOps & CI/CD Automation',
-      desc: 'Terraform, Docker & automated test pipelines',
-      icon: Zap,
-      color: '#38BDF8'
-    },
-    {
-      id: 'ai',
-      label: 'Cloud AI & Amazon Bedrock',
-      desc: 'Campus admissions bots & RAG semantic search',
-      icon: Cpu,
-      color: '#A855F7'
-    },
-    {
-      id: 'consulting',
-      label: 'FinOps & Architecture Consulting',
-      desc: 'Cost optimization & faculty mentoring runbooks',
-      icon: Shield,
-      color: '#10B981'
-    }
-  ];
 
-  const solutionsList = [
-    {
-      id: 'solutions',
-      label: 'Overview & Campus Solutions',
-      desc: 'Higher education & institutional cloud frameworks',
-      icon: LayoutGrid,
-      color: '#FF9900'
-    },
-    {
-      id: 'designer',
-      label: 'Architecture Designer',
-      desc: 'Interactive visual tool for custom AWS stacks',
-      icon: Sparkles,
-      color: '#A855F7'
-    }
-  ];
 
   const searchEntries = [
     { title: 'AWS Cloud Architecture & Migration', category: 'Service', tabId: 'services', sectionId: 'services', icon: Cloud },
@@ -166,8 +96,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
   const handleNavClick = (tabId: string) => {
     onSelectTab(tabId);
     setMobileMenuOpen(false);
-    setServicesMenuOpen(false);
-    setSolutionsMenuOpen(false);
     setIsSearchOpen(false);
 
     if (tabId === 'home') {
@@ -203,35 +131,6 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
     setTimeout(scrollToTarget, 220);
   };
 
-  const handleServiceClick = (serviceId: string) => {
-    setServicesMenuOpen(false);
-    setMobileMenuOpen(false);
-    if (serviceId === 'consulting' || serviceId === 'migration') {
-      onSelectTab(serviceId);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      handleNavClick('services');
-    }
-  };
-
-  const handleSolutionClick = (solutionId: string) => {
-    setSolutionsMenuOpen(false);
-    setMobileMenuOpen(false);
-    if (solutionId === 'designer') {
-      const el = document.getElementById('designer-section');
-      if (el) {
-        const navOffset = 84;
-        const offsetPosition = el.getBoundingClientRect().top + window.pageYOffset - navOffset;
-        window.scrollTo({
-          top: Math.max(0, offsetPosition),
-          behavior: 'smooth'
-        });
-      }
-    } else {
-      handleNavClick('solutions');
-    }
-  };
-
   return (
     <>
       <header className="floating-nav-header" role="banner">
@@ -263,122 +162,15 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
           >
             {navItems.map((item) => {
               const isActive = currentTab === item.id;
-              const isService = item.id === 'services';
-              const isSolution = item.id === 'solutions';
 
               return (
-                <div
+                <button
                   key={item.id}
-                  ref={isService ? servicesDropdownRef : isSolution ? solutionsDropdownRef : undefined}
-                  style={{ position: 'relative' }}
+                  className={`nav-capsule-tab ${isActive ? 'active' : ''}`}
+                  onClick={() => handleNavClick(item.id)}
                 >
-                  <button
-                    className={`nav-capsule-tab ${isActive ? 'active' : ''}`}
-                    aria-haspopup={item.hasDropdown ? 'true' : undefined}
-                    aria-expanded={
-                      isService ? servicesMenuOpen : isSolution ? solutionsMenuOpen : undefined
-                    }
-                    onClick={() => {
-                      if (isService) {
-                        setServicesMenuOpen(!servicesMenuOpen);
-                        setSolutionsMenuOpen(false);
-                      } else if (isSolution) {
-                        setSolutionsMenuOpen(!solutionsMenuOpen);
-                        setServicesMenuOpen(false);
-                      } else {
-                        handleNavClick(item.id);
-                      }
-                    }}
-                  >
-                    <span>{item.label}</span>
-                    {item.hasDropdown && (
-                      <ChevronDown
-                        size={13}
-                        strokeWidth={2.4}
-                        style={{
-                          transform:
-                            (isService && servicesMenuOpen) || (isSolution && solutionsMenuOpen)
-                              ? 'rotate(180deg)'
-                              : 'rotate(0deg)',
-                          transition: 'transform 0.2s ease',
-                          color: isActive ? '#FFFFFF' : 'rgba(255, 255, 255, 0.65)'
-                        }}
-                      />
-                    )}
-                  </button>
-
-                  {/* Services Dropdown Menu */}
-                  {isService && servicesMenuOpen && (
-                    <div className="nav-capsule-dropdown">
-                      {servicesList.map((svc) => {
-                        const Icon = svc.icon;
-                        return (
-                          <button
-                            key={svc.id}
-                            className="nav-capsule-dropdown-item"
-                            onClick={() => handleServiceClick(svc.id)}
-                          >
-                            <div
-                              style={{
-                                width: '28px',
-                                height: '28px',
-                                borderRadius: '8px',
-                                background: 'rgba(255, 255, 255, 0.08)',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                color: svc.color,
-                                flexShrink: 0
-                              }}
-                            >
-                              <Icon size={15} />
-                            </div>
-                            <div style={{ display: 'flex', flexDirection: 'column' }}>
-                              <span style={{ fontWeight: 650, color: '#FFFFFF', fontSize: '0.88rem' }}>{svc.label}</span>
-                              <span style={{ fontSize: '0.74rem', color: '#94A3B8' }}>{svc.desc}</span>
-                            </div>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  )}
-
-                  {/* Solutions Dropdown Menu */}
-                  {isSolution && solutionsMenuOpen && (
-                    <div className="nav-capsule-dropdown">
-                      {solutionsList.map((sol) => {
-                        const Icon = sol.icon;
-                        return (
-                          <button
-                            key={sol.id}
-                            className="nav-capsule-dropdown-item"
-                            onClick={() => handleSolutionClick(sol.id)}
-                          >
-                            <div
-                              style={{
-                                width: '28px',
-                                height: '28px',
-                                borderRadius: '8px',
-                                background: 'rgba(255, 255, 255, 0.08)',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                color: sol.color,
-                                flexShrink: 0
-                              }}
-                            >
-                              <Icon size={15} />
-                            </div>
-                            <div style={{ display: 'flex', flexDirection: 'column' }}>
-                              <span style={{ fontWeight: 650, color: '#FFFFFF', fontSize: '0.88rem' }}>{sol.label}</span>
-                              <span style={{ fontSize: '0.74rem', color: '#94A3B8' }}>{sol.desc}</span>
-                            </div>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
+                  <span>{item.label}</span>
+                </button>
               );
             })}
           </nav>
@@ -451,121 +243,24 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
             >
               {navItems.map((item) => {
                 const isActive = currentTab === item.id;
-                const isService = item.id === 'services';
-                const isSolution = item.id === 'solutions';
 
                 return (
-                  <div key={item.id} style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                    <div
-                      className={`nav-capsule-tab ${isActive ? 'active' : ''}`}
-                      style={{
-                        width: '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        padding: '11px 18px',
-                        fontSize: '0.96rem',
-                        cursor: 'pointer'
-                      }}
-                      onClick={() => {
-                        if (isService) {
-                          setServicesMenuOpen(!servicesMenuOpen);
-                        } else if (isSolution) {
-                          setSolutionsMenuOpen(!solutionsMenuOpen);
-                        } else {
-                          handleNavClick(item.id);
-                        }
-                      }}
-                    >
-                      <span style={{ fontWeight: isActive ? 700 : 500 }}>{item.label}</span>
-                      {item.hasDropdown && (
-                        <div
-                          style={{
-                            padding: '2px 6px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            cursor: 'pointer'
-                          }}
-                        >
-                          <ChevronDown
-                            size={16}
-                            style={{
-                              transform:
-                                (isService && servicesMenuOpen) || (isSolution && solutionsMenuOpen)
-                                  ? 'rotate(180deg)'
-                                  : 'rotate(0deg)',
-                              transition: 'transform 0.2s ease',
-                              color: '#CBD5E1'
-                            }}
-                          />
-                        </div>
-                      )}
-                    </div>
-
-                    {isService && servicesMenuOpen && (
-                      <div
-                        style={{
-                          paddingLeft: '14px',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          gap: '6px',
-                          marginTop: '4px',
-                          marginBottom: '4px'
-                        }}
-                      >
-                        <button
-                          className="nav-capsule-dropdown-item"
-                          onClick={() => handleNavClick('services')}
-                          style={{ borderLeft: '2px solid #C5A46D', paddingLeft: '10px' }}
-                        >
-                          <span style={{ color: '#C5A46D', fontWeight: 700, fontSize: '0.88rem' }}>
-                            • View All Cloud Services
-                          </span>
-                        </button>
-                        {servicesList.map((svc) => (
-                          <button
-                            key={svc.id}
-                            className="nav-capsule-dropdown-item"
-                            onClick={() => handleServiceClick(svc.id)}
-                          >
-                            <span style={{ color: '#FFFFFF', fontWeight: 600 }}>{svc.label}</span>
-                          </button>
-                        ))}
-                      </div>
-                    )}
-
-                    {isSolution && solutionsMenuOpen && (
-                      <div
-                        style={{
-                          paddingLeft: '14px',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          gap: '6px',
-                          marginTop: '4px',
-                          marginBottom: '4px'
-                        }}
-                      >
-                        <button
-                          className="nav-capsule-dropdown-item"
-                          onClick={() => handleNavClick('solutions')}
-                          style={{ borderLeft: '2px solid #C5A46D', paddingLeft: '10px' }}
-                        >
-                          <span style={{ color: '#C5A46D', fontWeight: 700, fontSize: '0.88rem' }}>
-                            • View All Solutions
-                          </span>
-                        </button>
-                        {solutionsList.map((sol) => (
-                          <button
-                            key={sol.id}
-                            className="nav-capsule-dropdown-item"
-                            onClick={() => handleSolutionClick(sol.id)}
-                          >
-                            <span style={{ color: '#FFFFFF', fontWeight: 600 }}>{sol.label}</span>
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                  <button
+                    key={item.id}
+                    className={`nav-capsule-tab ${isActive ? 'active' : ''}`}
+                    style={{
+                      width: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      padding: '12px 18px',
+                      fontSize: '0.96rem',
+                      cursor: 'pointer',
+                      textAlign: 'left'
+                    }}
+                    onClick={() => handleNavClick(item.id)}
+                  >
+                    <span style={{ fontWeight: isActive ? 700 : 500 }}>{item.label}</span>
+                  </button>
                 );
               })}
             </div>
