@@ -22,8 +22,8 @@ const initialNodes: Node[] = [
     data: {
       label: 'AWS Cloud',
       variant: 'cloud',
-      borderColor: '#E7167B',
-      badgeBg: '#E7167B',
+      borderColor: '#C5A46D',
+      badgeBg: '#C5A46D',
       badgeColor: '#FFFFFF'
     }
   },
@@ -218,8 +218,8 @@ const initialEdges: Edge[] = [
     target: 'node-cf',
     type: 'smoothstep',
     animated: true,
-    style: { stroke: '#E7167B', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#E7167B' }
+    style: { stroke: '#C5A46D', strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: '#C5A46D' }
   },
   {
     id: 'edge-cf-alb',
@@ -227,8 +227,8 @@ const initialEdges: Edge[] = [
     target: 'node-alb',
     type: 'smoothstep',
     animated: true,
-    style: { stroke: '#E7167B', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#E7167B' }
+    style: { stroke: '#C5A46D', strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: '#C5A46D' }
   },
   {
     id: 'edge-alb-ec2',
@@ -236,8 +236,8 @@ const initialEdges: Edge[] = [
     target: 'node-ec2',
     type: 'smoothstep',
     animated: true,
-    style: { stroke: '#E7167B', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#E7167B' }
+    style: { stroke: '#C5A46D', strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: '#C5A46D' }
   },
   {
     id: 'edge-alb-s3',
@@ -245,8 +245,8 @@ const initialEdges: Edge[] = [
     target: 'node-s3',
     type: 'smoothstep',
     animated: true,
-    style: { stroke: '#E7167B', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#E7167B' }
+    style: { stroke: '#C5A46D', strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: '#C5A46D' }
   },
   {
     id: 'edge-ec2-aurora',
@@ -254,8 +254,8 @@ const initialEdges: Edge[] = [
     target: 'node-aurora',
     type: 'smoothstep',
     animated: true,
-    style: { stroke: '#E7167B', strokeWidth: 2 },
-    markerEnd: { type: MarkerType.ArrowClosed, color: '#E7167B' }
+    style: { stroke: '#C5A46D', strokeWidth: 2 },
+    markerEnd: { type: MarkerType.ArrowClosed, color: '#C5A46D' }
   }
 ];
 
@@ -375,8 +375,8 @@ export const useArchitectureStore = create<ArchitectureStore>((set, get) => {
         targetHandle: connection.targetHandle,
         type: 'smoothstep',
         animated: true,
-        style: { stroke: '#E7167B', strokeWidth: 2 },
-        markerEnd: { type: MarkerType.ArrowClosed, color: '#E7167B' }
+        style: { stroke: '#C5A46D', strokeWidth: 2 },
+        markerEnd: { type: MarkerType.ArrowClosed, color: '#C5A46D' }
       };
       set({
         edges: [...get().edges, newEdge]

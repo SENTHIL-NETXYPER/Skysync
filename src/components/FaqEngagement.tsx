@@ -78,10 +78,10 @@ export const FaqEngagement: React.FC = () => {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-              <IndianRupee size={18} color="#E7167B" />
+              <IndianRupee size={18} color="#C5A46D" />
               <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0F172A', margin: 0 }}>{model.title}</h3>
             </div>
-            <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#E7167B', marginBottom: '8px' }}>{model.range}</div>
+            <div style={{ fontSize: '0.88rem', fontWeight: 800, color: '#C5A46D', marginBottom: '8px' }}>{model.range}</div>
             <p style={{ fontSize: '0.94rem', color: '#334155', lineHeight: 1.55, margin: 0 }}>{model.desc}</p>
           </div>
         ))}
@@ -115,7 +115,7 @@ export const FaqEngagement: React.FC = () => {
                 }}
               >
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', fontSize: '0.98rem', fontWeight: 700, color: '#0F172A' }}>
-                  {item.id === 'security' && <Shield size={17} color="#E7167B" />}
+                  {item.id === 'security' && <Shield size={17} color="#C5A46D" />}
                   {item.q}
                 </span>
                 <ChevronDown

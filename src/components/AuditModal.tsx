@@ -186,7 +186,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
           maxWidth: '520px',
           width: '100%',
           boxShadow: '0 24px 48px -12px rgba(0, 0, 0, 0.45), 0 0 1px rgba(0, 0, 0, 0.2)',
-          borderTop: '5px solid #E7167B',
+          borderTop: '5px solid #C5A46D',
           position: 'relative',
           maxHeight: '92vh',
           overflowY: 'auto'
@@ -211,7 +211,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
             justifyContent: 'center',
             transition: 'color 0.15s ease'
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = '#E7167B')}
+          onMouseEnter={(e) => (e.currentTarget.style.color = '#C5A46D')}
           onMouseLeave={(e) => (e.currentTarget.style.color = '#64748B')}
           aria-label="Close modal"
         >
@@ -224,12 +224,12 @@ export const AuditModal: React.FC<AuditModalProps> = ({
               width: '56px',
               height: '56px',
               borderRadius: '50%',
-              backgroundColor: 'rgba(231, 22, 123, 0.12)',
+              backgroundColor: 'rgba(197, 164, 109, 0.12)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               margin: '0 auto 16px auto',
-              color: '#E7167B'
+              color: '#C5A46D'
             }}>
               <CheckCircle size={32} />
             </div>
@@ -253,11 +253,11 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                   padding: '11px 18px',
                   fontSize: '0.90rem',
                   fontWeight: 700,
-                  backgroundColor: '#E7167B',
+                  backgroundColor: '#C5A46D',
                   color: '#FFFFFF',
                   borderRadius: '8px',
                   textDecoration: 'none',
-                  boxShadow: '0 3px 12px rgba(231, 22, 123, 0.3)'
+                  boxShadow: '0 3px 12px rgba(197, 164, 109, 0.3)'
                 }}
               >
                 <Mail size={16} />
@@ -364,7 +364,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                       outline: 'none',
                       transition: 'border-color 0.15s ease'
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = errors.name ? '#EF4444' : '#E7167B')}
+                    onFocus={(e) => (e.target.style.borderColor = errors.name ? '#EF4444' : '#C5A46D')}
                     onBlur={(e) => {
                       e.target.style.borderColor = errors.name ? '#EF4444' : '#CBD5E1';
                       if (!formData.name.trim()) {
@@ -409,7 +409,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                       <span style={{
                         fontSize: '0.72rem',
                         fontWeight: 700,
-                        color: formData.phone.length === 10 ? '#16A34A' : '#D0126D'
+                        color: formData.phone.length === 10 ? '#16A34A' : '#B8965F'
                       }}>
                         {formData.phone.length}/10
                       </span>
@@ -435,7 +435,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                       outline: 'none',
                       transition: 'border-color 0.15s ease'
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = errors.phone ? '#EF4444' : '#E7167B')}
+                    onFocus={(e) => (e.target.style.borderColor = errors.phone ? '#EF4444' : '#C5A46D')}
                     onBlur={(e) => {
                       e.target.style.borderColor = errors.phone ? '#EF4444' : '#CBD5E1';
                       if (!formData.phone.trim()) {
@@ -499,7 +499,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                     outline: 'none',
                     transition: 'border-color 0.15s ease'
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = errors.email ? '#EF4444' : '#E7167B')}
+                  onFocus={(e) => (e.target.style.borderColor = errors.email ? '#EF4444' : '#C5A46D')}
                   onBlur={(e) => {
                     e.target.style.borderColor = errors.email ? '#EF4444' : '#CBD5E1';
                     if (!formData.email.trim()) {
@@ -559,7 +559,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                     outline: 'none',
                     transition: 'border-color 0.15s ease'
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = '#E7167B')}
+                  onFocus={(e) => (e.target.style.borderColor = '#C5A46D')}
                   onBlur={(e) => (e.target.style.borderColor = '#E2E8F0')}
                 />
               </div>
@@ -598,8 +598,8 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                       transition: 'border-color 0.15s ease, box-shadow 0.15s ease'
                     }}
                     onFocus={(e) => {
-                      e.target.style.borderColor = '#E7167B';
-                      e.target.style.boxShadow = '0 0 0 3px rgba(231, 22, 123, 0.15)';
+                      e.target.style.borderColor = '#C5A46D';
+                      e.target.style.boxShadow = '0 0 0 3px rgba(197, 164, 109, 0.15)';
                     }}
                     onBlur={(e) => {
                       e.target.style.borderColor = '#E2E8F0';
@@ -658,7 +658,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                     resize: 'vertical',
                     lineHeight: 1.5
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = '#E7167B')}
+                  onFocus={(e) => (e.target.style.borderColor = '#C5A46D')}
                   onBlur={(e) => (e.target.style.borderColor = '#E2E8F0')}
                 />
               </div>
@@ -699,7 +699,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                   padding: '13px 20px',
                   fontSize: '0.96rem',
                   fontWeight: 800,
-                  backgroundColor: isSubmitting ? '#94A3B8' : '#E7167B',
+                  backgroundColor: isSubmitting ? '#94A3B8' : '#C5A46D',
                   color: '#FFFFFF',
                   border: 'none',
                   borderRadius: '10px',
@@ -708,7 +708,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                   alignItems: 'center',
                   justifyContent: 'center',
                   transition: 'background-color 0.18s ease, transform 0.18s ease',
-                  boxShadow: '0 4px 14px rgba(231, 22, 123, 0.35)',
+                  boxShadow: '0 4px 14px rgba(197, 164, 109, 0.35)',
                   opacity: isSubmitting ? 0.75 : 1
                 }}
                 onMouseEnter={(e) => {
@@ -719,7 +719,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                 }}
                 onMouseLeave={(e) => {
                   if (!isSubmitting) {
-                    e.currentTarget.style.backgroundColor = '#E7167B';
+                    e.currentTarget.style.backgroundColor = '#C5A46D';
                     e.currentTarget.style.transform = 'translateY(0)';
                   }
                 }}

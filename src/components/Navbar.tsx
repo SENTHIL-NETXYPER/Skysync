@@ -286,7 +286,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                 style={{
                   height: '2px',
                   width: '100%',
-                  backgroundColor: '#E7167B',
+                  backgroundColor: '#C5A46D',
                   marginTop: '4px',
                   borderRadius: '2px'
                 }}
@@ -554,9 +554,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                         <button
                           className="nav-capsule-dropdown-item"
                           onClick={() => handleNavClick('services')}
-                          style={{ borderLeft: '2px solid #E7167B', paddingLeft: '10px' }}
+                          style={{ borderLeft: '2px solid #C5A46D', paddingLeft: '10px' }}
                         >
-                          <span style={{ color: '#E7167B', fontWeight: 700, fontSize: '0.88rem' }}>
+                          <span style={{ color: '#C5A46D', fontWeight: 700, fontSize: '0.88rem' }}>
                             • View All Cloud Services
                           </span>
                         </button>
@@ -586,9 +586,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                         <button
                           className="nav-capsule-dropdown-item"
                           onClick={() => handleNavClick('solutions')}
-                          style={{ borderLeft: '2px solid #E7167B', paddingLeft: '10px' }}
+                          style={{ borderLeft: '2px solid #C5A46D', paddingLeft: '10px' }}
                         >
-                          <span style={{ color: '#E7167B', fontWeight: 700, fontSize: '0.88rem' }}>
+                          <span style={{ color: '#C5A46D', fontWeight: 700, fontSize: '0.88rem' }}>
                             • View All Solutions
                           </span>
                         </button>
@@ -755,7 +755,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                             width: '32px',
                             height: '32px',
                             borderRadius: '8px',
-                            background: 'rgba(231, 22, 123, 0.15)',
+                            background: 'rgba(197, 164, 109, 0.15)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -776,7 +776,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                           textTransform: 'uppercase',
                           letterSpacing: '0.04em',
                           color: '#FF9900',
-                          background: 'rgba(231, 22, 123, 0.12)',
+                          background: 'rgba(197, 164, 109, 0.12)',
                           padding: '3px 8px',
                           borderRadius: '9999px'
                         }}

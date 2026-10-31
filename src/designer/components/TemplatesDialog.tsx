@@ -15,7 +15,7 @@ export const TemplatesDialog: React.FC = () => {
       desc: 'Route 53 DNS, CloudFront CDN, Application Load Balancer in Public Subnet, EC2 Auto Scaling in Private Subnet, Aurora PostgreSQL Multi-AZ & S3.',
       services: ['Route 53', 'CloudFront', 'ALB', 'EC2 Auto Scaling', 'Aurora DB', 'S3'],
       icon: Cloud,
-      color: '#E7167B'
+      color: '#C5A46D'
     },
     {
       id: 'ai-rag',
@@ -67,9 +67,9 @@ export const TemplatesDialog: React.FC = () => {
                 width: '36px',
                 height: '36px',
                 borderRadius: '8px',
-                backgroundColor: 'rgba(231, 22, 123, 0.15)',
-                border: '1px solid #E7167B',
-                color: '#E7167B',
+                backgroundColor: 'rgba(197, 164, 109, 0.15)',
+                border: '1px solid #C5A46D',
+                color: '#C5A46D',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'

@@ -19,7 +19,7 @@ export const AwsGroupNode: React.FC<NodeProps> = memo(({ data, selected }) => {
     ? '#0284C7'
     : isRegion
     ? '#3B82F6'
-    : '#E7167B';
+    : '#C5A46D';
 
   const badgeBg = isVpc
     ? '#15803D'
@@ -29,7 +29,7 @@ export const AwsGroupNode: React.FC<NodeProps> = memo(({ data, selected }) => {
     ? '#0369A1'
     : isRegion
     ? '#1D4ED8'
-    : '#E7167B';
+    : '#C5A46D';
 
   return (
     <div

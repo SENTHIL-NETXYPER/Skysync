@@ -136,7 +136,7 @@ export const TechnologyStrip: React.FC = () => {
         }
 
         .tech-provider-item:focus-visible {
-          box-shadow: 0 0 0 2px #E7167B;
+          box-shadow: 0 0 0 2px #C5A46D;
         }
 
         .tech-provider-item .tech-provider-logo {
@@ -292,7 +292,7 @@ export const TechnologyStrip: React.FC = () => {
               width: '7px',
               height: '7px',
               borderRadius: '50%',
-              backgroundColor: '#E7167B',
+              backgroundColor: '#C5A46D',
               flexShrink: 0
             }}
           />

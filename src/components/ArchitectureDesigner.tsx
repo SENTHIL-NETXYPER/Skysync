@@ -282,7 +282,7 @@ export const ArchitectureDesigner: React.FC = () => {
     let svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" style="background-color: #FFFFFF; font-family: sans-serif;">
       <defs>
         <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M 0 1 L 8 5 L 0 9 z" fill="#E7167B" />
+          <path d="M 0 1 L 8 5 L 0 9 z" fill="#C5A46D" />
         </marker>
       </defs>
       <rect width="100%" height="100%" fill="#FFFFFF"/>
@@ -300,7 +300,7 @@ export const ArchitectureDesigner: React.FC = () => {
         const x2 = toNode.x + 95;
         const y2 = toNode.y + 45;
         svgContent += `
-          <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#E7167B" stroke-width="2" marker-end="url(#arrow)" />
+          <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#C5A46D" stroke-width="2" marker-end="url(#arrow)" />
           <text x="${(x1 + x2) / 2}" y="${(y1 + y2) / 2 - 8}" font-size="11" fill="#475569" text-anchor="middle" font-weight="600">${conn.label}</text>
         `;
       }
@@ -311,9 +311,9 @@ export const ArchitectureDesigner: React.FC = () => {
       svgContent += `
         <g transform="translate(${node.x}, ${node.y})">
           <rect width="190" height="85" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" />
-          <rect width="190" height="4" rx="2" fill="#E7167B" />
+          <rect width="190" height="4" rx="2" fill="#C5A46D" />
           <text x="14" y="30" font-size="13" font-weight="bold" fill="#0F172A">${node.service}</text>
-          <text x="14" y="50" font-size="11.5" font-weight="600" fill="#E7167B">${node.label}</text>
+          <text x="14" y="50" font-size="11.5" font-weight="600" fill="#C5A46D">${node.label}</text>
           <text x="14" y="68" font-size="10" fill="#64748B">${node.spec}</text>
         </g>
       `;
@@ -454,7 +454,7 @@ export const ArchitectureDesigner: React.FC = () => {
               gap: 4px;
               font-size: 0.72rem;
               font-weight: 700;
-              color: #E7167B;
+              color: #C5A46D;
               background-color: #FFF7ED;
               border: 1px solid #FFEDD5;
               padding: 4px 8px;
@@ -473,7 +473,7 @@ export const ArchitectureDesigner: React.FC = () => {
         `}</style>
         <div className="section-badge-lined">
           <span className="badge-text" style={{ display: 'inline-flex', alignItems: 'center', gap: '7px' }}>
-            <Network size={14} color="#E7167B" />
+            <Network size={14} color="#C5A46D" />
             <span>Interactive AWS Topology Workbench</span>
           </span>
           <div className="badge-line" />
@@ -502,7 +502,7 @@ export const ArchitectureDesigner: React.FC = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#E7167B',
+                color: '#C5A46D',
                 flexShrink: 0
               }}>
                 <Layers size={18} />
@@ -524,16 +524,16 @@ export const ArchitectureDesigner: React.FC = () => {
                 gap: '5px',
                 padding: '4px 10px',
                 borderRadius: '9999px',
-                backgroundColor: 'rgba(231, 22, 123, 0.08)',
-                border: '1px solid rgba(231, 22, 123, 0.25)',
-                color: '#E7167B',
+                backgroundColor: 'rgba(197, 164, 109, 0.08)',
+                border: '1px solid rgba(197, 164, 109, 0.25)',
+                color: '#C5A46D',
                 fontSize: '0.76rem',
                 fontWeight: 700,
                 cursor: 'pointer'
               }}
               title="Generate layout from text description"
             >
-              <Sparkles size={12} color="#E7167B" />
+              <Sparkles size={12} color="#C5A46D" />
               <span>AI Starter</span>
             </button>
           </div>
@@ -547,8 +547,8 @@ export const ArchitectureDesigner: React.FC = () => {
                 style={{
                   padding: '4px 8px',
                   borderRadius: '12px',
-                  border: activeCategory === cat ? '1px solid #E7167B' : '1px solid #E2E8F0',
-                  backgroundColor: activeCategory === cat ? '#E7167B' : '#F8FAFC',
+                  border: activeCategory === cat ? '1px solid #C5A46D' : '1px solid #E2E8F0',
+                  backgroundColor: activeCategory === cat ? '#C5A46D' : '#F8FAFC',
                   color: activeCategory === cat ? '#FFFFFF' : '#526071',
                   fontSize: '0.72rem',
                   fontWeight: 700,
@@ -589,10 +589,10 @@ export const ArchitectureDesigner: React.FC = () => {
                     boxShadow: '0 1px 3px rgba(15, 23, 42, 0.04)'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = '#E7167B';
+                    e.currentTarget.style.borderColor = '#C5A46D';
                     e.currentTarget.style.backgroundColor = '#FFF7ED';
                     e.currentTarget.style.transform = 'translateY(-1px)';
-                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(231, 22, 123, 0.14)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(197, 164, 109, 0.14)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.borderColor = '#E2E8F0';
@@ -633,7 +633,7 @@ export const ArchitectureDesigner: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#D0126D',
+                    color: '#B8965F',
                     flexShrink: 0
                   }}>
                     +
@@ -648,11 +648,11 @@ export const ArchitectureDesigner: React.FC = () => {
               padding: '14px',
               borderRadius: '10px',
               backgroundColor: '#F8FAFC',
-              border: '1.5px solid #E7167B',
+              border: '1.5px solid #C5A46D',
               animation: 'fadeIn 0.2s ease-out'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <span style={{ fontSize: '0.76rem', fontWeight: 800, color: '#E7167B', textTransform: 'uppercase' }}>
+                <span style={{ fontSize: '0.76rem', fontWeight: 800, color: '#C5A46D', textTransform: 'uppercase' }}>
                   Node Inspector
                 </span>
                 <button
@@ -784,9 +784,9 @@ export const ArchitectureDesigner: React.FC = () => {
                   gap: '5px',
                   padding: '7px 12px',
                   borderRadius: '7px',
-                  border: isConnectMode ? '1.5px solid #E7167B' : '1.5px solid #CBD5E1',
+                  border: isConnectMode ? '1.5px solid #C5A46D' : '1.5px solid #CBD5E1',
                   backgroundColor: isConnectMode ? '#FFF7ED' : '#FFFFFF',
-                  color: isConnectMode ? '#E7167B' : '#232F3E',
+                  color: isConnectMode ? '#C5A46D' : '#232F3E',
                   fontSize: '0.84rem',
                   fontWeight: 700,
                   cursor: 'pointer',
@@ -814,8 +814,8 @@ export const ArchitectureDesigner: React.FC = () => {
                   transition: 'all 0.16s ease'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#E7167B';
-                  e.currentTarget.style.color = '#E7167B';
+                  e.currentTarget.style.borderColor = '#C5A46D';
+                  e.currentTarget.style.color = '#C5A46D';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderColor = '#CBD5E1';
@@ -828,7 +828,7 @@ export const ArchitectureDesigner: React.FC = () => {
               </button>
 
               {isConnectMode && (
-                <span style={{ fontSize: '0.78rem', color: '#E7167B', fontWeight: 600 }}>
+                <span style={{ fontSize: '0.78rem', color: '#C5A46D', fontWeight: 600 }}>
                   {connectSourceId ? 'Click target node to connect' : 'Click the first node'}
                 </span>
               )}
@@ -966,7 +966,7 @@ export const ArchitectureDesigner: React.FC = () => {
                   markerHeight="6"
                   orient="auto"
                 >
-                  <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#E7167B" />
+                  <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#C5A46D" />
                 </marker>
               </defs>
 
@@ -1085,7 +1085,7 @@ export const ArchitectureDesigner: React.FC = () => {
                       d={pathD}
                       fill="none"
                       className="arch-conn-revealed"
-                      stroke="#E7167B"
+                      stroke="#C5A46D"
                       strokeWidth={isSelected ? '2.8' : '2'}
                       strokeDasharray={isSelected ? '4 4' : 'none'}
                       markerEnd="url(#canvas-arrow)"
@@ -1101,7 +1101,7 @@ export const ArchitectureDesigner: React.FC = () => {
                       height="18"
                       rx="4"
                       fill="#FFFFFF"
-                      stroke={isSelected ? '#E7167B' : '#CBD5E1'}
+                      stroke={isSelected ? '#C5A46D' : '#CBD5E1'}
                       strokeWidth="1"
                       filter="drop-shadow(0 1px 2px rgba(0,0,0,0.06))"
                     />
@@ -1110,7 +1110,7 @@ export const ArchitectureDesigner: React.FC = () => {
                       y={midY - (y1 === y2 ? 4 : -3)}
                       fontSize="8.5"
                       fontWeight="bold"
-                      fill={isSelected ? '#E7167B' : '#334155'}
+                      fill={isSelected ? '#C5A46D' : '#334155'}
                       textAnchor="middle"
                     >
                       {conn.label}
@@ -1128,13 +1128,13 @@ export const ArchitectureDesigner: React.FC = () => {
 
               const getCategoryAccent = (cat: string) => {
                 switch (cat) {
-                  case 'Compute': return '#E7167B'; // AWS Orange
+                  case 'Compute': return '#C5A46D'; // AWS Orange
                   case 'Database': return '#01A88D'; // AWS Teal
                   case 'Storage': return '#7AA116'; // AWS Green
                   case 'Networking': return '#8C4FFF'; // AWS Purple
                   case 'Security': return '#DD344C'; // AWS Red
                   case 'AI': return '#C925D1'; // AWS Magenta
-                  default: return '#E7167B';
+                  default: return '#C5A46D';
                 }
               };
 
@@ -1158,12 +1158,12 @@ export const ArchitectureDesigner: React.FC = () => {
                     backgroundColor: '#FFFFFF',
                     borderRadius: '12px',
                     border: isSelected
-                      ? '2px solid #E7167B'
+                      ? '2px solid #C5A46D'
                       : isSource
                       ? '2px dashed #01A88D'
                       : '1.5px solid #CBD5E1',
                     boxShadow: isSelected
-                      ? '0 8px 24px rgba(231, 22, 123, 0.22)'
+                      ? '0 8px 24px rgba(197, 164, 109, 0.22)'
                       : '0 2px 10px rgba(15, 23, 42, 0.06)',
                     zIndex: isSelected || isEditing ? 15 : 2,
                     cursor: isConnectMode ? 'crosshair' : 'grab',

@@ -76,14 +76,14 @@ export const AmbientBackground: React.FC = () => {
               <stop offset="0%" stopColor="#38BDF8" stopOpacity="0.08" />
               <stop offset="25%" stopColor="#0284C7" stopOpacity="0.32" />
               <stop offset="55%" stopColor="#6366F1" stopOpacity="0.38" />
-              <stop offset="80%" stopColor="#E7167B" stopOpacity="0.45" />
-              <stop offset="100%" stopColor="#E7167B" stopOpacity="0.08" />
+              <stop offset="80%" stopColor="#C5A46D" stopOpacity="0.45" />
+              <stop offset="100%" stopColor="#C5A46D" stopOpacity="0.08" />
             </linearGradient>
 
             {/* Secondary Warm Orange Flow Wave */}
             <linearGradient id="curveGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#E7167B" stopOpacity="0.05" />
-              <stop offset="35%" stopColor="#E7167B" stopOpacity="0.32" />
+              <stop offset="0%" stopColor="#C5A46D" stopOpacity="0.05" />
+              <stop offset="35%" stopColor="#C5A46D" stopOpacity="0.32" />
               <stop offset="70%" stopColor="#0284C7" stopOpacity="0.28" />
               <stop offset="100%" stopColor="#38BDF8" stopOpacity="0.05" />
             </linearGradient>
@@ -115,13 +115,13 @@ export const AmbientBackground: React.FC = () => {
           <circle cx="280" cy="180" r="4.5" fill="#0284C7" filter="url(#nodeGlow)" />
           <circle cx="280" cy="180" r="2" fill="#FFFFFF" />
 
-          <circle cx="620" cy="270" r="5" fill="#E7167B" filter="url(#nodeGlow)" />
+          <circle cx="620" cy="270" r="5" fill="#C5A46D" filter="url(#nodeGlow)" />
           <circle cx="620" cy="270" r="2.2" fill="#FFFFFF" />
 
           <circle cx="940" cy="115" r="4.5" fill="#6366F1" filter="url(#nodeGlow)" />
           <circle cx="940" cy="115" r="2" fill="#FFFFFF" />
 
-          <circle cx="1230" cy="235" r="5" fill="#E7167B" filter="url(#nodeGlow)" />
+          <circle cx="1230" cy="235" r="5" fill="#C5A46D" filter="url(#nodeGlow)" />
           <circle cx="1230" cy="235" r="2.2" fill="#FFFFFF" />
         </svg>
       </div>
@@ -152,7 +152,7 @@ export const AmbientBackground: React.FC = () => {
             strokeWidth="1.8"
             fill="none"
           />
-          <circle cx="450" cy="170" r="4" fill="#E7167B" filter="url(#nodeGlow)" />
+          <circle cx="450" cy="170" r="4" fill="#C5A46D" filter="url(#nodeGlow)" />
           <circle cx="1060" cy="225" r="4" fill="#0284C7" filter="url(#nodeGlow)" />
         </svg>
       </div>

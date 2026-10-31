@@ -156,9 +156,9 @@ export const CatalogSidebar: React.FC = () => {
                 borderRadius: '6px',
                 fontSize: '0.72rem',
                 fontWeight: isActive ? 800 : 600,
-                backgroundColor: isActive ? '#E7167B' : '#1E293B',
+                backgroundColor: isActive ? '#C5A46D' : '#1E293B',
                 color: isActive ? '#FFFFFF' : '#94A3B8',
-                border: isActive ? '1px solid #E7167B' : '1px solid #334155',
+                border: isActive ? '1px solid #C5A46D' : '1px solid #334155',
                 cursor: 'pointer',
                 transition: 'all 0.15s ease'
               }}

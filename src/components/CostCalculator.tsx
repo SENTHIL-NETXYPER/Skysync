@@ -166,19 +166,19 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: #E7167B;
+          background: #C5A46D;
           cursor: pointer;
           border: 2px solid #FFFFFF;
-          box-shadow: 0 2px 6px rgba(231, 22, 123, 0.4);
+          box-shadow: 0 2px 6px rgba(197, 164, 109, 0.4);
         }
         .custom-range-slider::-moz-range-thumb {
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          background: #E7167B;
+          background: #C5A46D;
           cursor: pointer;
           border: 2px solid #FFFFFF;
-          box-shadow: 0 2px 6px rgba(231, 22, 123, 0.4);
+          box-shadow: 0 2px 6px rgba(197, 164, 109, 0.4);
         }
       `}</style>
 
@@ -252,11 +252,11 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#E7167B',
+                  color: '#C5A46D',
                   flexShrink: 0
                 }}
               >
-                <Server size={22} color="#E7167B" />
+                <Server size={22} color="#C5A46D" />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.18rem', fontWeight: 800, color: '#1E293B', margin: '0 0 2px 0' }}>
@@ -286,9 +286,9 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                         fontSize: '0.94rem',
                         fontWeight: isSelected ? 800 : 600,
                         borderRadius: '10px',
-                        border: isSelected ? '1.5px solid #E7167B' : '1px solid #E2E8F0',
+                        border: isSelected ? '1.5px solid #C5A46D' : '1px solid #E2E8F0',
                         backgroundColor: isSelected ? '#FFF7ED' : '#FFFFFF',
-                        color: isSelected ? '#E7167B' : '#1E293B',
+                        color: isSelected ? '#C5A46D' : '#1E293B',
                         cursor: 'pointer',
                         transition: 'all 0.16s ease'
                       }}
@@ -306,7 +306,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                 <label style={{ fontSize: '0.88rem', fontWeight: 700, color: '#1E293B' }}>
                   Total Database Size
                 </label>
-                <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#E7167B', backgroundColor: '#FFF7ED', padding: '3px 9px', borderRadius: '6px', border: '1px solid #FFEDD5' }}>
+                <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#C5A46D', backgroundColor: '#FFF7ED', padding: '3px 9px', borderRadius: '6px', border: '1px solid #FFEDD5' }}>
                   {storageTB} TB Selected
                 </span>
               </div>
@@ -323,9 +323,9 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                         fontSize: '0.90rem',
                         fontWeight: isSelected ? 800 : 600,
                         borderRadius: '10px',
-                        border: isSelected ? '1.5px solid #E7167B' : '1px solid #E2E8F0',
+                        border: isSelected ? '1.5px solid #C5A46D' : '1px solid #E2E8F0',
                         backgroundColor: isSelected ? '#FFF7ED' : '#FFFFFF',
-                        color: isSelected ? '#E7167B' : '#1E293B',
+                        color: isSelected ? '#C5A46D' : '#1E293B',
                         cursor: 'pointer',
                         transition: 'all 0.16s ease'
                       }}
@@ -349,9 +349,9 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                   style={{
                     padding: '12px 14px',
                     borderRadius: '12px',
-                    border: supportModel === 'mentoring' ? '1.5px solid #E7167B' : '1px solid #E2E8F0',
+                    border: supportModel === 'mentoring' ? '1.5px solid #C5A46D' : '1px solid #E2E8F0',
                     backgroundColor: supportModel === 'mentoring' ? '#FFF7ED' : '#FFFFFF',
-                    color: supportModel === 'mentoring' ? '#E7167B' : '#475569',
+                    color: supportModel === 'mentoring' ? '#C5A46D' : '#475569',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '10px',
@@ -360,7 +360,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                     transition: 'all 0.16s ease'
                   }}
                 >
-                  <User size={20} color={supportModel === 'mentoring' ? '#E7167B' : '#64748B'} />
+                  <User size={20} color={supportModel === 'mentoring' ? '#C5A46D' : '#64748B'} />
                   <span style={{ fontSize: '0.82rem', fontWeight: 700, lineHeight: 1.3 }}>
                     Faculty Mentoring Handover
                   </span>
@@ -372,9 +372,9 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                   style={{
                     padding: '12px 14px',
                     borderRadius: '12px',
-                    border: supportModel === 'scheduled' ? '1.5px solid #E7167B' : '1px solid #E2E8F0',
+                    border: supportModel === 'scheduled' ? '1.5px solid #C5A46D' : '1px solid #E2E8F0',
                     backgroundColor: supportModel === 'scheduled' ? '#FFF7ED' : '#FFFFFF',
-                    color: supportModel === 'scheduled' ? '#E7167B' : '#475569',
+                    color: supportModel === 'scheduled' ? '#C5A46D' : '#475569',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '10px',
@@ -383,7 +383,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                     transition: 'all 0.16s ease'
                   }}
                 >
-                  <Wrench size={20} color={supportModel === 'scheduled' ? '#E7167B' : '#64748B'} />
+                  <Wrench size={20} color={supportModel === 'scheduled' ? '#C5A46D' : '#64748B'} />
                   <span style={{ fontSize: '0.82rem', fontWeight: 700, lineHeight: 1.3 }}>
                     Scheduled Maintenance
                   </span>
@@ -427,7 +427,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
                 <span style={{ fontSize: '0.78rem', fontWeight: 800, color: '#9A3412', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <Sparkles size={14} color="#D0126D" />
+                  <Sparkles size={14} color="#B8965F" />
                   Amazon Bedrock Sub-Service Breakdown
                 </span>
                 <span style={{ fontSize: '0.80rem', fontWeight: 800, color: '#C2410C' }}>
@@ -475,7 +475,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
             backgroundColor: '#FFFFFF',
             borderRadius: '18px',
             border: '1.5px solid #E2E8F0',
-            borderTop: '4px solid #E7167B',
+            borderTop: '4px solid #C5A46D',
             padding: '28px 26px',
             boxShadow: '0 4px 18px rgba(15, 23, 42, 0.04)',
             display: 'flex',
@@ -496,11 +496,11 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#E7167B',
+                  color: '#C5A46D',
                   flexShrink: 0
                 }}
               >
-                <BarChart2 size={22} color="#E7167B" />
+                <BarChart2 size={22} color="#C5A46D" />
               </div>
               <div>
                 <h3 style={{ fontSize: '1.18rem', fontWeight: 800, color: '#1E293B', margin: '0 0 2px 0' }}>
@@ -608,7 +608,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <Sparkles size={17} color={includeAI ? '#D0126D' : '#94A3B8'} />
+                    <Sparkles size={17} color={includeAI ? '#B8965F' : '#94A3B8'} />
                     <span style={{ fontSize: '0.88rem', color: includeAI ? '#9A3412' : '#64748B', fontWeight: 700 }}>
                       Campus Admissions AI Bot
                     </span>
@@ -635,7 +635,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                 <span style={{ fontSize: '0.90rem', color: '#0F172A', fontWeight: 800 }}>
                   Total Projected AWS Cost
                 </span>
-                <span style={{ fontSize: '1.08rem', color: '#E7167B', fontWeight: 900 }}>
+                <span style={{ fontSize: '1.08rem', color: '#C5A46D', fontWeight: 900 }}>
                   ₹{totalAws.toLocaleString('en-IN')} / mo
                 </span>
               </div>
@@ -663,7 +663,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
               width: '100%',
               padding: '14px 20px',
               borderRadius: '12px',
-              backgroundColor: '#E7167B',
+              backgroundColor: '#C5A46D',
               color: '#FFFFFF',
               border: 'none',
               fontSize: '0.95rem',
@@ -673,18 +673,18 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
               alignItems: 'center',
               justifyContent: 'center',
               gap: '8px',
-              boxShadow: '0 4px 14px rgba(231, 22, 123, 0.3)',
+              boxShadow: '0 4px 14px rgba(197, 164, 109, 0.3)',
               transition: 'all 0.18s ease'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = '#EC7211';
               e.currentTarget.style.transform = 'translateY(-1px)';
-              e.currentTarget.style.boxShadow = '0 6px 18px rgba(231, 22, 123, 0.45)';
+              e.currentTarget.style.boxShadow = '0 6px 18px rgba(197, 164, 109, 0.45)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#E7167B';
+              e.currentTarget.style.backgroundColor = '#C5A46D';
               e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = '0 4px 14px rgba(231, 22, 123, 0.3)';
+              e.currentTarget.style.boxShadow = '0 4px 14px rgba(197, 164, 109, 0.3)';
             }}
           >
             <span>Book a Consultation with These Numbers</span>
@@ -714,7 +714,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
             style={{
               backgroundColor: '#FFFFFF',
               border: '1.5px solid #CBD5E1',
-              borderTop: '5px solid #E7167B',
+              borderTop: '5px solid #C5A46D',
               borderRadius: '20px',
               padding: '28px 32px 24px 32px',
               maxWidth: '860px',
@@ -750,7 +750,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                 zIndex: 10
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.color = '#E7167B';
+                e.currentTarget.style.color = '#C5A46D';
                 e.currentTarget.style.backgroundColor = '#FFF7ED';
                 e.currentTarget.style.borderColor = '#FDBA74';
               }}
@@ -771,13 +771,13 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                     width: '60px',
                     height: '60px',
                     borderRadius: '50%',
-                    backgroundColor: 'rgba(231, 22, 123, 0.1)',
-                    border: '1.5px solid #E7167B',
+                    backgroundColor: 'rgba(197, 164, 109, 0.1)',
+                    border: '1.5px solid #C5A46D',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     margin: '0 auto 16px auto',
-                    color: '#E7167B'
+                    color: '#C5A46D'
                   }}
                 >
                   <CheckCircle2 size={32} />
@@ -794,12 +794,12 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                   style={{
                     padding: '11px 28px',
                     borderRadius: '24px',
-                    backgroundColor: '#E7167B',
+                    backgroundColor: '#C5A46D',
                     color: '#FFFFFF',
                     border: 'none',
                     fontWeight: 700,
                     cursor: 'pointer',
-                    boxShadow: '0 4px 14px rgba(231, 22, 123, 0.35)'
+                    boxShadow: '0 4px 14px rgba(197, 164, 109, 0.35)'
                   }}
                 >
                   Done
@@ -813,7 +813,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                     style={{
                       fontSize: '0.74rem',
                       fontWeight: 800,
-                      color: '#E7167B',
+                      color: '#C5A46D',
                       letterSpacing: '0.08em',
                       textTransform: 'uppercase',
                       marginBottom: '4px'
@@ -949,8 +949,8 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                             transition: 'border-color 0.16s ease, box-shadow 0.16s ease'
                           }}
                           onFocus={(e) => {
-                            e.currentTarget.style.borderColor = '#E7167B';
-                            e.currentTarget.style.boxShadow = '0 0 0 3px rgba(231, 22, 123, 0.15)';
+                            e.currentTarget.style.borderColor = '#C5A46D';
+                            e.currentTarget.style.boxShadow = '0 0 0 3px rgba(197, 164, 109, 0.15)';
                           }}
                           onBlur={(e) => {
                             e.currentTarget.style.borderColor = '#CBD5E1';
@@ -981,8 +981,8 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                             transition: 'border-color 0.16s ease, box-shadow 0.16s ease'
                           }}
                           onFocus={(e) => {
-                            e.currentTarget.style.borderColor = '#E7167B';
-                            e.currentTarget.style.boxShadow = '0 0 0 3px rgba(231, 22, 123, 0.15)';
+                            e.currentTarget.style.borderColor = '#C5A46D';
+                            e.currentTarget.style.boxShadow = '0 0 0 3px rgba(197, 164, 109, 0.15)';
                           }}
                           onBlur={(e) => {
                             e.currentTarget.style.borderColor = '#CBD5E1';
@@ -1014,8 +1014,8 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                           transition: 'border-color 0.16s ease, box-shadow 0.16s ease'
                         }}
                         onFocus={(e) => {
-                          e.currentTarget.style.borderColor = '#E7167B';
-                          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(231, 22, 123, 0.15)';
+                          e.currentTarget.style.borderColor = '#C5A46D';
+                          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(197, 164, 109, 0.15)';
                         }}
                         onBlur={(e) => {
                           e.currentTarget.style.borderColor = '#CBD5E1';
@@ -1037,7 +1037,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                               name="orgType"
                               checked={formData.orgType === type}
                               onChange={() => setFormData({ ...formData, orgType: type })}
-                              style={{ accentColor: '#E7167B', width: '15px', height: '15px' }}
+                              style={{ accentColor: '#C5A46D', width: '15px', height: '15px' }}
                             />
                             <span>{type}</span>
                           </label>
@@ -1058,7 +1058,7 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                               name="preferredTime"
                               checked={formData.preferredTime === time}
                               onChange={() => setFormData({ ...formData, preferredTime: time })}
-                              style={{ accentColor: '#E7167B', width: '15px', height: '15px' }}
+                              style={{ accentColor: '#C5A46D', width: '15px', height: '15px' }}
                             />
                             <span>{time}</span>
                           </label>
@@ -1089,8 +1089,8 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                           transition: 'border-color 0.16s ease, box-shadow 0.16s ease'
                         }}
                         onFocus={(e) => {
-                          e.currentTarget.style.borderColor = '#E7167B';
-                          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(231, 22, 123, 0.15)';
+                          e.currentTarget.style.borderColor = '#C5A46D';
+                          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(197, 164, 109, 0.15)';
                         }}
                         onBlur={(e) => {
                           e.currentTarget.style.borderColor = '#CBD5E1';
@@ -1106,22 +1106,22 @@ export const CostCalculator: React.FC<CostCalculatorProps> = ({ onOpenAuditWithD
                         width: '100%',
                         padding: '12px 20px',
                         borderRadius: '10px',
-                        backgroundColor: '#E7167B',
+                        backgroundColor: '#C5A46D',
                         color: '#FFFFFF',
                         fontWeight: 800,
                         fontSize: '0.94rem',
                         border: 'none',
                         cursor: 'pointer',
-                        boxShadow: '0 4px 14px rgba(231, 22, 123, 0.35)',
+                        boxShadow: '0 4px 14px rgba(197, 164, 109, 0.35)',
                         transition: 'all 0.16s ease'
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.backgroundColor = '#EC7211';
-                        e.currentTarget.style.boxShadow = '0 6px 18px rgba(231, 22, 123, 0.45)';
+                        e.currentTarget.style.boxShadow = '0 6px 18px rgba(197, 164, 109, 0.45)';
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = '#E7167B';
-                        e.currentTarget.style.boxShadow = '0 4px 14px rgba(231, 22, 123, 0.35)';
+                        e.currentTarget.style.backgroundColor = '#C5A46D';
+                        e.currentTarget.style.boxShadow = '0 4px 14px rgba(197, 164, 109, 0.35)';
                       }}
                     >
                       Request Consultation →

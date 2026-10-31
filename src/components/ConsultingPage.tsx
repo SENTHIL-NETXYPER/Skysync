@@ -93,9 +93,9 @@ export const ConsultingPage: React.FC<ConsultingPageProps> = ({ onRequestConsult
           gap: '8px',
           padding: '4px 14px',
           borderRadius: '9999px',
-          backgroundColor: 'rgba(231, 22, 123, 0.08)',
-          border: '1px solid rgba(231, 22, 123, 0.22)',
-          color: '#E7167B',
+          backgroundColor: 'rgba(197, 164, 109, 0.08)',
+          border: '1px solid rgba(197, 164, 109, 0.22)',
+          color: '#C5A46D',
           fontSize: '0.78rem',
           fontWeight: 800,
           letterSpacing: '0.04em',
@@ -122,7 +122,7 @@ export const ConsultingPage: React.FC<ConsultingPageProps> = ({ onRequestConsult
         boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)'
       }}>
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
-          <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: '#E7167B', fontWeight: 800, letterSpacing: '0.04em' }}>
+          <span style={{ fontSize: '0.78rem', fontFamily: 'var(--font-mono)', color: '#C5A46D', fontWeight: 800, letterSpacing: '0.04em' }}>
             How We Work
           </span>
           <h2 style={{ fontSize: '1.6rem', color: '#232F3E', fontWeight: 800, marginTop: '4px' }}>
@@ -155,7 +155,7 @@ export const ConsultingPage: React.FC<ConsultingPageProps> = ({ onRequestConsult
                   fontSize: '1.25rem',
                   fontFamily: 'var(--font-mono)',
                   fontWeight: 900,
-                  color: '#E7167B',
+                  color: '#C5A46D',
                   display: 'block',
                   marginBottom: '10px'
                 }}>
@@ -207,7 +207,7 @@ export const ConsultingPage: React.FC<ConsultingPageProps> = ({ onRequestConsult
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-3px)';
-                  e.currentTarget.style.borderColor = '#E7167B';
+                  e.currentTarget.style.borderColor = '#C5A46D';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
@@ -219,13 +219,13 @@ export const ConsultingPage: React.FC<ConsultingPageProps> = ({ onRequestConsult
                     width: '44px',
                     height: '44px',
                     borderRadius: '10px',
-                    background: 'rgba(231, 22, 123, 0.08)',
+                    background: 'rgba(197, 164, 109, 0.08)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: '#E7167B',
+                    color: '#C5A46D',
                     marginBottom: '16px',
-                    border: '1px solid rgba(231, 22, 123, 0.22)'
+                    border: '1px solid rgba(197, 164, 109, 0.22)'
                   }}>
                     <Icon size={22} />
                   </div>
@@ -278,7 +278,7 @@ export const ConsultingPage: React.FC<ConsultingPageProps> = ({ onRequestConsult
             alignItems: 'center',
             gap: '10px',
             padding: '13px 28px',
-            backgroundColor: '#E7167B',
+            backgroundColor: '#C5A46D',
             color: '#FFFFFF',
             border: 'none',
             borderRadius: '9999px',
@@ -286,10 +286,10 @@ export const ConsultingPage: React.FC<ConsultingPageProps> = ({ onRequestConsult
             fontWeight: 800,
             cursor: 'pointer',
             transition: 'all 0.2s ease',
-            boxShadow: '0 4px 14px rgba(231, 22, 123, 0.3)'
+            boxShadow: '0 4px 14px rgba(197, 164, 109, 0.3)'
           }}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#EC7211')}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#E7167B')}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#C5A46D')}
         >
           <span>Request Consulting</span>
           <ArrowRight size={17} />

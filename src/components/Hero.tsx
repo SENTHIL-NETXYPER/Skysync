@@ -211,12 +211,12 @@ export const Hero: React.FC<HeroProps> = ({
         .hero-image-card:hover {
           transform: translateY(-3px);
           box-shadow: 0 16px 32px -6px rgba(15, 23, 42, 0.2);
-          border-color: rgba(231, 22, 123, 0.7);
+          border-color: rgba(197, 164, 109, 0.7);
         }
 
         .hero-image-card.active-topic {
-          border-color: #E7167B;
-          box-shadow: 0 12px 28px -4px rgba(231, 22, 123, 0.35), 0 0 0 1.5px #E7167B;
+          border-color: #C5A46D;
+          box-shadow: 0 12px 28px -4px rgba(197, 164, 109, 0.35), 0 0 0 1.5px #C5A46D;
         }
 
         .hero-image-card .card-thumb-img {
@@ -271,7 +271,7 @@ export const Hero: React.FC<HeroProps> = ({
         .card-bottom-progress-bar {
           height: 100%;
           width: 100%;
-          background: #E7167B;
+          background: #C5A46D;
           transform-origin: left;
           animation: activeCardProgress 5s linear forwards;
         }
@@ -283,21 +283,22 @@ export const Hero: React.FC<HeroProps> = ({
           gap: 9px;
           padding: 12px 26px;
           border-radius: 9999px;
-          background-color: #E7167B;
-          color: #FFFFFF;
+          background-color: #C5A46D;
+          color: #0C0C0C;
           font-size: 0.96rem;
-          font-weight: 750;
+          font-weight: 800;
           border: none;
           cursor: pointer;
-          box-shadow: 0 6px 18px rgba(231, 22, 123, 0.32);
+          box-shadow: 0 6px 18px rgba(197, 164, 109, 0.32);
           transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
           text-decoration: none;
         }
 
         .hero-cta-button:hover {
-          background-color: #D0126D;
+          background-color: #D4B47D;
+          color: #0C0C0C;
           transform: translateY(-2px);
-          box-shadow: 0 10px 24px rgba(231, 22, 123, 0.44);
+          box-shadow: 0 10px 24px rgba(197, 164, 109, 0.44);
         }
 
         .hero-secondary-button {
@@ -318,8 +319,8 @@ export const Hero: React.FC<HeroProps> = ({
 
         .hero-secondary-button:hover {
           background-color: #FFFFFF;
-          border-color: #E7167B;
-          color: #E7167B;
+          border-color: #C5A46D;
+          color: #C5A46D;
           transform: translateY(-2px);
           box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
         }
@@ -341,10 +342,10 @@ export const Hero: React.FC<HeroProps> = ({
 
         .hero-arrow-btn:hover {
           background: #FFFFFF;
-          border-color: #E7167B;
-          color: #E7167B;
+          border-color: #C5A46D;
+          color: #C5A46D;
           transform: scale(1.06);
-          box-shadow: 0 6px 16px rgba(231, 22, 123, 0.2);
+          box-shadow: 0 6px 16px rgba(197, 164, 109, 0.2);
         }
 
         .hero-outer-section {
@@ -509,7 +510,7 @@ export const Hero: React.FC<HeroProps> = ({
               letterSpacing: '0.04em'
             }}
           >
-            <span style={{ color: '#E7167B', fontWeight: 900 }}>0{activeIndex + 1}</span>
+            <span style={{ color: '#C5A46D', fontWeight: 900 }}>0{activeIndex + 1}</span>
             <span style={{ color: '#94A3B8', fontWeight: 400 }}>/</span>
             <span style={{ color: '#64748B' }}>0{TOPICS.length}</span>
           </div>
@@ -562,7 +563,7 @@ export const Hero: React.FC<HeroProps> = ({
             {activeTopic.titlePrefix} <br />
             <span
               style={{
-                color: activeId === 'cloud' ? '#0066CC' : '#E7167B',
+                color: activeId === 'cloud' ? '#0066CC' : '#C5A46D',
                 fontWeight: 900,
                 display: 'inline-block'
               }}
@@ -649,7 +650,7 @@ export const Hero: React.FC<HeroProps> = ({
                       width: '32px',
                       height: '32px',
                       borderRadius: '50%',
-                      backgroundColor: isActive ? '#E7167B' : 'rgba(255, 255, 255, 0.22)',
+                      backgroundColor: isActive ? '#C5A46D' : 'rgba(255, 255, 255, 0.22)',
                       backdropFilter: 'blur(4px)',
                       display: 'flex',
                       alignItems: 'center',

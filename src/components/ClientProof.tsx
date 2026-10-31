@@ -65,7 +65,7 @@ export const ClientProof: React.FC<ClientProofProps> = ({ onOpenConsultation }) 
         .client-review-card {
           background-color: #FFFFFF;
           border: 1.5px solid #E2E8F0;
-          border-left: 4.5px solid #E7167B;
+          border-left: 4.5px solid #C5A46D;
           border-radius: 16px;
           height: 100%;
           padding: 28px 28px 26px 28px;
@@ -79,14 +79,14 @@ export const ClientProof: React.FC<ClientProofProps> = ({ onOpenConsultation }) 
         }
         .client-review-card:hover {
           transform: translateY(-6px) scale(1.01);
-          box-shadow: 0 18px 40px -6px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(231, 22, 123, 0.2);
+          box-shadow: 0 18px 40px -6px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(197, 164, 109, 0.2);
         }
         .client-review-card .emblem-container {
           transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
         }
         .client-review-card:hover .emblem-container {
           transform: translateX(3px);
-          box-shadow: 0 4px 12px rgba(231, 22, 123, 0.15);
+          box-shadow: 0 4px 12px rgba(197, 164, 109, 0.15);
         }
       `}</style>
 
@@ -159,9 +159,9 @@ export const ClientProof: React.FC<ClientProofProps> = ({ onOpenConsultation }) 
                 </div>
 
                 {/* 5 Stars */}
-                <div style={{ display: 'flex', gap: '3px', color: '#E7167B', flexShrink: 0, marginTop: '4px' }}>
+                <div style={{ display: 'flex', gap: '3px', color: '#C5A46D', flexShrink: 0, marginTop: '4px' }}>
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={16} fill="#E7167B" stroke="#E7167B" />
+                    <Star key={i} size={16} fill="#C5A46D" stroke="#C5A46D" />
                   ))}
                 </div>
               </div>
@@ -203,14 +203,14 @@ export const ClientProof: React.FC<ClientProofProps> = ({ onOpenConsultation }) 
             borderRadius: '12px',
             backgroundColor: '#FFFFFF',
             border: '1.5px solid #FED7AA',
-            color: '#E7167B',
+            color: '#C5A46D',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             flexShrink: 0,
-            boxShadow: '0 2px 8px rgba(231, 22, 123, 0.12)'
+            boxShadow: '0 2px 8px rgba(197, 164, 109, 0.12)'
           }}>
-            <Users size={22} color="#E7167B" />
+            <Users size={22} color="#C5A46D" />
           </div>
           <div>
             <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0F172A', margin: '0 0 3px 0' }}>
@@ -227,7 +227,7 @@ export const ClientProof: React.FC<ClientProofProps> = ({ onOpenConsultation }) 
           style={{
             padding: '12px 24px',
             borderRadius: '10px',
-            backgroundColor: '#E7167B',
+            backgroundColor: '#C5A46D',
             color: '#FFFFFF',
             fontWeight: 800,
             fontSize: '0.94rem',
@@ -237,7 +237,7 @@ export const ClientProof: React.FC<ClientProofProps> = ({ onOpenConsultation }) 
             alignItems: 'center',
             gap: '8px',
             transition: 'all 0.18s ease',
-            boxShadow: '0 4px 14px rgba(231, 22, 123, 0.3)',
+            boxShadow: '0 4px 14px rgba(197, 164, 109, 0.3)',
             whiteSpace: 'nowrap'
           }}
           onMouseEnter={(e) => {
@@ -245,7 +245,7 @@ export const ClientProof: React.FC<ClientProofProps> = ({ onOpenConsultation }) 
             e.currentTarget.style.transform = 'translateY(-1px)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = '#E7167B';
+            e.currentTarget.style.backgroundColor = '#C5A46D';
             e.currentTarget.style.transform = 'translateY(0)';
           }}
         >
