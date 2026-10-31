@@ -59,12 +59,12 @@
       overflow-x: auto;
     }
     .btn {
-      background: #ED7100;
-      color: #FFFFFF;
+      background: #C5A46D;
+      color: #0C0C0C;
       border: none;
       border-radius: 8px;
       padding: 10px 18px;
-      font-weight: 600;
+      font-weight: 750;
       font-size: 0.92rem;
       cursor: pointer;
       transition: background 0.16s ease, transform 0.16s ease;
@@ -73,7 +73,8 @@
       gap: 8px;
     }
     .btn:hover {
-      background: #FF851B;
+      background: #D4B47D;
+      color: #0C0C0C;
       transform: translateY(-1px);
     }
     .btn-secondary {
@@ -189,30 +190,30 @@ Headquarters: Salem, Tamil Nadu, India</div>
       const w = 400;
       const h = 400;
 
-      // Dark background
+      // Deep luxury black background
       const grad = ctx.createLinearGradient(0, 0, w, h);
-      grad.addColorStop(0, '#0F1E36');
-      grad.addColorStop(1, '#08101E');
+      grad.addColorStop(0, '#141414');
+      grad.addColorStop(1, '#0C0C0C');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, w, h);
 
-      // Ambient radial glow
+      // Ambient radial champagne gold glow
       const glow = ctx.createRadialGradient(w/2, h/2, 20, w/2, h/2, 170);
-      glow.addColorStop(0, 'rgba(237, 113, 0, 0.14)');
-      glow.addColorStop(1, 'rgba(237, 113, 0, 0)');
+      glow.addColorStop(0, 'rgba(197, 164, 109, 0.22)');
+      glow.addColorStop(1, 'rgba(197, 164, 109, 0)');
       ctx.fillStyle = glow;
       ctx.fillRect(0, 0, w, h);
 
-      // Border ring
-      ctx.strokeStyle = 'rgba(237, 113, 0, 0.4)';
-      ctx.lineWidth = 4;
-      ctx.strokeRect(10, 10, w - 20, h - 20);
+      // Border ring in champagne gold
+      ctx.strokeStyle = 'rgba(197, 164, 109, 0.45)';
+      ctx.lineWidth = 3.5;
+      ctx.strokeRect(12, 12, w - 24, h - 24);
 
       // Draw SVG emblem
       const img = new Image();
       const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" width="220" height="160" viewBox="0 0 72 52">
-          <path d="M18 46 C9.16 46 2 38.84 2 30 C2 21.8 7.9 15.1 15.8 14.1 C18.2 5.8 25.8 0 35 0 C45.5 0 54.1 7.8 55.4 18 C62.5 18.9 68 24.8 68 32 C68 39.73 61.73 46 54 46 H18 Z" fill="#2C3E55"/>
+          <path d="M18 46 C9.16 46 2 38.84 2 30 C2 21.8 7.9 15.1 15.8 14.1 C18.2 5.8 25.8 0 35 0 C45.5 0 54.1 7.8 55.4 18 C62.5 18.9 68 24.8 68 32 C68 39.73 61.73 46 54 46 H18 Z" fill="#202A37"/>
           <path d="M15 44 C24 40 35 32 48 18" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M41 22 L60 10 L48 30 L44 23 Z" fill="#FFFFFF"/>
         </svg>
@@ -222,17 +223,17 @@ Headquarters: Salem, Tamil Nadu, India</div>
         ctx.drawImage(img, (w - 220) / 2, (h - 190) / 2);
         
         // Brand name below emblem
-        ctx.fillStyle = '#FFFFFF';
+        ctx.fillStyle = '#F5F5F0';
         ctx.font = 'bold 26px -apple-system, sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText('skysynclab', w / 2, 310);
 
-        // Underline and orange dot
-        ctx.fillStyle = '#FFFFFF';
+        // Underline and champagne gold dot
+        ctx.fillStyle = '#F5F5F0';
         ctx.fillRect(w / 2 - 65, 322, 120, 2);
-        ctx.fillStyle = '#ED7100';
+        ctx.fillStyle = '#C5A46D';
         ctx.beginPath();
-        ctx.arc(w / 2 + 62, 323, 4, 0, Math.PI * 2);
+        ctx.arc(w / 2 + 62, 323, 4.5, 0, Math.PI * 2);
         ctx.fill();
       };
     }
@@ -244,11 +245,11 @@ Headquarters: Salem, Tamil Nadu, India</div>
       const w = 1128;
       const h = 191;
 
-      // Dark corporate gradient background
+      // Dark luxury black gradient background
       const grad = ctx.createLinearGradient(0, 0, w, 0);
-      grad.addColorStop(0, '#070D18');
-      grad.addColorStop(0.5, '#0B172A');
-      grad.addColorStop(1, '#0F1E38');
+      grad.addColorStop(0, '#0C0C0C');
+      grad.addColorStop(0.5, '#141414');
+      grad.addColorStop(1, '#1A1815');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, w, h);
 
@@ -259,15 +260,15 @@ Headquarters: Salem, Tamil Nadu, India</div>
         ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
       }
 
-      // Accent amber top line
-      ctx.fillStyle = '#ED7100';
+      // Accent champagne gold top line
+      ctx.fillStyle = '#C5A46D';
       ctx.fillRect(0, 0, w, 3.5);
 
       // Draw brand logo on left
       const img = new Image();
       const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" width="90" height="65" viewBox="0 0 72 52">
-          <path d="M18 46 C9.16 46 2 38.84 2 30 C2 21.8 7.9 15.1 15.8 14.1 C18.2 5.8 25.8 0 35 0 C45.5 0 54.1 7.8 55.4 18 C62.5 18.9 68 24.8 68 32 C68 39.73 61.73 46 54 46 H18 Z" fill="#2C3E55"/>
+          <path d="M18 46 C9.16 46 2 38.84 2 30 C2 21.8 7.9 15.1 15.8 14.1 C18.2 5.8 25.8 0 35 0 C45.5 0 54.1 7.8 55.4 18 C62.5 18.9 68 24.8 68 32 C68 39.73 61.73 46 54 46 H18 Z" fill="#202A37"/>
           <path d="M15 44 C24 40 35 32 48 18" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M41 22 L60 10 L48 30 L44 23 Z" fill="#FFFFFF"/>
         </svg>
@@ -277,30 +278,30 @@ Headquarters: Salem, Tamil Nadu, India</div>
         ctx.drawImage(img, 60, 60);
 
         // Wordmark
-        ctx.fillStyle = '#FFFFFF';
+        ctx.fillStyle = '#F5F5F0';
         ctx.font = 'bold 36px -apple-system, sans-serif';
         ctx.textAlign = 'left';
         ctx.fillText('skysynclab', 165, 96);
 
-        // Underline and dot
-        ctx.fillStyle = '#FFFFFF';
+        // Underline and champagne gold dot
+        ctx.fillStyle = '#F5F5F0';
         ctx.fillRect(165, 108, 175, 2.5);
-        ctx.fillStyle = '#ED7100';
+        ctx.fillStyle = '#C5A46D';
         ctx.beginPath();
         ctx.arc(348, 109, 4.5, 0, Math.PI * 2);
         ctx.fill();
 
-        // Right side: Slogan and badges
-        ctx.fillStyle = '#FFFFFF';
+        // Right side: Luxury slogan and badges
+        ctx.fillStyle = '#C5A46D';
         ctx.font = 'bold 22px -apple-system, sans-serif';
         ctx.textAlign = 'right';
-        ctx.fillText('Build Smarter on the Cloud', w - 60, 80);
+        ctx.fillText('Precision. Performance. Possibility.', w - 60, 80);
 
-        ctx.fillStyle = '#94A3B8';
+        ctx.fillStyle = '#E6D3AD';
         ctx.font = '14px -apple-system, sans-serif';
         ctx.fillText('AWS Cloud Architecture  ·  DevOps Automation  ·  Enterprise AI Solutions', w - 60, 112);
 
-        ctx.fillStyle = '#ED7100';
+        ctx.fillStyle = '#94A3B8';
         ctx.font = '600 13px -apple-system, sans-serif';
         ctx.fillText('skysynclab.com  ·  Salem, TN, India', w - 60, 138);
       };
