@@ -592,6 +592,7 @@ p {
   -webkit-backdrop-filter: blur(8px);
   z-index: 1050;
   animation: fadeIn 0.2s ease both;
+  pointer-events: auto !important;
 }
 
 .nav-mobile-dropdown-card {
@@ -611,6 +612,7 @@ p {
   overflow-y: auto;
   animation: dropdownFadePop 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
   z-index: 1200;
+  pointer-events: auto !important;
 }
 
 /* Remove floating center underline on full-width mobile tabs */

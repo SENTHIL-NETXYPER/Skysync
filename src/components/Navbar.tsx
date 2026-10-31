@@ -107,6 +107,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
       const targetId =
         tabId === 'designer'
           ? 'designer-section'
+          : tabId === 'solutions'
+          ? 'solutions'
           : tabId === 'projects'
           ? 'projects'
           : tabId === 'pricing'
@@ -115,20 +117,41 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
           ? 'why-choose-us'
           : tabId;
 
-      const el = document.getElementById(targetId) || document.getElementById('client-proof');
+      const el =
+        document.getElementById(targetId) ||
+        (targetId === 'solutions' ? document.getElementById('solutions-container') : null) ||
+        document.getElementById('client-proof');
+
       if (el) {
-        const navOffset = 84;
-        const offsetPosition = el.getBoundingClientRect().top + window.pageYOffset - navOffset;
-        window.scrollTo({
-          top: Math.max(0, offsetPosition),
-          behavior: 'smooth'
-        });
+        // Ensure parent fade section is marked as revealed so its dimensions are accurate
+        const parentSection = el.closest('.scroll-fade-section');
+        if (parentSection) {
+          parentSection.classList.add('section-scrolled-in');
+        }
+        el.classList.add('section-scrolled-in');
+
+        // Smooth scroll to target
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Fallback offset scroll for zoom / mobile viewport alignment
+        const navOffset = 90;
+        const rect = el.getBoundingClientRect();
+        if (Math.abs(rect.top - navOffset) > 25) {
+          const targetY = window.scrollY + rect.top - navOffset;
+          window.scrollTo({
+            top: Math.max(0, targetY),
+            behavior: 'smooth'
+          });
+        }
       }
     };
 
+    // Staggered execution guarantees scroll completes even if mobile menu transition is closing
     scrollToTarget();
-    setTimeout(scrollToTarget, 80);
-    setTimeout(scrollToTarget, 220);
+    setTimeout(scrollToTarget, 60);
+    setTimeout(scrollToTarget, 160);
+    setTimeout(scrollToTarget, 320);
+    setTimeout(scrollToTarget, 550);
   };
 
   return (
@@ -247,6 +270,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                 return (
                   <button
                     key={item.id}
+                    type="button"
                     className={`nav-capsule-tab ${isActive ? 'active' : ''}`}
                     style={{
                       width: '100%',
@@ -255,9 +279,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                       padding: '12px 18px',
                       fontSize: '0.96rem',
                       cursor: 'pointer',
-                      textAlign: 'left'
+                      textAlign: 'left',
+                      touchAction: 'manipulation',
+                      pointerEvents: 'auto'
                     }}
-                    onClick={() => handleNavClick(item.id)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleNavClick(item.id);
+                    }}
                   >
                     <span style={{ fontWeight: isActive ? 700 : 500 }}>{item.label}</span>
                   </button>

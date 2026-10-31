@@ -238,7 +238,7 @@ export function App() {
             </div>
 
             {/* Campus & Sector Solutions */}
-            <div className="scroll-fade-section" style={{ backgroundColor: '#F8FAFC', borderTop: '1.5px solid #E2E8F0', borderBottom: '1.5px solid #E2E8F0' }}>
+            <div id="solutions-container" className="scroll-fade-section" style={{ backgroundColor: '#F8FAFC', borderTop: '1.5px solid #E2E8F0', borderBottom: '1.5px solid #E2E8F0' }}>
               <Solutions
                 onOpenConsultationWithTopic={(topic) => handleOpenConsultation(topic)}
               />
