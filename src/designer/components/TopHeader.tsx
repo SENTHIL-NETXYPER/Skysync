@@ -139,19 +139,19 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ onBackToSite }) => {
                 width: '32px',
                 height: '32px',
                 borderRadius: '8px',
-                backgroundColor: 'rgba(237, 113, 0, 0.15)',
-                border: '1.5px solid #ED7100',
+                backgroundColor: 'rgba(231, 22, 123, 0.15)',
+                border: '1.5px solid #E7167B',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#ED7100'
+                color: '#E7167B'
               }}
             >
               <Cloud size={18} strokeWidth={2.4} />
             </div>
             <div style={{ textAlign: 'left' }}>
               <span style={{ fontSize: '1.05rem', fontWeight: 900, color: '#F8FAFC' }}>
-                SkySync<span style={{ color: '#ED7100' }}>Lab</span>
+                SkySync<span style={{ color: '#E7167B' }}>Lab</span>
               </span>
               <span style={{ fontSize: '0.66rem', color: '#64748B', fontWeight: 700, display: 'block' }}>
                 CLOUD • DEVOPS • AI
@@ -166,7 +166,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ onBackToSite }) => {
               style={{
                 background: 'none',
                 border: 'none',
-                borderBottom: '2px solid #ED7100',
+                borderBottom: '2px solid #E7167B',
                 paddingBottom: '14px',
                 marginTop: '14px',
                 fontSize: '0.84rem',
@@ -433,7 +433,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ onBackToSite }) => {
               gap: '6px',
               transition: 'all 0.15s ease'
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#ED7100')}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = '#E7167B')}
             onMouseLeave={(e) => (e.currentTarget.style.borderColor = '#334155')}
           >
             {saveSuccess ? <Check size={15} style={{ color: '#16A34A' }} /> : <Save size={15} />}
@@ -447,7 +447,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ onBackToSite }) => {
               onClick={() => setExportDropdownOpen(!exportDropdownOpen)}
               style={{
                 padding: '7px 16px',
-                backgroundColor: '#ED7100',
+                backgroundColor: '#E7167B',
                 color: '#FFFFFF',
                 border: 'none',
                 borderRadius: '7px',
@@ -457,11 +457,11 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ onBackToSite }) => {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '6px',
-                boxShadow: '0 4px 14px rgba(237, 113, 0, 0.45)',
+                boxShadow: '0 4px 14px rgba(231, 22, 123, 0.45)',
                 transition: 'all 0.18s ease'
               }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#FF8A00')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#ED7100')}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#E7167B')}
             >
               <Download size={15} />
               <span>Export Diagram</span>
@@ -569,7 +569,7 @@ export const TopHeader: React.FC<TopHeaderProps> = ({ onBackToSite }) => {
                     backgroundColor: 'transparent',
                     border: 'none',
                     borderRadius: '6px',
-                    color: '#ED7100',
+                    color: '#E7167B',
                     fontSize: '0.80rem',
                     fontWeight: 700,
                     textAlign: 'left',

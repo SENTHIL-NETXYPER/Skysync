@@ -98,10 +98,46 @@ export const Hero: React.FC<HeroProps> = ({
     return () => clearInterval(timer);
   }, [progressKey]);
 
-  // Card click smoothly switches the hero slide in place
+  const handleExploreSection = (topic: HeroTopic) => {
+    if (topic.id === 'explore') {
+      if (onOpenDesigner) {
+        onOpenDesigner();
+      }
+      const el = document.getElementById('designer-section');
+      if (el) {
+        const navOffset = 84;
+        const offsetPos = el.getBoundingClientRect().top + window.pageYOffset - navOffset;
+        window.scrollTo({ top: Math.max(0, offsetPos), behavior: 'smooth' });
+      }
+      return;
+    }
+
+    let targetEl: HTMLElement | null = null;
+    if (topic.id === 'cloud') {
+      targetEl = document.getElementById('service-card-cloud') || document.getElementById('services');
+    } else if (topic.id === 'devops') {
+      targetEl = document.getElementById('service-card-devops') || document.getElementById('services');
+    } else if (topic.id === 'ai') {
+      targetEl = document.getElementById('solutions') || document.getElementById('service-card-ai');
+    } else {
+      targetEl = document.getElementById(topic.targetSection);
+    }
+
+    if (targetEl) {
+      const navOffset = 84;
+      const offsetPos = targetEl.getBoundingClientRect().top + window.pageYOffset - navOffset;
+      window.scrollTo({
+        top: Math.max(0, offsetPos),
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Card click switches slide and immediately smoothly scrolls down to that section
   const handleCardClick = (topic: HeroTopic) => {
     setActiveId(topic.id);
     setProgressKey((k) => k + 1);
+    handleExploreSection(topic);
   };
 
   const handleNextSlide = () => {
@@ -122,30 +158,13 @@ export const Hero: React.FC<HeroProps> = ({
     setProgressKey((k) => k + 1);
   };
 
-  const handleExploreSection = (topic: HeroTopic) => {
-    if (topic.id === 'explore' && onOpenDesigner) {
-      onOpenDesigner();
-    }
-    const el = document.getElementById(topic.targetSection);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const activeIndex = TOPICS.findIndex((t) => t.id === activeId);
   const activeTopic = TOPICS[activeIndex] || TOPICS[0];
 
   return (
     <section
       aria-label="SkySyncLab Cloud & AI Solutions"
-      style={{
-        position: 'relative',
-        width: '100%',
-        maxWidth: '1240px',
-        margin: '0 auto',
-        padding: '24px 20px 32px 20px',
-        overflow: 'hidden'
-      }}
+      className="hero-outer-section"
     >
       <style>{`
         /* Hero Headline Entrance: Fade in + move up (400ms) */
@@ -192,12 +211,12 @@ export const Hero: React.FC<HeroProps> = ({
         .hero-image-card:hover {
           transform: translateY(-3px);
           box-shadow: 0 16px 32px -6px rgba(15, 23, 42, 0.2);
-          border-color: rgba(237, 113, 0, 0.7);
+          border-color: rgba(231, 22, 123, 0.7);
         }
 
         .hero-image-card.active-topic {
-          border-color: #ED7100;
-          box-shadow: 0 12px 28px -4px rgba(237, 113, 0, 0.35), 0 0 0 1.5px #ED7100;
+          border-color: #E7167B;
+          box-shadow: 0 12px 28px -4px rgba(231, 22, 123, 0.35), 0 0 0 1.5px #E7167B;
         }
 
         .hero-image-card .card-thumb-img {
@@ -252,7 +271,7 @@ export const Hero: React.FC<HeroProps> = ({
         .card-bottom-progress-bar {
           height: 100%;
           width: 100%;
-          background: #ED7100;
+          background: #E7167B;
           transform-origin: left;
           animation: activeCardProgress 5s linear forwards;
         }
@@ -264,21 +283,21 @@ export const Hero: React.FC<HeroProps> = ({
           gap: 9px;
           padding: 12px 26px;
           border-radius: 9999px;
-          background-color: #ED7100;
+          background-color: #E7167B;
           color: #FFFFFF;
           font-size: 0.96rem;
           font-weight: 750;
           border: none;
           cursor: pointer;
-          box-shadow: 0 6px 18px rgba(237, 113, 0, 0.32);
+          box-shadow: 0 6px 18px rgba(231, 22, 123, 0.32);
           transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
           text-decoration: none;
         }
 
         .hero-cta-button:hover {
-          background-color: #D96500;
+          background-color: #D0126D;
           transform: translateY(-2px);
-          box-shadow: 0 10px 24px rgba(237, 113, 0, 0.44);
+          box-shadow: 0 10px 24px rgba(231, 22, 123, 0.44);
         }
 
         .hero-secondary-button {
@@ -299,8 +318,8 @@ export const Hero: React.FC<HeroProps> = ({
 
         .hero-secondary-button:hover {
           background-color: #FFFFFF;
-          border-color: #ED7100;
-          color: #ED7100;
+          border-color: #E7167B;
+          color: #E7167B;
           transform: translateY(-2px);
           box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
         }
@@ -322,10 +341,33 @@ export const Hero: React.FC<HeroProps> = ({
 
         .hero-arrow-btn:hover {
           background: #FFFFFF;
-          border-color: #ED7100;
-          color: #ED7100;
+          border-color: #E7167B;
+          color: #E7167B;
           transform: scale(1.06);
-          box-shadow: 0 6px 16px rgba(237, 113, 0, 0.2);
+          box-shadow: 0 6px 16px rgba(231, 22, 123, 0.2);
+        }
+
+        .hero-outer-section {
+          position: relative;
+          width: 100%;
+          maxWidth: 1240px;
+          margin: 0 auto;
+          padding: 24px 20px 32px 20px;
+          overflow: hidden;
+        }
+
+        .hero-main-card {
+          position: relative;
+          border-radius: 26px;
+          overflow: hidden;
+          background-color: #FFFFFF;
+          border: 1.5px solid #E2E8F0;
+          box-shadow: 0 20px 48px -12px rgba(15, 23, 42, 0.08);
+          min-height: 560px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 38px 36px 28px 36px;
         }
 
         .hero-cards-grid {
@@ -345,37 +387,65 @@ export const Hero: React.FC<HeroProps> = ({
         }
 
         @media (max-width: 768px) {
+          .hero-outer-section {
+            padding: 12px 10px 24px 10px !important;
+          }
+          .hero-main-card {
+            border-radius: 20px !important;
+            padding: 24px 18px 20px 18px !important;
+            min-height: auto !important;
+          }
           .hero-stepper-capsule {
-            top: 16px !important;
-            right: 16px !important;
-            transform: scale(0.9);
+            top: 14px !important;
+            right: 14px !important;
+            transform: scale(0.85);
           }
         }
 
         @media (max-width: 600px) {
           .hero-cards-grid {
-            grid-template-columns: 1fr;
-            gap: 12px;
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+          }
+          .hero-image-card {
+            height: 120px !important;
+            border-radius: 14px !important;
+          }
+          .hero-image-card .card-thumb-label {
+            bottom: 8px !important;
+            left: 8px !important;
+            right: 8px !important;
+            font-size: 0.80rem !important;
+            line-height: 1.2 !important;
+          }
+          .hero-card-arrow-circle {
+            width: 24px !important;
+            height: 24px !important;
+          }
+          .hero-cta-button, .hero-secondary-button {
+            width: 100% !important;
+            justify-content: center !important;
+            padding: 12px 16px !important;
+            font-size: 0.92rem !important;
+          }
+          .hero-headline {
+            font-size: clamp(1.85rem, 6.2vw, 2.4rem) !important;
+            line-height: 1.16 !important;
+            margin-bottom: 14px !important;
+          }
+          .hero-subtitle {
+            font-size: 0.94rem !important;
+            line-height: 1.5 !important;
+            margin-bottom: 20px !important;
+          }
+          .hero-top-text {
+            margin-bottom: 24px !important;
           }
         }
       `}</style>
 
       {/* Hero Outer Curved Frame */}
-      <div
-        style={{
-          position: 'relative',
-          borderRadius: '26px',
-          overflow: 'hidden',
-          backgroundColor: '#FFFFFF',
-          border: '1.5px solid #E2E8F0',
-          boxShadow: '0 20px 48px -12px rgba(15, 23, 42, 0.08)',
-          minHeight: '560px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          padding: '38px 36px 28px 36px'
-        }}
-      >
+      <div className="hero-main-card">
         {/* Layered Themed Backgrounds with Smooth 700ms Cross-fade */}
         {TOPICS.map((topic) => {
           const isActive = topic.id === activeId;
@@ -439,7 +509,7 @@ export const Hero: React.FC<HeroProps> = ({
               letterSpacing: '0.04em'
             }}
           >
-            <span style={{ color: '#ED7100', fontWeight: 900 }}>0{activeIndex + 1}</span>
+            <span style={{ color: '#E7167B', fontWeight: 900 }}>0{activeIndex + 1}</span>
             <span style={{ color: '#94A3B8', fontWeight: 400 }}>/</span>
             <span style={{ color: '#64748B' }}>0{TOPICS.length}</span>
           </div>
@@ -469,7 +539,7 @@ export const Hero: React.FC<HeroProps> = ({
         {/* Top Text Content Area */}
         <div
           key={`hero-text-${activeId}-${progressKey}`}
-          className="hero-animated-content"
+          className="hero-animated-content hero-top-text"
           style={{
             position: 'relative',
             zIndex: 3,
@@ -479,6 +549,7 @@ export const Hero: React.FC<HeroProps> = ({
         >
           {/* Main Headline placed at the very top of the box */}
           <h1
+            className="hero-headline"
             style={{
               fontSize: 'clamp(2.15rem, 3.8vw, 3.4rem)',
               fontWeight: 900,
@@ -491,7 +562,7 @@ export const Hero: React.FC<HeroProps> = ({
             {activeTopic.titlePrefix} <br />
             <span
               style={{
-                color: activeId === 'cloud' ? '#0066CC' : '#ED7100',
+                color: activeId === 'cloud' ? '#0066CC' : '#E7167B',
                 fontWeight: 900,
                 display: 'inline-block'
               }}
@@ -502,6 +573,7 @@ export const Hero: React.FC<HeroProps> = ({
 
           {/* Subtitle */}
           <p
+            className="hero-subtitle"
             style={{
               fontSize: 'clamp(1rem, 1.3vw, 1.15rem)',
               lineHeight: 1.6,
@@ -572,11 +644,12 @@ export const Hero: React.FC<HeroProps> = ({
                 <div className="card-thumb-label">
                   <span>{topic.label}</span>
                   <div
+                    className="hero-card-arrow-circle"
                     style={{
                       width: '32px',
                       height: '32px',
                       borderRadius: '50%',
-                      backgroundColor: isActive ? '#ED7100' : 'rgba(255, 255, 255, 0.22)',
+                      backgroundColor: isActive ? '#E7167B' : 'rgba(255, 255, 255, 0.22)',
                       backdropFilter: 'blur(4px)',
                       display: 'flex',
                       alignItems: 'center',

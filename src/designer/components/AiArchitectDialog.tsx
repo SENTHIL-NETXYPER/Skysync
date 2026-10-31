@@ -293,7 +293,7 @@ export const AiArchitectDialog: React.FC = () => {
                 style={{
                   width: '100%',
                   padding: '9px 16px',
-                  backgroundColor: '#ED7100',
+                  backgroundColor: '#E7167B',
                   color: '#FFFFFF',
                   border: 'none',
                   borderRadius: '8px',

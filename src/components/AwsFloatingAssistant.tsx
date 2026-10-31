@@ -113,13 +113,13 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
   const getCardIcon = (iconType: 'costs' | 'security' | 'architecture') => {
     switch (iconType) {
       case 'costs':
-        return <Coins size={18} color="#ED7100" strokeWidth={2.4} />;
+        return <Coins size={18} color="#E7167B" strokeWidth={2.4} />;
       case 'security':
-        return <Shield size={18} color="#ED7100" strokeWidth={2.4} />;
+        return <Shield size={18} color="#E7167B" strokeWidth={2.4} />;
       case 'architecture':
-        return <Network size={18} color="#ED7100" strokeWidth={2.4} />;
+        return <Network size={18} color="#E7167B" strokeWidth={2.4} />;
       default:
-        return <Cloud size={18} color="#ED7100" strokeWidth={2.4} />;
+        return <Cloud size={18} color="#E7167B" strokeWidth={2.4} />;
     }
   };
 
@@ -396,21 +396,21 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                 gap: '8px',
                 padding: '9px 16px',
                 borderRadius: '10px',
-                backgroundColor: '#ED7100',
+                backgroundColor: '#E7167B',
                 color: '#FFFFFF',
                 border: 'none',
                 fontWeight: 750,
                 fontSize: '0.84rem',
                 cursor: 'pointer',
-                boxShadow: '0 3px 10px rgba(237, 113, 0, 0.28)',
+                boxShadow: '0 3px 10px rgba(231, 22, 123, 0.28)',
                 transition: 'all 0.16s ease'
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#D96500';
+                e.currentTarget.style.backgroundColor = '#D0126D';
                 e.currentTarget.style.transform = 'translateY(-1px)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#ED7100';
+                e.currentTarget.style.backgroundColor = '#E7167B';
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
@@ -454,7 +454,7 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                 width: '5px',
                 height: '5px',
                 borderRadius: '50%',
-                backgroundColor: '#ED7100',
+                backgroundColor: '#E7167B',
                 marginTop: '7px',
                 flexShrink: 0
               }}
@@ -487,8 +487,8 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
         }
 
         .ai-action-card:hover {
-          border-color: #ED7100 !important;
-          box-shadow: 0 6px 18px -2px rgba(237, 113, 0, 0.18) !important;
+          border-color: #E7167B !important;
+          box-shadow: 0 6px 18px -2px rgba(231, 22, 123, 0.18) !important;
           transform: translateY(-2px);
         }
 
@@ -518,7 +518,7 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
           aria-label={isOpenChat ? 'Close AI Cloud Consultant' : 'Open SkySyncLab AI Consulting'}
           style={{
             pointerEvents: 'auto',
-            backgroundColor: '#ED7100',
+            backgroundColor: '#E7167B',
             color: '#FFFFFF',
             border: 'none',
             borderRadius: '9999px',
@@ -530,17 +530,17 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
             display: 'inline-flex',
             alignItems: 'center',
             gap: '8px',
-            boxShadow: '0 8px 24px -2px rgba(237, 113, 0, 0.42), 0 4px 12px rgba(15, 23, 42, 0.14)',
+            boxShadow: '0 8px 24px -2px rgba(231, 22, 123, 0.42), 0 4px 12px rgba(15, 23, 42, 0.14)',
             transition: 'all 0.22s cubic-bezier(0.16, 1, 0.3, 1)',
             textTransform: 'uppercase'
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-2px) scale(1.03)';
-            e.currentTarget.style.backgroundColor = '#D96500';
+            e.currentTarget.style.backgroundColor = '#D0126D';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0) scale(1)';
-            e.currentTarget.style.backgroundColor = '#ED7100';
+            e.currentTarget.style.backgroundColor = '#E7167B';
           }}
         >
           {isOpenChat ? (
@@ -711,7 +711,7 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                           fontSize: '0.9rem',
                           fontWeight: 500,
                           lineHeight: 1.45,
-                          boxShadow: '0 2px 8px rgba(237, 113, 0, 0.08)'
+                          boxShadow: '0 2px 8px rgba(231, 22, 123, 0.08)'
                         }}
                       >
                         {msg.content}
@@ -724,7 +724,7 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                           height: '30px',
                           borderRadius: '50%',
                           backgroundColor: '#FFEDD5',
-                          color: '#ED7100',
+                          color: '#E7167B',
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -763,7 +763,7 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                         borderRadius: '50%',
                         backgroundColor: '#FFF7ED',
                         border: '1px solid #FFEDD5',
-                        color: '#ED7100',
+                        color: '#E7167B',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -908,7 +908,7 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                       width: '6px',
                       height: '6px',
                       borderRadius: '50%',
-                      backgroundColor: '#ED7100'
+                      backgroundColor: '#E7167B'
                     }}
                   />
                   <span
@@ -916,7 +916,7 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                       width: '6px',
                       height: '6px',
                       borderRadius: '50%',
-                      backgroundColor: '#ED7100',
+                      backgroundColor: '#E7167B',
                       opacity: 0.6
                     }}
                   />
@@ -925,7 +925,7 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                       width: '6px',
                       height: '6px',
                       borderRadius: '50%',
-                      backgroundColor: '#ED7100',
+                      backgroundColor: '#E7167B',
                       opacity: 0.3
                     }}
                   />
@@ -972,8 +972,8 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                     transition: 'border-color 0.18s ease, box-shadow 0.18s ease'
                   }}
                   onFocus={(e) => {
-                    e.currentTarget.style.borderColor = '#ED7100';
-                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(237, 113, 0, 0.12)';
+                    e.currentTarget.style.borderColor = '#E7167B';
+                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(231, 22, 123, 0.12)';
                   }}
                   onBlur={(e) => {
                     e.currentTarget.style.borderColor = '#E2E8F0';
@@ -990,7 +990,7 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                   width: '42px',
                   height: '42px',
                   borderRadius: '10px',
-                  backgroundColor: '#ED7100',
+                  backgroundColor: '#E7167B',
                   color: '#FFFFFF',
                   border: 'none',
                   cursor: inputQuery.trim() && !isLoading ? 'pointer' : 'default',
@@ -999,17 +999,17 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                   alignItems: 'center',
                   justifyContent: 'center',
                   flexShrink: 0,
-                  boxShadow: '0 4px 12px rgba(237, 113, 0, 0.3)',
+                  boxShadow: '0 4px 12px rgba(231, 22, 123, 0.3)',
                   transition: 'transform 0.18s ease, background-color 0.18s ease'
                 }}
                 onMouseEnter={(e) => {
                   if (inputQuery.trim() && !isLoading) {
-                    e.currentTarget.style.backgroundColor = '#D96500';
+                    e.currentTarget.style.backgroundColor = '#D0126D';
                     e.currentTarget.style.transform = 'scale(1.04)';
                   }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = '#ED7100';
+                  e.currentTarget.style.backgroundColor = '#E7167B';
                   e.currentTarget.style.transform = 'scale(1)';
                 }}
               >
@@ -1037,7 +1037,7 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '8px',
-                boxShadow: '0 2px 6px rgba(237, 113, 0, 0.08)',
+                boxShadow: '0 2px 6px rgba(231, 22, 123, 0.08)',
                 transition: 'all 0.18s ease'
               }}
               onMouseEnter={(e) => {
@@ -1049,7 +1049,7 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                 e.currentTarget.style.borderColor = '#FED7AA';
               }}
             >
-              <Calendar size={17} color="#EA580C" strokeWidth={2.4} />
+              <Calendar size={17} color="#D0126D" strokeWidth={2.4} />
               <span>Book an architecture review</span>
             </button>
 

@@ -30,13 +30,13 @@ export const ArchitectureViewer: React.FC = () => {
       desc: 'Understand your campus infrastructure, constraints, and operational goals. Review current hardware, identify bottlenecks, and document exact requirements.',
       milestone: 'Initial discovery call completed and institutional roadmap documented.',
       stepperLabel: 'Discovery &\nAlignment',
-      color: '#ED7100',
+      color: '#E7167B',
       milestoneBg: '#FFF7ED',
       milestoneBorder: '#FFEDD5',
-      milestoneIconColor: '#ED7100',
+      milestoneIconColor: '#E7167B',
       items: [
         { icon: Monitor, color: '#3B82F6', text: 'Current infrastructure review' },
-        { icon: Search, color: '#F97316', text: 'Identify bottlenecks' },
+        { icon: Search, color: '#E7167B', text: 'Identify bottlenecks' },
         { icon: FileText, color: '#3B82F6', text: 'Define requirements' },
         { icon: Users, color: '#10B981', text: 'Align on goals & budget' }
       ]
@@ -55,7 +55,7 @@ export const ArchitectureViewer: React.FC = () => {
       milestoneIconColor: '#2563EB',
       items: [
         { icon: Layers, color: '#8B5CF6', text: 'Multi-AZ VPC Isolation' },
-        { icon: Server, color: '#ED7100', text: 'EC2 Auto Scaling Group' },
+        { icon: Server, color: '#E7167B', text: 'EC2 Auto Scaling Group' },
         { icon: Database, color: '#3B82F6', text: 'Amazon Aurora Multi-AZ' },
         { icon: Shield, color: '#10B981', text: 'AWS WAF & DDoS Shield' }
       ]
@@ -106,15 +106,15 @@ export const ArchitectureViewer: React.FC = () => {
       desc: 'Transfer all runbooks and access keys, conduct team training, hand over infrastructure ownership, and establish continuous scaling.',
       milestone: 'Formal operational handover completed with dedicated support readiness.',
       stepperLabel: 'Handover &\nScale',
-      color: '#EA580C',
+      color: '#D0126D',
       milestoneBg: '#FFF7ED',
       milestoneBorder: '#FFEDD5',
-      milestoneIconColor: '#EA580C',
+      milestoneIconColor: '#D0126D',
       items: [
-        { icon: Key, color: '#EA580C', text: 'Root & IAM keys handover' },
+        { icon: Key, color: '#D0126D', text: 'Root & IAM keys handover' },
         { icon: FileText, color: '#3B82F6', text: 'Disaster recovery runbooks' },
         { icon: Users, color: '#10B981', text: 'Faculty IT training sessions' },
-        { icon: CheckCircle2, color: '#EA580C', text: 'Institutional sign-off' }
+        { icon: CheckCircle2, color: '#D0126D', text: 'Institutional sign-off' }
       ]
     }
   ];
@@ -189,7 +189,7 @@ export const ArchitectureViewer: React.FC = () => {
           border-radius: 50%;
           background: #FFFFFF;
           border: 1.5px solid #E2E8F0;
-          color: #ED7100;
+          color: #E7167B;
           display: flex;
           align-items: center;
           justifyContent: center;
@@ -200,11 +200,11 @@ export const ArchitectureViewer: React.FC = () => {
           z-index: 5;
         }
         .carousel-arrow-btn:hover {
-          background: #ED7100;
-          border-color: #ED7100;
+          background: #E7167B;
+          border-color: #E7167B;
           color: #FFFFFF;
           transform: scale(1.08);
-          box-shadow: 0 6px 18px rgba(237, 113, 0, 0.35);
+          box-shadow: 0 6px 18px rgba(231, 22, 123, 0.35);
         }
         .process-slider-card {
           background: #FFFFFF;
@@ -309,7 +309,7 @@ export const ArchitectureViewer: React.FC = () => {
                 padding: '4px 12px',
                 borderRadius: '9999px',
                 backgroundColor: '#FFF7ED',
-                color: '#ED7100',
+                color: '#E7167B',
                 fontSize: '0.76rem',
                 fontWeight: 700,
                 marginBottom: '14px'
@@ -601,19 +601,19 @@ export const ArchitectureViewer: React.FC = () => {
                         height: '38px',
                         borderRadius: '50%',
                         backgroundColor: isActive
-                          ? '#ED7100'
+                          ? '#E7167B'
                           : isCompleted
                           ? '#FFF7ED'
                           : '#FFFFFF',
                         border: isActive
-                          ? '2px solid #ED7100'
+                          ? '2px solid #E7167B'
                           : isCompleted
-                          ? '2px solid #ED7100'
+                          ? '2px solid #E7167B'
                           : '2px solid #E2E8F0',
                         color: isActive
                           ? '#FFFFFF'
                           : isCompleted
-                          ? '#ED7100'
+                          ? '#E7167B'
                           : '#64748B',
                         display: 'flex',
                         alignItems: 'center',
@@ -621,7 +621,7 @@ export const ArchitectureViewer: React.FC = () => {
                         fontSize: '0.82rem',
                         fontWeight: 800,
                         boxShadow: isActive
-                          ? '0 4px 14px rgba(237, 113, 0, 0.45)'
+                          ? '0 4px 14px rgba(231, 22, 123, 0.45)'
                           : '0 2px 6px rgba(15, 23, 42, 0.04)',
                         transition: 'background-color 0.28s ease, border-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease'
                       }}
@@ -635,7 +635,7 @@ export const ArchitectureViewer: React.FC = () => {
                       style={{
                         fontSize: '0.78rem',
                         fontWeight: isActive ? 800 : 600,
-                        color: isActive ? '#ED7100' : '#64748B',
+                        color: isActive ? '#E7167B' : '#64748B',
                         textAlign: 'center',
                         lineHeight: 1.25,
                         whiteSpace: 'pre-line',
@@ -665,7 +665,7 @@ export const ArchitectureViewer: React.FC = () => {
                       style={{
                         position: 'absolute',
                         inset: 0,
-                        backgroundColor: '#ED7100',
+                        backgroundColor: '#E7167B',
                         transformOrigin: 'left',
                         ...(activeStep > idx
                           ? {
@@ -675,7 +675,7 @@ export const ArchitectureViewer: React.FC = () => {
                           : activeStep === idx
                           ? {
                               animation: 'stepConnectingProgress 3.5s linear forwards',
-                              boxShadow: '0 0 8px rgba(237, 113, 0, 0.45)'
+                              boxShadow: '0 0 8px rgba(231, 22, 123, 0.45)'
                             }
                           : {
                               transform: 'scaleX(0)',

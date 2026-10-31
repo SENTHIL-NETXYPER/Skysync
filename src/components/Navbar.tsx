@@ -244,15 +244,54 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
             style={{
               display: 'flex',
               alignItems: 'center',
+              gap: '10px',
               background: 'none',
               border: 'none',
               cursor: 'pointer',
-              padding: '2px 8px',
+              padding: '2px 6px',
               textDecoration: 'none',
               flexShrink: 0
             }}
           >
-            <SkySyncLogo variant="dark" height={30} />
+            <div
+              style={{
+                width: '34px',
+                height: '34px',
+                borderRadius: '10px',
+                backgroundColor: '#FFFFFF',
+                border: '1px solid rgba(255, 255, 255, 0.25)',
+                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.25)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}
+            >
+              <SkySyncLogo iconOnly height={20} variant="light" />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+              <span
+                style={{
+                  fontFamily: "'Plus Jakarta Sans', 'Inter', system-ui, sans-serif",
+                  fontSize: '1.24rem',
+                  fontWeight: 800,
+                  color: '#FFFFFF',
+                  letterSpacing: '-0.025em',
+                  lineHeight: 1
+                }}
+              >
+                skysynclab
+              </span>
+              <div
+                style={{
+                  height: '2px',
+                  width: '100%',
+                  backgroundColor: '#E7167B',
+                  marginTop: '4px',
+                  borderRadius: '2px'
+                }}
+              />
+            </div>
           </button>
 
           {/* Center Pill Track (Matching the User's Image Aesthetic) */}
@@ -428,9 +467,15 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
           </div>
         </div>
 
-        {/* Mobile Dropdown Menu Card */}
+        {/* Mobile Dropdown Menu Card & Screen Dimming Backdrop */}
         {mobileMenuOpen && (
-          <div className="nav-mobile-dropdown-card">
+          <>
+            <div
+              className="nav-mobile-backdrop"
+              onClick={() => setMobileMenuOpen(false)}
+              aria-hidden="true"
+            />
+            <div className="nav-mobile-dropdown-card">
             <div
               style={{
                 display: 'flex',
@@ -509,9 +554,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                         <button
                           className="nav-capsule-dropdown-item"
                           onClick={() => handleNavClick('services')}
-                          style={{ borderLeft: '2px solid #ED7100', paddingLeft: '10px' }}
+                          style={{ borderLeft: '2px solid #E7167B', paddingLeft: '10px' }}
                         >
-                          <span style={{ color: '#ED7100', fontWeight: 700, fontSize: '0.88rem' }}>
+                          <span style={{ color: '#E7167B', fontWeight: 700, fontSize: '0.88rem' }}>
                             • View All Cloud Services
                           </span>
                         </button>
@@ -541,9 +586,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                         <button
                           className="nav-capsule-dropdown-item"
                           onClick={() => handleNavClick('solutions')}
-                          style={{ borderLeft: '2px solid #ED7100', paddingLeft: '10px' }}
+                          style={{ borderLeft: '2px solid #E7167B', paddingLeft: '10px' }}
                         >
-                          <span style={{ color: '#ED7100', fontWeight: 700, fontSize: '0.88rem' }}>
+                          <span style={{ color: '#E7167B', fontWeight: 700, fontSize: '0.88rem' }}>
                             • View All Solutions
                           </span>
                         </button>
@@ -575,8 +620,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
               <ArrowRight size={16} strokeWidth={2.4} />
             </button>
           </div>
-        )}
-      </header>
+        </>
+      )}
+    </header>
 
       {/* Spotlight Quick Search Modal */}
       {isSearchOpen && (
@@ -709,7 +755,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                             width: '32px',
                             height: '32px',
                             borderRadius: '8px',
-                            background: 'rgba(237, 113, 0, 0.15)',
+                            background: 'rgba(231, 22, 123, 0.15)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -730,7 +776,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
                           textTransform: 'uppercase',
                           letterSpacing: '0.04em',
                           color: '#FF9900',
-                          background: 'rgba(237, 113, 0, 0.12)',
+                          background: 'rgba(231, 22, 123, 0.12)',
                           padding: '3px 8px',
                           borderRadius: '9999px'
                         }}

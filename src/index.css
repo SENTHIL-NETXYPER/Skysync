@@ -8,14 +8,14 @@
      Main background:    #FFFFFF
      Section background: #F7F8FA
      Headings:           #232F3E
-     Primary accent:     #ED7100
+     Primary accent:     #E7167B
      Body text:          #526071
      Cards:              White, subtle border and shadow
      Positive outcomes:  #01A88D only
   */
-  --aws-orange: #ED7100;
+  --aws-orange: #E7167B;
   --aws-orange-hover: #EC7211;
-  --aws-orange-subtle: rgba(237, 113, 0, 0.08);
+  --aws-orange-subtle: rgba(231, 22, 123, 0.08);
   --aws-deep-black: #16191F;
   --aws-blue: #0284C7;
 
@@ -47,7 +47,7 @@
   --border-subtle: #E2E8F0;
   --border-card: #E2E8F0;
   --border-strong: #CBD5E1;
-  --border-accent: #ED7100;
+  --border-accent: #E7167B;
 
   /* Subtle card elevation */
   --shadow-subtle: 0 1px 3px rgba(15, 23, 42, 0.04);
@@ -197,7 +197,7 @@ p {
 .aws-unified-card:hover .unified-icon-box {
   background-color: var(--aws-orange);
   color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(237, 113, 0, 0.25);
+  box-shadow: 0 4px 12px rgba(231, 22, 123, 0.25);
 }
 
 /* Arrow Slide Animation on Hover */
@@ -233,7 +233,7 @@ p {
   border: 1px solid var(--aws-orange);
   border-radius: 24px;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(237, 113, 0, 0.3);
+  box-shadow: 0 4px 14px rgba(231, 22, 123, 0.3);
   transition: all 0.18s ease;
   text-decoration: none;
 }
@@ -243,7 +243,7 @@ p {
   background-color: var(--aws-orange-hover);
   border-color: var(--aws-orange-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(237, 113, 0, 0.45);
+  box-shadow: 0 6px 18px rgba(231, 22, 123, 0.45);
 }
 
 .btn-pill-blue,
@@ -272,7 +272,7 @@ p {
   color: var(--aws-orange);
   background-color: #FFF7ED;
   transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(237, 113, 0, 0.12);
+  box-shadow: 0 4px 14px rgba(231, 22, 123, 0.12);
 }
 
 /* Clean White Card Styles */
@@ -565,7 +565,7 @@ p {
 }
 
 .nav-capsule-dropdown-item.active {
-  background: rgba(237, 113, 0, 0.2);
+  background: rgba(231, 22, 123, 0.2);
   color: #FF9900;
   font-weight: 700;
 }
@@ -578,7 +578,7 @@ p {
   gap: 7px;
   padding: 8px 18px;
   border-radius: 9999px;
-  background-color: #ED7100;
+  background-color: #E7167B;
   border: none;
   color: #FFFFFF;
   font-family: var(--font-sans);
@@ -589,31 +589,39 @@ p {
   white-space: nowrap;
   flex-shrink: 0;
   box-sizing: border-box;
-  box-shadow: 0 4px 14px rgba(237, 113, 0, 0.35);
+  box-shadow: 0 4px 14px rgba(231, 22, 123, 0.35);
   transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
   text-decoration: none;
 }
 
 .nav-cta-pill:hover {
-  background-color: #D96500;
+  background-color: #D0126D;
   color: #FFFFFF;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(237, 113, 0, 0.50);
+  box-shadow: 0 6px 20px rgba(231, 22, 123, 0.50);
 }
 
 /* Mobile responsive menu */
+.nav-mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 10, 20, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1050;
+  animation: fadeIn 0.2s ease both;
+}
+
 .nav-mobile-dropdown-card {
   position: absolute;
   top: calc(100% + 10px);
   left: 12px;
   right: 12px;
-  background: rgba(14, 23, 42, 0.96);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: #0A1322 !important; /* 100% solid dark - zero bleed-through of page text */
   border: 1.5px solid rgba(255, 255, 255, 0.18);
   border-radius: 22px;
   padding: 14px;
-  box-shadow: 0 24px 50px -8px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 24px 60px -8px rgba(0, 0, 0, 0.95), 0 0 0 1px rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -630,12 +638,12 @@ p {
 
 /* Elegant left-border indicator for active item on mobile */
 .nav-mobile-dropdown-card .nav-capsule-tab.active {
-  background: rgba(237, 113, 0, 0.15) !important;
-  border: 1px solid rgba(237, 113, 0, 0.35) !important;
-  border-left: 4px solid #ED7100 !important;
+  background: rgba(231, 22, 123, 0.15) !important;
+  border: 1px solid rgba(231, 22, 123, 0.35) !important;
+  border-left: 4px solid #E7167B !important;
   border-radius: 10px !important;
   color: #FFFFFF !important;
-  box-shadow: 0 0 16px rgba(237, 113, 0, 0.12) !important;
+  box-shadow: 0 0 16px rgba(231, 22, 123, 0.12) !important;
 }
 
 .nav-mobile-dropdown-card .nav-capsule-tab:hover {
@@ -774,7 +782,7 @@ p {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #ED7100, #FF9E3B);
+  background: linear-gradient(90deg, #E7167B, #FF4D9E);
   opacity: 0;
   transition: opacity 250ms ease;
   pointer-events: none;
@@ -832,7 +840,7 @@ p {
 .solution-card:hover,
 .service-card-2x2:hover {
   transform: translateX(4px);
-  box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.10), 0 0 0 1px rgba(237, 113, 0, 0.25);
+  box-shadow: 0 12px 28px -4px rgba(15, 23, 42, 0.10), 0 0 0 1px rgba(231, 22, 123, 0.25);
 }
 
 .animated-card .card-icon,
@@ -886,7 +894,7 @@ p {
 .section-badge-lined .badge-text {
   font-size: 0.82rem;
   font-weight: 800;
-  color: #ED7100;
+  color: #E7167B;
   letter-spacing: 0.04em;
   text-transform: none;
   margin-bottom: 6px;
@@ -914,8 +922,8 @@ p {
   height: 100%;
   width: 26px;
   border-radius: 9999px;
-  background: linear-gradient(90deg, #FF9E3B, #ED7100);
-  box-shadow: 0 0 10px rgba(237, 113, 0, 0.8), 0 0 4px #ED7100;
+  background: linear-gradient(90deg, #FF4D9E, #E7167B);
+  box-shadow: 0 0 10px rgba(231, 22, 123, 0.8), 0 0 4px #E7167B;
   animation: lineSlideLeftToRight 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
@@ -929,7 +937,7 @@ p {
 }
 
 .section-badge-lined:hover .badge-line::after {
-  box-shadow: 0 0 16px rgba(237, 113, 0, 1), 0 0 6px #ED7100;
+  box-shadow: 0 0 16px rgba(231, 22, 123, 1), 0 0 6px #E7167B;
 }
 
 /* Subtle Hover Glow on Interactive Buttons */
@@ -974,7 +982,7 @@ button {
 .interactive-service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.12);
-  border-color: rgba(237, 113, 0, 0.45);
+  border-color: rgba(231, 22, 123, 0.45);
 }
 
 .interactive-card-img-wrap {
@@ -1026,7 +1034,7 @@ button {
 
 .interactive-service-card:hover .interactive-card-arrow {
   transform: translateX(4px);
-  background-color: #ED7100;
+  background-color: #E7167B;
   color: #FFFFFF;
 }
 

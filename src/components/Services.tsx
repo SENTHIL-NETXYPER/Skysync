@@ -34,7 +34,7 @@ const SERVICES_DATA: ServiceCardData[] = [
     id: 'cloud',
     title: 'Cloud Infrastructure',
     badge: 'AWS ARCHITECTURE',
-    color: '#ED7100',
+    color: '#E7167B',
     image: './assets/card_cloud_sleek.jpg',
     icon: Cloud,
     bullets: [
@@ -230,7 +230,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenConsultationWithServic
 
         .service-2x2-card:hover .service-thumb-arrow-btn {
           transform: scale(1.08);
-          background-color: #ED7100;
+          background-color: #E7167B;
           color: #FFFFFF;
         }
 
@@ -276,7 +276,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenConsultationWithServic
               width: '8px',
               height: '8px',
               borderRadius: '50%',
-              backgroundColor: '#ED7100'
+              backgroundColor: '#E7167B'
             }}
           />
           <span
@@ -284,7 +284,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenConsultationWithServic
               fontSize: '0.82rem',
               fontWeight: 800,
               letterSpacing: '0.04em',
-              color: '#ED7100'
+              color: '#E7167B'
             }}
           >
             Our Core Capabilities
@@ -333,6 +333,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenConsultationWithServic
           return (
             <div
               key={service.id}
+              id={`service-card-${service.id}`}
               className="service-2x2-card"
               onClick={(e) => handleOpenScope(service, e)}
               style={{
@@ -643,7 +644,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenConsultationWithServic
                   padding: '10px 22px',
                   borderRadius: '9999px',
                   border: 'none',
-                  backgroundColor: '#ED7100',
+                  backgroundColor: '#E7167B',
                   color: '#FFFFFF',
                   fontSize: '0.9rem',
                   fontWeight: 750,
@@ -651,7 +652,7 @@ export const Services: React.FC<ServicesProps> = ({ onOpenConsultationWithServic
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '6px',
-                  boxShadow: '0 4px 14px rgba(237, 113, 0, 0.35)'
+                  boxShadow: '0 4px 14px rgba(231, 22, 123, 0.35)'
                 }}
               >
                 <span>Request This Service</span>

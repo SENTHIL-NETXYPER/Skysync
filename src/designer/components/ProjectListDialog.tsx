@@ -122,9 +122,9 @@ export const ProjectListDialog: React.FC = () => {
                 width: '36px',
                 height: '36px',
                 borderRadius: '8px',
-                backgroundColor: 'rgba(237, 113, 0, 0.15)',
-                border: '1px solid #ED7100',
-                color: '#ED7100',
+                backgroundColor: 'rgba(231, 22, 123, 0.15)',
+                border: '1px solid #E7167B',
+                color: '#E7167B',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -230,7 +230,7 @@ export const ProjectListDialog: React.FC = () => {
                 <div
                   style={{
                     padding: '5px 12px',
-                    backgroundColor: '#ED7100',
+                    backgroundColor: '#E7167B',
                     color: '#FFFFFF',
                     borderRadius: '6px',
                     fontSize: '0.76rem',

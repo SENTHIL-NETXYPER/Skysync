@@ -31,7 +31,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onGetInTouch }) => {
           position: 'relative',
           background: 'linear-gradient(135deg, #FFF7ED 0%, #FFFFFF 50%, #FFF7ED 100%)',
           border: '1.5px solid #FFEDD5',
-          borderTop: '5px solid #ED7100',
+          borderTop: '5px solid #E7167B',
           borderRadius: '24px',
           overflow: 'hidden',
           padding: '48px 24px',
@@ -40,7 +40,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onGetInTouch }) => {
           alignItems: 'center',
           justifyContent: 'center',
           textAlign: 'center',
-          boxShadow: '0 20px 45px -10px rgba(237, 113, 0, 0.08), 0 4px 12px rgba(15, 23, 42, 0.04)'
+          boxShadow: '0 20px 45px -10px rgba(231, 22, 123, 0.08), 0 4px 12px rgba(15, 23, 42, 0.04)'
         }}
       >
         {/* Warm Ambient Radial Glow */}
@@ -53,7 +53,7 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onGetInTouch }) => {
             width: '600px',
             height: '400px',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(237, 113, 0, 0.10) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(231, 22, 123, 0.10) 0%, transparent 70%)',
             pointerEvents: 'none'
           }}
         />
@@ -106,24 +106,24 @@ export const CtaBanner: React.FC<CtaBannerProps> = ({ onGetInTouch }) => {
                 gap: '8px',
                 padding: '14px 34px',
                 borderRadius: '9999px',
-                backgroundColor: '#ED7100',
+                backgroundColor: '#E7167B',
                 color: '#FFFFFF',
                 fontSize: '1.02rem',
                 fontWeight: 700,
                 border: 'none',
                 cursor: 'pointer',
-                boxShadow: '0 4px 18px rgba(237, 113, 0, 0.45)',
+                boxShadow: '0 4px 18px rgba(231, 22, 123, 0.45)',
                 transition: 'all 0.2s ease'
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = '#EC7211';
                 e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 8px 24px rgba(237, 113, 0, 0.55)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(231, 22, 123, 0.55)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#ED7100';
+                e.currentTarget.style.backgroundColor = '#E7167B';
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 18px rgba(237, 113, 0, 0.45)';
+                e.currentTarget.style.boxShadow = '0 4px 18px rgba(231, 22, 123, 0.45)';
               }}
             >
               <span>Get In Touch</span>

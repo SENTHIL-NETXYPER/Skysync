@@ -181,7 +181,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
           border: '1.5px solid #CBD5E1',
           padding: '28px 24px',
           boxShadow: '0 4px 18px rgba(15, 23, 42, 0.06)',
-          borderLeft: '5px solid #ED7100',
+          borderLeft: '5px solid #E7167B',
           display: 'flex',
           flexDirection: 'column',
           height: '100%'
@@ -207,19 +207,19 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                 fontWeight: 600,
                 transition: 'color 0.16s ease'
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#E7167B')}
               onMouseLeave={(e) => (e.currentTarget.style.color = '#232F3E')}
             >
               <div style={{
                 width: '42px',
                 height: '42px',
                 borderRadius: '11px',
-                backgroundColor: 'rgba(237, 113, 0, 0.08)',
-                border: '1px solid rgba(237, 113, 0, 0.22)',
+                backgroundColor: 'rgba(231, 22, 123, 0.08)',
+                border: '1px solid rgba(231, 22, 123, 0.22)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#ED7100',
+                color: '#E7167B',
                 flexShrink: 0
               }}>
                 <Mail size={19} />
@@ -244,19 +244,19 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                 fontWeight: 600,
                 transition: 'color 0.16s ease'
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#E7167B')}
               onMouseLeave={(e) => (e.currentTarget.style.color = '#232F3E')}
             >
               <div style={{
                 width: '42px',
                 height: '42px',
                 borderRadius: '11px',
-                backgroundColor: 'rgba(237, 113, 0, 0.08)',
-                border: '1px solid rgba(237, 113, 0, 0.22)',
+                backgroundColor: 'rgba(231, 22, 123, 0.08)',
+                border: '1px solid rgba(231, 22, 123, 0.22)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#ED7100',
+                color: '#E7167B',
                 flexShrink: 0
               }}>
                 <Mail size={19} />
@@ -280,19 +280,19 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                 fontWeight: 600,
                 transition: 'color 0.16s ease'
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#E7167B')}
               onMouseLeave={(e) => (e.currentTarget.style.color = '#232F3E')}
             >
               <div style={{
                 width: '42px',
                 height: '42px',
                 borderRadius: '11px',
-                backgroundColor: 'rgba(237, 113, 0, 0.08)',
-                border: '1px solid rgba(237, 113, 0, 0.22)',
+                backgroundColor: 'rgba(231, 22, 123, 0.08)',
+                border: '1px solid rgba(231, 22, 123, 0.22)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#ED7100',
+                color: '#E7167B',
                 flexShrink: 0
               }}>
                 <Phone size={19} />
@@ -319,19 +319,19 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                 fontWeight: 600,
                 transition: 'color 0.16s ease'
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#E7167B')}
               onMouseLeave={(e) => (e.currentTarget.style.color = '#232F3E')}
             >
               <div style={{
                 width: '42px',
                 height: '42px',
                 borderRadius: '11px',
-                backgroundColor: 'rgba(237, 113, 0, 0.08)',
-                border: '1px solid rgba(237, 113, 0, 0.22)',
+                backgroundColor: 'rgba(231, 22, 123, 0.08)',
+                border: '1px solid rgba(231, 22, 123, 0.22)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#ED7100',
+                color: '#E7167B',
                 flexShrink: 0
               }}>
                 <svg width="19" height="19" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -351,12 +351,12 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                 width: '42px',
                 height: '42px',
                 borderRadius: '11px',
-                backgroundColor: 'rgba(237, 113, 0, 0.08)',
-                border: '1px solid rgba(237, 113, 0, 0.22)',
+                backgroundColor: 'rgba(231, 22, 123, 0.08)',
+                border: '1px solid rgba(231, 22, 123, 0.22)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#ED7100',
+                color: '#E7167B',
                 flexShrink: 0
               }}>
                 <MapPin size={19} />
@@ -382,7 +382,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
             color: '#526071',
             fontWeight: 600
           }}>
-            <Clock size={18} color="#ED7100" style={{ flexShrink: 0 }} />
+            <Clock size={18} color="#E7167B" style={{ flexShrink: 0 }} />
             <span>Consultation response guaranteed within 24 business hours.</span>
           </div>
         </div>
@@ -395,7 +395,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
           boxShadow: '0 4px 18px rgba(15, 23, 42, 0.06)',
           borderWidth: '4px 1.5px 1.5px 1.5px',
           borderStyle: 'solid',
-          borderColor: '#ED7100 #CBD5E1 #CBD5E1 #CBD5E1',
+          borderColor: '#E7167B #CBD5E1 #CBD5E1 #CBD5E1',
           display: 'flex',
           flexDirection: 'column',
           height: '100%'
@@ -433,11 +433,11 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                     padding: '12px 20px',
                     fontSize: '0.90rem',
                     fontWeight: 700,
-                    backgroundColor: '#ED7100',
+                    backgroundColor: '#E7167B',
                     color: '#FFFFFF',
                     borderRadius: '9999px',
                     textDecoration: 'none',
-                    boxShadow: '0 3px 12px rgba(237, 113, 0, 0.3)'
+                    boxShadow: '0 3px 12px rgba(231, 22, 123, 0.3)'
                   }}
                 >
                   <Mail size={16} />
@@ -542,7 +542,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                         outline: 'none',
                         transition: 'border-color 0.15s ease'
                       }}
-                      onFocus={(e) => (e.target.style.borderColor = errors.name ? '#EF4444' : '#ED7100')}
+                      onFocus={(e) => (e.target.style.borderColor = errors.name ? '#EF4444' : '#E7167B')}
                       onBlur={(e) => {
                         e.target.style.borderColor = errors.name ? '#EF4444' : '#E2E8F0';
                         if (!formData.name.trim()) {
@@ -587,7 +587,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                         <span style={{
                           fontSize: '0.72rem',
                           fontWeight: 700,
-                          color: formData.phone.length === 10 ? '#16A34A' : '#EA580C'
+                          color: formData.phone.length === 10 ? '#16A34A' : '#D0126D'
                         }}>
                           {formData.phone.length}/10
                         </span>
@@ -613,7 +613,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                         outline: 'none',
                         transition: 'border-color 0.15s ease'
                       }}
-                      onFocus={(e) => (e.target.style.borderColor = errors.phone ? '#EF4444' : '#ED7100')}
+                      onFocus={(e) => (e.target.style.borderColor = errors.phone ? '#EF4444' : '#E7167B')}
                       onBlur={(e) => {
                         e.target.style.borderColor = errors.phone ? '#EF4444' : '#E2E8F0';
                         if (!formData.phone.trim()) {
@@ -677,7 +677,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                       outline: 'none',
                       transition: 'border-color 0.15s ease'
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = errors.email ? '#EF4444' : '#ED7100')}
+                    onFocus={(e) => (e.target.style.borderColor = errors.email ? '#EF4444' : '#E7167B')}
                     onBlur={(e) => {
                       e.target.style.borderColor = errors.email ? '#EF4444' : '#E2E8F0';
                       if (!formData.email.trim()) {
@@ -736,7 +736,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                       backgroundColor: '#FFFFFF',
                       outline: 'none'
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = '#ED7100')}
+                    onFocus={(e) => (e.target.style.borderColor = '#E7167B')}
                     onBlur={(e) => (e.target.style.borderColor = '#E2E8F0')}
                   />
                 </div>
@@ -775,8 +775,8 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                         transition: 'border-color 0.15s ease, box-shadow 0.15s ease'
                       }}
                       onFocus={(e) => {
-                        e.target.style.borderColor = '#ED7100';
-                        e.target.style.boxShadow = '0 0 0 3px rgba(237, 113, 0, 0.15)';
+                        e.target.style.borderColor = '#E7167B';
+                        e.target.style.boxShadow = '0 0 0 3px rgba(231, 22, 123, 0.15)';
                       }}
                       onBlur={(e) => {
                         e.target.style.borderColor = '#E2E8F0';
@@ -835,7 +835,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                       resize: 'vertical',
                       lineHeight: 1.5
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = '#ED7100')}
+                    onFocus={(e) => (e.target.style.borderColor = '#E7167B')}
                     onBlur={(e) => (e.target.style.borderColor = '#E2E8F0')}
                   />
                 </div>
@@ -875,7 +875,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                     padding: '13px 20px',
                     fontSize: '0.96rem',
                     fontWeight: 700,
-                    backgroundColor: '#ED7100',
+                    backgroundColor: '#E7167B',
                     color: '#FFFFFF',
                     border: 'none',
                     borderRadius: '9999px',
@@ -884,14 +884,14 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                     alignItems: 'center',
                     justifyContent: 'center',
                     transition: 'none',
-                    boxShadow: '0 4px 14px rgba(237, 113, 0, 0.28)'
+                    boxShadow: '0 4px 14px rgba(231, 22, 123, 0.28)'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = '#EC7211';
                     e.currentTarget.style.transform = 'translateY(-1px)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#ED7100';
+                    e.currentTarget.style.backgroundColor = '#E7167B';
                     e.currentTarget.style.transform = 'translateY(0)';
                   }}
                 >

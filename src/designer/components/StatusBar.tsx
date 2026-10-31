@@ -55,7 +55,7 @@ export const StatusBar: React.FC = () => {
               autoFocus
               style={{
                 backgroundColor: '#0F172A',
-                border: '1px solid #ED7100',
+                border: '1px solid #E7167B',
                 borderRadius: '4px',
                 color: '#F8FAFC',
                 padding: '2px 8px',

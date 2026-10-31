@@ -75,18 +75,18 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenConsultationWithTopi
         .solution-card:hover {
           transform: translateX(4px);
           border-color: #CBD5E1;
-          box-shadow: 0 10px 24px -4px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(237, 113, 0, 0.2);
+          box-shadow: 0 10px 24px -4px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(231, 22, 123, 0.2);
         }
         .solution-icon-box {
           width: 42px;
           height: 42px;
           border-radius: 11px;
           background-color: #FFF7ED;
-          border: 1px solid rgba(237, 113, 0, 0.12);
+          border: 1px solid rgba(231, 22, 123, 0.12);
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #ED7100;
+          color: #E7167B;
           flex-shrink: 0;
           transition: transform 0.22s ease;
         }
@@ -118,7 +118,7 @@ export const Solutions: React.FC<SolutionsProps> = ({ onOpenConsultationWithTopi
           gap: 4px;
           font-size: 0.86rem;
           font-weight: 700;
-          color: #ED7100;
+          color: #E7167B;
           white-space: nowrap;
           flex-shrink: 0;
           background: none;

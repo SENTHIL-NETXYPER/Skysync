@@ -18,7 +18,7 @@ export const AwsNode: React.FC<NodeProps> = memo(({ id, data, selected }) => {
       }}
       style={{
         backgroundColor: '#0F172A',
-        border: selected ? '2px solid #ED7100' : '1.5px solid #334155',
+        border: selected ? '2px solid #E7167B' : '1.5px solid #334155',
         borderRadius: '10px',
         padding: '8px 12px',
         minWidth: '150px',
@@ -26,7 +26,7 @@ export const AwsNode: React.FC<NodeProps> = memo(({ id, data, selected }) => {
         alignItems: 'center',
         gap: '10px',
         boxShadow: selected
-          ? '0 0 18px rgba(237, 113, 0, 0.45), 0 8px 24px rgba(0, 0, 0, 0.6)'
+          ? '0 0 18px rgba(231, 22, 123, 0.45), 0 8px 24px rgba(0, 0, 0, 0.6)'
           : '0 4px 16px rgba(0, 0, 0, 0.45)',
         cursor: 'pointer',
         transition: 'all 0.18s ease',
@@ -41,7 +41,7 @@ export const AwsNode: React.FC<NodeProps> = memo(({ id, data, selected }) => {
         style={{
           width: 8,
           height: 8,
-          backgroundColor: '#ED7100',
+          backgroundColor: '#E7167B',
           border: '2px solid #0F172A'
         }}
       />
@@ -51,7 +51,7 @@ export const AwsNode: React.FC<NodeProps> = memo(({ id, data, selected }) => {
         style={{
           width: 8,
           height: 8,
-          backgroundColor: '#ED7100',
+          backgroundColor: '#E7167B',
           border: '2px solid #0F172A'
         }}
       />
@@ -61,7 +61,7 @@ export const AwsNode: React.FC<NodeProps> = memo(({ id, data, selected }) => {
         style={{
           width: 8,
           height: 8,
-          backgroundColor: '#ED7100',
+          backgroundColor: '#E7167B',
           border: '2px solid #0F172A'
         }}
       />
@@ -71,7 +71,7 @@ export const AwsNode: React.FC<NodeProps> = memo(({ id, data, selected }) => {
         style={{
           width: 8,
           height: 8,
-          backgroundColor: '#ED7100',
+          backgroundColor: '#E7167B',
           border: '2px solid #0F172A'
         }}
       />
@@ -155,7 +155,7 @@ export const AwsNode: React.FC<NodeProps> = memo(({ id, data, selected }) => {
               display: 'flex',
               alignItems: 'center'
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = '#ED7100')}
+            onMouseEnter={(e) => (e.currentTarget.style.color = '#E7167B')}
             onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
           >
             <Copy size={13} />
