@@ -1,10 +1,11 @@
 import React from 'react';
 import emblemImg from '../assets/skysync_cloud_emblem.png';
+import whiteEmblemImg from '../assets/skysync_cloud_white.png';
 
 export interface SkySyncLogoProps {
   /**
-   * 'dark' for dark backgrounds (white cloud, cyan base, white text, cyan dot)
-   * 'light' for light backgrounds (navy cloud, white arrow, navy text, navy dot)
+   * 'dark' for dark backgrounds (white cloud with black arrow, white text)
+   * 'light' for light/gold backgrounds (navy cloud with white arrow, navy/dark text)
    * 'mono' for monochrome/print styles
    */
   variant?: 'dark' | 'light' | 'mono';
@@ -12,6 +13,10 @@ export interface SkySyncLogoProps {
    * Show the 4-row tagline (CLOUD, DEVOPS, AUTOMATION, AI SOLUTIONS)
    */
   showTagline?: boolean;
+  /**
+   * Show signature underline beneath the wordmark (defaults to false)
+   */
+  showUnderline?: boolean;
   /**
    * Only render the cloud icon without the wordmark
    */
@@ -33,6 +38,7 @@ export interface SkySyncLogoProps {
 export const SkySyncLogo: React.FC<SkySyncLogoProps> = ({
   variant = 'dark',
   showTagline = false,
+  showUnderline = false,
   iconOnly = false,
   height = 28,
   className = '',
@@ -43,7 +49,9 @@ export const SkySyncLogo: React.FC<SkySyncLogoProps> = ({
   const dotColor = isDark ? '#FFFFFF' : '#172538';
   const lineBg = isDark ? '#FFFFFF' : '#172538';
 
-  const iconWidth = Math.round(height * 1.55);
+  // For dark background: white cloud with black arrow. For light background: navy cloud with white arrow.
+  const emblemSrc = isDark ? whiteEmblemImg : emblemImg;
+  const iconWidth = Math.round(height * 1.51);
 
   return (
     <div
@@ -57,16 +65,16 @@ export const SkySyncLogo: React.FC<SkySyncLogoProps> = ({
         ...style
       }}
     >
-      {/* Official SkySyncLab Cloud Emblem — authentic brand asset */}
+      {/* Official SkySyncLab Cloud Emblem */}
       <img
-        src={emblemImg}
+        src={emblemSrc}
         alt="SkySyncLab"
         width={iconWidth}
         height={height}
         style={{
           height: `${height}px`,
           width: 'auto',
-          aspectRatio: '182 / 117',
+          aspectRatio: '180 / 119',
           objectFit: 'contain',
           flexShrink: 0,
           display: 'block',
@@ -76,51 +84,52 @@ export const SkySyncLogo: React.FC<SkySyncLogoProps> = ({
         draggable={false}
       />
 
-      {/* 2. Official Brand Wordmark & Full Underline with Terminal Dot */}
+      {/* Official Brand Wordmark */}
       {!iconOnly && (
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div
             style={{
               fontFamily: "'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif",
-              fontSize: `${height * 0.76}px`,
-              fontWeight: 700,
+              fontSize: `${height * 0.78}px`,
+              fontWeight: 800,
               color: textColor,
               letterSpacing: '-0.025em',
-              lineHeight: 1,
-              paddingBottom: '1px'
+              lineHeight: 1
             }}
           >
             skysynclab
           </div>
 
-          {/* Signature Underline: placed 7px below so it sits cleanly underneath the y descenders */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              width: '100%',
-              marginTop: '7px'
-            }}
-          >
+          {/* Underline only shown if explicitly enabled */}
+          {showUnderline && (
             <div
               style={{
-                height: '1.5px',
-                flex: 1,
-                backgroundColor: lineBg,
-                borderRadius: '1px'
+                display: 'flex',
+                alignItems: 'center',
+                width: '100%',
+                marginTop: '6px'
               }}
-            />
-            <div
-              style={{
-                width: '4px',
-                height: '4px',
-                borderRadius: '50%',
-                backgroundColor: dotColor,
-                marginLeft: '3px',
-                flexShrink: 0
-              }}
-            />
-          </div>
+            >
+              <div
+                style={{
+                  height: '1.5px',
+                  flex: 1,
+                  backgroundColor: lineBg,
+                  borderRadius: '1px'
+                }}
+              />
+              <div
+                style={{
+                  width: '4px',
+                  height: '4px',
+                  borderRadius: '50%',
+                  backgroundColor: dotColor,
+                  marginLeft: '3px',
+                  flexShrink: 0
+                }}
+              />
+            </div>
+          )}
         </div>
       )}
 

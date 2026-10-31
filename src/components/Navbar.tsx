@@ -253,45 +253,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
               flexShrink: 0
             }}
           >
-            <div
-              style={{
-                width: '34px',
-                height: '34px',
-                borderRadius: '10px',
-                backgroundColor: '#FFFFFF',
-                border: '1px solid rgba(255, 255, 255, 0.25)',
-                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.25)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0
-              }}
-            >
-              <SkySyncLogo iconOnly height={20} variant="light" />
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-              <span
-                style={{
-                  fontFamily: "'Plus Jakarta Sans', 'Inter', system-ui, sans-serif",
-                  fontSize: '1.24rem',
-                  fontWeight: 800,
-                  color: '#FFFFFF',
-                  letterSpacing: '-0.025em',
-                  lineHeight: 1
-                }}
-              >
-                skysynclab
-              </span>
-              <div
-                style={{
-                  height: '2px',
-                  width: '100%',
-                  backgroundColor: '#C5A46D',
-                  marginTop: '4px',
-                  borderRadius: '2px'
-                }}
-              />
-            </div>
+            <SkySyncLogo variant="dark" height={28} showUnderline={false} />
           </button>
 
           {/* Center Pill Track (Matching the User's Image Aesthetic) */}

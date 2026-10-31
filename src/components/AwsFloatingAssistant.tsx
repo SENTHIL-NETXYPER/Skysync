@@ -560,7 +560,7 @@ We typically start with a 30-minute Architecture Audit to review your setup agai
                   flexShrink: 0
                 }}
               >
-                <SkySyncLogo iconOnly height={18} variant="dark" />
+                <SkySyncLogo iconOnly height={18} variant="light" />
               </div>
               <span className="ai-launcher-text">AI CONSULTING</span>
             </>
