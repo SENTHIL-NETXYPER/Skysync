@@ -252,60 +252,163 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
               onClick={() => setMobileMenuOpen(false)}
               aria-hidden="true"
             />
-            <div className="nav-mobile-dropdown-card">
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '6px',
-                background: 'rgba(255, 255, 255, 0.04)',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-                borderRadius: '16px',
-                padding: '8px'
-              }}
-            >
-              {navItems.map((item) => {
-                const isActive = currentTab === item.id;
+            <div className="nav-mobile-dropdown-card" style={{ position: 'relative', overflow: 'hidden' }}>
+              {/* Subtle Organic Background Wave Curves (matching reference image) */}
+              <svg
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  pointerEvents: 'none',
+                  opacity: 0.09,
+                  zIndex: 0
+                }}
+                viewBox="0 0 360 520"
+                fill="none"
+              >
+                <path
+                  d="M-20,90 Q90,30 190,110 T390,80"
+                  stroke="#FFFFFF"
+                  strokeWidth="32"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M-40,260 Q110,180 220,280 T420,220"
+                  stroke="#FFFFFF"
+                  strokeWidth="42"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M-20,430 Q80,340 210,420 T400,370"
+                  stroke="#FFFFFF"
+                  strokeWidth="36"
+                  strokeLinecap="round"
+                />
+              </svg>
 
-                return (
-                  <button
-                    key={item.id}
-                    type="button"
-                    className={`nav-capsule-tab ${isActive ? 'active' : ''}`}
-                    style={{
-                      width: '100%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      padding: '12px 18px',
-                      fontSize: '0.96rem',
-                      cursor: 'pointer',
-                      textAlign: 'left',
-                      touchAction: 'manipulation',
-                      pointerEvents: 'auto'
-                    }}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleNavClick(item.id);
-                    }}
-                  >
-                    <span style={{ fontWeight: isActive ? 700 : 500 }}>{item.label}</span>
-                  </button>
-                );
-              })}
+              {/* Top Row: Clean Minimal Close Icon */}
+              <div style={{ position: 'relative', zIndex: 1, display: 'flex', justifyContent: 'flex-start', marginBottom: '22px' }}>
+                <button
+                  type="button"
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-label="Close menu"
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    padding: '4px',
+                    color: '#FFFFFF',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    outline: 'none',
+                    borderRadius: '8px',
+                    transition: 'opacity 0.15s ease'
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.75')}
+                  onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+                >
+                  <X size={28} strokeWidth={2.4} color="#FFFFFF" />
+                </button>
+              </div>
+
+              {/* Menu Items List with Large Bold Typography & Left Accent Indicator */}
+              <div
+                style={{
+                  position: 'relative',
+                  zIndex: 1,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '16px',
+                  marginBottom: '28px'
+                }}
+              >
+                {navItems.map((item) => {
+                  const isActive = currentTab === item.id;
+
+                  return (
+                    <button
+                      key={item.id}
+                      type="button"
+                      className="nav-editorial-item"
+                      style={{
+                        width: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '12px',
+                        background: 'transparent',
+                        border: 'none',
+                        padding: '4px 0',
+                        cursor: 'pointer',
+                        textAlign: 'left',
+                        touchAction: 'manipulation',
+                        pointerEvents: 'auto',
+                        outline: 'none'
+                      }}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleNavClick(item.id);
+                      }}
+                    >
+                      {/* Left Pill Indicator: Lilac / Lavender bar when active (exact match to reference) */}
+                      <span
+                        style={{
+                          width: '4px',
+                          height: '24px',
+                          borderRadius: '9999px',
+                          backgroundColor: isActive ? '#B48CDE' : 'transparent',
+                          transition: 'background-color 0.2s ease',
+                          flexShrink: 0
+                        }}
+                      />
+                      <span
+                        style={{
+                          fontSize: 'clamp(1.42rem, 4.8vw, 1.72rem)',
+                          fontWeight: isActive ? 850 : 750,
+                          color: isActive ? '#FFFFFF' : '#8A93A4',
+                          letterSpacing: '-0.025em',
+                          fontFamily: 'var(--font-sans)',
+                          transition: 'color 0.18s ease'
+                        }}
+                      >
+                        {item.label}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Bottom Consultation CTA */}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenConsultation();
+                }}
+                className="nav-cta-pill"
+                style={{
+                  position: 'relative',
+                  zIndex: 1,
+                  width: '100%',
+                  justifyContent: 'center',
+                  padding: '13px',
+                  marginTop: 'auto',
+                  borderRadius: '9999px',
+                  backgroundColor: '#FFFFFF',
+                  color: '#09090B',
+                  fontWeight: 800,
+                  fontSize: '0.94rem',
+                  border: 'none',
+                  boxShadow: '0 6px 20px rgba(0, 0, 0, 0.45)'
+                }}
+              >
+                <span>Book a Consultation</span>
+                <ArrowRight size={16} strokeWidth={2.4} />
+              </button>
             </div>
-
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenConsultation();
-              }}
-              className="nav-cta-pill"
-              style={{ width: '100%', justifyContent: 'center', padding: '12px', marginTop: '4px' }}
-            >
-              <span>Book a Consultation</span>
-              <ArrowRight size={16} strokeWidth={2.4} />
-            </button>
-          </div>
         </>
       )}
     </header>
