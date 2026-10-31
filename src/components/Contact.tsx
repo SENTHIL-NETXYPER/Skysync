@@ -8,7 +8,9 @@ import {
   sendDirectInquiry,
   FOUNDER_EMAIL,
   GENERAL_EMAIL,
-  LINKEDIN_URL
+  LINKEDIN_URL,
+  CLOUD_SERVICES,
+  normalizeService
 } from '../utils/mailAlerts';
 
 interface ContactProps {
@@ -22,7 +24,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
     phone: '',
     email: '',
     institution: '',
-    service: 'Consulting & Mentoring',
+    service: normalizeService(prefilledService),
     message: ''
   });
 
@@ -32,7 +34,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
 
   useEffect(() => {
     if (prefilledService) {
-      setFormData((prev) => ({ ...prev, service: prefilledService }));
+      setFormData((prev) => ({ ...prev, service: normalizeService(prefilledService) }));
     }
   }, [prefilledService]);
 
@@ -346,7 +348,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
               </div>
             </a>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
               <div style={{
                 width: '42px',
                 height: '42px',
@@ -357,15 +359,21 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: '#09090B',
-                flexShrink: 0
+                flexShrink: 0,
+                marginTop: '2px'
               }}>
                 <MapPin size={19} />
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
                 <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#64748B', fontWeight: 700, marginBottom: '3px' }}>
-                  Location
+                  Registered Office & Lab
                 </span>
-                <span style={{ color: '#526071', fontSize: '0.94rem', fontWeight: 600 }}>Salem, Tamil Nadu, India</span>
+                <span style={{ color: '#0F172A', fontSize: '0.94rem', fontWeight: 700 }}>
+                  Salem, Tamil Nadu, India
+                </span>
+                <span style={{ color: '#64748B', fontSize: '0.80rem', marginTop: '2px', lineHeight: 1.4 }}>
+                  IST (UTC+5:30) · On-Site & Remote Institutional Engagements
+                </span>
               </div>
             </div>
           </div>
@@ -756,39 +764,42 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                   </label>
                   <div style={{ position: 'relative' }}>
                     <select
+                      id="contact-service-select"
+                      aria-label="Service Required"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       style={{
                         width: '100%',
                         padding: '11px 40px 11px 14px',
                         borderRadius: '8px',
-                        border: '1.5px solid #E2E8F0',
+                        border: '1.5px solid #CBD5E1',
                         fontSize: '0.92rem',
                         fontFamily: 'inherit',
-                        color: '#232F3E',
+                        color: '#0F172A',
                         backgroundColor: '#FFFFFF',
                         outline: 'none',
                         cursor: 'pointer',
                         appearance: 'none',
                         WebkitAppearance: 'none',
                         MozAppearance: 'none',
+                        fontWeight: 600,
                         transition: 'border-color 0.15s ease, box-shadow 0.15s ease'
                       }}
                       onFocus={(e) => {
                         e.target.style.borderColor = '#09090B';
-                        e.target.style.boxShadow = '0 0 0 3px rgba(9, 9, 11, 0.15)';
+                        e.target.style.boxShadow = '0 0 0 3px rgba(9, 9, 11, 0.12)';
                       }}
                       onBlur={(e) => {
-                        e.target.style.borderColor = '#E2E8F0';
+                        e.target.style.borderColor = '#CBD5E1';
                         e.target.style.boxShadow = 'none';
                       }}
                     >
-                      <option value="Consulting & Mentoring">Consulting & Mentoring</option>
-                      <option value="Cloud Migration">Cloud Migration & Architecture</option>
-                      <option value="DevOps">DevOps & Automation</option>
-                      <option value="AI Solutions">AI Solutions with Amazon Bedrock & RAG</option>
-                      <option value="Cloud Training">Cloud Training & Handover</option>
-                      <option value="Other">Other Custom Inquiry</option>
+                      <option value="" disabled>-- Select a Cloud Service --</option>
+                      {CLOUD_SERVICES.map((s) => (
+                        <option key={s.value} value={s.value} style={{ color: '#0F172A', fontWeight: 500 }}>
+                          {s.label}
+                        </option>
+                      ))}
                     </select>
                     <ChevronDown
                       size={18}

@@ -6,7 +6,9 @@ import {
   buildWhatsAppLink,
   sendDirectInquiry,
   GENERAL_EMAIL,
-  FOUNDER_EMAIL
+  FOUNDER_EMAIL,
+  CLOUD_SERVICES,
+  normalizeService
 } from '../utils/mailAlerts';
 
 interface AuditModalProps {
@@ -27,7 +29,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
     phone: '',
     email: '',
     company: '',
-    service: prefilledService || 'Consulting & Mentoring',
+    service: normalizeService(prefilledService),
     message: prefilledNotes || ''
   });
 
@@ -36,7 +38,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    if (prefilledService) setFormData((prev) => ({ ...prev, service: prefilledService }));
+    if (prefilledService) setFormData((prev) => ({ ...prev, service: normalizeService(prefilledService) }));
     if (prefilledNotes) setFormData((prev) => ({ ...prev, message: prefilledNotes }));
   }, [prefilledService, prefilledNotes]);
 
@@ -579,13 +581,15 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                 </label>
                 <div style={{ position: 'relative' }}>
                   <select
+                    id="modal-service-select"
+                    aria-label="Service Required"
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                     style={{
                       width: '100%',
                       padding: '10px 38px 10px 12px',
                       borderRadius: '8px',
-                      border: '1.5px solid #E2E8F0',
+                      border: '1.5px solid #CBD5E1',
                       fontSize: '0.90rem',
                       fontFamily: 'inherit',
                       color: '#0F172A',
@@ -595,23 +599,24 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                       appearance: 'none',
                       WebkitAppearance: 'none',
                       MozAppearance: 'none',
+                      fontWeight: 600,
                       transition: 'border-color 0.15s ease, box-shadow 0.15s ease'
                     }}
                     onFocus={(e) => {
                       e.target.style.borderColor = '#09090B';
-                      e.target.style.boxShadow = '0 0 0 3px rgba(9, 9, 11, 0.15)';
+                      e.target.style.boxShadow = '0 0 0 3px rgba(9, 9, 11, 0.12)';
                     }}
                     onBlur={(e) => {
-                      e.target.style.borderColor = '#E2E8F0';
+                      e.target.style.borderColor = '#CBD5E1';
                       e.target.style.boxShadow = 'none';
                     }}
                   >
-                    <option value="Consulting & Mentoring">Consulting & Mentoring</option>
-                    <option value="Cloud Migration">Cloud Migration & Architecture</option>
-                    <option value="DevOps">DevOps & Automation</option>
-                    <option value="AI Solutions">AI Solutions with Amazon Bedrock & RAG</option>
-                    <option value="Cloud Training">Cloud Training & Handover</option>
-                    <option value="Other">Other Custom Inquiry</option>
+                    <option value="" disabled>-- Select a Cloud Service --</option>
+                    {CLOUD_SERVICES.map((s) => (
+                      <option key={s.value} value={s.value} style={{ color: '#0F172A', fontWeight: 500 }}>
+                        {s.label}
+                      </option>
+                    ))}
                   </select>
                   <ChevronDown
                     size={17}

@@ -9,6 +9,55 @@ export const CONTACT_PHONE = '+91 86672 54699';
 export const WHATSAPP_NUMBER = '918667254699';
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/skysync-lab-840034448';
 
+export interface CloudServiceOption {
+  value: string;
+  label: string;
+}
+
+export const CLOUD_SERVICES: CloudServiceOption[] = [
+  { value: 'Consulting & Mentoring', label: 'Consulting & Faculty Mentoring' },
+  { value: 'Cloud Infrastructure', label: 'Cloud Infrastructure & Multi-AZ VPC' },
+  { value: 'Cloud Migration', label: 'Cloud & Database Migration (Zero-Downtime)' },
+  { value: 'DevOps & Automation', label: 'DevOps & CI/CD Automation (Terraform)' },
+  { value: 'Generative AI Solutions', label: 'Generative AI Solutions (Amazon Bedrock & RAG)' },
+  { value: 'Institutional Cloud Audit', label: 'Institutional Cloud Audit & Cost Optimization' },
+  { value: 'Cloud Training & Handover', label: 'Cloud Training & Production Handover' },
+  { value: 'Other Custom Inquiry', label: 'Other Custom Engineering Inquiry' }
+];
+
+export const normalizeService = (input?: string): string => {
+  if (!input) return 'Consulting & Mentoring';
+  const str = input.trim();
+  const lower = str.toLowerCase();
+
+  if (lower.includes('bedrock') || lower.includes('generative') || lower.includes('ai') || lower.includes('rag')) {
+    return 'Generative AI Solutions';
+  }
+  if (lower.includes('migration') || lower.includes('database') || lower.includes('dms')) {
+    return 'Cloud Migration';
+  }
+  if (lower.includes('audit') || lower.includes('cost') || lower.includes('review') || lower.includes('assessment')) {
+    return 'Institutional Cloud Audit';
+  }
+  if (lower.includes('devops') || lower.includes('automation') || lower.includes('ci/cd') || lower.includes('pipeline') || lower.includes('starter plan')) {
+    return 'DevOps & Automation';
+  }
+  if (lower.includes('training') || lower.includes('handover') || lower.includes('workshop')) {
+    return 'Cloud Training & Handover';
+  }
+  if (lower.includes('infra') || lower.includes('vpc') || lower.includes('server') || lower.includes('ec2') || lower.includes('setup')) {
+    return 'Cloud Infrastructure';
+  }
+  if (lower.includes('consulting') || lower.includes('mentor')) {
+    return 'Consulting & Mentoring';
+  }
+
+  const exact = CLOUD_SERVICES.find((s) => s.value.toLowerCase() === lower || s.label.toLowerCase() === lower);
+  if (exact) return exact.value;
+
+  return 'Other Custom Inquiry';
+};
+
 export interface ConsultationFormData {
   name: string;
   phone: string;

@@ -167,7 +167,7 @@ export const About: React.FC = () => {
             </a>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#64748B', fontSize: '0.90rem' }}>
               <MapPin size={18} color="#64748B" />
-              <span>Salem, Tamil Nadu, India</span>
+              <span>Salem, Tamil Nadu, India · Reg. Office</span>
             </div>
           </div>
         </div>
