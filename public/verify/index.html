@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>Verify Your Certificate | SkySyncLab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f6fafe;
+      background-image: 
+        radial-gradient(circle at 10% 15%, rgba(219, 234, 254, 0.6) 0%, transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(191, 219, 254, 0.45) 0%, transparent 35%);
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+    }
+
+    /* Top Brand Nav */
+    .top-nav {
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #0f2746;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .brand img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+    .brand-back {
+      font-size: 13px;
+      font-weight: 600;
+      color: #2563eb;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .brand-back:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+
+    /* Main Content Area */
+    main {
+      max-width: 960px;
+      margin: 36px auto 60px;
+      padding: 0 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Top Pill */
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e1effe;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+      padding: 7px 18px;
+      border-radius: 9999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.08);
+    }
+    .pill-badge svg {
+      color: #2563eb;
+    }
+
+    /* Title & Subtitle */
+    h1 {
+      font-size: 44px;
+      font-weight: 800;
+      color: #0f2746;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    h1 .highlight {
+      color: #2563eb;
+    }
+    .subtitle {
+      font-size: 16.5px;
+      color: #475569;
+      font-weight: 400;
+      max-width: 620px;
+      margin: 0 auto 36px;
+      line-height: 1.5;
+    }
+
+    /* Main Search Card */
+    .search-card {
+      background: #ffffff;
+      border-radius: 24px;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 20px 45px -10px rgba(15, 39, 70, 0.08), 0 4px 12px rgba(15, 39, 70, 0.03);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    /* Left Icon Box */
+    .cert-icon-box {
+      width: 72px;
+      height: 72px;
+      background: #eff6ff;
+      border: 1px solid #dbeafe;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #2563eb;
+    }
+
+    /* Middle Input Form Section */
+    .form-section {
+      flex: 1;
+    }
+    .input-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f2746;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .input-wrapper .search-icon {
+      position: absolute;
+      left: 14px;
+      color: #64748b;
+      pointer-events: none;
+    }
+    input[type="text"] {
+      width: 100%;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 13px 16px 13px 44px;
+      font-size: 15px;
+      color: #0f172a;
+      outline: none;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    input[type="text"]:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    }
+    input[type="text"]::placeholder {
+      color: #94a3b8;
+    }
+
+    /* Verify Button */
+    .btn-verify {
+      background: linear-gradient(135deg, #173b6c 0%, #0d284c 100%);
+      color: #ffffff;
+      font-size: 15.5px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(13, 40, 76, 0.25);
+      flex-shrink: 0;
+    }
+    .btn-verify:hover {
+      background: linear-gradient(135deg, #1e4a87 0%, #113463 100%);
+      box-shadow: 0 6px 20px rgba(13, 40, 76, 0.35);
+      transform: translateY(-1px);
+    }
+    .btn-verify:active {
+      transform: translateY(0);
+    }
+
+    /* Error Message */
+    #err-msg {
+      color: #dc2626;
+      font-size: 13px;
+      font-weight: 500;
+      margin-top: 8px;
+      min-height: 1.2em;
+    }
+
+    /* Footer & Bottom Wave */
+    .footer-wrapper {
+      width: 100%;
+      margin-top: 40px;
+    }
+    .wave-svg {
+      display: block;
+      width: 100%;
+      height: 60px;
+    }
+    footer {
+      background-color: #0b1f3a;
+      color: #ffffff;
+      padding: 22px 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      font-size: 14px;
+      font-weight: 500;
+      flex-wrap: wrap;
+    }
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.15s;
+    }
+    footer a:hover {
+      opacity: 0.85;
+      text-decoration: underline;
+    }
+    .footer-sep {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 32px; }
+      .search-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+        padding: 20px;
+      }
+      .cert-icon-box {
+        margin: 0 auto;
+      }
+      .btn-verify {
+        justify-content: center;
+        width: 100%;
+      }
+      footer {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+      .footer-sep {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Simple Brand Nav -->
+  <div class="top-nav">
+    <a href="https://skysynclab.com" class="brand">
+      <img src="/assets/skysync_cloud_emblem.png" alt="SkySyncLab" onerror="this.src='/favicon.svg'">
+      <span>SkySyncLab</span>
+    </a>
+    <a href="https://skysynclab.com" class="brand-back">&larr; Return to skysynclab.com</a>
+  </div>
+
+  <main>
+    <!-- Top Pill -->
+    <div class="pill-badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="M9 12l2 2 4-4"/>
+      </svg>
+      <span>Certificate Verification</span>
+    </div>
+
+    <!-- Title & Subtitle -->
+    <h1>Verify Your <span class="highlight">Certificate</span></h1>
+    <p class="subtitle">Check the authenticity of an experience or internship certificate issued by SkySyncLab.</p>
+
+    <!-- Search Box Card -->
+    <div class="search-card">
+      <div class="cert-icon-box">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="2" width="16" height="18" rx="2"/>
+          <line x1="8" y1="6" x2="16" y2="6"/>
+          <line x1="8" y1="10" x2="16" y2="10"/>
+          <line x1="8" y1="14" x2="12" y2="14"/>
+          <circle cx="15" cy="15" r="3"/>
+          <path d="M15 18l-1.5 2.5 2.5-.5 2.5.5-1.5-2.5"/>
+        </svg>
+      </div>
+
+      <div class="form-section">
+        <form id="verify-form">
+          <label class="input-label" for="cert-input">Enter Certificate Number</label>
+          <div class="input-wrapper">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input 
+              type="text" 
+              id="cert-input" 
+              placeholder="e.g., SKY005 or P6UB-JKJL" 
+              autocomplete="off" 
+              spellcheck="false"
+              required
+            >
+          </div>
+          <div id="err-msg"></div>
+        </form>
+      </div>
+
+      <button type="submit" form="verify-form" class="btn-verify">
+        <span>Verify Certificate</span>
+        <span style="font-size: 16px;">&rarr;</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- Footer with Matching Wave -->
+  <div class="footer-wrapper">
+    <svg class="wave-svg" viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none">
+      <path d="M0,32 C320,60 720,10 1440,40 L1440,60 L0,60 Z" fill="#0b1f3a"></path>
+    </svg>
+    <footer>
+      <a href="https://skysynclab.com">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>skysynclab.com</span>
+      </a>
+      <span class="footer-sep">|</span>
+      <a href="mailto:hello@skysynclab.com">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>hello@skysynclab.com</span>
+      </a>
+      <span class="footer-sep">|</span>
+      <a href="tel:8667254699">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>8667254699</span>
+      </a>
+    </footer>
+  </div>
+
+  <script>
+    const lookupMap = {
+  "2VN4-R69D": "2VN4-R69D",
+  "SKY003": "2VN4-R69D",
+  "4LTG-CRJN": "4LTG-CRJN",
+  "SKY011": "4LTG-CRJN",
+  "8TNA-VTQW": "8TNA-VTQW",
+  "SKY008": "8TNA-VTQW",
+  "E967-LJTE": "E967-LJTE",
+  "SKY010": "E967-LJTE",
+  "FTD8-A8GV": "FTD8-A8GV",
+  "SKY004": "FTD8-A8GV",
+  "HRH9-Q95C": "HRH9-Q95C",
+  "SKY001": "HRH9-Q95C",
+  "MDFC-BFDJ": "MDFC-BFDJ",
+  "SKY007": "MDFC-BFDJ",
+  "P6UB-JKJL": "P6UB-JKJL",
+  "SKY005": "P6UB-JKJL",
+  "PP2Q-5MR5": "PP2Q-5MR5",
+  "SKY009": "PP2Q-5MR5",
+  "Q4PG-YHYZ": "Q4PG-YHYZ",
+  "SKY012": "Q4PG-YHYZ",
+  "YS78-9HGM": "YS78-9HGM",
+  "SKY002": "YS78-9HGM",
+  "ZX49-DPK2": "ZX49-DPK2",
+  "SKY006": "ZX49-DPK2"
+};
+
+    document.getElementById('verify-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const errEl = document.getElementById('err-msg');
+      errEl.textContent = '';
+
+      let raw = document.getElementById('cert-input').value.trim().toUpperCase();
+      // Clean extra spaces
+      raw = raw.replace(/\s+/g, '');
+
+      // Direct code match or ID match
+      if (lookupMap[raw]) {
+        const targetCode = lookupMap[raw];
+        window.location.href = targetCode + '/';
+        return;
+      }
+
+      // Code formatted check (e.g. without hyphen)
+      const cleanRaw = raw.replace(/-/g, '');
+      let foundCode = null;
+      for (const key in lookupMap) {
+        if (key.replace(/-/g, '') === cleanRaw) {
+          foundCode = lookupMap[key];
+          break;
+        }
+      }
+
+      if (foundCode) {
+        window.location.href = foundCode + '/';
+        return;
+      }
+
+      errEl.textContent = 'Certificate Number or Employee ID not recognized. Please verify and try again.';
+    });
+  </script>
+</body>
+</html>

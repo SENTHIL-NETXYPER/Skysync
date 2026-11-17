@@ -32,6 +32,7 @@ backend/*.db
 backend/*.sqlite3
 
 # Editor directories and files
+scratch/
 .vscode/*
 !.vscode/extensions.json
 .idea

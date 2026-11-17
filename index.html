@@ -24,10 +24,12 @@
     <script>
       (function() {
         var p = window.location.pathname.toLowerCase();
-        var h = window.location.hash.toLowerCase();
         var s = window.location.search.toLowerCase();
-        if (p.endsWith('/linkedin') || p.endsWith('/linkedin/') || h.includes('linkedin') || s.includes('linkedin')) {
+        // Route to the in-app LinkedIn DOM page
+        if (s.includes('redirect=external')) {
           window.location.replace('https://www.linkedin.com/in/skysync-lab-840034448');
+        } else if (p.endsWith('/linkedin') || p.endsWith('/linkedin/')) {
+          window.location.replace('/#linkedin');
         }
       })();
     </script>

@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>QR Code Gallery | SkySyncLab Certificate Verification</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f6fafe;
+      background-image: 
+        radial-gradient(circle at 10% 15%, rgba(219, 234, 254, 0.6) 0%, transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(191, 219, 254, 0.45) 0%, transparent 35%);
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    header {
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .header-in {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #0f2746;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .brand img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+    .btn-zip {
+      background: linear-gradient(135deg, #173b6c 0%, #0d284c 100%);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(13, 40, 76, 0.2);
+    }
+    .btn-zip:hover {
+      background: linear-gradient(135deg, #1e4a87 0%, #113463 100%);
+      transform: translateY(-1px);
+    }
+    main {
+      max-width: 1200px;
+      margin: 32px auto 50px;
+      padding: 0 20px;
+      width: 100%;
+    }
+    .hero-text {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .hero-text h1 {
+      font-size: 34px;
+      font-weight: 800;
+      color: #0f2746;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .hero-text p {
+      font-size: 15px;
+      color: #64748b;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 22px;
+    }
+    .qr-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(15, 39, 70, 0.05);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .qr-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(15, 39, 70, 0.09);
+    }
+    .qr-img-wrap {
+      background: #f8fafc;
+      border: 1px solid #f1f5f9;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .qr-img-wrap img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+    }
+    .emp-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: #0f2746;
+      margin-bottom: 6px;
+    }
+    .badges-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .badge-id {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1e293b;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .badge-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #2563eb;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .btn-group {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .btn-download {
+      flex: 1;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      color: #334155;
+      transition: all 0.15s;
+    }
+    .btn-download:hover {
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #2563eb;
+    }
+    .btn-page {
+      display: block;
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #2563eb;
+      text-decoration: none;
+    }
+    .btn-page:hover {
+      text-decoration: underline;
+    }
+    footer {
+      background-color: #0b1f3a;
+      color: #ffffff;
+      padding: 22px 24px;
+      text-align: center;
+      font-size: 13.5px;
+    }
+    footer a { color: #ffffff; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-in">
+      <a href="https://skysynclab.com" class="brand">
+        <img src="/assets/skysync_cloud_emblem.png" alt="SkySyncLab" onerror="this.src='/favicon.svg'">
+        <span>SkySyncLab Certificates</span>
+      </a>
+      <div style="display: flex; gap: 12px; align-items: center;">
+        <a href="/verify/" style="font-size: 13.5px; color: #2563eb; font-weight: 600; text-decoration: none;">&larr; Search Portal</a>
+        <a href="./skysynclab_qr_codes.zip" download class="btn-zip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Download All QR Codes (.ZIP)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero-text">
+      <h1>Official Employee QR Code Repository</h1>
+      <p>High-resolution QR code stamps for physical and digital certificates. Scanning points directly to each employee's verified credential.</p>
+    </div>
+
+    <div class="grid">
+      <!-- 1 -->
+      <div class="qr-card">
+        <div>
+          <div class="qr-img-wrap">
+            <img src="./SKY005_Poovarasi_D__P6UB-JKJL.png" alt="Poovarasi D. QR">
+          </div>
+          <div class="emp-name">Poovarasi D.</div>
+          <div class="badges-row">
+            <span class="badge-id">SKY005</span>
+            <span class="badge-code">P6UB-JKJL</span>
+          </div>
+        </div>
+        <div>
+          <div class="btn-group">
+            <a href="./SKY005_Poovarasi_D__P6UB-JKJL.png" download="SKY005_Poovarasi_D_QR.png" class="btn-download">&#11015; PNG</a>
+            <a href="./SKY005_Poovarasi_D__P6UB-JKJL.svg" download="SKY005_Poovarasi_D_QR.svg" class="btn-download">&#11015; SVG</a>
+          </div>
+          <a href="/verify/P6UB-JKJL/" target="_blank" class="btn-page">View Verification Record &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="qr-card">
+        <div>
+          <div class="qr-img-wrap">
+            <img src="./SKY012_Madhumitha_P_Q4PG-YHYZ.png" alt="Madhumitha P QR">
+          </div>
+          <div class="emp-name">Madhumitha P</div>
+          <div class="badges-row">
+            <span class="badge-id">SKY012</span>
+            <span class="badge-code">Q4PG-YHYZ</span>
+          </div>
+        </div>
+        <div>
+          <div class="btn-group">
+            <a href="./SKY012_Madhumitha_P_Q4PG-YHYZ.png" download="SKY012_Madhumitha_P_QR.png" class="btn-download">&#11015; PNG</a>
+            <a href="./SKY012_Madhumitha_P_Q4PG-YHYZ.svg" download="SKY012_Madhumitha_P_QR.svg" class="btn-download">&#11015; SVG</a>
+          </div>
+          <a href="/verify/Q4PG-YHYZ/" target="_blank" class="btn-page">View Verification Record &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="qr-card">
+        <div>
+          <div class="qr-img-wrap">
+            <img src="./SKY009_Priyadharshini_R_PP2Q-5MR5.png" alt="Priyadharshini R QR">
+          </div>
+          <div class="emp-name">Priyadharshini R</div>
+          <div class="badges-row">
+            <span class="badge-id">SKY009</span>
+            <span class="badge-code">PP2Q-5MR5</span>
+          </div>
+        </div>
+        <div>
+          <div class="btn-group">
+            <a href="./SKY009_Priyadharshini_R_PP2Q-5MR5.png" download="SKY009_Priyadharshini_R_QR.png" class="btn-download">&#11015; PNG</a>
+            <a href="./SKY009_Priyadharshini_R_PP2Q-5MR5.svg" download="SKY009_Priyadharshini_R_QR.svg" class="btn-download">&#11015; SVG</a>
+          </div>
+          <a href="/verify/PP2Q-5MR5/" target="_blank" class="btn-page">View Verification Record &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="qr-card">
+        <div>
+          <div class="qr-img-wrap">
+            <img src="./SKY002_Priya_P_YS78-9HGM.png" alt="Priya P QR">
+          </div>
+          <div class="emp-name">Priya P</div>
+          <div class="badges-row">
+            <span class="badge-id">SKY002</span>
+            <span class="badge-code">YS78-9HGM</span>
+          </div>
+        </div>
+        <div>
+          <div class="btn-group">
+            <a href="./SKY002_Priya_P_YS78-9HGM.png" download="SKY002_Priya_P_QR.png" class="btn-download">&#11015; PNG</a>
+            <a href="./SKY002_Priya_P_YS78-9HGM.svg" download="SKY002_Priya_P_QR.svg" class="btn-download">&#11015; SVG</a>
+          </div>
+          <a href="/verify/YS78-9HGM/" target="_blank" class="btn-page">View Verification Record &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="qr-card">
+        <div>
+          <div class="qr-img-wrap">
+            <img src="./SKY004_Kousika_B_FTD8-A8GV.png" alt="Kousika B QR">
+          </div>
+          <div class="emp-name">Kousika B</div>
+          <div class="badges-row">
+            <span class="badge-id">SKY004</span>
+            <span class="badge-code">FTD8-A8GV</span>
+          </div>
+        </div>
+        <div>
+          <div class="btn-group">
+            <a href="./SKY004_Kousika_B_FTD8-A8GV.png" download="SKY004_Kousika_B_QR.png" class="btn-download">&#11015; PNG</a>
+            <a href="./SKY004_Kousika_B_FTD8-A8GV.svg" download="SKY004_Kousika_B_QR.svg" class="btn-download">&#11015; SVG</a>
+          </div>
+          <a href="/verify/FTD8-A8GV/" target="_blank" class="btn-page">View Verification Record &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="qr-card">
+        <div>
+          <div class="qr-img-wrap">
+            <img src="./SKY010_Devendhiran_S_E967-LJTE.png" alt="Devendhiran S QR">
+          </div>
+          <div class="emp-name">Devendhiran S</div>
+          <div class="badges-row">
+            <span class="badge-id">SKY010</span>
+            <span class="badge-code">E967-LJTE</span>
+          </div>
+        </div>
+        <div>
+          <div class="btn-group">
+            <a href="./SKY010_Devendhiran_S_E967-LJTE.png" download="SKY010_Devendhiran_S_QR.png" class="btn-download">&#11015; PNG</a>
+            <a href="./SKY010_Devendhiran_S_E967-LJTE.svg" download="SKY010_Devendhiran_S_QR.svg" class="btn-download">&#11015; SVG</a>
+          </div>
+          <a href="/verify/E967-LJTE/" target="_blank" class="btn-page">View Verification Record &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="qr-card">
+        <div>
+          <div class="qr-img-wrap">
+            <img src="./SKY011_Manchala_Kartheek_4LTG-CRJN.png" alt="Manchala Kartheek QR">
+          </div>
+          <div class="emp-name">Manchala Kartheek</div>
+          <div class="badges-row">
+            <span class="badge-id">SKY011</span>
+            <span class="badge-code">4LTG-CRJN</span>
+          </div>
+        </div>
+        <div>
+          <div class="btn-group">
+            <a href="./SKY011_Manchala_Kartheek_4LTG-CRJN.png" download="SKY011_Manchala_Kartheek_QR.png" class="btn-download">&#11015; PNG</a>
+            <a href="./SKY011_Manchala_Kartheek_4LTG-CRJN.svg" download="SKY011_Manchala_Kartheek_QR.svg" class="btn-download">&#11015; SVG</a>
+          </div>
+          <a href="/verify/4LTG-CRJN/" target="_blank" class="btn-page">View Verification Record &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="qr-card">
+        <div>
+          <div class="qr-img-wrap">
+            <img src="./SKY003_Thatha_Rohith_2VN4-R69D.png" alt="Thatha Rohith QR">
+          </div>
+          <div class="emp-name">Thatha Rohith</div>
+          <div class="badges-row">
+            <span class="badge-id">SKY003</span>
+            <span class="badge-code">2VN4-R69D</span>
+          </div>
+        </div>
+        <div>
+          <div class="btn-group">
+            <a href="./SKY003_Thatha_Rohith_2VN4-R69D.png" download="SKY003_Thatha_Rohith_QR.png" class="btn-download">&#11015; PNG</a>
+            <a href="./SKY003_Thatha_Rohith_2VN4-R69D.svg" download="SKY003_Thatha_Rohith_QR.svg" class="btn-download">&#11015; SVG</a>
+          </div>
+          <a href="/verify/2VN4-R69D/" target="_blank" class="btn-page">View Verification Record &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="qr-card">
+        <div>
+          <div class="qr-img-wrap">
+            <img src="./SKY001_Jaganathan_R_HRH9-Q95C.png" alt="Jaganathan R QR">
+          </div>
+          <div class="emp-name">Jaganathan R</div>
+          <div class="badges-row">
+            <span class="badge-id">SKY001</span>
+            <span class="badge-code">HRH9-Q95C</span>
+          </div>
+        </div>
+        <div>
+          <div class="btn-group">
+            <a href="./SKY001_Jaganathan_R_HRH9-Q95C.png" download="SKY001_Jaganathan_R_QR.png" class="btn-download">&#11015; PNG</a>
+            <a href="./SKY001_Jaganathan_R_HRH9-Q95C.svg" download="SKY001_Jaganathan_R_QR.svg" class="btn-download">&#11015; SVG</a>
+          </div>
+          <a href="/verify/HRH9-Q95C/" target="_blank" class="btn-page">View Verification Record &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="qr-card">
+        <div>
+          <div class="qr-img-wrap">
+            <img src="./SKY007_Selvasuganthi_Venkatesan_MDFC-BFDJ.png" alt="Selvasuganthi Venkatesan QR">
+          </div>
+          <div class="emp-name">Selvasuganthi V.</div>
+          <div class="badges-row">
+            <span class="badge-id">SKY007</span>
+            <span class="badge-code">MDFC-BFDJ</span>
+          </div>
+        </div>
+        <div>
+          <div class="btn-group">
+            <a href="./SKY007_Selvasuganthi_Venkatesan_MDFC-BFDJ.png" download="SKY007_Selvasuganthi_V_QR.png" class="btn-download">&#11015; PNG</a>
+            <a href="./SKY007_Selvasuganthi_Venkatesan_MDFC-BFDJ.svg" download="SKY007_Selvasuganthi_V_QR.svg" class="btn-download">&#11015; SVG</a>
+          </div>
+          <a href="/verify/MDFC-BFDJ/" target="_blank" class="btn-page">View Verification Record &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="qr-card">
+        <div>
+          <div class="qr-img-wrap">
+            <img src="./SKY008_Sandhiya_B_8TNA-VTQW.png" alt="Sandhiya B QR">
+          </div>
+          <div class="emp-name">Sandhiya B</div>
+          <div class="badges-row">
+            <span class="badge-id">SKY008</span>
+            <span class="badge-code">8TNA-VTQW</span>
+          </div>
+        </div>
+        <div>
+          <div class="btn-group">
+            <a href="./SKY008_Sandhiya_B_8TNA-VTQW.png" download="SKY008_Sandhiya_B_QR.png" class="btn-download">&#11015; PNG</a>
+            <a href="./SKY008_Sandhiya_B_8TNA-VTQW.svg" download="SKY008_Sandhiya_B_QR.svg" class="btn-download">&#11015; SVG</a>
+          </div>
+          <a href="/verify/8TNA-VTQW/" target="_blank" class="btn-page">View Verification Record &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="qr-card">
+        <div>
+          <div class="qr-img-wrap">
+            <img src="./SKY006_Rubika_D_ZX49-DPK2.png" alt="Rubika D QR">
+          </div>
+          <div class="emp-name">Rubika D</div>
+          <div class="badges-row">
+            <span class="badge-id">SKY006</span>
+            <span class="badge-code">ZX49-DPK2</span>
+          </div>
+        </div>
+        <div>
+          <div class="btn-group">
+            <a href="./SKY006_Rubika_D_ZX49-DPK2.png" download="SKY006_Rubika_D_QR.png" class="btn-download">&#11015; PNG</a>
+            <a href="./SKY006_Rubika_D_ZX49-DPK2.svg" download="SKY006_Rubika_D_QR.svg" class="btn-download">&#11015; SVG</a>
+          </div>
+          <a href="/verify/ZX49-DPK2/" target="_blank" class="btn-page">View Verification Record &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+      <span>&copy; 2026 SkySyncLab. All rights reserved.</span>
+      <div style="display: flex; gap: 20px;">
+        <a href="https://skysynclab.com">skysynclab.com</a>
+        <a href="mailto:hello@skysynclab.com">hello@skysynclab.com</a>
+        <span>8667254699</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+

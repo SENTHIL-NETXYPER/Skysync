@@ -11,6 +11,7 @@ import { ClientProof } from './components/ClientProof';
 import { ArchitectureDesigner } from './components/ArchitectureDesigner';
 import { ConsultingPage } from './components/ConsultingPage';
 import { MigrationPage } from './components/MigrationPage';
+import { LinkedInPage } from './components/LinkedInPage';
 import { Solutions } from './components/Solutions';
 import { WhyChooseUs } from './components/WhyChooseUs';
 
@@ -20,7 +21,7 @@ import { Footer } from './components/Footer';
 import { AwsFloatingAssistant } from './components/AwsFloatingAssistant';
 
 export function App() {
-  const [currentTab, setCurrentTab] = useState<'home' | 'services' | 'solutions' | 'projects' | 'pricing' | 'about' | 'designer' | 'consulting' | 'migration' | 'contact'>('home');
+  const [currentTab, setCurrentTab] = useState<'home' | 'services' | 'solutions' | 'projects' | 'pricing' | 'about' | 'designer' | 'consulting' | 'migration' | 'linkedin' | 'contact'>('home');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [prefilledService, setPrefilledService] = useState('');
   const [prefilledNotes, setPrefilledNotes] = useState('');
@@ -36,7 +37,7 @@ export function App() {
       if (isNavigatingRef.current) return;
 
       // Don't override if on dedicated subpages
-      if (currentTabRef.current === 'consulting' || currentTabRef.current === 'migration' || currentTabRef.current === 'designer') return;
+      if (currentTabRef.current === 'consulting' || currentTabRef.current === 'migration' || currentTabRef.current === 'designer' || currentTabRef.current === 'linkedin') return;
 
       // Bottom of page detection -> highlight contact
       if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 120) {
@@ -76,6 +77,19 @@ export function App() {
 
     window.addEventListener('scroll', handleScrollSpy, { passive: true });
     return () => window.removeEventListener('scroll', handleScrollSpy);
+  }, []);
+
+  // Listen for #linkedin hash or routing to load the in-app LinkedIn DOM page
+  useEffect(() => {
+    const handleHash = () => {
+      const h = window.location.hash.toLowerCase();
+      if (h === '#linkedin' || h.includes('linkedin')) {
+        setCurrentTab('linkedin');
+      }
+    };
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
   }, []);
 
   // Scroll-linked movement: Section content fades in slowly and in controlled fashion
@@ -186,6 +200,12 @@ export function App() {
             />
             <Contact prefilledService="Cloud Migration" />
           </div>
+        ) : currentTab === 'linkedin' ? (
+          /* Dedicated In-App LinkedIn Company Page DOM */
+          <LinkedInPage
+            onBackToHome={() => handleSelectTab('home')}
+            onRequestConsultation={() => handleOpenConsultation('LinkedIn Inquiry', 'Inquiry from LinkedIn Company Page')}
+          />
         ) : (
           /* Default Comprehensive Homepage Flow */
           <>

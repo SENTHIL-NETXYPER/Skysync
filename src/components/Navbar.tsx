@@ -84,6 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, onSelectTab, onOpenC
     { title: 'Why Move to Cloud (On-Premises vs AWS)', category: 'Comparison', tabId: 'home', sectionId: 'why-cloud', icon: Compass },
     { title: '4-Step Cloud Delivery Blueprints', category: 'Architecture', tabId: 'home', sectionId: 'architecture', icon: LayoutGrid },
     { title: 'Case Studies & Client Reviews', category: 'Client Proof', tabId: 'projects', sectionId: 'projects', icon: FileText },
+    { title: 'Official LinkedIn Company Page (IT Services & Consulting)', category: 'Company', tabId: 'linkedin', sectionId: 'linkedin', icon: FileText },
     { title: 'Operational Excellence & Delivery Principles', category: 'About', tabId: 'about', sectionId: 'why-choose-us', icon: Shield },
     { title: 'Book an AWS Architecture Consultation', category: 'Action', tabId: 'contact', sectionId: 'contact', icon: ArrowRight }
   ];
