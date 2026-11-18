@@ -182,6 +182,16 @@ const employees = [
     "end_date": "2026-01-22",
     "issue_date": "2026-12-04",
     "cert_code": "SY55-M9KP"
+  },
+  {
+    "employee_id": "SKY019",
+    "name": "Poovarasan S",
+    "email": "spoovarasan600@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-05",
+    "cert_code": "PV88-S3TN"
   }
 ];
 
