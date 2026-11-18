@@ -4,6 +4,16 @@ import path from 'path';
 
 const employees = [
   {
+    "employee_id": "SKY-CEO",
+    "name": "Senthilkumar M",
+    "email": "kumarsentil41075@gmail.com",
+    "role": "Chief Executive Officer (CEO) & Founder",
+    "start_date": "2023-01-03",
+    "end_date": "Present (Active)",
+    "issue_date": "2026-12-05",
+    "cert_code": "SK01-CEO1"
+  },
+  {
     "employee_id": "SKY001",
     "name": "Jaganathan R",
     "email": "jaganathanram365@gmail.com",
