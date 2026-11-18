@@ -5,329 +5,215 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <title>Executive Record: Senthilkumar M | Founder & CEO | SkySyncLab</title>
+  <title>Verified: Senthilkumar M | SkySyncLab</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #0b1526;
+      background-color: #f6fafe;
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(30, 58, 138, 0.4) 0%, transparent 45%),
-        radial-gradient(circle at 85% 10%, rgba(217, 119, 6, 0.25) 0%, transparent 40%),
-        radial-gradient(circle at 50% 85%, rgba(15, 23, 42, 0.9) 0%, transparent 60%);
-      color: #f1f5f9;
+        radial-gradient(circle at 10% 15%, rgba(219, 234, 254, 0.6) 0%, transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(191, 219, 254, 0.45) 0%, transparent 35%);
+      color: #0f172a;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      overflow-x: hidden;
     }
-
-    /* Top Brand Nav */
     .top-nav {
-      padding: 18px 24px;
+      padding: 16px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      max-width: 960px;
+      max-width: 900px;
       margin: 0 auto;
       width: 100%;
     }
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       text-decoration: none;
-      color: #ffffff;
+      color: #0f2746;
       font-weight: 700;
-      font-size: 19px;
+      font-size: 18px;
     }
     .brand img {
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       object-fit: contain;
-      filter: drop-shadow(0 2px 8px rgba(245, 158, 11, 0.3));
     }
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 16px;
     }
     .nav-actions a {
       font-size: 13.5px;
       font-weight: 600;
-      color: #93c5fd;
+      color: #2563eb;
       text-decoration: none;
-      transition: color 0.15s;
     }
     .nav-actions a:hover {
-      color: #fcd34d;
       text-decoration: underline;
     }
-
     main {
-      max-width: 960px;
-      margin: 12px auto 48px;
+      max-width: 900px;
+      margin: 16px auto 40px;
       padding: 0 20px;
       width: 100%;
     }
 
-    /* Executive Status Banner */
-    .exec-banner {
-      background: linear-gradient(135deg, rgba(30, 58, 138, 0.75) 0%, rgba(15, 23, 42, 0.95) 100%);
-      border: 1px solid rgba(245, 158, 11, 0.4);
-      border-radius: 20px;
-      padding: 18px 24px;
+    /* Verified Green Status Banner */
+    .status-banner {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 16px;
+      padding: 16px 20px;
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 14px;
       margin-bottom: 24px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(245, 158, 11, 0.15);
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
     }
-    .exec-banner::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, #f59e0b, #fbbf24, #60a5fa, #f59e0b);
-    }
-    .exec-icon {
-      width: 46px;
-      height: 46px;
-      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-      color: #0b1526;
+    .status-icon {
+      width: 38px;
+      height: 38px;
+      background: #10b981;
+      color: #ffffff;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.4);
     }
-    .exec-text h2 {
-      font-size: 16.5px;
-      font-weight: 800;
-      color: #fef3c7;
-      letter-spacing: -0.01em;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .status-text h2 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #065f46;
     }
-    .exec-text p {
+    .status-text p {
       font-size: 13.5px;
-      color: #cbd5e1;
-      margin-top: 3px;
-      line-height: 1.45;
+      color: #047857;
+      margin-top: 2px;
     }
 
-    /* Main Record Card - Executive VIP Edition */
+    /* Main Record Card */
     .record-card {
-      background: linear-gradient(180deg, #0f1c34 0%, #0d1729 100%);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      border-radius: 26px;
-      padding: 40px 36px;
-      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.6), 0 0 40px rgba(245, 158, 11, 0.08);
-      position: relative;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      padding: 36px 32px;
+      box-shadow: 0 20px 45px -10px rgba(15, 39, 70, 0.07);
     }
-
     .card-top {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 20px;
-      padding-bottom: 26px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 24px;
+      border-bottom: 1px solid #f1f5f9;
       flex-wrap: wrap;
-    }
-    .person-header {
-      flex: 1;
-      min-width: 260px;
-    }
-    .exec-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.25) 100%);
-      border: 1px solid rgba(245, 158, 11, 0.5);
-      color: #fcd34d;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 5px 12px;
-      border-radius: 20px;
-      margin-bottom: 12px;
     }
     .person-header h1 {
-      font-size: 36px;
-      font-weight: 900;
-      color: #ffffff;
+      font-size: 32px;
+      font-weight: 800;
+      color: #0f2746;
       letter-spacing: -0.02em;
-      line-height: 1.15;
       margin-bottom: 8px;
     }
-    .exec-title-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .role-tag-exec {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-      border: 1px solid #f59e0b;
-      color: #78350f;
-      font-size: 14.5px;
-      font-weight: 800;
-      padding: 6px 16px;
-      border-radius: 20px;
-      box-shadow: 0 2px 10px rgba(245, 158, 11, 0.25);
-    }
-    .status-live {
+    .role-tag {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.4);
-      color: #6ee7b7;
-      font-size: 12.5px;
-      font-weight: 700;
-      padding: 5px 12px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 5px 14px;
       border-radius: 20px;
     }
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      background: #10b981;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #10b981;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.85); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-
     .qr-badge-block {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
     .qr-code-img {
-      width: 106px;
-      height: 106px;
-      border-radius: 14px;
-      border: 2px solid rgba(245, 158, 11, 0.6);
-      padding: 5px;
+      width: 90px;
+      height: 90px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      padding: 4px;
       background: #ffffff;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
     .qr-label {
       font-size: 11px;
-      font-weight: 700;
-      color: #fcd34d;
+      font-weight: 600;
+      color: #64748b;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.05em;
     }
 
-    /* Executive Data Grid */
+    /* Data Grid */
     .data-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px 24px;
-      margin-top: 28px;
+      margin-top: 26px;
     }
     .data-box {
-      background: rgba(15, 28, 52, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
       border-radius: 14px;
       padding: 14px 18px;
-      transition: border-color 0.15s;
-    }
-    .data-box:hover {
-      border-color: rgba(245, 158, 11, 0.4);
     }
     .data-k {
-      font-size: 11.5px;
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: #94a3b8;
+      letter-spacing: 0.06em;
+      color: #64748b;
       margin-bottom: 4px;
     }
     .data-v {
       font-size: 15.5px;
       font-weight: 600;
-      color: #f8fafc;
+      color: #0f172a;
     }
     .data-v.mono {
       font-family: 'JetBrains Mono', monospace;
-      color: #60a5fa;
+      color: #1d4ed8;
       font-size: 16px;
-      font-weight: 700;
-    }
-    .data-v.gold-mono {
-      font-family: 'JetBrains Mono', monospace;
-      color: #fcd34d;
-      font-size: 16px;
-      font-weight: 700;
     }
 
-    /* Executive Leadership Charter */
-    .charter-box {
-      margin-top: 28px;
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(30, 58, 138, 0.2) 100%);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      border-left: 4px solid #f59e0b;
-      border-radius: 14px;
-      padding: 20px 22px;
-    }
-    .charter-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 800;
-      color: #fef3c7;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 8px;
-    }
-    .charter-text {
-      font-size: 14px;
-      color: #cbd5e1;
-      line-height: 1.65;
-    }
-
-    /* Security & Authentication Bar */
+    /* Security Notice */
     .security-box {
-      margin-top: 24px;
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      margin-top: 28px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
       border-radius: 14px;
       padding: 16px 20px;
       display: flex;
       align-items: flex-start;
       gap: 12px;
       font-size: 13.5px;
-      color: #a7f3d0;
+      color: #166534;
       line-height: 1.55;
     }
     .security-box svg {
-      color: #34d399;
+      color: #16a34a;
       flex-shrink: 0;
       margin-top: 2px;
     }
     .security-box a {
-      color: #fcd34d;
-      font-weight: 700;
+      color: #15803d;
+      font-weight: 600;
       text-decoration: underline;
     }
 
@@ -335,7 +221,7 @@
     .actions-row {
       display: flex;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 26px;
       flex-wrap: wrap;
     }
     .btn-action {
@@ -343,44 +229,33 @@
       align-items: center;
       gap: 8px;
       font-size: 14px;
-      font-weight: 700;
-      padding: 12px 22px;
-      border-radius: 12px;
+      font-weight: 600;
+      padding: 11px 20px;
+      border-radius: 10px;
       text-decoration: none;
       transition: all 0.15s ease;
     }
-    .btn-action.gold {
-      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-      color: #0b1526;
-      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
-    }
-    .btn-action.gold:hover {
-      background: linear-gradient(135deg, #fbbf24 0%, #b45309 100%);
-      transform: translateY(-1px);
-    }
-    .btn-action.navy {
-      background: rgba(30, 58, 138, 0.6);
+    .btn-action.primary {
+      background: #0f2746;
       color: #ffffff;
-      border: 1px solid rgba(96, 165, 250, 0.4);
     }
-    .btn-action.navy:hover {
-      background: rgba(30, 58, 138, 0.9);
-      color: #ffffff;
+    .btn-action.primary:hover {
+      background: #173b6c;
     }
     .btn-action.secondary {
-      background: rgba(255, 255, 255, 0.06);
-      color: #cbd5e1;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
     }
     .btn-action.secondary:hover {
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
+      background: #e2e8f0;
+      color: #0f172a;
     }
 
-    /* Footer */
+    /* Footer & Wave */
     .footer-wrapper {
       width: 100%;
-      margin-top: 48px;
+      margin-top: 40px;
     }
     .wave-svg {
       display: block;
@@ -388,9 +263,9 @@
       height: 60px;
     }
     footer {
-      background-color: #060d19;
-      color: #94a3b8;
-      padding: 24px;
+      background-color: #0b1f3a;
+      color: #ffffff;
+      padding: 22px 24px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -398,28 +273,28 @@
       font-size: 14px;
       font-weight: 500;
       flex-wrap: wrap;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
     }
     footer a {
-      color: #cbd5e1;
+      color: #ffffff;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: color 0.15s;
+      transition: opacity 0.15s;
     }
     footer a:hover {
-      color: #fcd34d;
+      opacity: 0.85;
+      text-decoration: underline;
     }
     .footer-sep {
-      color: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.3);
     }
 
     @media (max-width: 650px) {
       .card-top { flex-direction: column; }
       .data-grid { grid-template-columns: 1fr; }
       .record-card { padding: 24px 20px; }
-      .person-header h1 { font-size: 28px; }
+      .person-header h1 { font-size: 26px; }
       footer { flex-direction: column; gap: 12px; text-align: center; }
       .footer-sep { display: none; }
     }
@@ -434,48 +309,38 @@
       <span>SkySyncLab</span>
     </a>
     <div class="nav-actions">
-      <a href="/verify/">&larr; Verify Portal</a>
+      <a href="/verify/">&larr; Verify Another</a>
       <a href="https://skysynclab.com">Home</a>
     </div>
   </div>
 
   <main>
-    <!-- Executive Verified Banner -->
-    <div class="exec-banner">
-      <div class="exec-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+    <!-- Verified Green Status Banner -->
+    <div class="status-banner">
+      <div class="status-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6L9 17l-5-5"/>
         </svg>
       </div>
-      <div class="exec-text">
-        <h2>Executive Credential Verified & Authentic</h2>
-        <p>Official Executive Leadership record of SkySyncLab — Authenticated by the Board of Directors & Founder Council.</p>
+      <div class="status-text">
+        <h2>Certificate Verified &amp; Authentic</h2>
+        <p>This official executive credential was issued by SkySyncLab and validated against internal records.</p>
       </div>
     </div>
 
-    <!-- Main Executive Card -->
+    <!-- Main Certificate Card -->
     <div class="record-card">
       <div class="card-top">
         <div class="person-header">
-          <div class="exec-pill">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5m14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/></svg>
-            <span>Founder & CEO Credential</span>
-          </div>
           <h1>Senthilkumar M</h1>
-          <div class="exec-title-row">
-            <div class="role-tag-exec">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <span>Chief Executive Officer (CEO) &amp; Founder</span>
-            </div>
-            <div class="status-live">
-              <span class="pulse-dot"></span>
-              <span>Active Leadership</span>
-            </div>
+          <div class="role-tag">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Chief Executive Officer (CEO) &amp; Founder</span>
           </div>
         </div>
         <div class="qr-badge-block">
-          <img src="./qr.png" alt="Executive QR Code" class="qr-code-img" onerror="this.style.display='none'">
-          <span class="qr-label">Executive QR</span>
+          <img src="./qr.png" alt="QR Code" class="qr-code-img" onerror="this.style.display='none'">
+          <span class="qr-label">Verified QR</span>
         </div>
       </div>
 
@@ -485,68 +350,49 @@
           <div class="data-v mono">SKY-CEO</div>
         </div>
         <div class="data-box">
-          <div class="data-k">Credential No.</div>
-          <div class="data-v gold-mono">SK01-CEO1</div>
+          <div class="data-k">Certificate No.</div>
+          <div class="data-v mono">SK01-CEO1</div>
         </div>
         <div class="data-box">
-          <div class="data-k">Leadership Capacity</div>
-          <div class="data-v">Founder &amp; Chief Executive Officer</div>
+          <div class="data-k">Employment Type</div>
+          <div class="data-v">Full-time (Founder &amp; CEO)</div>
         </div>
         <div class="data-box">
-          <div class="data-k">Executive Standing</div>
-          <div class="data-v" style="color: #6ee7b7; font-weight: 700;">Permanent Founder / Active</div>
+          <div class="data-k">Total Tenure</div>
+          <div class="data-v">3+ years (Active Leadership)</div>
         </div>
         <div class="data-box">
-          <div class="data-k">Tenure Track</div>
-          <div class="data-v">3+ Years (Active Executive Leadership)</div>
-        </div>
-        <div class="data-box">
-          <div class="data-k">In Office From</div>
+          <div class="data-k">Employed From</div>
           <div class="data-v">3 January 2023</div>
         </div>
         <div class="data-box">
-          <div class="data-k">Official Email</div>
-          <div class="data-v" style="color: #93c5fd;">kumarsentil41075@gmail.com</div>
+          <div class="data-k">Employed Until</div>
+          <div class="data-v">Present (Active)</div>
         </div>
         <div class="data-box">
-          <div class="data-k">Credential Issued</div>
+          <div class="data-k">Certificate Issued</div>
           <div class="data-v">5 December 2026</div>
         </div>
-        <div class="data-box" style="grid-column: span 2;">
-          <div class="data-k">Executive Headquarters &amp; Jurisdiction</div>
+        <div class="data-box">
+          <div class="data-k">Issued By</div>
           <div class="data-v">SkySyncLab, Salem, Tamil Nadu, India</div>
-        </div>
-      </div>
-
-      <!-- Executive Strategic Stewardship Charter -->
-      <div class="charter-box">
-        <div class="charter-title">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polygon points="12 6 12 12 16 14"/></svg>
-          <span>Executive Leadership &amp; Strategic Direction</span>
-        </div>
-        <div class="charter-text">
-          As Founder and Chief Executive Officer, Senthilkumar M steers SkySyncLab's corporate strategy, technological innovation, cloud architecture standards, and organizational roadmap. Under his stewardship, the lab pioneers production-grade cloud infrastructure, DevOps pipelines, and enterprise systems delivered to high-growth organizations.
         </div>
       </div>
 
       <div class="security-box">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         <div>
-          <strong>Official SkySyncLab Executive Record:</strong> This credential affirms the identity, tenure, and executive governance of Senthilkumar M. For formal corporate verifications or executive inquiries, contact directly at <a href="mailto:kumarsentil41075@gmail.com">kumarsentil41075@gmail.com</a> or <a href="mailto:hello@skysynclab.com">hello@skysynclab.com</a>.
+          <strong>Official SkySyncLab Record:</strong> Check that the name, role, and dates above match the physical/digital credential you received. For third-party employment background verification inquiries, write to <a href="mailto:hello@skysynclab.com">hello@skysynclab.com</a>.
         </div>
       </div>
 
       <div class="actions-row">
-        <a href="mailto:kumarsentil41075@gmail.com" class="btn-action gold">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          <span>Contact Executive Office</span>
-        </a>
-        <a href="/verify/" class="btn-action navy">
+        <a href="/verify/" class="btn-action primary">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          <span>Verify Another Credential</span>
+          <span>Verify Another Certificate</span>
         </a>
         <a href="https://skysynclab.com" class="btn-action secondary">
-          <span>SkySyncLab Home &rarr;</span>
+          <span>Return to SkySyncLab Home &rarr;</span>
         </a>
       </div>
     </div>
@@ -555,7 +401,7 @@
   <!-- Footer with Matching Wave -->
   <div class="footer-wrapper">
     <svg class="wave-svg" viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none">
-      <path d="M0,32 C320,60 720,10 1440,40 L1440,60 L0,60 Z" fill="#060d19"></path>
+      <path d="M0,32 C320,60 720,10 1440,40 L1440,60 L0,60 Z" fill="#0b1f3a"></path>
     </svg>
     <footer>
       <a href="https://skysynclab.com">
@@ -563,9 +409,9 @@
         <span>skysynclab.com</span>
       </a>
       <span class="footer-sep">|</span>
-      <a href="mailto:kumarsentil41075@gmail.com">
+      <a href="mailto:hello@skysynclab.com">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <span>kumarsentil41075@gmail.com</span>
+        <span>hello@skysynclab.com</span>
       </a>
       <span class="footer-sep">|</span>
       <a href="tel:8667254699">
