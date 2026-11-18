@@ -38,11 +38,11 @@ interface ChatMessage {
 }
 const GROQ_API_KEY = (import.meta.env.VITE_GROQ_API_KEY as string | undefined) || '';
 
-const SYSTEM_PROMPT = `You are the SkySyncLab AI Assistant, founded by Senthil Kumar.
+const SYSTEM_PROMPT = `You are the SkySyncLab AI Assistant, founded by SENTHILKUMAR M, Founder & CEO.
 Your task is to provide expert, concise, and professional AWS cloud consulting advice to potential clients (universities, colleges, enterprises).
 
 RULES FOR GREETINGS AND TONE:
-1. NEVER start responses with formal greetings like "Namaste" or repeat "I am Senthil Kumar, Founder..." on casual user inputs (e.g., "hi", "hello", "hey").
+1. NEVER start responses with formal greetings like "Namaste" or repeat "I am SENTHILKUMAR M, Founder..." on casual user inputs (e.g., "hi", "hello", "hey").
 2. Get straight to the answer or offer direct technical assistance. Do NOT repeat your name or title once the user is already talking in the widget.
 3. Keep casual responses under 2-3 short sentences.
 4. When the user says "hi", "hello", or "hey", respond with:
@@ -52,7 +52,7 @@ RULES FOR GREETINGS AND TONE:
    Part 2: The Next Logical Step (Clear institutional value or concrete benefit, e.g., zero exam-day downtime or 25%-65% cost savings).
    Part 3: One Primary Call to Action (CTA) (End with ONE direct next step, followed by [ Book a Free 30-Min Audit ] on a new line).
 6. Tone & Style: Executive, confident, helpful, concise. Maximum 100-150 words per response.
-7. Senthil Kumar Background: ONLY if specifically asked "Who is Senthil?" or "Who is the founder?", state that Senthil Kumar is the Founder & Principal Cloud Architect at SkySyncLab (AWS Certified Cloud Practitioner based in Salem, Tamil Nadu; email: senthilkumar@skysynclab.com). Never volunteer this unprompted on casual greetings.`;
+7. SENTHILKUMAR M Background: ONLY if specifically asked "Who is Senthil?" or "Who is the founder?", state that SENTHILKUMAR M is the Founder & CEO / Principal Cloud Architect at SkySyncLab (AWS Certified Cloud Practitioner based in Salem, Tamil Nadu; email: senthilkumar@skysynclab.com). Never volunteer this unprompted on casual greetings.`;
 
 export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOpenAudit }) => {
   const [isOpenChat, setIsOpenChat] = useState(false);
@@ -277,8 +277,8 @@ export const AwsFloatingAssistant: React.FC<AwsFloatingAssistantProps> = ({ onOp
       let fallbackText = '';
       let fallbackCards: ActionCard[] | undefined = undefined;
 
-      if (q.includes('senthil') || q.includes('who are you') || q.includes('about you') || q.includes('founder') || q.includes('who is') || q.includes('creator')) {
-        fallbackText = `Senthil Kumar is the Founder & Principal Cloud Architect at SkySyncLab, and an AWS Certified Cloud Practitioner based in Salem, Tamil Nadu:
+      if (q.includes('senthil') || q.includes('who are you') || q.includes('about you') || q.includes('founder') || q.includes('who is') || q.includes('creator') || q.includes('ceo')) {
+        fallbackText = `SENTHILKUMAR M is the Founder & Chief Executive Officer (CEO) at SkySyncLab, and an AWS Certified Cloud Practitioner based in Salem, Tamil Nadu:
 
 • **Campus Modernization**: Designing rock-solid AWS architectures that protect student admission and exam portals against 15,000+ simultaneous traffic surges.
 • **Ethical FinOps**: Eliminating vendor lock-in and cutting redundant cloud spend by up to 65% through disciplined Well-Architected engineering.
@@ -290,7 +290,7 @@ We typically start with a 30-minute Architecture Audit to align on your institut
         fallbackCards = [
           {
             title: 'Schedule Architecture Review',
-            subtitle: 'Direct consultation with Senthil',
+            subtitle: 'Direct consultation with SENTHILKUMAR M (CEO & Founder)',
             iconType: 'architecture',
             query: 'Can you assess our architecture for high availability, auto-scaling, and resilience?'
           }

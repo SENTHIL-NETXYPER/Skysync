@@ -45,7 +45,7 @@ export const About: React.FC = () => {
             </h3>
 
             <p style={{ fontSize: '0.96rem', color: '#334155', marginBottom: '14px', lineHeight: 1.65, fontWeight: 450 }}>
-              Founded by <strong style={{ color: '#0F172A' }}>Senthil Kumar</strong>, an <strong style={{ color: '#09090B' }}>AWS Certified Cloud Practitioner</strong> and Principal Cloud Architect. SkySyncLab was established with a singular conviction: to make resilient, high-availability cloud infrastructure transparent, accessible, and ethical for educational institutions and growing organizations.
+              Founded by <strong style={{ color: '#0F172A' }}>SENTHILKUMAR M</strong>, Founder & Chief Executive Officer (CEO), an <strong style={{ color: '#09090B' }}>AWS Certified Cloud Practitioner</strong> and Principal Cloud Architect. SkySyncLab was established with a singular conviction: to make resilient, high-availability cloud infrastructure transparent, accessible, and ethical for educational institutions and growing organizations.
             </p>
 
             <p style={{ fontSize: '0.94rem', color: '#334155', marginBottom: '22px', lineHeight: 1.65, fontWeight: 450 }}>
@@ -99,10 +99,10 @@ export const About: React.FC = () => {
               </div>
               <div>
                 <h3 style={{ fontSize: '1.30rem', fontWeight: 800, color: '#232F3E', marginBottom: '4px' }}>
-                  Senthil Kumar
+                  SENTHILKUMAR M
                 </h3>
                 <div style={{ fontSize: '0.92rem', color: '#09090B', fontWeight: 700 }}>
-                  Founder & Principal Cloud Architect
+                  Founder &amp; CEO | Principal Cloud Architect
                 </div>
               </div>
             </div>
@@ -132,7 +132,7 @@ export const About: React.FC = () => {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '0.95rem' }}>
             <a
               href={getFounderMailto()}
-              title="Tap to email Founder & Principal Architect Senthil Kumar (Auto-Alerts Inbox)"
+              title="Tap to email Founder & CEO SENTHILKUMAR M (Auto-Alerts Inbox)"
               style={{
                 display: 'flex',
                 alignItems: 'center',

@@ -116,7 +116,7 @@ export const sendDirectInquiry = async (
       if (resData.success) {
         return {
           success: true,
-          message: 'Inquiry successfully delivered to Senthil Kumar (senthilkumar@skysynclab.com)!'
+          message: 'Inquiry successfully delivered to SENTHILKUMAR M (senthilkumar@skysynclab.com)!'
         };
       }
     } catch (err) {
@@ -143,7 +143,7 @@ export const sendDirectInquiry = async (
 export const getGeneralMailto = (): string => {
   const subject = encodeURIComponent('Inquiry: AWS Cloud Architecture Consulting - SkySyncLab');
   const body = encodeURIComponent(
-`Hello SkySyncLab Team & Senthil Kumar,
+`Hello SkySyncLab Team & SENTHILKUMAR M,
 
 I would like to inquire about AWS Cloud Consulting / Architecture services for our organization.
 
@@ -162,12 +162,12 @@ Best regards,`
 };
 
 /**
- * Direct mailto link for Founder & Principal Architect Senthil Kumar
+ * Direct mailto link for Founder & CEO SENTHILKUMAR M
  */
 export const getFounderMailto = (): string => {
-  const subject = encodeURIComponent('Direct Consultation for Senthil Kumar - SkySyncLab');
+  const subject = encodeURIComponent('Direct Consultation for SENTHILKUMAR M - SkySyncLab');
   const body = encodeURIComponent(
-`Hi Senthil,
+`Hi SENTHILKUMAR M,
 
 I am reaching out regarding AWS Cloud Architecture and Consulting services at SkySyncLab.
 

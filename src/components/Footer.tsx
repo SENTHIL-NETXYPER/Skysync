@@ -295,7 +295,7 @@ export const Footer: React.FC<FooterProps> = ({ onSelectTab, onOpenConsultation 
               {/* Founder email link (Alerts Senthil Kumar directly) */}
               <a
                 href={founderMailto}
-                title="Tap to email Founder & Principal Architect Senthil Kumar directly"
+                title="Tap to email Founder & CEO SENTHILKUMAR M directly"
                 style={{
                   color: '#CBD5E1',
                   textDecoration: 'none',

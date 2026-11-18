@@ -263,7 +263,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                 }}
               >
                 <Mail size={16} />
-                <span>Open Email App to Alert Senthil Now</span>
+                <span>Open Email App to Alert SENTHILKUMAR M Now</span>
               </a>
 
               <a
@@ -729,7 +729,7 @@ export const AuditModal: React.FC<AuditModalProps> = ({
                   }
                 }}
               >
-                {isSubmitting ? 'Sending to Senthil Kumar...' : 'Send Message'}
+                {isSubmitting ? 'Sending to SENTHILKUMAR M...' : 'Send Message'}
               </button>
             </form>
           </div>

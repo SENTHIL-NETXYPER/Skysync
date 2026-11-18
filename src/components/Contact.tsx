@@ -199,7 +199,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
           <div style={{ display: 'flex', flexDirection: 'column', gap: '22px', marginBottom: '32px' }}>
             <a
               href={getGeneralMailto()}
-              title="Tap to email General Inquiries (Auto-Alerts Senthil Kumar)"
+              title="Tap to email General Inquiries (Auto-Alerts SENTHILKUMAR M)"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -236,7 +236,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
 
             <a
               href={getFounderMailto()}
-              title="Tap to email Founder & Principal Architect Senthil Kumar directly"
+              title="Tap to email Founder & CEO SENTHILKUMAR M directly"
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -449,7 +449,7 @@ export const Contact: React.FC<ContactProps> = ({ prefilledService, prefilledNot
                   }}
                 >
                   <Mail size={16} />
-                  <span>Open Email App to Alert Senthil Now</span>
+                  <span>Open Email App to Alert SENTHILKUMAR M Now</span>
                 </a>
 
                 <a
