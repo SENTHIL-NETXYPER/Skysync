@@ -202,6 +202,16 @@ const employees = [
     "end_date": "2026-01-22",
     "issue_date": "2026-12-05",
     "cert_code": "PV88-S3TN"
+  },
+  {
+    "employee_id": "SKY020",
+    "name": "Santhoshini V J",
+    "email": "santhoshinivj@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-06",
+    "cert_code": "SV82-J5NR"
   }
 ];
 
