@@ -27,7 +27,7 @@ const staticVerifyPlugin: Plugin = {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), staticVerifyPlugin],
-  base: './',
+  base: '/',
   server: {
     host: true, // Listen on all network addresses (0.0.0.0)
     port: 8000,
