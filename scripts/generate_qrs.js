@@ -212,6 +212,26 @@ const employees = [
     "end_date": "2026-01-22",
     "issue_date": "2026-12-06",
     "cert_code": "SV82-J5NR"
+  },
+  {
+    "employee_id": "SKY021",
+    "name": "Ajay S",
+    "email": "ajaysakthi48@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-07",
+    "cert_code": "AJ28-S5PT"
+  },
+  {
+    "employee_id": "SKY022",
+    "name": "Dhanush P",
+    "email": "dhanush2018.palanisamy@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-08",
+    "cert_code": "DP74-H8NW"
   }
 ];
 
