@@ -49,3 +49,4 @@ console.log(`✓ Generated ${outIco} (${icoBuffer.length} bytes)`);
 // Clean up temporary 32 and 16
 if (fs.existsSync(p32)) fs.unlinkSync(p32);
 if (fs.existsSync(p16)) fs.unlinkSync(p16);
+

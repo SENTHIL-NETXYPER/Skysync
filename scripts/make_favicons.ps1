@@ -1,4 +1,4 @@
-﻿Add-Type -AssemblyName System.Drawing
+Add-Type -AssemblyName System.Drawing
 
 $sourcePath = "d:\THAT I CAN\senthil\src\assets\skysync_cloud_white.png"
 $sourceImg = [System.Drawing.Bitmap]::FromFile($sourcePath)
@@ -59,3 +59,4 @@ Generate-Favicon 32  "d:\THAT I CAN\senthil\public\favicon-32x32.png" 8
 Generate-Favicon 16  "d:\THAT I CAN\senthil\public\favicon-16x16.png" 4
 
 $sourceImg.Dispose()
+
