@@ -232,6 +232,16 @@ const employees = [
     "end_date": "2026-01-22",
     "issue_date": "2026-12-08",
     "cert_code": "DP74-H8NW"
+  },
+  {
+    "employee_id": "SKY003",
+    "name": "Thatha Rohith",
+    "email": "thatharohith062@gmail.com",
+    "role": "Cloud Data Engineer Intern",
+    "start_date": "2025-07-03",
+    "end_date": "2026-01-03",
+    "issue_date": "2026-01-11",
+    "cert_code": "TR03-INT1"
   }
 ];
 
