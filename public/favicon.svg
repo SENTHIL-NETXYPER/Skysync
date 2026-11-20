@@ -1,48 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none" shape-rendering="geometricPrecision">
-  <defs>
-    <!-- Premium SkySyncLab Brand Gradient: Cyan to Royal Blue to Deep Lab Navy -->
-    <linearGradient id="cloud-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0284C7"/>
-      <stop offset="45%" stop-color="#1D4ED8"/>
-      <stop offset="100%" stop-color="#0F2746"/>
-    </linearGradient>
+  <!-- Dark Navy Brand Badge matching Image 2 & Official SkySyncLab palette (#0B1F3A) -->
+  <rect width="64" height="64" rx="14" fill="#0B1F3A"/>
+  <rect width="64" height="64" rx="14" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"/>
 
-    <!-- Drop shadow for the ascending white arrow to guarantee high contrast across all themes -->
-    <filter id="arrow-shadow" x="-30%" y="-30%" width="160%" height="160%">
-      <feDropShadow dx="0" dy="1.2" stdDeviation="1.2" flood-color="#000000" flood-opacity="0.45"/>
-    </filter>
-
-    <!-- Subtle cloud depth filter -->
-    <filter id="cloud-shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#000000" flood-opacity="0.3"/>
-    </filter>
-  </defs>
-
-  <!-- Official SkySyncLab Cloud Emblem (Vector, Transparent Background, Infinite Scalability) -->
-  <g transform="translate(4, 12.5) scale(0.85)" filter="url(#cloud-shadow)">
-    <!-- Cloud Silhouette -->
+  <!-- Centered Official SkySyncLab Emblem: White Cloud with Dark Arrow (Identical to Image 2) -->
+  <g transform="translate(8.5, 15) scale(0.68)">
+    <!-- Crisp White Cloud Silhouette -->
     <path
       d="M18 46 C9.16 46 2 38.84 2 30 C2 21.8 7.9 15.1 15.8 14.1 C18.2 5.8 25.8 0 35 0 C45.5 0 54.1 7.8 55.4 18 C62.5 18.9 68 24.8 68 32 C68 39.73 61.73 46 54 46 H18 Z"
-      fill="url(#cloud-gradient)"
-      stroke="rgba(255, 255, 255, 0.25)"
-      stroke-width="1.2"
+      fill="#FFFFFF"
     />
-
-    <!-- White Ascending Arrow (Traversing from bottom-left up through the cloud) -->
+    <!-- Arrow Stem cutting across the cloud in matching dark brand color -->
     <path
       d="M15 44 C24 40 35 32 48 18"
-      stroke="#FFFFFF"
+      stroke="#0B1F3A"
       stroke-width="5"
       stroke-linecap="round"
       stroke-linejoin="round"
-      filter="url(#arrow-shadow)"
     />
-
     <!-- Arrow Head pointing to top-right -->
     <path
       d="M41 22 L60 10 L48 30 L44 23 Z"
-      fill="#FFFFFF"
-      filter="url(#arrow-shadow)"
+      fill="#0B1F3A"
     />
   </g>
 </svg>
