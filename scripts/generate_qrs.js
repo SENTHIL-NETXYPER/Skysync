@@ -257,8 +257,8 @@ async function run() {
       width: 1000,
       margin: 2,
       color: {
-        dark: '#2B1A14',
-        light: '#FFFFFF'
+        dark: '#000000',
+        light: '#00000000'
       },
       errorCorrectionLevel: 'H'
     });
@@ -268,8 +268,8 @@ async function run() {
       type: 'svg',
       margin: 2,
       color: {
-        dark: '#2B1A14',
-        light: '#FFFFFF'
+        dark: '#000000',
+        light: '#00000000'
       },
       errorCorrectionLevel: 'H'
     });
