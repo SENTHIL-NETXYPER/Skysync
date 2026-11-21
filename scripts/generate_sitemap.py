@@ -42,3 +42,4 @@ with open('public/sitemap.xml', 'w', encoding='utf-8') as f:
     f.write(content)
 
 print(f'Wrote public/sitemap.xml with {len(verify_dirs) + 2} URLs')
+

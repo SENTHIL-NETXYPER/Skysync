@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://skysynclab.com/sitemap.xml
+

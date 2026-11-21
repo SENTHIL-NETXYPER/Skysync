@@ -234,6 +234,426 @@ const employees = [
     "cert_code": "DP74-H8NW"
   },
   {
+    "employee_id": "SKY023",
+    "name": "Ajith S",
+    "email": "ajiths221005@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-09",
+    "cert_code": "AS23-K7PJ"
+  },
+  {
+    "employee_id": "SKY024",
+    "name": "Saranya Thirunavukarasu",
+    "email": "thiru55saranya@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-10",
+    "cert_code": "ST82-M4QP"
+  },
+  {
+    "employee_id": "SKY025",
+    "name": "Sarathi R",
+    "email": "sarathi1311k@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-11",
+    "cert_code": "SR39-N7VK"
+  },
+  {
+    "employee_id": "SKY026",
+    "name": "Dinesh M",
+    "email": "dinesshhmahendran@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-12",
+    "cert_code": "DM64-P2XT"
+  },
+  {
+    "employee_id": "SKY027",
+    "name": "Karthick D",
+    "email": "karthickdk178@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-13",
+    "cert_code": "KD51-T8LR"
+  },
+  {
+    "employee_id": "SKY028",
+    "name": "Devadharshini K",
+    "email": "devadharshinikannan23@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-14",
+    "cert_code": "DK93-W5MN"
+  },
+  {
+    "employee_id": "SKY029",
+    "name": "Elamathi M",
+    "email": "elamathimanikkam09@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-15",
+    "cert_code": "EM76-R9BZ"
+  },
+  {
+    "employee_id": "SKY030",
+    "name": "Dhanusha K",
+    "email": "dhanushakannan0211@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-16",
+    "cert_code": "DH48-K3TG"
+  },
+  {
+    "employee_id": "SKY031",
+    "name": "Pannerselvam N",
+    "email": "nallathambipanner@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-17",
+    "cert_code": "PN27-Y6CV"
+  },
+  {
+    "employee_id": "SKY032",
+    "name": "Deepika S",
+    "email": "deepikasathish2006@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-18",
+    "cert_code": "DS85-Q4HJ"
+  },
+  {
+    "employee_id": "SKY033",
+    "name": "Sivish K",
+    "email": "sivish45@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-19",
+    "cert_code": "SK31-B8ND"
+  },
+  {
+    "employee_id": "SKY034",
+    "name": "Harshini K",
+    "email": "harshinikamalnathan@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-20",
+    "cert_code": "HK62-L7VP"
+  },
+  {
+    "employee_id": "SKY035",
+    "name": "Sinduja D",
+    "email": "sindusibi26@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-21",
+    "cert_code": "SD94-X2KW"
+  },
+  {
+    "employee_id": "SKY036",
+    "name": "SuryaPraba P",
+    "email": "suryapraba1411@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-22",
+    "cert_code": "SP53-M9TR"
+  },
+  {
+    "employee_id": "SKY037",
+    "name": "Harini Rajavel",
+    "email": "rharinicse@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-23",
+    "cert_code": "HR78-P4LG"
+  },
+  {
+    "employee_id": "SKY038",
+    "name": "Pushpa K",
+    "email": "kp939445@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-24",
+    "cert_code": "PK26-C8VZ"
+  },
+  {
+    "employee_id": "SKY039",
+    "name": "Gokul Padma Kumaar P S",
+    "email": "psgokulpadmakumaar@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-25",
+    "cert_code": "GP81-T3NQ"
+  },
+  {
+    "employee_id": "SKY040",
+    "name": "Poovizhi Rajasekar",
+    "email": "poovizhirajasekar10@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-26",
+    "cert_code": "PR49-W7MB"
+  },
+  {
+    "employee_id": "SKY041",
+    "name": "Kabilan B",
+    "email": "kabilankabi0505@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-27",
+    "cert_code": "KB63-R2HY"
+  },
+  {
+    "employee_id": "SKY042",
+    "name": "Priyadharshini Senthil",
+    "email": "s.priyadharshinicse118@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-28",
+    "cert_code": "PS95-Y8KL"
+  },
+  {
+    "employee_id": "SKY043",
+    "name": "Shanmugam K",
+    "email": "shanmugam.k8143@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-29",
+    "cert_code": "SM38-N4XP"
+  },
+  {
+    "employee_id": "SKY044",
+    "name": "Karan D",
+    "email": "karandhandabani05@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-30",
+    "cert_code": "KD72-B6VT"
+  },
+  {
+    "employee_id": "SKY045",
+    "name": "Vishnu S",
+    "email": "vishnusoundarrajan367@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2026-12-31",
+    "cert_code": "VS44-M9LR"
+  },
+  {
+    "employee_id": "SKY046",
+    "name": "Kishore K",
+    "email": "kishoredhoni500@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-01",
+    "cert_code": "KK87-P5NW"
+  },
+  {
+    "employee_id": "SKY047",
+    "name": "Kowsalya S",
+    "email": "kowsalyasathya2006@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-02",
+    "cert_code": "KS29-T7QG"
+  },
+  {
+    "employee_id": "SKY048",
+    "name": "Giri B",
+    "email": "www.giri7010297900@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-03",
+    "cert_code": "GB65-X3BZ"
+  },
+  {
+    "employee_id": "SKY049",
+    "name": "Oviya P",
+    "email": "mpoviya2005@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-04",
+    "cert_code": "OP91-K8VJ"
+  },
+  {
+    "employee_id": "SKY050",
+    "name": "Bala Harish",
+    "email": "balaharish1752006@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-05",
+    "cert_code": "BH37-W2CP"
+  },
+  {
+    "employee_id": "SKY051",
+    "name": "Monisha R",
+    "email": "monisha38338@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-06",
+    "cert_code": "MR58-R9TD"
+  },
+  {
+    "employee_id": "SKY052",
+    "name": "Bhavaneshwaran Jothikannan",
+    "email": "bhavanjoe@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-07",
+    "cert_code": "BJ84-L4MK"
+  },
+  {
+    "employee_id": "SKY053",
+    "name": "Janarthanababu D",
+    "email": "janarthanababu690@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-08",
+    "cert_code": "JB23-Y7XN"
+  },
+  {
+    "employee_id": "SKY054",
+    "name": "Sarathi M",
+    "email": "sarathy072005@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-09",
+    "cert_code": "SM79-C3PQ"
+  },
+  {
+    "employee_id": "SKY055",
+    "name": "Poojashree V",
+    "email": "poojashree.v886@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-10",
+    "cert_code": "PV46-N8TR"
+  },
+  {
+    "employee_id": "SKY056",
+    "name": "Santhosh Ramesh",
+    "email": "santhoshrgstn29@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-11",
+    "cert_code": "SR92-T5VB"
+  },
+  {
+    "employee_id": "SKY057",
+    "name": "Sivasakthivel P",
+    "email": "sivasakthivelpalanisamy11@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-12",
+    "cert_code": "SP35-W6KG"
+  },
+  {
+    "employee_id": "SKY058",
+    "name": "Shalini Muruganatham",
+    "email": "shallu022006@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-13",
+    "cert_code": "SM68-P9LY"
+  },
+  {
+    "employee_id": "SKY059",
+    "name": "Srikar Puyal",
+    "email": "srikarsri5566@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-14",
+    "cert_code": "SP83-R4MV"
+  },
+  {
+    "employee_id": "SKY060",
+    "name": "Sanjay R",
+    "email": "r.sanjay832006@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-15",
+    "cert_code": "SR52-K7WZ"
+  },
+  {
+    "employee_id": "SKY061",
+    "name": "Akshaya Shree R",
+    "email": "rsakshaya05@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-16",
+    "cert_code": "AR74-B3ND"
+  },
+  {
+    "employee_id": "SKY062",
+    "name": "Yokesh P",
+    "email": "yokesh200531@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-17",
+    "cert_code": "YP39-X8TQ"
+  },
+  {
+    "employee_id": "SKY063",
+    "name": "Myvilidevi P",
+    "email": "myvilidevipalanivel@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-18",
+    "cert_code": "MP86-L2CP"
+  },
+  {
+    "employee_id": "SKY064",
+    "name": "Poovarasan R",
+    "email": "poovarasanff92@gmail.com",
+    "role": "Cloud Engineer",
+    "start_date": "2023-01-03",
+    "end_date": "2026-01-22",
+    "issue_date": "2027-01-19",
+    "cert_code": "PR61-M7VJ"
+  },
+  {
     "employee_id": "SKY003",
     "name": "Thatha Rohith",
     "email": "thatharohith062@gmail.com",
@@ -241,63 +661,71 @@ const employees = [
     "start_date": "2025-07-03",
     "end_date": "2026-01-03",
     "issue_date": "2026-01-11",
-    "cert_code": "TR03-INT1"
+    "cert_code": "TR03-INT1",
+    "is_intern": true
   }
 ];
 
-const qrcodeDir = path.resolve('public', 'verify', 'qrcodes');
-if (!fs.existsSync(qrcodeDir)) {
-  fs.mkdirSync(qrcodeDir, { recursive: true });
+const QR_DIR = path.resolve('public/verify/qrcodes');
+if (!fs.existsSync(QR_DIR)) {
+  fs.mkdirSync(QR_DIR, { recursive: true });
 }
 
-async function run() {
-  console.log(`Generating QR codes for ${employees.length} employees...`);
-
+async function generateAll() {
+  console.log(`Generating QR codes for ${employees.length} records...`);
+  
   for (const emp of employees) {
-    const url = `https://skysynclab.com/verify/${emp.cert_code}/`;
-    const safeName = emp.name.replace(/[^a-zA-Z0-9]/g, '_');
-    const filenamePng = `${emp.employee_id}_${safeName}_${emp.cert_code}.png`;
-    const filenameSvg = `${emp.employee_id}_${safeName}_${emp.cert_code}.svg`;
+    const url = emp.is_intern 
+      ? `https://skysynclab.com/verify/${emp.cert_code}/`
+      : `https://skysynclab.com/verify/${emp.cert_code}/`;
 
-    const outPng = path.join(qrcodeDir, filenamePng);
-    const outSvg = path.join(qrcodeDir, filenameSvg);
+    const cleanName = emp.name.replace(/\s+/g, '_').replace(/\./g, '_');
+    const suffix = emp.is_intern ? `Internship_${emp.cert_code}` : emp.cert_code;
+    const baseFilename = `${emp.employee_id}_${cleanName}_${suffix}`;
+    
+    // Target paths
+    const galleryPngPath = path.join(QR_DIR, `${baseFilename}.png`);
+    const gallerySvgPath = path.join(QR_DIR, `${baseFilename}.svg`);
+    
+    const pageDir = path.resolve(`public/verify/${emp.cert_code}`);
+    if (!fs.existsSync(pageDir)) {
+      fs.mkdirSync(pageDir, { recursive: true });
+    }
+    const pagePngPath = path.join(pageDir, 'qr.png');
+    const pageSvgPath = path.join(pageDir, 'qr.svg');
 
-    // Save high-resolution PNG (width: 1000px, high quality margin)
-    await QRCode.toFile(outPng, url, {
+    // 1. Generate PNG (1000x1000 High-Res)
+    await QRCode.toFile(galleryPngPath, url, {
       width: 1000,
       margin: 2,
       color: {
-        dark: '#000000',
-        light: '#00000000'
+        dark: '#0f2746',
+        light: '#ffffff'
       },
       errorCorrectionLevel: 'H'
     });
+    fs.copyFileSync(galleryPngPath, pagePngPath);
 
-    // Save vector SVG
-    await QRCode.toFile(outSvg, url, {
+    // 2. Generate SVG
+    const svgStr = await QRCode.toString(url, {
       type: 'svg',
       margin: 2,
       color: {
-        dark: '#000000',
-        light: '#00000000'
+        dark: '#0f2746',
+        light: '#ffffff'
       },
       errorCorrectionLevel: 'H'
     });
-
-    // Also place a copy inside public/verify/<cert_code>/qr.png
-    const personDir = path.resolve('public', 'verify', emp.cert_code);
-    if (fs.existsSync(personDir)) {
-      fs.copyFileSync(outPng, path.join(personDir, 'qr.png'));
-      fs.copyFileSync(outSvg, path.join(personDir, 'qr.svg'));
-    }
-
-    console.log(`✓ [${emp.employee_id}] ${emp.name} -> ${url}`);
+    fs.writeFileSync(gallerySvgPath, svgStr, 'utf-8');
+    fs.writeFileSync(pageSvgPath, svgStr, 'utf-8');
+    
+    console.log(`✓ [${emp.employee_id}] ${emp.name} -> ${emp.cert_code}`);
   }
-
-  console.log('\nAll QR codes generated successfully!');
+  
+  console.log(`Successfully generated all ${employees.length} QR codes!`);
 }
 
-run().catch(err => {
-  console.error('Error generating QR codes:', err);
+generateAll().catch(err => {
+  console.error(err);
   process.exit(1);
 });
