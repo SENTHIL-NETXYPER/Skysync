@@ -922,3 +922,4 @@ subprocess.run(["python", "scripts/generate_sitemap.py"], check=True)
 print("Updated sitemap.xml")
 
 print("\n--- ALL DONE SUCCESSFULLY! ---")
+

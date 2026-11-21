@@ -15,3 +15,4 @@ $img.Dispose()
 $bmp.Dispose()
 $g.Dispose()
 Write-Host "Saved scratch\row16_harshini.png"
+

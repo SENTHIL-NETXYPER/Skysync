@@ -126,3 +126,4 @@ for i, entry in enumerate(new_entries):
 
 print(f"Sample first new: {formatted_new_records[0]}")
 print(f"Sample last new: {formatted_new_records[-1]}")
+
